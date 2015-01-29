@@ -7,6 +7,5 @@
         android:name="com.google.android.gms.maps.MapFragment"
         android:id="@+id/map"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:apiKey="AIzaSyCQQoi8_4uPrxOby5fd4rX0q-SVPkS3p1s" />
+        android:layout_height="match_parent" />
 </LinearLayout>

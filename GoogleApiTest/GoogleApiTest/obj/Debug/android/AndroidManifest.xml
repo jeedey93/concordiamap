@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="GoogleApiTest.GoogleApiTest">
   <uses-sdk android:minSdkVersion="19" />
   <application android:label="GoogleApiTest" android:icon="@drawable/icon" android:name="mono.android.app.Application" android:debuggable="true">
-    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCQQoi8_4uPrxOby5fd4rX0q-SVPkS3p1s" />
+    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyAZNshRUHPaAPPiLPcTozL7oRzt2Hov9qs" />
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
     <activity android:icon="@drawable/icon" android:label="GoogleApiTest" android:name="googleapitest.MainActivity">
@@ -36,5 +36,6 @@
   <!-- These are optional, but recommended. They will allow Maps to use the My Location provider. -->
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-library android:name="com.google.android.maps" android:required="false" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 </manifest>
