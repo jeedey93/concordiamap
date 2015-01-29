@@ -1,4 +1,5 @@
 GoogleApiTest.MainActivity;googleapitest.MainActivity
+GoogleApiTest.MapActivity;googleapitest.MapActivity
 Android.Gms.Ads.DoubleClick.IAppEventListenerImplementor;mono.com.google.android.gms.ads.doubleclick.AppEventListenerImplementor
 Android.Gms.Ads.Mediation.CustomEvent.ICustomEventListenerImplementor;mono.com.google.android.gms.ads.mediation.customevent.CustomEventListenerImplementor
 Android.Gms.Ads.Mediation.IMediationBannerListenerImplementor;mono.com.google.android.gms.ads.mediation.MediationBannerListenerImplementor
