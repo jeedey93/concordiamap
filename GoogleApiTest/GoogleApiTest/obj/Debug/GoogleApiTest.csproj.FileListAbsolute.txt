@@ -78,3 +78,9 @@ C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\De
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\values\styles.xml
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\R.cs.flag
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\uploadflags.txt
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\home.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\home.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xhdpi\home.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxhdpi\home.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxxhdpi\home.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\values\styles.xml

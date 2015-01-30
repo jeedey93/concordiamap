@@ -1576,8 +1576,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b003c
 			public const int expanded_menu = 2131427388;
 			
-			// aapt resource value: 0x7f0b0056
-			public const int explore = 2131427414;
+			// aapt resource value: 0x7f0b0057
+			public const int explore = 2131427415;
 			
 			// aapt resource value: 0x7f0b0030
 			public const int grayscale = 2131427376;
@@ -1612,29 +1612,29 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0039
 			public const int list_item = 2131427385;
 			
-			// aapt resource value: 0x7f0b0054
-			public const int locateMe = 2131427412;
+			// aapt resource value: 0x7f0b0055
+			public const int locateMe = 2131427413;
 			
-			// aapt resource value: 0x7f0b0053
-			public const int map = 2131427411;
+			// aapt resource value: 0x7f0b0054
+			public const int map = 2131427412;
 			
 			// aapt resource value: 0x7f0b002a
 			public const int match_parent = 2131427370;
 			
-			// aapt resource value: 0x7f0b005a
-			public const int media_route_control_frame = 2131427418;
-			
 			// aapt resource value: 0x7f0b005b
-			public const int media_route_disconnect_button = 2131427419;
+			public const int media_route_control_frame = 2131427419;
 			
-			// aapt resource value: 0x7f0b0057
-			public const int media_route_list = 2131427415;
+			// aapt resource value: 0x7f0b005c
+			public const int media_route_disconnect_button = 2131427420;
 			
 			// aapt resource value: 0x7f0b0058
-			public const int media_route_volume_layout = 2131427416;
+			public const int media_route_list = 2131427416;
 			
 			// aapt resource value: 0x7f0b0059
-			public const int media_route_volume_slider = 2131427417;
+			public const int media_route_volume_layout = 2131427417;
+			
+			// aapt resource value: 0x7f0b005a
+			public const int media_route_volume_slider = 2131427418;
 			
 			// aapt resource value: 0x7f0b0015
 			public const int middle = 2131427349;
@@ -1645,8 +1645,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0019
 			public const int never = 2131427353;
 			
-			// aapt resource value: 0x7f0b0055
-			public const int nextClass = 2131427413;
+			// aapt resource value: 0x7f0b0056
+			public const int nextClass = 2131427414;
 			
 			// aapt resource value: 0x7f0b000e
 			public const int none = 2131427342;
@@ -1734,6 +1734,9 @@ namespace GoogleApiTest
 			
 			// aapt resource value: 0x7f0b003b
 			public const int title = 2131427387;
+			
+			// aapt resource value: 0x7f0b0053
+			public const int togglebutton = 2131427411;
 			
 			// aapt resource value: 0x7f0b0008
 			public const int up = 2131427336;
