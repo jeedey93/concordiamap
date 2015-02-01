@@ -9,12 +9,13 @@
         android:layout_height="wrap_content"
         android:textOn="Go to Sir George Williams Campus"
         android:textOff="Go to Loyola Campus"
+        android:gravity="center_vertical|center_horizontal"
         android:textAlignment="center" />
     <fragment
         android:name="com.google.android.gms.maps.MapFragment"
         android:id="@+id/map"
         android:layout_width="match_parent"
-        android:layout_height="1400px"
+        android:layout_height="1200px"
         android:layout_marginTop="0.0dp" />
     <LinearLayout
         android:layout_width="match_parent"
