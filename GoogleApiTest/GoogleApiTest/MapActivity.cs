@@ -33,6 +33,13 @@ namespace GoogleApiTest
 			drawSGWPolygons (map);
 			drawLoyolaPolygons (map);
 
+			MarkerOptions markerOpt1 = new MarkerOptions();
+			markerOpt1.SetPosition(new LatLng(45.49770868047681,-73.57903227210045));
+			markerOpt1.SetTitle("Hall Building");
+			map.AddMarker(markerOpt1);
+
+			//map.SetOnMarkerClickListener (GoogleMap.IOnMapClickListener);
+
 			ToggleButton togglebutton = FindViewById<ToggleButton>(Resource.Id.togglebutton);
 
 			togglebutton.Click += (o, e) => {
@@ -43,7 +50,6 @@ namespace GoogleApiTest
 					zoomSgw (map);
 			};
 		}
-
 
 		public void zoomSgw(GoogleMap map){
 			LatLng location = new LatLng(45.49564057468219, -73.57727140188217);
@@ -65,17 +71,16 @@ namespace GoogleApiTest
 
 
 		public void drawSGWPolygons(GoogleMap map){
-
+	
 			PolygonOptions hallBuilding = new PolygonOptions();
 			hallBuilding.Add(new LatLng(45.49770868047681,-73.57903227210045));
 			hallBuilding.Add(new LatLng(45.497366508216466,-73.57833489775658));
 			hallBuilding.Add(new LatLng(45.4968288804749256,-73.57885658740997));
 			hallBuilding.Add(new LatLng(45.49715787001796,-73.579544390347004));
+			hallBuilding.InvokeFillColor(-65536);
+			hallBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(hallBuilding);
-			//Button hallButton = FindViewById<PolygonOptions>();
 
-
-		
 			PolygonOptions JMSBBuilding = new PolygonOptions();
 			JMSBBuilding.Add(new LatLng(45.495624, -73.57928));
 			JMSBBuilding.Add(new LatLng(45.495394, -73.579538));
@@ -89,6 +94,8 @@ namespace GoogleApiTest
 			JMSBBuilding.Add(new LatLng(45.49513, -73.578747));
 			JMSBBuilding.Add(new LatLng(45.495105, -73.578686));
 			JMSBBuilding.Add(new LatLng(45.495259, -73.578516));
+			JMSBBuilding.InvokeFillColor(-65536);
+			JMSBBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(JMSBBuilding);
 
 			PolygonOptions OSBuilding = new PolygonOptions ();
@@ -96,6 +103,8 @@ namespace GoogleApiTest
 			OSBuilding.Add (new LatLng (45.497203, -73.573013));
 			OSBuilding.Add (new LatLng (45.4971, -73.573119));
 			OSBuilding.Add (new LatLng (45.497186, -73.573295));
+			OSBuilding.InvokeFillColor(-65536);
+			OSBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(OSBuilding);
 
 
@@ -122,6 +131,8 @@ namespace GoogleApiTest
 			FGBuilding.Add(new LatLng(45.494428, -73.577762));
 			FGBuilding.Add(new LatLng(45.494389, -73.57769));
 			FGBuilding.Add(new LatLng(45.494452, -73.577618));
+			FGBuilding.InvokeFillColor(-65536);
+			FGBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(FGBuilding);
 
 			PolygonOptions FBBuilding = new PolygonOptions();
@@ -139,6 +150,8 @@ namespace GoogleApiTest
 			FBBuilding.Add(new LatLng(45.4947, -73.5773));
 			FBBuilding.Add(new LatLng(45.494654, -73.57722));
 			FBBuilding.Add(new LatLng(45.494397, -73.577521));
+			FBBuilding.InvokeFillColor(-65536);
+			FBBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(FBBuilding);
 
 			PolygonOptions eVBuilding = new PolygonOptions();
@@ -151,6 +164,8 @@ namespace GoogleApiTest
 			eVBuilding.Add(new LatLng(45.49527582814485, -73.57813775539398));
 			eVBuilding.Add(new LatLng(45.495369835210354, -73.5784462094307));
 			eVBuilding.Add(new LatLng(45.49556160913736, -73.57885658740997));
+			eVBuilding.InvokeFillColor(-65536);
+			eVBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(eVBuilding);
 
 			PolygonOptions gMBuilding = new PolygonOptions ();
@@ -158,6 +173,8 @@ namespace GoogleApiTest
 			gMBuilding.Add(new LatLng(45.49595,-73.57852));
 			gMBuilding.Add(new LatLng(45.49562,-73.57884));
 			gMBuilding.Add(new LatLng(45.49579,-73.57919));
+			gMBuilding.InvokeFillColor(-65536);
+			gMBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(gMBuilding);
 
 			PolygonOptions libraryBuilding = new PolygonOptions ();
@@ -199,6 +216,8 @@ namespace GoogleApiTest
 			libraryBuilding.Add(new LatLng(45.496911, -73.578343));
 			libraryBuilding.Add(new LatLng(45.496873, -73.578378));
 			libraryBuilding.Add(new LatLng(45.49689, -73.578414));
+			libraryBuilding.InvokeFillColor(-65536);
+			libraryBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(libraryBuilding);
 
 			PolygonOptions PBuilding = new PolygonOptions();
@@ -206,6 +225,8 @@ namespace GoogleApiTest
 			PBuilding.Add(new LatLng(45.496682, -73.579117));
 			PBuilding.Add(new LatLng(45.496583, -73.579217));
 			PBuilding.Add(new LatLng(45.496619, -73.57929));
+			PBuilding.InvokeFillColor(-65536);
+			PBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(PBuilding);
 
 			PolygonOptions TBuilding = new PolygonOptions();
@@ -213,6 +234,8 @@ namespace GoogleApiTest
 			TBuilding.Add(new LatLng(45.496698, -73.579218));
 			TBuilding.Add(new LatLng(45.496625, -73.579292));
 			TBuilding.Add(new LatLng(45.496656, -73.579359));
+			TBuilding.InvokeFillColor(-65536);
+			TBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(TBuilding);
 
 			PolygonOptions RRBuilding = new PolygonOptions();
@@ -220,6 +243,8 @@ namespace GoogleApiTest
 			RRBuilding.Add(new LatLng(45.496743, -73.579274));
 			RRBuilding.Add(new LatLng(45.496612, -73.579405));
 			RRBuilding.Add(new LatLng(45.496653, -73.579488));
+			RRBuilding.InvokeFillColor(-65536);
+			RRBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(RRBuilding);
 
 			PolygonOptions RBuilding = new PolygonOptions();
@@ -227,6 +252,8 @@ namespace GoogleApiTest
 			RBuilding.Add(new LatLng(45.496787, -73.57936));
 			RBuilding.Add(new LatLng(45.4967, -73.579447));
 			RBuilding.Add(new LatLng(45.496739, -73.579529));
+			RBuilding.InvokeFillColor(-65536);
+			RBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(RBuilding);
 
 			PolygonOptions FABuilding = new PolygonOptions();
@@ -234,6 +261,8 @@ namespace GoogleApiTest
 			FABuilding.Add(new LatLng(45.496828, -73.579447));
 			FABuilding.Add(new LatLng(45.496745, -73.579529));
 			FABuilding.Add(new LatLng(45.496783, -73.579605));
+			FABuilding.InvokeFillColor(-65536);
+			FABuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(FABuilding);
 
 			PolygonOptions ENBuilding = new PolygonOptions();
@@ -245,6 +274,8 @@ namespace GoogleApiTest
 			ENBuilding.Add(new LatLng(45.496804, -73.579632));
 			ENBuilding.Add(new LatLng(45.496674, -73.579766));
 			ENBuilding.Add(new LatLng(45.4967, -73.579819));
+			ENBuilding.InvokeFillColor(-65536);
+			ENBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(ENBuilding);
 
 			PolygonOptions XBuilding = new PolygonOptions();
@@ -252,6 +283,8 @@ namespace GoogleApiTest
 			XBuilding.Add(new LatLng(45.496823, -73.579701));
 			XBuilding.Add(new LatLng(45.496859, -73.579776));
 			XBuilding.Add(new LatLng(45.496944, -73.579691));
+			XBuilding.InvokeFillColor(-65536);
+			XBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(XBuilding);
 
 			PolygonOptions ZBuilding = new PolygonOptions();
@@ -259,6 +292,8 @@ namespace GoogleApiTest
 			ZBuilding.Add(new LatLng(45.496948, -73.579693));
 			ZBuilding.Add(new LatLng(45.496859, -73.579781));
 			ZBuilding.Add(new LatLng(45.496901, -73.579866));
+			ZBuilding.InvokeFillColor(-65536);
+			ZBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(ZBuilding);
 
 			PolygonOptions PRBuilding = new PolygonOptions();
@@ -266,6 +301,8 @@ namespace GoogleApiTest
 			PRBuilding.Add(new LatLng(45.496989, -73.579783));
 			PRBuilding.Add(new LatLng(45.496796, -73.579975));
 			PRBuilding.Add(new LatLng(45.496839, -73.580062));
+			PRBuilding.InvokeFillColor(-65536);
+			PRBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(PRBuilding);
 
 			PolygonOptions VBuilding = new PolygonOptions();
@@ -275,6 +312,8 @@ namespace GoogleApiTest
 			VBuilding.Add(new LatLng(45.497032, -73.579871));
 			VBuilding.Add(new LatLng(45.496943, -73.57996));
 			VBuilding.Add(new LatLng(45.496984, -73.580046));
+			VBuilding.InvokeFillColor(-65536);
+			VBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(VBuilding);
 
 			PolygonOptions QBuilding = new PolygonOptions();
@@ -282,6 +321,8 @@ namespace GoogleApiTest
 			QBuilding.Add(new LatLng(45.496653, -73.579054));
 			QBuilding.Add(new LatLng(45.496549, -73.579156));
 			QBuilding.Add(new LatLng(45.496578, -73.579214));
+			QBuilding.InvokeFillColor(-65536);
+			QBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(QBuilding);
 
 			PolygonOptions GNBuilding = new PolygonOptions();
@@ -338,6 +379,8 @@ namespace GoogleApiTest
 			GNBuilding.Add(new LatLng(45.494194, -73.5771));
 			GNBuilding.Add(new LatLng(45.494043, -73.577248));
 			GNBuilding.Add(new LatLng(45.494118, -73.577399));
+			GNBuilding.InvokeFillColor(-65536);
+			GNBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(GNBuilding);
 
 			PolygonOptions MTBuilding = new PolygonOptions ();
@@ -345,6 +388,8 @@ namespace GoogleApiTest
 			MTBuilding.Add (new LatLng (45.494463, -73.575983));
 			MTBuilding.Add (new LatLng (45.494305, -73.576125));
 			MTBuilding.Add (new LatLng (45.494397, -73.576333));
+			MTBuilding.InvokeFillColor(-65536);
+			MTBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(MTBuilding);
 
 			PolygonOptions DBuilding= new PolygonOptions ();
@@ -352,6 +397,8 @@ namespace GoogleApiTest
 			DBuilding.Add (new LatLng (45.497815, -73.57927));
 			DBuilding.Add (new LatLng (45.497649, -73.579432));
 			DBuilding.Add (new LatLng (45.49768, -73.579496));
+			DBuilding.InvokeFillColor(-65536);
+			DBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(DBuilding);
 
 			PolygonOptions TDBuilding = new PolygonOptions ();
@@ -359,6 +406,8 @@ namespace GoogleApiTest
 			TDBuilding.Add (new LatLng (45.494654, -73.578513));
 			TDBuilding.Add (new LatLng (45.494533, -73.578653));
 			TDBuilding.Add (new LatLng (45.494724, -73.578974));
+			TDBuilding.InvokeFillColor(-65536);
+			TDBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(TDBuilding);
 
 			PolygonOptions BBuilding= new PolygonOptions ();
@@ -366,6 +415,8 @@ namespace GoogleApiTest
 			BBuilding.Add (new LatLng (45.497847, -73.579337));
 			BBuilding.Add (new LatLng (45.497592, -73.579583));
 			BBuilding.Add (new LatLng (45.497631, -73.579665));
+			BBuilding.InvokeFillColor(-65536);
+			BBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(BBuilding);
 
 			PolygonOptions CLBuilding = new PolygonOptions ();
@@ -376,6 +427,8 @@ namespace GoogleApiTest
 			CLBuilding.Add (new LatLng (45.493985, -73.579319));
 			CLBuilding.Add (new LatLng (45.49399, -73.579345));
 			CLBuilding.Add (new LatLng (45.49417, -73.579649));
+			CLBuilding.InvokeFillColor(-65536);
+			CLBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(CLBuilding);
 
 			PolygonOptions KBuilding= new PolygonOptions ();
@@ -383,6 +436,8 @@ namespace GoogleApiTest
 			KBuilding.Add (new LatLng (45.497887, -73.579419));
 			KBuilding.Add (new LatLng (45.497715, -73.579588));
 			KBuilding.Add (new LatLng (45.49775, -73.579662));
+			KBuilding.InvokeFillColor(-65536);
+			KBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(KBuilding);
 
 			PolygonOptions MUbuilding= new PolygonOptions ();
@@ -390,6 +445,8 @@ namespace GoogleApiTest
 			MUbuilding.Add (new LatLng (45.497929, -73.579496));
 			MUbuilding.Add (new LatLng (45.497753, -73.579666));
 			MUbuilding.Add (new LatLng (45.497789, -73.579739));
+			MUbuilding.InvokeFillColor(-65536);
+			MUbuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(MUbuilding);
 
 			PolygonOptions CBBuilding = new PolygonOptions ();
@@ -411,6 +468,8 @@ namespace GoogleApiTest
 			CBBuilding.Add (new LatLng (45.495078, -73.574535));
 			CBBuilding.Add (new LatLng (45.49505, -73.574568));
 			CBBuilding.Add (new LatLng (45.495081, -73.574638));
+			CBBuilding.InvokeFillColor(-65536);
+			CBBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(CBBuilding);
 
 			PolygonOptions Mbuilding= new PolygonOptions ();
@@ -418,6 +477,8 @@ namespace GoogleApiTest
 			Mbuilding.Add (new LatLng (45.497396, -73.579688));
 			Mbuilding.Add (new LatLng (45.497287, -73.579797));
 			Mbuilding.Add (new LatLng (45.497325, -73.579871));
+			Mbuilding.InvokeFillColor(-65536);
+			Mbuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(Mbuilding);
 
 			PolygonOptions VABuilding = new PolygonOptions ();
@@ -427,6 +488,8 @@ namespace GoogleApiTest
 			VABuilding.Add (new LatLng (45.49609, -73.573543));
 			VABuilding.Add (new LatLng (45.495846, -73.573785));
 			VABuilding.Add (new LatLng (45.495698, -73.573482));
+			VABuilding.InvokeFillColor(-65536);
+			VABuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(VABuilding);
 
 			PolygonOptions Sbuilding= new PolygonOptions ();
@@ -436,6 +499,8 @@ namespace GoogleApiTest
 			Sbuilding.Add (new LatLng (45.497425, -73.579775));
 			Sbuilding.Add (new LatLng (45.497328, -73.579874));
 			Sbuilding.Add (new LatLng (45.497365, -73.579953));
+			Sbuilding.InvokeFillColor(-65536);
+			Sbuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(Sbuilding);
 
 			PolygonOptions MIBuilding = new PolygonOptions ();
@@ -443,6 +508,8 @@ namespace GoogleApiTest
 			MIBuilding.Add (new LatLng (45.497769, -73.579173));
 			MIBuilding.Add (new LatLng (45.497601, -73.579336));
 			MIBuilding.Add (new LatLng (45.497645, -73.579429));
+			MIBuilding.InvokeFillColor(-65536);
+			MIBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(MIBuilding);
 
 			PolygonOptions CIBuilding = new PolygonOptions ();
@@ -450,6 +517,8 @@ namespace GoogleApiTest
 			CIBuilding.Add (new LatLng (45.497478, -73.579848));
 			CIBuilding.Add (new LatLng (45.497368, -73.579958));
 			CIBuilding.Add (new LatLng (45.497411, -73.580047));
+			CIBuilding.InvokeFillColor(-65536);
+			CIBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(CIBuilding);
 
 
@@ -470,6 +539,8 @@ namespace GoogleApiTest
 			SBBuilding.Add (new LatLng (45.496534, -73.586248));
 			SBBuilding.Add (new LatLng (45.496532, -73.586282));
 			SBBuilding.Add (new LatLng (45.496551, -73.586323));
+			SBBuilding.InvokeFillColor(-65536);
+			SBBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(SBBuilding);
 		}
 
