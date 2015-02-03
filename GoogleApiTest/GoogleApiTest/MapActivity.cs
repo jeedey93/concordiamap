@@ -88,11 +88,89 @@ namespace GoogleApiTest
 			Spinner spinner = FindViewById<Spinner> (Resource.Id.spinner);
 			ArrayAdapter _adapterFrom;
 			var SGWBuildings = new List<Building> ();
-			SGWBuildings.Add (new Building("Henry F.Hall Building",1,1));
-
+			SGWBuildings.Add (new Building("B Building", "B", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("CB Building", "CB", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("CI Building", "CI", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("CL Building", "CL", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("D Building", "D", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("EN Building", "EN", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("Computer Science, Engineering and Visual Arts Integrated Complex", "EV", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("FA Building", "FA", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("Faubourg Tower", "FB", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("FG Building", "FG", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("Guy-Metro Building", "GM", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("Grey Nuns Building", "GN", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("Henry F.Hall Building", "H", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("K Building", "K", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("McConnell Library Building", "LB", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("M Building", "M", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("John Molson School of Business Building", "MB", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("Montefiore Building", "MT", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("MU Building", "MU", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("OS Building", "OS", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("P Building", "P", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("PR Building", "PR", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("Q Building", "Q", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("R Building", "R", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("RR Building", "RR", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("S Building", "S", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("Samuel Bronfman Building", "SB", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("T Building", "T", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("Toronto Dominion Building", "TD", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("V Building", "V", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("Visual Arts Building", "Q", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("X Building", "X", 45.49721798,-73.57892901));
+			SGWBuildings.Add (new Building("Z Building", "Z", 45.49721798,-73.57892901));
 
 			var LoyolaBuildings = new List<Building> ();
-			LoyolaBuildings.Add (new Building ("LOYOLA TEST", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
+
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="BB Building" data-content="3502 Belmore" href="?building=BB">BB</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="BH Building" data-content="3500 Belmore" href="?building=BH">BH</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Central Building" data-content="7141 Sherbrooke W." href="?building=CC">CC</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Communication & Journalism Building" data-content="7141 Sherbrooke W." href="?building=CJ">CJ</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Stinger Dome (seasonal)" data-content="7141 Sherbrooke W." href="?building=DO">DO</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="F. C. Smith Building" data-content="7141 Sherbrooke W." href="?building=FC">FC</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Centre for Structural and Functional Genomics" data-content="7141 Sherbrooke W." href="?building=GE">GE</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Hingston Wing A" data-content="7141 Sherbrooke W." href="?building=HA">HA</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Hingston Wing B" data-content="7141 Sherbrooke W." href="?building=HB">HB</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Hingston Wing C" data-content="7141 Sherbrooke W." href="?building=HC">HC</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Jesuit Residence" data-content="7141 Sherbrooke W." href="?building=JR">JR</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="PERFORM Centre" data-content="7200 Sherbrooke St. W." href="?building=PC">PC</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Physical Services Building" data-content="7141 Sherbrooke W." href="?building=PS">PS</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Oscar Peterson Concert Hall" data-content="7141 Sherbrooke W." href="?building=PT">PT</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Psychology Building" data-content="7141 Sherbrooke W." href="?building=PY">PY</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Recreation and Athletics Complex" data-content="7200 Sherbrooke W." href="?building=RA">RA</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Loyola Jesuit Hall and Conference Centre" data-content="7141 Sherbrooke W." href="?building=RF">RF</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Student Centre" data-content="7141 Sherbrooke W." href="?building=SC">SC</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Solar House" data-content="7141 Sherbrooke W." href="?building=SH">SH</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Saint-Ignatius of Loyola Church" data-content="4455 Broadway" href="?building=SI">SI</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Richard J. Renaud Science Complex" data-content="7141 Sherbrooke W." href="?building=SP">SP</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Terrebonne Building" data-content="7079 Terrebonne" href="?building=TA">TA</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Vanier Extension" data-content="7141 Sherbrooke W." href="?building=VE">VE</a></li>
+				<li><a class="acc" data-toggle="popover" data-placement="top" data-original-title="Vanier Library" data-content="7141 Sherbrooke W." href="?building=VL">VL</a></li>
+				</ul>
 
 
 			if (togglebutton.Checked) {

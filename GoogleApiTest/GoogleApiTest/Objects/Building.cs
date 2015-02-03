@@ -4,13 +4,15 @@ namespace GoogleApiTest
 {
 	public class Building
 	{
-		private string Name { get; set; }
-		private int XCoordinate { get; set; }
-		private int YCoordinate{ get; set; }
+		private string FullNameName { get; set; }
+		private string Abbreviation { get; set; }
+		private double XCoordinate { get; set; }
+		private double YCoordinate{ get; set; }
 
-		public Building (string Name, int XCoordinate, int YCoordinate)
+		public Building (string Name, string Abbreviation, double XCoordinate, double YCoordinate)
 		{
 			this.Name = Name;
+			this.Abbreviation = Abbreviation;
 			this.XCoordinate=XCoordinate;
 			this.YCoordinate=YCoordinate;
 		}
