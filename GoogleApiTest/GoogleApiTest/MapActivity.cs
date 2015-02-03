@@ -1,18 +1,26 @@
-﻿
-
-using Android.App;
+﻿using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Gms.Maps;
 using System;
 using Android.Gms.Maps.Model;
 using Android.Widget;
+using System.Collections.Generic;
+using Android.Support.V4.Widget;
+using Android.Support.V4.App;
 
 namespace GoogleApiTest
 {
 	[Activity (Label = "MapActivity")]			
 	public class MapActivity : Activity
 	{
+
+		ListView listview;
+		DrawerLayout drawer;
+		List<string> drawerSettings;
+		ActionBarDrawerToggle mDrawerToggle;
+
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -30,16 +38,6 @@ namespace GoogleApiTest
 				zoomSgw (map);
 			}
 
-			drawSGWPolygons (map);
-			drawLoyolaPolygons (map);
-
-			MarkerOptions markerOpt1 = new MarkerOptions();
-			markerOpt1.SetPosition(new LatLng(45.49770868047681,-73.57903227210045));
-			markerOpt1.SetTitle("Hall Building");
-			map.AddMarker(markerOpt1);
-
-			//map.SetOnMarkerClickListener (GoogleMap.IOnMapClickListener);
-
 			ToggleButton togglebutton = FindViewById<ToggleButton>(Resource.Id.togglebutton);
 
 			togglebutton.Click += (o, e) => {
@@ -49,6 +47,22 @@ namespace GoogleApiTest
 				else
 					zoomSgw (map);
 			};
+
+
+			drawSGWPolygons (map);
+			drawLoyolaPolygons (map);
+			createSettingsDrawer ();
+			createSpinnerBuilding (map, togglebutton);
+
+
+			MarkerOptions markerOpt1 = new MarkerOptions();
+			markerOpt1.SetPosition(new LatLng(45.49770868047681,-73.57903227210045));
+			markerOpt1.SetTitle("Hall Building");
+			map.AddMarker(markerOpt1);
+
+			//map.SetOnMarkerClickListener (GoogleMap.IOnMapClickListener);
+
+
 		}
 
 		public void zoomSgw(GoogleMap map){
@@ -69,6 +83,64 @@ namespace GoogleApiTest
 			map.MoveCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 		}
 
+
+		public void createSpinnerBuilding(GoogleMap map, ToggleButton togglebutton){
+			Spinner spinner = FindViewById<Spinner> (Resource.Id.spinner);
+			ArrayAdapter _adapterFrom;
+			var SGWBuildings = new List<Building> ();
+			SGWBuildings.Add (new Building("Henry F.Hall Building",1,1));
+
+
+			var LoyolaBuildings = new List<Building> ();
+			LoyolaBuildings.Add (new Building ("LOYOLA TEST", 1, 1));
+
+
+			if (togglebutton.Checked) {
+				_adapterFrom = new ArrayAdapter (this, Android.Resource.Layout.SimpleSpinnerItem, SGWBuildings);
+			} else {
+				_adapterFrom = new ArrayAdapter (this, Android.Resource.Layout.SimpleSpinnerItem, LoyolaBuildings);
+			}
+				
+			_adapterFrom.SetDropDownViewResource (Android.Resource.Layout.SimpleSpinnerDropDownItem);
+			spinner.Adapter = _adapterFrom; 
+
+			spinner.ItemSelected += (object sender, AdapterView.ItemSelectedEventArgs e) => {
+				if(e.Position==1){
+					zoomLoyola(map);
+				}
+			};
+		}
+
+		public void createSettingsDrawer(){
+			drawerSettings = new List<string> ();
+			listview = FindViewById<ListView> (Resource.Id.left_drawer);
+			drawer = FindViewById<DrawerLayout> (Resource.Id.drawer_layout);
+			mDrawerToggle = new ActionBarDrawerToggle (this, drawer, Resource.Drawable.ic_navigation_drawer, Resource.String.open_drawer, Resource.String.close_drawer);
+
+			drawerSettings.Add ("Settings");
+			drawerSettings.Add ("Settings Working");
+			ArrayAdapter mLeftAdapter = new ArrayAdapter (this, Android.Resource.Layout.SimpleListItem1, drawerSettings);
+			listview.Adapter = mLeftAdapter;
+
+			drawer.SetDrawerListener (mDrawerToggle);
+			ActionBar.SetDisplayHomeAsUpEnabled (true);
+			ActionBar.SetHomeButtonEnabled (true);
+		}
+
+		protected override void OnPostCreate (Bundle savedInstanceState)
+		{
+			base.OnPostCreate (savedInstanceState);
+			mDrawerToggle.SyncState ();
+		}
+
+		public override bool OnOptionsItemSelected (IMenuItem item)
+		{
+			if (mDrawerToggle.OnOptionsItemSelected (item)) {
+				return true;
+			}
+
+			return base.OnOptionsItemSelected (item);
+		}
 
 		public void drawSGWPolygons(GoogleMap map){
 	

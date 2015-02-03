@@ -16,6 +16,9 @@ public final class R {
         public static final int abc_slide_out_bottom=0x7f040004;
         public static final int abc_slide_out_top=0x7f040005;
     }
+    public static final class array {
+        public static final int planets_array=0x7f0d0000;
+    }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -2061,31 +2064,32 @@ containing a value of this type.
         public static final int common_signin_btn_text_pressed_dark=0x7f02004b;
         public static final int common_signin_btn_text_pressed_light=0x7f02004c;
         public static final int home=0x7f02004d;
-        public static final int ic_plusone_medium_off_client=0x7f02004e;
-        public static final int ic_plusone_small_off_client=0x7f02004f;
-        public static final int ic_plusone_standard_off_client=0x7f020050;
-        public static final int ic_plusone_tall_off_client=0x7f020051;
-        public static final int icon=0x7f020052;
-        public static final int location=0x7f020053;
-        public static final int mr_ic_audio_vol=0x7f020054;
-        public static final int mr_ic_media_route_connecting_holo_dark=0x7f020055;
-        public static final int mr_ic_media_route_connecting_holo_light=0x7f020056;
-        public static final int mr_ic_media_route_disabled_holo_dark=0x7f020057;
-        public static final int mr_ic_media_route_disabled_holo_light=0x7f020058;
-        public static final int mr_ic_media_route_holo_dark=0x7f020059;
-        public static final int mr_ic_media_route_holo_light=0x7f02005a;
-        public static final int mr_ic_media_route_off_holo_dark=0x7f02005b;
-        public static final int mr_ic_media_route_off_holo_light=0x7f02005c;
-        public static final int mr_ic_media_route_on_0_holo_dark=0x7f02005d;
-        public static final int mr_ic_media_route_on_0_holo_light=0x7f02005e;
-        public static final int mr_ic_media_route_on_1_holo_dark=0x7f02005f;
-        public static final int mr_ic_media_route_on_1_holo_light=0x7f020060;
-        public static final int mr_ic_media_route_on_2_holo_dark=0x7f020061;
-        public static final int mr_ic_media_route_on_2_holo_light=0x7f020062;
-        public static final int mr_ic_media_route_on_holo_dark=0x7f020063;
-        public static final int mr_ic_media_route_on_holo_light=0x7f020064;
-        public static final int powered_by_google_dark=0x7f020065;
-        public static final int powered_by_google_light=0x7f020066;
+        public static final int ic_navigation_drawer=0x7f02004e;
+        public static final int ic_plusone_medium_off_client=0x7f02004f;
+        public static final int ic_plusone_small_off_client=0x7f020050;
+        public static final int ic_plusone_standard_off_client=0x7f020051;
+        public static final int ic_plusone_tall_off_client=0x7f020052;
+        public static final int icon=0x7f020053;
+        public static final int location=0x7f020054;
+        public static final int mr_ic_audio_vol=0x7f020055;
+        public static final int mr_ic_media_route_connecting_holo_dark=0x7f020056;
+        public static final int mr_ic_media_route_connecting_holo_light=0x7f020057;
+        public static final int mr_ic_media_route_disabled_holo_dark=0x7f020058;
+        public static final int mr_ic_media_route_disabled_holo_light=0x7f020059;
+        public static final int mr_ic_media_route_holo_dark=0x7f02005a;
+        public static final int mr_ic_media_route_holo_light=0x7f02005b;
+        public static final int mr_ic_media_route_off_holo_dark=0x7f02005c;
+        public static final int mr_ic_media_route_off_holo_light=0x7f02005d;
+        public static final int mr_ic_media_route_on_0_holo_dark=0x7f02005e;
+        public static final int mr_ic_media_route_on_0_holo_light=0x7f02005f;
+        public static final int mr_ic_media_route_on_1_holo_dark=0x7f020060;
+        public static final int mr_ic_media_route_on_1_holo_light=0x7f020061;
+        public static final int mr_ic_media_route_on_2_holo_dark=0x7f020062;
+        public static final int mr_ic_media_route_on_2_holo_light=0x7f020063;
+        public static final int mr_ic_media_route_on_holo_dark=0x7f020064;
+        public static final int mr_ic_media_route_on_holo_light=0x7f020065;
+        public static final int powered_by_google_dark=0x7f020066;
+        public static final int powered_by_google_light=0x7f020067;
     }
     public static final class id {
         public static final int action_bar=0x7f0b0045;
@@ -2113,17 +2117,19 @@ containing a value of this type.
         public static final int checkbox=0x7f0b003d;
         public static final int classic=0x7f0b002f;
         public static final int collapseActionView=0x7f0b0017;
+        public static final int content_frame=0x7f0b0054;
         public static final int decor_content_parent=0x7f0b0043;
         public static final int default_activity_button=0x7f0b0038;
         public static final int dialog=0x7f0b001b;
         public static final int disableHome=0x7f0b000c;
         public static final int donate_with_google=0x7f0b002e;
+        public static final int drawer_layout=0x7f0b0053;
         public static final int dropdown=0x7f0b001c;
         public static final int edit_query=0x7f0b0047;
         public static final int end=0x7f0b0014;
         public static final int expand_activities_button=0x7f0b0036;
         public static final int expanded_menu=0x7f0b003c;
-        public static final int explore=0x7f0b0057;
+        public static final int explore=0x7f0b005a;
         public static final int grayscale=0x7f0b0030;
         public static final int holo_dark=0x7f0b0023;
         public static final int holo_light=0x7f0b0024;
@@ -2133,20 +2139,21 @@ containing a value of this type.
         public static final int icon=0x7f0b003a;
         public static final int ifRoom=0x7f0b0018;
         public static final int image=0x7f0b0037;
+        public static final int left_drawer=0x7f0b005b;
         public static final int listMode=0x7f0b0009;
         public static final int list_item=0x7f0b0039;
-        public static final int locateMe=0x7f0b0055;
-        public static final int map=0x7f0b0054;
+        public static final int locateMe=0x7f0b0058;
+        public static final int map=0x7f0b0057;
         public static final int match_parent=0x7f0b002a;
-        public static final int media_route_control_frame=0x7f0b005b;
-        public static final int media_route_disconnect_button=0x7f0b005c;
-        public static final int media_route_list=0x7f0b0058;
-        public static final int media_route_volume_layout=0x7f0b0059;
-        public static final int media_route_volume_slider=0x7f0b005a;
+        public static final int media_route_control_frame=0x7f0b005f;
+        public static final int media_route_disconnect_button=0x7f0b0060;
+        public static final int media_route_list=0x7f0b005c;
+        public static final int media_route_volume_layout=0x7f0b005d;
+        public static final int media_route_volume_slider=0x7f0b005e;
         public static final int middle=0x7f0b0015;
         public static final int monochrome=0x7f0b0031;
         public static final int never=0x7f0b0019;
-        public static final int nextClass=0x7f0b0056;
+        public static final int nextClass=0x7f0b0059;
         public static final int none=0x7f0b000e;
         public static final int normal=0x7f0b000a;
         public static final int production=0x7f0b0025;
@@ -2170,13 +2177,14 @@ containing a value of this type.
         public static final int showCustom=0x7f0b000f;
         public static final int showHome=0x7f0b0010;
         public static final int showTitle=0x7f0b0011;
+        public static final int spinner=0x7f0b0056;
         public static final int split_action_bar=0x7f0b0007;
         public static final int strict_sandbox=0x7f0b0027;
         public static final int submit_area=0x7f0b0050;
         public static final int tabMode=0x7f0b000b;
         public static final int terrain=0x7f0b0022;
         public static final int title=0x7f0b003b;
-        public static final int togglebutton=0x7f0b0053;
+        public static final int togglebutton=0x7f0b0055;
         public static final int up=0x7f0b0008;
         public static final int useLogo=0x7f0b0012;
         public static final int withText=0x7f0b001a;
@@ -2238,6 +2246,7 @@ containing a value of this type.
         public static final int abc_toolbar_collapse_description=0x7f060015;
         public static final int accept=0x7f060018;
         public static final int app_name=0x7f06003a;
+        public static final int close_drawer=0x7f06003c;
         /**   Text for notification shown when the Android Wear apps needs to be updated. Only shown on the wearable. [CHAR LIMIT=NONE] 
          */
         public static final int common_android_wear_notification_needs_update_text=0x7f06001f;
@@ -2347,6 +2356,8 @@ containing a value of this type.
         public static final int mr_media_route_controller_disconnect=0x7f060003;
         public static final int mr_system_route_name=0x7f060004;
         public static final int mr_user_route_category_name=0x7f060005;
+        public static final int open_drawer=0x7f06003b;
+        public static final int planet_prompt=0x7f06003d;
         public static final int store_picture_message=0x7f060017;
         public static final int store_picture_title=0x7f060016;
         /**  Text on a placeholder buy button when Google Play services is not

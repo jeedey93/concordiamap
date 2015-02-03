@@ -59,6 +59,22 @@ namespace GoogleApiTest
 			}
 		}
 		
+		public partial class Array
+		{
+			
+			// aapt resource value: 0x7f0d0000
+			public const int planets_array = 2131558400;
+			
+			static Array()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Array()
+			{
+			}
+		}
+		
 		public partial class Attribute
 		{
 			
@@ -1384,79 +1400,82 @@ namespace GoogleApiTest
 			public const int home = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int ic_plusone_medium_off_client = 2130837582;
+			public const int ic_navigation_drawer = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int ic_plusone_small_off_client = 2130837583;
+			public const int ic_plusone_medium_off_client = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int ic_plusone_standard_off_client = 2130837584;
+			public const int ic_plusone_small_off_client = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int ic_plusone_tall_off_client = 2130837585;
+			public const int ic_plusone_standard_off_client = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int Icon = 2130837586;
+			public const int ic_plusone_tall_off_client = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int location = 2130837587;
+			public const int Icon = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int mr_ic_audio_vol = 2130837588;
+			public const int location = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int mr_ic_media_route_connecting_holo_dark = 2130837589;
+			public const int mr_ic_audio_vol = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int mr_ic_media_route_connecting_holo_light = 2130837590;
+			public const int mr_ic_media_route_connecting_holo_dark = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int mr_ic_media_route_disabled_holo_dark = 2130837591;
+			public const int mr_ic_media_route_connecting_holo_light = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int mr_ic_media_route_disabled_holo_light = 2130837592;
+			public const int mr_ic_media_route_disabled_holo_dark = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int mr_ic_media_route_holo_dark = 2130837593;
+			public const int mr_ic_media_route_disabled_holo_light = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int mr_ic_media_route_holo_light = 2130837594;
+			public const int mr_ic_media_route_holo_dark = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int mr_ic_media_route_off_holo_dark = 2130837595;
+			public const int mr_ic_media_route_holo_light = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int mr_ic_media_route_off_holo_light = 2130837596;
+			public const int mr_ic_media_route_off_holo_dark = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int mr_ic_media_route_on_0_holo_dark = 2130837597;
+			public const int mr_ic_media_route_off_holo_light = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int mr_ic_media_route_on_0_holo_light = 2130837598;
+			public const int mr_ic_media_route_on_0_holo_dark = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int mr_ic_media_route_on_1_holo_dark = 2130837599;
+			public const int mr_ic_media_route_on_0_holo_light = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int mr_ic_media_route_on_1_holo_light = 2130837600;
+			public const int mr_ic_media_route_on_1_holo_dark = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int mr_ic_media_route_on_2_holo_dark = 2130837601;
+			public const int mr_ic_media_route_on_1_holo_light = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int mr_ic_media_route_on_2_holo_light = 2130837602;
+			public const int mr_ic_media_route_on_2_holo_dark = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int mr_ic_media_route_on_holo_dark = 2130837603;
+			public const int mr_ic_media_route_on_2_holo_light = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int mr_ic_media_route_on_holo_light = 2130837604;
+			public const int mr_ic_media_route_on_holo_dark = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int powered_by_google_dark = 2130837605;
+			public const int mr_ic_media_route_on_holo_light = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int powered_by_google_light = 2130837606;
+			public const int powered_by_google_dark = 2130837606;
+			
+			// aapt resource value: 0x7f020067
+			public const int powered_by_google_light = 2130837607;
 			
 			static Drawable()
 			{
@@ -1546,6 +1565,9 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0017
 			public const int collapseActionView = 2131427351;
 			
+			// aapt resource value: 0x7f0b0054
+			public const int content_frame = 2131427412;
+			
 			// aapt resource value: 0x7f0b0043
 			public const int decor_content_parent = 2131427395;
 			
@@ -1560,6 +1582,9 @@ namespace GoogleApiTest
 			
 			// aapt resource value: 0x7f0b002e
 			public const int donate_with_google = 2131427374;
+			
+			// aapt resource value: 0x7f0b0053
+			public const int drawer_layout = 2131427411;
 			
 			// aapt resource value: 0x7f0b001c
 			public const int dropdown = 2131427356;
@@ -1576,8 +1601,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b003c
 			public const int expanded_menu = 2131427388;
 			
-			// aapt resource value: 0x7f0b0057
-			public const int explore = 2131427415;
+			// aapt resource value: 0x7f0b005a
+			public const int explore = 2131427418;
 			
 			// aapt resource value: 0x7f0b0030
 			public const int grayscale = 2131427376;
@@ -1606,35 +1631,38 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0037
 			public const int image = 2131427383;
 			
+			// aapt resource value: 0x7f0b005b
+			public const int left_drawer = 2131427419;
+			
 			// aapt resource value: 0x7f0b0009
 			public const int listMode = 2131427337;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int list_item = 2131427385;
 			
-			// aapt resource value: 0x7f0b0055
-			public const int locateMe = 2131427413;
+			// aapt resource value: 0x7f0b0058
+			public const int locateMe = 2131427416;
 			
-			// aapt resource value: 0x7f0b0054
-			public const int map = 2131427412;
+			// aapt resource value: 0x7f0b0057
+			public const int map = 2131427415;
 			
 			// aapt resource value: 0x7f0b002a
 			public const int match_parent = 2131427370;
 			
-			// aapt resource value: 0x7f0b005b
-			public const int media_route_control_frame = 2131427419;
+			// aapt resource value: 0x7f0b005f
+			public const int media_route_control_frame = 2131427423;
+			
+			// aapt resource value: 0x7f0b0060
+			public const int media_route_disconnect_button = 2131427424;
 			
 			// aapt resource value: 0x7f0b005c
-			public const int media_route_disconnect_button = 2131427420;
+			public const int media_route_list = 2131427420;
 			
-			// aapt resource value: 0x7f0b0058
-			public const int media_route_list = 2131427416;
+			// aapt resource value: 0x7f0b005d
+			public const int media_route_volume_layout = 2131427421;
 			
-			// aapt resource value: 0x7f0b0059
-			public const int media_route_volume_layout = 2131427417;
-			
-			// aapt resource value: 0x7f0b005a
-			public const int media_route_volume_slider = 2131427418;
+			// aapt resource value: 0x7f0b005e
+			public const int media_route_volume_slider = 2131427422;
 			
 			// aapt resource value: 0x7f0b0015
 			public const int middle = 2131427349;
@@ -1645,8 +1673,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0019
 			public const int never = 2131427353;
 			
-			// aapt resource value: 0x7f0b0056
-			public const int nextClass = 2131427414;
+			// aapt resource value: 0x7f0b0059
+			public const int nextClass = 2131427417;
 			
 			// aapt resource value: 0x7f0b000e
 			public const int none = 2131427342;
@@ -1717,6 +1745,9 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0011
 			public const int showTitle = 2131427345;
 			
+			// aapt resource value: 0x7f0b0056
+			public const int spinner = 2131427414;
+			
 			// aapt resource value: 0x7f0b0007
 			public const int split_action_bar = 2131427335;
 			
@@ -1735,8 +1766,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b003b
 			public const int title = 2131427387;
 			
-			// aapt resource value: 0x7f0b0053
-			public const int togglebutton = 2131427411;
+			// aapt resource value: 0x7f0b0055
+			public const int togglebutton = 2131427413;
 			
 			// aapt resource value: 0x7f0b0008
 			public const int up = 2131427336;
@@ -1949,6 +1980,9 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f06003a
 			public const int app_name = 2131099706;
 			
+			// aapt resource value: 0x7f06003c
+			public const int close_drawer = 2131099708;
+			
 			// aapt resource value: 0x7f06001f
 			public const int common_android_wear_notification_needs_update_text = 2131099679;
 			
@@ -2062,6 +2096,12 @@ namespace GoogleApiTest
 			
 			// aapt resource value: 0x7f060005
 			public const int mr_user_route_category_name = 2131099653;
+			
+			// aapt resource value: 0x7f06003b
+			public const int open_drawer = 2131099707;
+			
+			// aapt resource value: 0x7f06003d
+			public const int planet_prompt = 2131099709;
 			
 			// aapt resource value: 0x7f060017
 			public const int store_picture_message = 2131099671;
