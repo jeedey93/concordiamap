@@ -4,7 +4,7 @@ namespace GoogleApiTest
 {
 	public class Building
 	{
-		private string FullNameName { get; set; }
+		private string Name { get; set; }
 		private string Abbreviation { get; set; }
 		private double XCoordinate { get; set; }
 		private double YCoordinate{ get; set; }
