@@ -30,7 +30,7 @@
                     android:text="@string/planet_prompt" />
                 <Spinner
                     android:id="@+id/spinner"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100px"
                     android:layout_height="wrap_content"
                     android:prompt="@string/planet_prompt" />
             </LinearLayout>

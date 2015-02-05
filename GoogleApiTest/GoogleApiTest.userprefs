@@ -1,14 +1,14 @@
 ﻿<Properties StartupItem="GoogleApiTest\GoogleApiTest.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.X" />
   <MonoDevelop.Ide.Workbench ActiveDocument="GoogleApiTest\MapActivity.cs">
     <Files>
       <File FileName="GoogleApiTest\MainActivity.cs" Line="1" Column="1" />
-      <File FileName="GoogleApiTest\MapActivity.cs" Line="34" Column="34" />
+      <File FileName="GoogleApiTest\MapActivity.cs" Line="5" Column="5" />
+      <File FileName="GoogleApiTest\Objects\Building.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.GoogleApiTest MonoForAntroid.PreferredDevice="Nexus 5" />
 </Properties>

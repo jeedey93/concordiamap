@@ -4,10 +4,11 @@ namespace GoogleApiTest
 {
 	public class Building
 	{
-		private string Name { get; set; }
-		private string Abbreviation { get; set; }
-		private double XCoordinate { get; set; }
-		private double YCoordinate{ get; set; }
+		public string Name { get; set; }
+		public string Abbreviation { get; set; }
+		public double XCoordinate { get; set; }
+		public double YCoordinate{ get; set; }
+		public double CenterCoordinate{ get; set; }
 
 		public Building (string Name, string Abbreviation, double XCoordinate, double YCoordinate)
 		{
@@ -18,7 +19,7 @@ namespace GoogleApiTest
 		}
 			
 		public String toString() {
-			return this.Name;           
+			return this.Abbreviation;           
 		}
 
 	}

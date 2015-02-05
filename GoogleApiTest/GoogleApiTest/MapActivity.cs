@@ -8,6 +8,7 @@ using Android.Widget;
 using System.Collections.Generic;
 using Android.Support.V4.Widget;
 using Android.Support.V4.App;
+using System.Collections;
 
 namespace GoogleApiTest
 {
@@ -42,17 +43,19 @@ namespace GoogleApiTest
 
 			togglebutton.Click += (o, e) => {
 				// Perform action on clicks
-				if (togglebutton.Checked)
+				if (togglebutton.Checked){
 					zoomLoyola (map);
-				else
+					createSpinnerBuilding (map, LoyolaBuildings());
+				}else{
 					zoomSgw (map);
+					createSpinnerBuilding (map, SGWBuildings());
+				}
 			};
-
-
+				
 			drawSGWPolygons (map);
 			drawLoyolaPolygons (map);
 			createSettingsDrawer ();
-			createSpinnerBuilding (map, togglebutton);
+			createSpinnerBuilding (map, SGWBuildings());
 
 
 			MarkerOptions markerOpt1 = new MarkerOptions();
@@ -82,11 +85,8 @@ namespace GoogleApiTest
 			CameraPosition cameraPosition = builder.Build();
 			map.MoveCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 		}
-
-
-		public void createSpinnerBuilding(GoogleMap map, ToggleButton togglebutton){
-			Spinner spinner = FindViewById<Spinner> (Resource.Id.spinner);
-			ArrayAdapter _adapterFrom;
+			
+		public List<Building> SGWBuildings(){
 			var SGWBuildings = new List<Building> ();
 			SGWBuildings.Add (new Building("B Building", "B", 45.49721798,-73.57892901));
 			SGWBuildings.Add (new Building("CB Building", "CB", 45.49721798,-73.57892901));
@@ -121,7 +121,10 @@ namespace GoogleApiTest
 			SGWBuildings.Add (new Building("Visual Arts Building", "Q", 45.49721798,-73.57892901));
 			SGWBuildings.Add (new Building("X Building", "X", 45.49721798,-73.57892901));
 			SGWBuildings.Add (new Building("Z Building", "Z", 45.49721798,-73.57892901));
+			return SGWBuildings;
+		}
 
+		public List<Building> LoyolaBuildings(){
 			var LoyolaBuildings = new List<Building> ();
 			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
 			LoyolaBuildings.Add (new Building ("BB Building", "BB", 1, 1));
@@ -148,21 +151,42 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (new Building ("Terrebonne Building", "TA", 1, 1));
 			LoyolaBuildings.Add (new Building ("Vanier Extension", "VE", 1, 1));
 			LoyolaBuildings.Add (new Building ("Vanier Library", "VL", 1, 1));
+			return LoyolaBuildings;
+		}
 
-			if (togglebutton.Checked) {
-				_adapterFrom = new ArrayAdapter (this, Android.Resource.Layout.SimpleSpinnerItem, SGWBuildings);
-			} else {
-				_adapterFrom = new ArrayAdapter (this, Android.Resource.Layout.SimpleSpinnerItem, LoyolaBuildings);
+		public void createSpinnerBuilding(GoogleMap map, List<Building> buildings){
+			Spinner spinner = FindViewById<Spinner> (Resource.Id.spinner);
+			ArrayAdapter _adapterFrom;
+					
+			List<string> strBuildings = new List<string> ();
+			strBuildings.Add("Choose a Building");
+			foreach(Building building in buildings){
+				strBuildings.Add (building.toString());
 			}
 				
+			_adapterFrom = new ArrayAdapter (this, Android.Resource.Layout.SimpleSpinnerItem, strBuildings);
+							
 			_adapterFrom.SetDropDownViewResource (Android.Resource.Layout.SimpleSpinnerDropDownItem);
 			spinner.Adapter = _adapterFrom; 
 
 			spinner.ItemSelected += (object sender, AdapterView.ItemSelectedEventArgs e) => {
-				if(e.Position==1){
-					zoomLoyola(map);
+				foreach(Building building in buildings){
+					if(e.Parent.GetItemAtPosition(e.Position).ToString()=="Choose a Building"){
+
+					}
+					else if(e.Parent.GetItemAtPosition(e.Position).ToString()==building.toString())
+						zoomSpecificBuilding(map, building);
 				}
 			};
+		}
+
+		public void zoomSpecificBuilding(GoogleMap map, Building buildingToZoom){
+			LatLng location = new LatLng(buildingToZoom.XCoordinate, buildingToZoom.YCoordinate);
+			CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
+			builder.Target(location);
+			builder.Zoom(16);
+			CameraPosition cameraPosition = builder.Build();
+			map.MoveCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 		}
 
 		public void createSettingsDrawer(){
@@ -694,6 +718,8 @@ namespace GoogleApiTest
 			athleticBuilding.Add (new LatLng (45.45715996183382, -73.63834127783775));
 			athleticBuilding.Add (new LatLng (45.457038140078616, -73.63803550601006));
 			athleticBuilding.Add (new LatLng (45.45700427452465, -73.6380623281002));
+			athleticBuilding.InvokeFillColor(-65536);
+			athleticBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(athleticBuilding);
 
 			PolygonOptions jesuitBuilding = new PolygonOptions ();
@@ -715,6 +741,8 @@ namespace GoogleApiTest
 			jesuitBuilding.Add (new LatLng (45.45846282669458, -73.64342004060745));
 			jesuitBuilding.Add (new LatLng (45.458470352180356, -73.64343747496605));
 			jesuitBuilding.Add (new LatLng (45.45853808150697, -73.64338114857674));
+			jesuitBuilding.InvokeFillColor(-65536);
+			jesuitBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(jesuitBuilding);
 
 			PolygonOptions stIgnatiusBuilding = new PolygonOptions ();
@@ -750,6 +778,8 @@ namespace GoogleApiTest
 			stIgnatiusBuilding.Add (new LatLng (45.45792287047003, -73.6425644159317));
 			stIgnatiusBuilding.Add (new LatLng (45.4579026455284, -73.64257983863354));
 			stIgnatiusBuilding.Add (new LatLng (45.45795156165383, -73.64270523190498));
+			stIgnatiusBuilding.InvokeFillColor(-65536);
+			stIgnatiusBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(stIgnatiusBuilding);
 
 			PolygonOptions terrebonneBuilding= new PolygonOptions ();
@@ -757,6 +787,8 @@ namespace GoogleApiTest
 			terrebonneBuilding.Add (new LatLng (45.4600426863333, -73.64080622792244));
 			terrebonneBuilding.Add (new LatLng (45.45993262907309, -73.64089138805866));
 			terrebonneBuilding.Add (new LatLng (45.45997119617164, -73.64099331200123));
+			terrebonneBuilding.InvokeFillColor(-65536);
+			terrebonneBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(terrebonneBuilding);
 
 			PolygonOptions hingstonABuilding= new PolygonOptions ();
@@ -776,6 +808,8 @@ namespace GoogleApiTest
 			hingstonABuilding.Add (new LatLng (45.4592548785606, -73.64117905497551));
 			hingstonABuilding.Add (new LatLng (45.45939033524779, -73.64152908325195));
 			hingstonABuilding.Add (new LatLng (45.45940444530066, -73.64151701331139));
+			hingstonABuilding.InvokeFillColor(-65536);
+			hingstonABuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(hingstonABuilding);
 
 			PolygonOptions hingstonBBuilding= new PolygonOptions ();
@@ -801,6 +835,8 @@ namespace GoogleApiTest
 			hingstonBBuilding.Add (new LatLng (45.45953002461565, -73.64201724529266));
 			hingstonBBuilding.Add (new LatLng (45.45955260064262, -73.64199846982956));
 			hingstonBBuilding.Add (new LatLng (45.45938798357197, -73.64157736301422));
+			hingstonBBuilding.InvokeFillColor(-65536);
+			hingstonBBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(hingstonBBuilding);
 
 			PolygonOptions hingstonCBuilding= new PolygonOptions ();
@@ -812,6 +848,8 @@ namespace GoogleApiTest
 			hingstonCBuilding.Add (new LatLng (45.45988653665243, -73.64201925694942));
 			hingstonCBuilding.Add (new LatLng (45.459817397950786, -73.64184357225895));
 			hingstonCBuilding.Add (new LatLng (45.459706399585784, -73.64192940294743));
+			hingstonCBuilding.InvokeFillColor(-65536);
+			hingstonCBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(hingstonCBuilding);
 
 			PolygonOptions cJBuilding = new PolygonOptions ();
@@ -849,6 +887,8 @@ namespace GoogleApiTest
 			cJBuilding.Add (new LatLng (45.45730483060549, -73.6406908929348));
 			cJBuilding.Add (new LatLng (45.457279431562036, -73.64071100950241));
 			cJBuilding.Add (new LatLng (45.45717407244481, -73.64044144749641));
+			cJBuilding.InvokeFillColor(-65536);
+			cJBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(cJBuilding);
 
 			PolygonOptions RichardScienceBuilding = new PolygonOptions ();
@@ -892,6 +932,8 @@ namespace GoogleApiTest
 			RichardScienceBuilding.Add (new LatLng (45.45767076370252, -73.64196226000786));
 			RichardScienceBuilding.Add (new LatLng (45.457996714962725, -73.64170409739017));
 			RichardScienceBuilding.Add (new LatLng (45.45800894397767, -73.64173494279385));
+			RichardScienceBuilding.InvokeFillColor(-65536);
+			RichardScienceBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(RichardScienceBuilding);
 
 			PolygonOptions RefectoryBuilding = new PolygonOptions ();
@@ -919,6 +961,8 @@ namespace GoogleApiTest
 			RefectoryBuilding.Add (new LatLng (45.458416733072404, -73.64119783043861));
 			RefectoryBuilding.Add (new LatLng (45.45845247915003, -73.6412863433361));
 			RefectoryBuilding.Add (new LatLng (45.45839791933823, -73.64133059978485));
+			RefectoryBuilding.InvokeFillColor(-65536);
+			RefectoryBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(RefectoryBuilding);
 
 			PolygonOptions CentralBuilding = new PolygonOptions ();
@@ -930,6 +974,8 @@ namespace GoogleApiTest
 			CentralBuilding.Add (new LatLng (45.45799906669659, -73.64005655050278));
 			CentralBuilding.Add (new LatLng (45.45809125458613, -73.6402952671051));
 			CentralBuilding.Add (new LatLng (45.45808749181809, -73.64030063152313));
+			CentralBuilding.InvokeFillColor(-65536);
+			CentralBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(CentralBuilding);
 
 			PolygonOptions CampusRetailStoreBuilding = new PolygonOptions ();
@@ -957,6 +1003,8 @@ namespace GoogleApiTest
 			CampusRetailStoreBuilding.Add (new LatLng (45.45781610151019, -73.63992109894753));
 			CampusRetailStoreBuilding.Add (new LatLng (45.45777894398335, -73.63982856273651));
 			CampusRetailStoreBuilding.Add (new LatLng (45.45771826898183, -73.63987617194653));
+			CampusRetailStoreBuilding.InvokeFillColor(-65536);
+			CampusRetailStoreBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(CampusRetailStoreBuilding);
 
 			PolygonOptions ChapelBuilding = new PolygonOptions ();
@@ -991,6 +1039,8 @@ namespace GoogleApiTest
 			ChapelBuilding.Add (new LatLng (45.45849998377077, -73.6396186798811));
 			ChapelBuilding.Add (new LatLng (45.45851221267656, -73.63960929214954));
 			ChapelBuilding.Add (new LatLng (45.4585409035605, -73.6396823823452));
+			ChapelBuilding.InvokeFillColor(-65536);
+			ChapelBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(ChapelBuilding);
 
 
@@ -1011,6 +1061,8 @@ namespace GoogleApiTest
 			PsychologyBuilding.Add (new LatLng (45.4586961162861, -73.64042267203331));
 			PsychologyBuilding.Add (new LatLng (45.458697056967964, -73.64043340086937));
 			PsychologyBuilding.Add (new LatLng (45.45865190421989, -73.64046961069107));
+			PsychologyBuilding.InvokeFillColor(-65536);
+			PsychologyBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(PsychologyBuilding);
 
 			PolygonOptions CampusBuilding = new PolygonOptions ();
@@ -1027,6 +1079,8 @@ namespace GoogleApiTest
 			CampusBuilding.Add (new LatLng (45.45907709116479, -73.63900914788246));
 			CampusBuilding.Add (new LatLng (45.45909120129605, -73.63904938101768));
 			CampusBuilding.Add (new LatLng (45.45899525233385, -73.63912582397461));
+			CampusBuilding.InvokeFillColor(-65536);
+			CampusBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(CampusBuilding);
 
 			PolygonOptions OPConcertBuilding = new PolygonOptions ();
@@ -1046,6 +1100,8 @@ namespace GoogleApiTest
 			OPConcertBuilding.Add (new LatLng (45.459305674856424, -73.63923981785774));
 			OPConcertBuilding.Add (new LatLng (45.459349886409996, -73.63920629024506));
 			OPConcertBuilding.Add (new LatLng (45.45936211513147, -73.6392317712307));
+			OPConcertBuilding.InvokeFillColor(-65536);
+			OPConcertBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(OPConcertBuilding);
 
 			PolygonOptions BHBuilding = new PolygonOptions ();
@@ -1053,6 +1109,8 @@ namespace GoogleApiTest
 			BHBuilding.Add (new LatLng (45.459816457287566, -73.6391781270504));
 			BHBuilding.Add (new LatLng (45.459755314146435, -73.6390346288681));
 			BHBuilding.Add (new LatLng (45.45965936631435, -73.63911241292953));
+			BHBuilding.InvokeFillColor(-65536);
+			BHBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(BHBuilding);
 
 			PolygonOptions VanierLibraryBuilding = new PolygonOptions ();
@@ -1080,6 +1138,8 @@ namespace GoogleApiTest
 			VanierLibraryBuilding.Add (new LatLng (45.45908226487998, -73.63880395889282));
 			VanierLibraryBuilding.Add (new LatLng (45.45914858246013, -73.6387536674738));
 			VanierLibraryBuilding.Add (new LatLng (45.45916363324759, -73.63879054784775));
+			VanierLibraryBuilding.InvokeFillColor(-65536);
+			VanierLibraryBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(VanierLibraryBuilding);
 
 			PolygonOptions VanierExtensionBuilding = new PolygonOptions ();
@@ -1103,6 +1163,8 @@ namespace GoogleApiTest
 			VanierExtensionBuilding.Add (new LatLng (45.45865895933916, -73.63840229809284));
 			VanierExtensionBuilding.Add (new LatLng (45.45867777298624, -73.6384492367506));
 			VanierExtensionBuilding.Add (new LatLng (45.45862039134304, -73.63849483430386));
+			VanierExtensionBuilding.InvokeFillColor(-65536);
+			VanierExtensionBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(VanierExtensionBuilding);
 
 			PolygonOptions PhysicalServicesBuilding = new PolygonOptions ();
@@ -1120,6 +1182,8 @@ namespace GoogleApiTest
 			PhysicalServicesBuilding.Add (new LatLng (45.459411029990804, -73.63967165350914));
 			PhysicalServicesBuilding.Add (new LatLng (45.459605748337076, -73.64017322659492));
 			PhysicalServicesBuilding.Add (new LatLng (45.45963302766522, -73.6401517689228));
+			PhysicalServicesBuilding.InvokeFillColor(-65536);
+			PhysicalServicesBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(PhysicalServicesBuilding);
 
 			PolygonOptions StructuralFunctionalBuilding = new PolygonOptions ();
@@ -1127,6 +1191,8 @@ namespace GoogleApiTest
 			StructuralFunctionalBuilding.Add (new LatLng (45.45710163793753, -73.64055275917053));
 			StructuralFunctionalBuilding.Add (new LatLng (45.45697746427997, -73.64006459712982));
 			StructuralFunctionalBuilding.Add (new LatLng (45.45668772468234, -73.64031136035919));
+			StructuralFunctionalBuilding.InvokeFillColor(-65536);
+			StructuralFunctionalBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(StructuralFunctionalBuilding);
 
 			PolygonOptions PerformCentreBuilding = new PolygonOptions ();
@@ -1134,6 +1200,8 @@ namespace GoogleApiTest
 			PerformCentreBuilding.Add (new LatLng (45.45737820555565, -73.6376291513443));
 			PerformCentreBuilding.Add (new LatLng (45.457048958237415, -73.63678425550461));
 			PerformCentreBuilding.Add (new LatLng (45.45680437327082, -73.6369800567627));
+			PerformCentreBuilding.InvokeFillColor(-65536);
+			PerformCentreBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(PerformCentreBuilding);
 
 			PolygonOptions StingerDomeBuilding = new PolygonOptions ();
@@ -1141,6 +1209,8 @@ namespace GoogleApiTest
 			StingerDomeBuilding.Add (new LatLng (45.45833583397091, -73.63596081733704));
 			StingerDomeBuilding.Add (new LatLng (45.45792945533317, -73.63523930311203));
 			StingerDomeBuilding.Add (new LatLng (45.456956768643806, -73.6363497376442));
+			StingerDomeBuilding.InvokeFillColor(-65536);
+			StingerDomeBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(StingerDomeBuilding);
 
 			PolygonOptions BBBuilding = new PolygonOptions ();
@@ -1148,6 +1218,8 @@ namespace GoogleApiTest
 			BBBuilding.Add (new LatLng (45.45995191262564, -73.63935649394989));
 			BBBuilding.Add (new LatLng (45.459923692790376, -73.63925188779831));
 			BBBuilding.Add (new LatLng (45.45979764402045, -73.63933771848679));
+			BBBuilding.InvokeFillColor(-65536);
+			BBBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(BBBuilding);
 
 			PolygonOptions SolarhouseBuilding = new PolygonOptions ();
@@ -1155,6 +1227,8 @@ namespace GoogleApiTest
 			SolarhouseBuilding.Add (new LatLng (45.45941008932082, -73.64237666130066));
 			SolarhouseBuilding.Add (new LatLng (45.45935364909381, -73.64237666130066));
 			SolarhouseBuilding.Add (new LatLng (45.45935176775193, -73.64252418279648));
+			SolarhouseBuilding.InvokeFillColor(-65536);
+			SolarhouseBuilding.InvokeStrokeWidth (4);
 			map.AddPolygon(SolarhouseBuilding);
 		}
 	}
