@@ -91,6 +91,8 @@
     <AndroidResource Include="Resources\values\Styles.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_navigation_drawer.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_navigation_drawer.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\h.jpg" />
+    <AndroidResource Include="Resources\drawable-mdpi\h.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

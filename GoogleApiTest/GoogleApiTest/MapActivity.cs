@@ -20,7 +20,7 @@ namespace GoogleApiTest
 		DrawerLayout drawer;
 		List<string> drawerSettings;
 		ActionBarDrawerToggle mDrawerToggle;
-
+		GoogleMap map;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -30,12 +30,13 @@ namespace GoogleApiTest
 			SetContentView (Resource.Layout.Main);
 
 			MapFragment mapFrag = (MapFragment) FragmentManager.FindFragmentById(Resource.Id.map);
-			GoogleMap map = mapFrag.Map;
+			map = mapFrag.Map;
 			if (map != null) {
 				// The GoogleMap object is ready to go.
 				map.UiSettings.ZoomControlsEnabled = true;
 				map.MyLocationEnabled = true;
 				map.UiSettings.TiltGesturesEnabled = false;
+				map.UiSettings.MapToolbarEnabled = false;
 				zoomSgw (map);
 			}
 
@@ -57,15 +58,12 @@ namespace GoogleApiTest
 			createSettingsDrawer ();
 			createSpinnerBuilding (map, SGWBuildings());
 
-
+			map.MapClick += HandleMapClick;
 			MarkerOptions markerOpt1 = new MarkerOptions();
 			markerOpt1.SetPosition(new LatLng(45.49770868047681,-73.57903227210045));
 			markerOpt1.SetTitle("Hall Building");
+			markerOpt1.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
 			map.AddMarker(markerOpt1);
-
-			//map.SetOnMarkerClickListener (GoogleMap.IOnMapClickListener);
-
-
 		}
 
 		public void zoomSgw(GoogleMap map){
@@ -75,6 +73,28 @@ namespace GoogleApiTest
 			builder.Zoom(16);
 			CameraPosition cameraPosition = builder.Build();
 			map.MoveCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
+		}
+
+		void HandleMapClick (object sender, GoogleMap.MapClickEventArgs e)
+		{
+			if (isInPolygon (e.Point)) {
+				MarkerOptions marker = new MarkerOptions ();
+				marker.SetPosition (e.Point);
+				marker.SetTitle ("You clicked on the Hall Building");
+				//marker.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
+				map.AddMarker (marker);
+			}
+		}
+
+		public Boolean isInPolygon(LatLng point){
+
+
+
+				//45.49770868047681,-73.57903227210045
+				//45.497366508216466,-73.57833489775658
+				//45.4968288804749256,-73.57885658740997
+				//45.49715787001796,-73.579544390347004
+			return true;
 		}
 
 		public void zoomLoyola(GoogleMap map){

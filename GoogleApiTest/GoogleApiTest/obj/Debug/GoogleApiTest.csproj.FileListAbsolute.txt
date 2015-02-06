@@ -89,3 +89,5 @@ C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\GoogleApiTest.csprojResolveAssemblyReference.cache
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\ic_navigation_drawer.png
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\ic_navigation_drawer.png
+C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\h.jpg
+C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\h.jpg
