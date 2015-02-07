@@ -78,6 +78,8 @@ namespace GoogleApiTest
 		void HandleMapClick (object sender, GoogleMap.MapClickEventArgs e)
 		{
 			if (isInPolygon (e.Point)) {
+				//var window = new PopupWindow (this, 400, 500, true);
+
 				MarkerOptions marker = new MarkerOptions ();
 				marker.SetPosition (e.Point);
 				marker.SetTitle ("You clicked on the Hall Building");
@@ -87,13 +89,32 @@ namespace GoogleApiTest
 		}
 
 		public Boolean isInPolygon(LatLng point){
+			double Ax = 45.49770868047681, Ay = -73.57903227210045;
+			double Bx = 45.497366508216466, By = -73.57833489775658;
+			double Cx = 45.4968288804749256, Cy = -73.57885658740997;
+			double Dx = 45.49715787001796, Dy = -73.579544390347004;
 
+			double AMx = Ax - point.Latitude;
+			double AMy = Ay - point.Longitude;
+			double ABx = Ax - Bx;
+			double ABy = Ay - By;
+			double ADx = Ax - Dx;
+			double ADy = Ay - Dy;
 
+			double AMAB = AMx * ABx + AMy * ABy;
+			double ABAB = ABx * ABx + ABy * ABy;
+			double AMAD = AMx * ADx + AMy * ADy;
+			double ADAD = ADx * ADx + ADy * ADy;
 
-				//45.49770868047681,-73.57903227210045
-				//45.497366508216466,-73.57833489775658
-				//45.4968288804749256,-73.57885658740997
-				//45.49715787001796,-73.579544390347004
+			Console.WriteLine ();
+
+			if (0 < AMAB && AMAB < ABAB) {
+				if (0 < AMAD && AMAD < ADAD) {
+					Console.WriteLine ("Point is in rectangle");
+				}
+				else Console.WriteLine ("Point is not in rectangle");
+			}
+			else Console.WriteLine ("Point is not in rectangle");
 			return true;
 		}
 
