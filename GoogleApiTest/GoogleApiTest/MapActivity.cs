@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using Android.Support.V4.Widget;
 using Android.Support.V4.App;
 using System.Collections;
+using Android.Content;
 
 namespace GoogleApiTest
 {
@@ -59,12 +60,22 @@ namespace GoogleApiTest
 			createSpinnerBuilding (map, SGWBuildings());
 
 			map.MapClick += HandleMapClick;
-			MarkerOptions markerOpt1 = new MarkerOptions();
-			markerOpt1.SetPosition(new LatLng(45.49770868047681,-73.57903227210045));
-			markerOpt1.SetTitle("Hall Building");
-			//markerOpt1.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
-			map.AddMarker(markerOpt1);
 		}
+
+		public void CreateBuildingDescription(){
+			LayoutInflater inflater = (LayoutInflater)this.GetSystemService (Context.LayoutInflaterService);
+			View popUp = inflater.Inflate (Resource.Layout.BuildingDescription, null);
+
+			PopupWindow window = new PopupWindow (popUp, WindowManagerLayoutParams.WrapContent, WindowManagerLayoutParams.WrapContent);
+			Button btnDismiss = popUp.FindViewById<Button> (Resource.Id.btnPopUpOk);
+			btnDismiss.Click += (sender, e) => {
+				window.Dismiss();
+			};
+
+			window.ShowAtLocation (popUp, GravityFlags.Center, 0,0);
+		}
+
+
 
 		public void zoomSgw(GoogleMap map){
 			LatLng location = new LatLng(45.49564057468219, -73.57727140188217);
@@ -80,11 +91,12 @@ namespace GoogleApiTest
 			if (isInPolygon (e.Point)) {
 				//var window = new PopupWindow (this, 400, 500, true);
 
-				MarkerOptions marker = new MarkerOptions ();
-				marker.SetPosition (e.Point);
-				marker.SetTitle ("You clicked on the Hall Building");
+				//MarkerOptions marker = new MarkerOptions ();
+				//marker.SetPosition (e.Point);
+				//marker.SetTitle ("You clicked on the Hall Building");
 				//marker.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
-				map.AddMarker (marker);
+				//map.AddMarker (marker);
+				CreateBuildingDescription ();
 			}
 		}
 
@@ -106,16 +118,13 @@ namespace GoogleApiTest
 			double AMAD = AMx * ADx + AMy * ADy;
 			double ADAD = ADx * ADx + ADy * ADy;
 
-			Console.WriteLine ();
-
 			if (0 < AMAB && AMAB < ABAB) {
 				if (0 < AMAD && AMAD < ADAD) {
 					Console.WriteLine ("Point is in rectangle");
+					return true;
 				}
-				else Console.WriteLine ("Point is not in rectangle");
 			}
-			else Console.WriteLine ("Point is not in rectangle");
-			return true;
+			return false;
 		}
 
 		public void zoomLoyola(GoogleMap map){
