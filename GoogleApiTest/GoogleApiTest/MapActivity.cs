@@ -265,8 +265,8 @@ namespace GoogleApiTest
 		public void drawSGWPolygons(GoogleMap map){
 
 			PolygonOptions hallBuilding = new PolygonOptions();
-			List<LatLng> HallPoints=null;
-			LatLng p;
+			List<LatLng> HallPoints=new List<LatLng>();
+			LatLng p=null;
 			hallBuilding.Add(p=new LatLng(45.49770868047681,-73.57903227210045));
 			HallPoints.Add (p);
 			hallBuilding.Add(p=new LatLng(45.497366508216466,-73.57833489775658));

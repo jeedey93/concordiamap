@@ -43,20 +43,18 @@ namespace GoogleApiTest
 					TopLeft = p;
 				}
 			}
-			if (Corners [0]!=null) 
-				Corners [0]= (BotLeft);
-			 else
+
+			if (Corners.Count < 3) {
+				Corners [0] = (BotLeft);
+				Corners [1] = (TopLeft);
+				Corners [2] = (BotRight);
+			} else {
 				Corners.Add (BotLeft);
 
-			if (Corners [1]!=null) 
-				Corners [1]= (TopLeft);
-			 else
 				Corners.Add (TopLeft);
 
-			if (Corners [2]!=null)
-				Corners [2]= (BotRight);
-			 else 
-				Corners.Add(BotRight);
+				Corners.Add (BotRight);
+			}
 		}
 
 		public Boolean isInPolygon(LatLng point){
