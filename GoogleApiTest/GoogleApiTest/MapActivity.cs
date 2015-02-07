@@ -53,13 +53,18 @@ namespace GoogleApiTest
 					createSpinnerBuilding (map, SGWBuildings());
 				}
 			};
-				
+
 			drawSGWPolygons (map);
 			drawLoyolaPolygons (map);
 			createSettingsDrawer ();
 			createSpinnerBuilding (map, SGWBuildings());
 
 			map.MapClick += HandleMapClick;
+			MarkerOptions markerOpt1 = new MarkerOptions();
+			markerOpt1.SetPosition(new LatLng(45.49770868047681,-73.57903227210045));
+			markerOpt1.SetTitle("Hall Building");
+			//markerOpt1.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
+			map.AddMarker(markerOpt1);
 		}
 
 		public void CreateBuildingDescription(){
@@ -76,7 +81,6 @@ namespace GoogleApiTest
 		}
 
 
-
 		public void zoomSgw(GoogleMap map){
 			LatLng location = new LatLng(45.49564057468219, -73.57727140188217);
 			CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
@@ -88,44 +92,31 @@ namespace GoogleApiTest
 
 		void HandleMapClick (object sender, GoogleMap.MapClickEventArgs e)
 		{
-			if (isInPolygon (e.Point)) {
-				//var window = new PopupWindow (this, 400, 500, true);
+			foreach (Building x in SGWBuildings()) {
+				if (x.isInPolygon (e.Point)) {
+					//var window = new PopupWindow (this, 400, 500, true);
 
-				//MarkerOptions marker = new MarkerOptions ();
-				//marker.SetPosition (e.Point);
-				//marker.SetTitle ("You clicked on the Hall Building");
-				//marker.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
-				//map.AddMarker (marker);
-				CreateBuildingDescription ();
-			}
-		}
-
-		public Boolean isInPolygon(LatLng point){
-			double Ax = 45.49770868047681, Ay = -73.57903227210045;
-			double Bx = 45.497366508216466, By = -73.57833489775658;
-			double Cx = 45.4968288804749256, Cy = -73.57885658740997;
-			double Dx = 45.49715787001796, Dy = -73.579544390347004;
-
-			double AMx = Ax - point.Latitude;
-			double AMy = Ay - point.Longitude;
-			double ABx = Ax - Bx;
-			double ABy = Ay - By;
-			double ADx = Ax - Dx;
-			double ADy = Ay - Dy;
-
-			double AMAB = AMx * ABx + AMy * ABy;
-			double ABAB = ABx * ABx + ABy * ABy;
-			double AMAD = AMx * ADx + AMy * ADy;
-			double ADAD = ADx * ADx + ADy * ADy;
-
-			if (0 < AMAB && AMAB < ABAB) {
-				if (0 < AMAD && AMAD < ADAD) {
-					Console.WriteLine ("Point is in rectangle");
-					return true;
+					MarkerOptions marker = new MarkerOptions ();
+					marker.SetPosition (e.Point);
+					marker.SetTitle ("You clicked on the Hall Building");
+					//marker.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
+					map.AddMarker (marker);
 				}
 			}
-			return false;
+			foreach (Building x in LoyolaBuildings()) {
+				if (x.isInPolygon (e.Point)) {
+					//var window = new PopupWindow (this, 400, 500, true);
+
+					MarkerOptions marker = new MarkerOptions ();
+					marker.SetPosition (e.Point);
+					marker.SetTitle ("You clicked on the Hall Building");
+					//marker.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
+					map.AddMarker (marker);
+				}
+			}
 		}
+
+
 
 		public void zoomLoyola(GoogleMap map){
 			LatLng location = new LatLng(45.458593581866786, -73.64008069038391);
@@ -135,7 +126,7 @@ namespace GoogleApiTest
 			CameraPosition cameraPosition = builder.Build();
 			map.MoveCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 		}
-			
+
 		public List<Building> SGWBuildings(){
 			var SGWBuildings = new List<Building> ();
 			SGWBuildings.Add (new Building("B Building", "B", 45.497818, -73.579545));
@@ -208,15 +199,15 @@ namespace GoogleApiTest
 		public void createSpinnerBuilding(GoogleMap map, List<Building> buildings){
 			Spinner spinner = FindViewById<Spinner> (Resource.Id.spinner);
 			ArrayAdapter _adapterFrom;
-					
+
 			List<string> strBuildings = new List<string> ();
 			strBuildings.Add("Choose a Building");
 			foreach(Building building in buildings){
 				strBuildings.Add (building.toString());
 			}
-				
+
 			_adapterFrom = new ArrayAdapter (this, Android.Resource.Layout.SimpleSpinnerItem, strBuildings);
-							
+
 			_adapterFrom.SetDropDownViewResource (Android.Resource.Layout.SimpleSpinnerDropDownItem);
 			spinner.Adapter = _adapterFrom; 
 
@@ -272,14 +263,21 @@ namespace GoogleApiTest
 		}
 
 		public void drawSGWPolygons(GoogleMap map){
-	
+
 			PolygonOptions hallBuilding = new PolygonOptions();
-			hallBuilding.Add(new LatLng(45.49770868047681,-73.57903227210045));
-			hallBuilding.Add(new LatLng(45.497366508216466,-73.57833489775658));
-			hallBuilding.Add(new LatLng(45.4968288804749256,-73.57885658740997));
-			hallBuilding.Add(new LatLng(45.49715787001796,-73.579544390347004));
+			List<LatLng> HallPoints=null;
+			LatLng p;
+			hallBuilding.Add(p=new LatLng(45.49770868047681,-73.57903227210045));
+			HallPoints.Add (p);
+			hallBuilding.Add(p=new LatLng(45.497366508216466,-73.57833489775658));
+			HallPoints.Add (p);
+			hallBuilding.Add(p=new LatLng(45.4968288804749256,-73.57885658740997));
+			HallPoints.Add (p);
+			hallBuilding.Add(p=new LatLng(45.49715787001796,-73.579544390347004));
+			HallPoints.Add (p);
 			hallBuilding.InvokeFillColor(-65536);
 			hallBuilding.InvokeStrokeWidth (4);
+			SGWBuildings().Find (x => x.Abbreviation == "H").setCorners (HallPoints);
 			map.AddPolygon(hallBuilding);
 
 			PolygonOptions JMSBBuilding = new PolygonOptions();
