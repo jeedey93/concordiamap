@@ -22,6 +22,8 @@ namespace GoogleApiTest
 		List<string> drawerSettings;
 		ActionBarDrawerToggle mDrawerToggle;
 		GoogleMap map;
+		List<Building> SGWBuildings = new List<Building> ();
+		List<Building> LoyolaBuildings = new List<Building> ();
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -41,23 +43,26 @@ namespace GoogleApiTest
 				zoomSgw (map);
 			}
 
+			InitializeSGWBuildings ();
+			InitializeLoyolaBuildings ();
+
 			ToggleButton togglebutton = FindViewById<ToggleButton>(Resource.Id.togglebutton);
 
 			togglebutton.Click += (o, e) => {
 				// Perform action on clicks
 				if (togglebutton.Checked){
 					zoomLoyola (map);
-					createSpinnerBuilding (map, LoyolaBuildings());
+					createSpinnerBuilding (map, LoyolaBuildings);
 				}else{
 					zoomSgw (map);
-					createSpinnerBuilding (map, SGWBuildings());
+					createSpinnerBuilding (map, SGWBuildings);
 				}
 			};
 
 			drawSGWPolygons (map);
 			drawLoyolaPolygons (map);
 			createSettingsDrawer ();
-			createSpinnerBuilding (map, SGWBuildings());
+			createSpinnerBuilding (map, SGWBuildings);
 
 			map.MapClick += HandleMapClick;
 			MarkerOptions markerOpt1 = new MarkerOptions();
@@ -92,28 +97,30 @@ namespace GoogleApiTest
 
 		void HandleMapClick (object sender, GoogleMap.MapClickEventArgs e)
 		{
-			foreach (Building x in SGWBuildings()) {
-				if (x.isInPolygon (e.Point)) {
+			if (SGWBuildings.Find (x => x.Abbreviation == "H").isInPolygon (e.Point)) {
+				CreateBuildingDescription ();
+			}
+
+			//foreach (Building x in SGWBuildings()) {
+			//	if (x.isInPolygon (e.Point)) {
+			//		MarkerOptions marker = new MarkerOptions ();
+			//		marker.SetPosition (e.Point);
+			//		marker.SetTitle ("You clicked on the Hall Building");
+					//marker.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
+			//		map.AddMarker (marker);
+			//	}
+			//}
+			//foreach (Building x in LoyolaBuildings()) {
+			//	if (x.isInPolygon (e.Point)) {
 					//var window = new PopupWindow (this, 400, 500, true);
 
-					MarkerOptions marker = new MarkerOptions ();
-					marker.SetPosition (e.Point);
-					marker.SetTitle ("You clicked on the Hall Building");
+			//		MarkerOptions marker = new MarkerOptions ();
+			//		marker.SetPosition (e.Point);
+			//		marker.SetTitle ("You clicked on the Hall Building");
 					//marker.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
-					map.AddMarker (marker);
-				}
-			}
-			foreach (Building x in LoyolaBuildings()) {
-				if (x.isInPolygon (e.Point)) {
-					//var window = new PopupWindow (this, 400, 500, true);
-
-					MarkerOptions marker = new MarkerOptions ();
-					marker.SetPosition (e.Point);
-					marker.SetTitle ("You clicked on the Hall Building");
-					//marker.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
-					map.AddMarker (marker);
-				}
-			}
+			//		map.AddMarker (marker);
+			//	}
+			//}
 		}
 
 
@@ -127,8 +134,7 @@ namespace GoogleApiTest
 			map.MoveCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 		}
 
-		public List<Building> SGWBuildings(){
-			var SGWBuildings = new List<Building> ();
+		public List<Building> InitializeSGWBuildings(){
 			SGWBuildings.Add (new Building("B Building", "B", 45.497818, -73.579545));
 			SGWBuildings.Add (new Building("CB Building", "CB", 45.495189, -73.574308));
 			SGWBuildings.Add (new Building("CI Building", "CI", 45.497438, -73.579957));
@@ -166,8 +172,7 @@ namespace GoogleApiTest
 			return SGWBuildings;
 		}
 
-		public List<Building> LoyolaBuildings(){
-			var LoyolaBuildings = new List<Building> ();
+		public List<Building> InitializeLoyolaBuildings(){
 			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 45.458011, -73.639854));
 			LoyolaBuildings.Add (new Building ("BB Building", "BB", 45.459856, -73.639320));
 			LoyolaBuildings.Add (new Building ("BH Building", "BH", 45.459738, -73.639154));
@@ -277,7 +282,7 @@ namespace GoogleApiTest
 			HallPoints.Add (p);
 			hallBuilding.InvokeFillColor(-65536);
 			hallBuilding.InvokeStrokeWidth (4);
-			SGWBuildings().Find (x => x.Abbreviation == "H").setCorners (HallPoints);
+			SGWBuildings.Find (x => x.Abbreviation == "H").setCorners (HallPoints);
 			map.AddPolygon(hallBuilding);
 
 			PolygonOptions JMSBBuilding = new PolygonOptions();

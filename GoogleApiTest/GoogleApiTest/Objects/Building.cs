@@ -10,7 +10,7 @@ namespace GoogleApiTest
 		public string Abbreviation { get; set; }
 		public double XCoordinate { get; set; }
 		public double YCoordinate{ get; set; }
-		public List<LatLng> Corners { get; set; }
+		public List<LatLng> Corners = new List<LatLng> ();
 
 		public Building (string Name, string Abbreviation, double XCoordinate, double YCoordinate)
 		{
@@ -39,12 +39,12 @@ namespace GoogleApiTest
 					BotRight = p;
 				}
 
-				if (p.Latitude > TopLeft.Latitude && TopLeft!=BotLeft && TopLeft!=BotRight) {
+				if (p.Latitude > TopLeft.Latitude && p!=BotLeft && p!=BotRight) {
 					TopLeft = p;
 				}
 			}
 
-			if (Corners.Count < 3) {
+			if (Corners.Count == 3) {
 				Corners [0] = (BotLeft);
 				Corners [1] = (TopLeft);
 				Corners [2] = (BotRight);
@@ -58,9 +58,9 @@ namespace GoogleApiTest
 		}
 
 		public Boolean isInPolygon(LatLng point){
-			double Ax = Corners[0].Longitude, Ay = Corners[0].Latitude;
-			double Bx = Corners[1].Longitude, By = Corners[1].Latitude;
-			double Dx = Corners[2].Longitude, Dy = Corners[2].Latitude;
+			double Ax = Corners[0].Latitude, Ay = Corners[0].Longitude;
+			double Bx = Corners[1].Latitude, By = Corners[1].Longitude;
+			double Dx = Corners[2].Latitude, Dy = Corners[2].Longitude;
 
 			double AMx = Ax - point.Latitude;
 			double AMy = Ay - point.Longitude;
