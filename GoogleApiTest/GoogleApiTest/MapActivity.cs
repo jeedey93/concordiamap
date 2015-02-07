@@ -111,11 +111,14 @@ namespace GoogleApiTest
 			if (0 < AMAB && AMAB < ABAB) {
 				if (0 < AMAD && AMAD < ADAD) {
 					Console.WriteLine ("Point is in rectangle");
+					return true;
 				}
 				else Console.WriteLine ("Point is not in rectangle");
+				return false;
 			}
 			else Console.WriteLine ("Point is not in rectangle");
-			return true;
+			return false;
+
 		}
 
 		public void zoomLoyola(GoogleMap map){
@@ -265,12 +268,19 @@ namespace GoogleApiTest
 		public void drawSGWPolygons(GoogleMap map){
 	
 			PolygonOptions hallBuilding = new PolygonOptions();
-			hallBuilding.Add(new LatLng(45.49770868047681,-73.57903227210045));
-			hallBuilding.Add(new LatLng(45.497366508216466,-73.57833489775658));
-			hallBuilding.Add(new LatLng(45.4968288804749256,-73.57885658740997));
-			hallBuilding.Add(new LatLng(45.49715787001796,-73.579544390347004));
+			List<LatLng> HallPoints=null;
+			LatLng p;
+			hallBuilding.Add(p=new LatLng(45.49770868047681,-73.57903227210045));
+			HallPoints.Add (p);
+			hallBuilding.Add(p=new LatLng(45.497366508216466,-73.57833489775658));
+			HallPoints.Add (p);
+			hallBuilding.Add(p=new LatLng(45.4968288804749256,-73.57885658740997));
+			HallPoints.Add (p);
+			hallBuilding.Add(p=new LatLng(45.49715787001796,-73.579544390347004));
+			HallPoints.Add (p);
 			hallBuilding.InvokeFillColor(-65536);
 			hallBuilding.InvokeStrokeWidth (4);
+			SGWBuildings().Find (x => x.Abbreviation == "H").setCorners (HallPoints);
 			map.AddPolygon(hallBuilding);
 
 			PolygonOptions JMSBBuilding = new PolygonOptions();

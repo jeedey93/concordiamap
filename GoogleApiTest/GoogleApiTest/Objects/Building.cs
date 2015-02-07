@@ -24,6 +24,72 @@ namespace GoogleApiTest
 			return this.Abbreviation;           
 		}
 
+		public void setCorners(List<LatLng> Points){
+			// we need 3 points Bottom Left, Bottom Right and Top left
+			//Latitude X Longitude Y
+			LatLng BotLeft=Points[0];
+			LatLng BotRight=Points[0];
+			LatLng TopLeft=Points[0];
+			foreach(LatLng p in Points){
+				if (p.Longitude < BotLeft.Longitude) {
+					BotLeft = p;
+				}
+
+				if (p.Longitude > BotRight.Longitude) {
+					BotRight = p;
+				}
+
+				if (p.Latitude > TopLeft.Latitude && TopLeft!=BotLeft && TopLeft!=BotRight) {
+					TopLeft = p;
+				}
+			}
+			if (Corners [0]!=null) 
+				Corners [0]= (BotLeft);
+			 else
+				Corners.Add (BotLeft);
+
+			if (Corners [1]!=null) 
+				Corners [1]= (TopLeft);
+			 else
+				Corners.Add (TopLeft);
+
+			if (Corners [2]!=null)
+				Corners [2]= (BotRight);
+			 else 
+				Corners.Add(BotRight);
+		}
+
+		public Boolean isInPolygon(LatLng point){
+			double Ax = Corners[0].Longitude, Ay = Corners[0].Latitude;
+			double Bx = Corners[1].Longitude, By = Corners[1].Latitude;
+			double Dx = Corners[2].Longitude, Dy = Corners[2].Latitude;
+
+			double AMx = Ax - point.Latitude;
+			double AMy = Ay - point.Longitude;
+			double ABx = Ax - Bx;
+			double ABy = Ay - By;
+			double ADx = Ax - Dx;
+			double ADy = Ay - Dy;
+
+			double AMAB = AMx * ABx + AMy * ABy;
+			double ABAB = ABx * ABx + ABy * ABy;
+			double AMAD = AMx * ADx + AMy * ADy;
+			double ADAD = ADx * ADx + ADy * ADy;
+
+			Console.WriteLine ();
+
+			if (0 < AMAB && AMAB < ABAB) {
+				if (0 < AMAD && AMAD < ADAD) {
+					Console.WriteLine ("Point is in rectangle");
+					return true;
+				}
+				else Console.WriteLine ("Point is not in rectangle");
+				return false;
+			}
+			else Console.WriteLine ("Point is not in rectangle");
+			return false;
+
+		}
 	}
 }
 
