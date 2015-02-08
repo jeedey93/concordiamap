@@ -70,6 +70,13 @@ namespace GoogleApiTest
 			markerOpt1.SetTitle("Hall Building");
 			//markerOpt1.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
 			map.AddMarker(markerOpt1);
+
+
+			Button exploreButton = FindViewById<Button> (Resource.Id.explore);
+			exploreButton.Click += (sender, e) => {
+				var exploreActivity = new Intent (this, typeof(ExploreActivity));
+				StartActivity (exploreActivity);
+			};
 		}
 
 		public void CreateBuildingDescription(){
