@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using Android.Support.V4.Widget;
 using Android.Support.V4.App;
 using System.Collections;
+using Android.Content;
 
 namespace GoogleApiTest
 {
@@ -21,6 +22,8 @@ namespace GoogleApiTest
 		List<string> drawerSettings;
 		ActionBarDrawerToggle mDrawerToggle;
 		GoogleMap map;
+		List<Building> SGWBuildings = new List<Building> ();
+		List<Building> LoyolaBuildings = new List<Building> ();
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -40,31 +43,55 @@ namespace GoogleApiTest
 				zoomSgw (map);
 			}
 
+			InitializeSGWBuildings ();
+			InitializeLoyolaBuildings ();
+
 			ToggleButton togglebutton = FindViewById<ToggleButton>(Resource.Id.togglebutton);
 
 			togglebutton.Click += (o, e) => {
 				// Perform action on clicks
 				if (togglebutton.Checked){
 					zoomLoyola (map);
-					createSpinnerBuilding (map, LoyolaBuildings());
+					createSpinnerBuilding (map, LoyolaBuildings);
 				}else{
 					zoomSgw (map);
-					createSpinnerBuilding (map, SGWBuildings());
+					createSpinnerBuilding (map, SGWBuildings);
 				}
 			};
-				
+
 			drawSGWPolygons (map);
 			drawLoyolaPolygons (map);
 			createSettingsDrawer ();
-			createSpinnerBuilding (map, SGWBuildings());
+			createSpinnerBuilding (map, SGWBuildings);
 
 			map.MapClick += HandleMapClick;
 			MarkerOptions markerOpt1 = new MarkerOptions();
 			markerOpt1.SetPosition(new LatLng(45.49770868047681,-73.57903227210045));
 			markerOpt1.SetTitle("Hall Building");
-			markerOpt1.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
+			//markerOpt1.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
 			map.AddMarker(markerOpt1);
+
+
+			Button exploreButton = FindViewById<Button> (Resource.Id.explore);
+			exploreButton.Click += (sender, e) => {
+				var exploreActivity = new Intent (this, typeof(ExploreActivity));
+				StartActivity (exploreActivity);
+			};
 		}
+
+		public void CreateBuildingDescription(){
+			LayoutInflater inflater = (LayoutInflater)this.GetSystemService (Context.LayoutInflaterService);
+			View popUp = inflater.Inflate (Resource.Layout.BuildingDescription, null);
+
+			PopupWindow window = new PopupWindow (popUp, WindowManagerLayoutParams.WrapContent, WindowManagerLayoutParams.WrapContent);
+			Button btnDismiss = popUp.FindViewById<Button> (Resource.Id.btnPopUpOk);
+			btnDismiss.Click += (sender, e) => {
+				window.Dismiss();
+			};
+
+			window.ShowAtLocation (popUp, GravityFlags.Center, 0,0);
+		}
+
 
 		public void zoomSgw(GoogleMap map){
 			LatLng location = new LatLng(45.49564057468219, -73.57727140188217);
@@ -77,25 +104,33 @@ namespace GoogleApiTest
 
 		void HandleMapClick (object sender, GoogleMap.MapClickEventArgs e)
 		{
-			if (isInPolygon (e.Point)) {
-				MarkerOptions marker = new MarkerOptions ();
-				marker.SetPosition (e.Point);
-				marker.SetTitle ("You clicked on the Hall Building");
-				//marker.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
-				map.AddMarker (marker);
+			if (SGWBuildings.Find (x => x.Abbreviation == "H").isInPolygon (e.Point)) {
+				CreateBuildingDescription ();
 			}
+
+			//foreach (Building x in SGWBuildings()) {
+			//	if (x.isInPolygon (e.Point)) {
+			//		MarkerOptions marker = new MarkerOptions ();
+			//		marker.SetPosition (e.Point);
+			//		marker.SetTitle ("You clicked on the Hall Building");
+					//marker.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
+			//		map.AddMarker (marker);
+			//	}
+			//}
+			//foreach (Building x in LoyolaBuildings()) {
+			//	if (x.isInPolygon (e.Point)) {
+					//var window = new PopupWindow (this, 400, 500, true);
+
+			//		MarkerOptions marker = new MarkerOptions ();
+			//		marker.SetPosition (e.Point);
+			//		marker.SetTitle ("You clicked on the Hall Building");
+					//marker.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
+			//		map.AddMarker (marker);
+			//	}
+			//}
 		}
 
-		public Boolean isInPolygon(LatLng point){
 
-
-
-				//45.49770868047681,-73.57903227210045
-				//45.497366508216466,-73.57833489775658
-				//45.4968288804749256,-73.57885658740997
-				//45.49715787001796,-73.579544390347004
-			return true;
-		}
 
 		public void zoomLoyola(GoogleMap map){
 			LatLng location = new LatLng(45.458593581866786, -73.64008069038391);
@@ -105,87 +140,86 @@ namespace GoogleApiTest
 			CameraPosition cameraPosition = builder.Build();
 			map.MoveCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 		}
-			
-		public List<Building> SGWBuildings(){
-			var SGWBuildings = new List<Building> ();
-			SGWBuildings.Add (new Building("B Building", "B", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("CB Building", "CB", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("CI Building", "CI", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("CL Building", "CL", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("D Building", "D", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("EN Building", "EN", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("Computer Science, Engineering and Visual Arts Integrated Complex", "EV", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("FA Building", "FA", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("Faubourg Tower", "FB", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("FG Building", "FG", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("Guy-Metro Building", "GM", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("Grey Nuns Building", "GN", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("Henry F.Hall Building", "H", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("K Building", "K", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("McConnell Library Building", "LB", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("M Building", "M", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("John Molson School of Business Building", "MB", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("Montefiore Building", "MT", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("MU Building", "MU", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("OS Building", "OS", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("P Building", "P", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("PR Building", "PR", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("Q Building", "Q", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("R Building", "R", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("RR Building", "RR", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("S Building", "S", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("Samuel Bronfman Building", "SB", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("T Building", "T", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("Toronto Dominion Building", "TD", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("V Building", "V", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("Visual Arts Building", "Q", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("X Building", "X", 45.49721798,-73.57892901));
-			SGWBuildings.Add (new Building("Z Building", "Z", 45.49721798,-73.57892901));
+
+		public List<Building> InitializeSGWBuildings(){
+			SGWBuildings.Add (new Building("B Building", "B", 45.497818, -73.579545));
+			SGWBuildings.Add (new Building("CB Building", "CB", 45.495189, -73.574308));
+			SGWBuildings.Add (new Building("CI Building", "CI", 45.497438, -73.579957));
+			SGWBuildings.Add (new Building("CL Building", "CL", 45.494195, -73.579295));
+			SGWBuildings.Add (new Building("D Building", "D", 45.497736, -73.579390));
+			SGWBuildings.Add (new Building("EN Building", "EN", 45.496823, -73.579661));
+			SGWBuildings.Add (new Building("Computer Science, Engineering and Visual Arts Integrated Complex", "EV", 45.495572, -73.578285));
+			SGWBuildings.Add (new Building("FA Building", "FA", 45.496801, -73.579528));
+			SGWBuildings.Add (new Building("Faubourg Tower", "FB", 45.494673, -73.577642));
+			SGWBuildings.Add (new Building("FG Building", "FG", 45.494195, -73.578328));
+			SGWBuildings.Add (new Building("Guy-Metro Building", "GM", 45.495857, -73.578858));
+			SGWBuildings.Add (new Building("Grey Nuns Building", "GN", 45.493522, -73.576724));
+			SGWBuildings.Add (new Building("Henry F.Hall Building", "H", 45.497260, -73.578983));
+			SGWBuildings.Add (new Building("K Building", "K", 45.497749, -73.579496));
+			SGWBuildings.Add (new Building("McConnell Library Building", "LB", 45.496775, -73.577904));
+			SGWBuildings.Add (new Building("M Building", "M", 45.497357, -73.579789));
+			SGWBuildings.Add (new Building("John Molson School of Business Building", "MB", 45.495270187715924,-73.57906848192215));
+			SGWBuildings.Add (new Building("Montefiore Building", "MT", 45.494408, -73.576165));
+			SGWBuildings.Add (new Building("MU Building", "MU", 45.497853, -73.579622));
+			SGWBuildings.Add (new Building("MI Building", "MI", 45.497700, -73.579307));
+			SGWBuildings.Add (new Building("OS Building", "OS", 45.497189, -73.573149));
+			SGWBuildings.Add (new Building("P Building", "P", 45.496648, -73.579202));
+			SGWBuildings.Add (new Building("PR Building", "PR", 45.496921, -73.579917));
+			SGWBuildings.Add (new Building("Q Building", "Q", 45.496604, -73.579129));
+			SGWBuildings.Add (new Building("R Building", "R", 45.496757, -73.579445));
+			SGWBuildings.Add (new Building("RR Building", "RR", 45.496702, -73.579380));
+			SGWBuildings.Add (new Building("S Building", "S", 45.497400, -73.579867));
+			SGWBuildings.Add (new Building("Samuel Bronfman Building", "SB", 45.496553, -73.586140));
+			SGWBuildings.Add (new Building("T Building", "T", 45.496676, -73.579289));
+			SGWBuildings.Add (new Building("Toronto Dominion Building", "TD", 45.494667, -73.578743));
+			SGWBuildings.Add (new Building("V Building", "V", 45.497011, -73.579956));
+			SGWBuildings.Add (new Building("Visual Arts Building", "VA", 45.495730, -73.573868));
+			SGWBuildings.Add (new Building("X Building", "X", 45.496884, -73.579699));
+			SGWBuildings.Add (new Building("Z Building", "Z", 45.496920, -73.579785));
 			return SGWBuildings;
 		}
 
-		public List<Building> LoyolaBuildings(){
-			var LoyolaBuildings = new List<Building> ();
-			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 1, 1));
-			LoyolaBuildings.Add (new Building ("BB Building", "BB", 1, 1));
-			LoyolaBuildings.Add (new Building ("BH Building", "BH", 1, 1));
-			LoyolaBuildings.Add (new Building ("Central Building", "CC", 1, 1));
-			LoyolaBuildings.Add (new Building ("Communication & Journalism Building", "CJ", 1, 1));
-			LoyolaBuildings.Add (new Building ("Stinger Dome (seasonal)", "DO", 1, 1));
-			LoyolaBuildings.Add (new Building ("F. C. Smith Building", "FC", 1, 1));
-			LoyolaBuildings.Add (new Building ("Centre for Structural and Functional Genomics", "GE", 1, 1));
-			LoyolaBuildings.Add (new Building ("Hingston Wing A", "HA", 1, 1));
-			LoyolaBuildings.Add (new Building ("Hingston Wing B", "HB", 1, 1));
-			LoyolaBuildings.Add (new Building ("Hingston Wing C", "HC", 1, 1));
-			LoyolaBuildings.Add (new Building ("Jesuit Residence", "JR", 1, 1));
-			LoyolaBuildings.Add (new Building ("PERFORM Centre", "PC", 1, 1));
-			LoyolaBuildings.Add (new Building ("Physical Services Building", "PS", 1, 1));
-			LoyolaBuildings.Add (new Building ("Oscar Peterson Concert Hall", "PT", 1, 1));
-			LoyolaBuildings.Add (new Building ("Psychology Building", "PY", 1, 1));
-			LoyolaBuildings.Add (new Building ("Recreation and Athletics Complex", "RA", 1, 1));
-			LoyolaBuildings.Add (new Building ("Loyola Jesuit Hall and Conference Centre", "RF", 1, 1));
-			LoyolaBuildings.Add (new Building ("Student Centre", "SC", 1, 1));
-			LoyolaBuildings.Add (new Building ("Solar House", "SH", 1, 1));
-			LoyolaBuildings.Add (new Building ("Saint-Ignatius of Loyola Church", "SI", 1, 1));
-			LoyolaBuildings.Add (new Building ("Richard J. Renaud Science Complex", "SP", 1, 1));
-			LoyolaBuildings.Add (new Building ("Terrebonne Building", "TA", 1, 1));
-			LoyolaBuildings.Add (new Building ("Vanier Extension", "VE", 1, 1));
-			LoyolaBuildings.Add (new Building ("Vanier Library", "VL", 1, 1));
+		public List<Building> InitializeLoyolaBuildings(){
+			LoyolaBuildings.Add (new Building ("Administration Building", "AD", 45.458011, -73.639854));
+			LoyolaBuildings.Add (new Building ("BB Building", "BB", 45.459856, -73.639320));
+			LoyolaBuildings.Add (new Building ("BH Building", "BH", 45.459738, -73.639154));
+			LoyolaBuildings.Add (new Building ("Central Building", "CC", 45.458225, -73.640425));
+			LoyolaBuildings.Add (new Building ("Communication & Journalism Building", "CJ", 45.457452, -73.640427));
+			LoyolaBuildings.Add (new Building ("Stinger Dome (seasonal)", "DO", 45.457595, -73.636173));
+			LoyolaBuildings.Add (new Building ("F. C. Smith Building", "FC", 45.458487, -73.639347));
+			LoyolaBuildings.Add (new Building ("Centre for Structural and Functional Genomics", "GE", 45.456910, -73.640416));
+			LoyolaBuildings.Add (new Building ("Hingston Wing A", "HA", 45.459450, -73.641269));
+			LoyolaBuildings.Add (new Building ("Hingston Wing B", "HB", 45.459234, -73.641903));
+			LoyolaBuildings.Add (new Building ("Hingston Wing C", "HC", 45.459669, -73.642079));
+			LoyolaBuildings.Add (new Building ("Jesuit Residence", "JR", 45.458408, -73.643297));
+			LoyolaBuildings.Add (new Building ("PERFORM Centre", "PC", 45.457053, -73.637310));
+			LoyolaBuildings.Add (new Building ("Physical Services Building", "PS", 45.459649, -73.639795));
+			LoyolaBuildings.Add (new Building ("Oscar Peterson Concert Hall", "PT", 45.459324, -73.639006));
+			LoyolaBuildings.Add (new Building ("Psychology Building", "PY", 45.458906, -73.640530));
+			LoyolaBuildings.Add (new Building ("Recreation and Athletics Complex", "RA", 45.456703, -73.637680));
+			LoyolaBuildings.Add (new Building ("Loyola Jesuit Hall and Conference Centre", "RF", 45.458479, -73.641053));
+			LoyolaBuildings.Add (new Building ("Student Centre", "SC", 45.459127, -73.639204));
+			LoyolaBuildings.Add (new Building ("Solar House", "SH", 45.459399, -73.642394));
+			LoyolaBuildings.Add (new Building ("Saint-Ignatius of Loyola Church", "SI",45.457836, -73.642331));
+			LoyolaBuildings.Add (new Building ("Richard J. Renaud Science Complex", "SP", 45.457625, -73.641703));
+			LoyolaBuildings.Add (new Building ("Terrebonne Building", "TA", 45.459997, -73.640900));
+			LoyolaBuildings.Add (new Building ("Vanier Extension", "VE", 45.458845, -73.638635));
+			LoyolaBuildings.Add (new Building ("Vanier Library", "VL", 45.459093, -73.638367));
 			return LoyolaBuildings;
 		}
 
 		public void createSpinnerBuilding(GoogleMap map, List<Building> buildings){
 			Spinner spinner = FindViewById<Spinner> (Resource.Id.spinner);
 			ArrayAdapter _adapterFrom;
-					
+
 			List<string> strBuildings = new List<string> ();
 			strBuildings.Add("Choose a Building");
 			foreach(Building building in buildings){
 				strBuildings.Add (building.toString());
 			}
-				
+
 			_adapterFrom = new ArrayAdapter (this, Android.Resource.Layout.SimpleSpinnerItem, strBuildings);
-							
+
 			_adapterFrom.SetDropDownViewResource (Android.Resource.Layout.SimpleSpinnerDropDownItem);
 			spinner.Adapter = _adapterFrom; 
 
@@ -204,7 +238,7 @@ namespace GoogleApiTest
 			LatLng location = new LatLng(buildingToZoom.XCoordinate, buildingToZoom.YCoordinate);
 			CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
 			builder.Target(location);
-			builder.Zoom(16);
+			builder.Zoom(18);
 			CameraPosition cameraPosition = builder.Build();
 			map.MoveCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 		}
@@ -241,14 +275,21 @@ namespace GoogleApiTest
 		}
 
 		public void drawSGWPolygons(GoogleMap map){
-	
+
 			PolygonOptions hallBuilding = new PolygonOptions();
-			hallBuilding.Add(new LatLng(45.49770868047681,-73.57903227210045));
-			hallBuilding.Add(new LatLng(45.497366508216466,-73.57833489775658));
-			hallBuilding.Add(new LatLng(45.4968288804749256,-73.57885658740997));
-			hallBuilding.Add(new LatLng(45.49715787001796,-73.579544390347004));
+			List<LatLng> HallPoints=new List<LatLng>();
+			LatLng p=null;
+			hallBuilding.Add(p=new LatLng(45.49770868047681,-73.57903227210045));
+			HallPoints.Add (p);
+			hallBuilding.Add(p=new LatLng(45.497366508216466,-73.57833489775658));
+			HallPoints.Add (p);
+			hallBuilding.Add(p=new LatLng(45.4968288804749256,-73.57885658740997));
+			HallPoints.Add (p);
+			hallBuilding.Add(p=new LatLng(45.49715787001796,-73.579544390347004));
+			HallPoints.Add (p);
 			hallBuilding.InvokeFillColor(-65536);
 			hallBuilding.InvokeStrokeWidth (4);
+			SGWBuildings.Find (x => x.Abbreviation == "H").setCorners (HallPoints);
 			map.AddPolygon(hallBuilding);
 
 			PolygonOptions JMSBBuilding = new PolygonOptions();
