@@ -19,33 +19,6 @@ C:\Users\Justin Do\Documents\Projects\GoogleApiTest\GoogleApiTest\obj\Debug\res\
 C:\Users\Justin Do\Documents\Projects\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxxhdpi\icon.png
 C:\Users\Justin Do\Documents\Projects\GoogleApiTest\GoogleApiTest\obj\Debug\R.cs.flag
 C:\Users\Justin Do\Documents\Projects\GoogleApiTest\GoogleApiTest\obj\Debug\uploadflags.txt
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.dll
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.pdb
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.dll.mdb
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.GoogleApiTest.apk
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.GoogleApiTest-Signed.apk
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GooglePlayServicesLib.dll
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\Xamarin.Android.Support.v4.dll
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\Xamarin.Android.Support.v7.AppCompat.dll
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\Xamarin.Android.Support.v7.MediaRouter.dll
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\GoogleApiTest.dll
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\GoogleApiTest.pdb
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\android\bin\GoogleApiTest.GoogleApiTest.apk
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\layout\main.xml
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\values\strings.xml
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\icon.png
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\icon.png
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xhdpi\icon.png
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxhdpi\icon.png
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxxhdpi\icon.png
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\location.jpg
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\location.jpg
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xhdpi\location.jpg
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxhdpi\location.jpg
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxxhdpi\location.jpg
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\R.cs.flag
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\uploadflags.txt
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\GoogleApiTest.csprojResolveAssemblyReference.cache
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.dll
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.pdb
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.dll.mdb
@@ -78,22 +51,11 @@ C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\De
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\values\styles.xml
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\R.cs.flag
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\uploadflags.txt
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\home.png
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\home.png
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xhdpi\home.png
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxhdpi\home.png
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxxhdpi\home.png
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\values\styles.xml
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\ic_navigation_drawer.png
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\ic_navigation_drawer.png
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\GoogleApiTest.csprojResolveAssemblyReference.cache
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\ic_navigation_drawer.png
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\ic_navigation_drawer.png
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\h.jpg
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\h.jpg
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\h.jpg
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\h.jpg
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\layout\buildingdescription.xml
 C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.dll
 C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.pdb
 C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.dll.mdb
@@ -132,5 +94,42 @@ C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res
 C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\layout\buildingdescription.xml
 C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\R.cs.flag
 C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\uploadflags.txt
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.dll
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.pdb
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.dll.mdb
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.GoogleApiTest.apk
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.GoogleApiTest-Signed.apk
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GooglePlayServicesLib.dll
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\Xamarin.Android.Support.v4.dll
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\Xamarin.Android.Support.v7.MediaRouter.dll
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\GoogleApiTest.dll
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\GoogleApiTest.pdb
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\android\bin\GoogleApiTest.GoogleApiTest.apk
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\layout\main.xml
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\values\strings.xml
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\icon.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\icon.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xhdpi\icon.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxhdpi\icon.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxxhdpi\icon.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\location.jpg
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\location.jpg
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xhdpi\location.jpg
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxhdpi\location.jpg
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxxhdpi\location.jpg
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\home.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\home.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xhdpi\home.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxhdpi\home.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-xxxhdpi\home.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\values\styles.xml
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\ic_navigation_drawer.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\ic_navigation_drawer.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\h.jpg
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-mdpi\h.jpg
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\layout\buildingdescription.xml
 C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\layout\exploreview.xml
 C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\border.xml
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\R.cs.flag
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\uploadflags.txt
