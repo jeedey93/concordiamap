@@ -32,21 +32,27 @@ namespace GoogleApiTest
 			double x = point.Latitude;
 			double y = point.Longitude;
 
-			int   i, j= 4-1 ;
+			int   i, j= Corners.Count-1 ;
 			bool  oddNodes=false;
 
-			double [] polyX = new double [4];
-			double [] polyY = new double [4];
+			double [] polyX = new double [Corners.Count];
+			double [] polyY = new double [Corners.Count];
 
-			polyX[0] = 45.49771432066147;
-			polyX[1] = 45.497372148435424;
-			polyX[2] = 45.4968288804749256;
-			polyX[3] = 45.49715781971825;
+			int count = 0;
+			foreach (LatLng p in Corners) {
+				polyX [count] = p.Latitude;
+				polyY [count] = p.Longitude;
+				count++;
+			}
+			//polyX[0] = 45.49771432066147;
+			//polyX[1] = 45.497372148435424;
+			//polyX[2] = 45.4968288804749256;
+			//polyX[3] = 45.49715781971825;
 
-			polyY[0] = -73.57902020215988;
-			polyY[1] = -73.57835501432419;
-			polyY[2] = -73.57885658740997;
-			polyY[3] = -73.57953518629074;
+			//polyY[0] = -73.57902020215988;
+			//polyY[1] = -73.57835501432419;
+			//polyY[2] = -73.57885658740997;
+			//polyY[3] = -73.57953518629074;
 
 			for (i=0; i< 4; i++) {
 				if (polyY[i]<y && polyY[j]>=y ||  polyY[j]<y && polyY[i]>=y) {
