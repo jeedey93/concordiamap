@@ -133,3 +133,5 @@ C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res
 C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\R.cs.flag
 C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\uploadflags.txt
 C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\layout\exploreview.xml
+C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\layout\buildingdescription.xml
+C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\layout\exploreview.xml

@@ -25,67 +25,39 @@ namespace GoogleApiTest
 		}
 
 		public void setCorners(List<LatLng> Points){
-			// we need 3 points Bottom Left, Bottom Right and Top left
-			//Latitude X Longitude Y
-			LatLng BotLeft=Points[0];
-			LatLng BotRight=Points[0];
-			LatLng TopLeft=Points[0];
-			foreach(LatLng p in Points){
-				if (p.Longitude < BotLeft.Longitude) {
-					BotLeft = p;
-				}
-
-				if (p.Longitude > BotRight.Longitude) {
-					BotRight = p;
-				}
-
-				if (p.Latitude > TopLeft.Latitude && p!=BotLeft && p!=BotRight) {
-					TopLeft = p;
-				}
-			}
-
-			if (Corners.Count == 3) {
-				Corners [0] = (BotLeft);
-				Corners [1] = (TopLeft);
-				Corners [2] = (BotRight);
-			} else {
-				Corners.Add (BotLeft);
-
-				Corners.Add (TopLeft);
-
-				Corners.Add (BotRight);
-			}
+			Corners = Points;
 		}
 
 		public Boolean isInPolygon(LatLng point){
-			double Ax = Corners[0].Latitude, Ay = Corners[0].Longitude;
-			double Bx = Corners[1].Latitude, By = Corners[1].Longitude;
-			double Dx = Corners[2].Latitude, Dy = Corners[2].Longitude;
+			double x = point.Latitude;
+			double y = point.Longitude;
 
-			double AMx = Ax - point.Latitude;
-			double AMy = Ay - point.Longitude;
-			double ABx = Ax - Bx;
-			double ABy = Ay - By;
-			double ADx = Ax - Dx;
-			double ADy = Ay - Dy;
+			int   i, j= 4-1 ;
+			bool  oddNodes=false;
 
-			double AMAB = AMx * ABx + AMy * ABy;
-			double ABAB = ABx * ABx + ABy * ABy;
-			double AMAD = AMx * ADx + AMy * ADy;
-			double ADAD = ADx * ADx + ADy * ADy;
+			double [] polyX = new double [4];
+			double [] polyY = new double [4];
 
-			Console.WriteLine ();
+			polyX[0] = 45.49771432066147;
+			polyX[1] = 45.497372148435424;
+			polyX[2] = 45.4968288804749256;
+			polyX[3] = 45.49715781971825;
 
-			if (0 < AMAB && AMAB < ABAB) {
-				if (0 < AMAD && AMAD < ADAD) {
-					Console.WriteLine ("Point is in rectangle");
-					return true;
+			polyY[0] = -73.57902020215988;
+			polyY[1] = -73.57835501432419;
+			polyY[2] = -73.57885658740997;
+			polyY[3] = -73.57953518629074;
+
+			for (i=0; i< 4; i++) {
+				if (polyY[i]<y && polyY[j]>=y ||  polyY[j]<y && polyY[i]>=y) {
+					if (polyX[i]+(y-polyY[i])/(polyY[j]-polyY[i])*(polyX[j]-polyX[i])<x) {
+						oddNodes=!oddNodes; 
+					}
 				}
-				else Console.WriteLine ("Point is not in rectangle");
-				return false;
+				j=i; 
 			}
-			else Console.WriteLine ("Point is not in rectangle");
-			return false;
+			Console.WriteLine(oddNodes);
+			return oddNodes; 
 
 		}
 	}

@@ -1,5 +1,5 @@
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.dll
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\packages\Xamarin.GooglePlayServices.22.0.0.0\lib\MonoAndroid41\GooglePlayServicesLib.dll
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\packages\Xamarin.Android.Support.v4.21.0.3.0\lib\MonoAndroid10\Xamarin.Android.Support.v4.dll
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\packages\Xamarin.Android.Support.v7.AppCompat.21.0.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll
-C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\packages\Xamarin.Android.Support.v7.MediaRouter.21.0.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.MediaRouter.dll
+C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\GoogleApiTest.dll
+C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\packages\Xamarin.GooglePlayServices.22.0.0.0\lib\MonoAndroid41\GooglePlayServicesLib.dll
+C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\packages\Xamarin.Android.Support.v4.21.0.3.0\lib\MonoAndroid10\Xamarin.Android.Support.v4.dll
+C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\packages\Xamarin.Android.Support.v7.AppCompat.21.0.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\packages\Xamarin.Android.Support.v7.MediaRouter.21.0.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.MediaRouter.dll
