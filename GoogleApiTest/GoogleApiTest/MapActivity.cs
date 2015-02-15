@@ -113,7 +113,7 @@ namespace GoogleApiTest
 			//		MarkerOptions marker = new MarkerOptions ();
 			//		marker.SetPosition (e.Point);
 			//		marker.SetTitle ("You clicked on the Hall Building");
-					//marker.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
+			//		marker.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
 			//		map.AddMarker (marker);
 			//	}
 			//}
