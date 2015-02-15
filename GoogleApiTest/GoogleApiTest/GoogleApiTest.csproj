@@ -97,6 +97,7 @@
     <AndroidResource Include="Resources\drawable-mdpi\h.jpg" />
     <AndroidResource Include="Resources\layout\BuildingDescription.axml" />
     <AndroidResource Include="Resources\layout\ExploreView.axml" />
+    <AndroidResource Include="Resources\drawable-hdpi\border.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

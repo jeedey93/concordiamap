@@ -133,3 +133,4 @@ C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res
 C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\R.cs.flag
 C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\uploadflags.txt
 C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\layout\exploreview.xml
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\border.xml

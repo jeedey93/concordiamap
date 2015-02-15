@@ -69,7 +69,7 @@ namespace GoogleApiTest
 			markerOpt1.SetPosition(new LatLng(45.49770868047681,-73.57903227210045));
 			markerOpt1.SetTitle("Hall Building");
 			//markerOpt1.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
-			map.AddMarker(markerOpt1);
+			//map.AddMarker(markerOpt1);
 
 
 			Button exploreButton = FindViewById<Button> (Resource.Id.explore);
