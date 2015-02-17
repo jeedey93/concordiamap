@@ -81,11 +81,17 @@ namespace GoogleApiTest
 			};
 		}
 
-		public void CreateBuildingDescription(){
+		public void CreateBuildingDescription(String Description){
 			LayoutInflater inflater = (LayoutInflater)this.GetSystemService (Context.LayoutInflaterService);
 			View popUp = inflater.Inflate (Resource.Layout.BuildingDescription, null);
-
+			TextView textView = popUp.FindViewById<TextView>(Resource.Id.description);
+			textView.Text = Description;
 			PopupWindow window = new PopupWindow (popUp, WindowManagerLayoutParams.WrapContent, WindowManagerLayoutParams.WrapContent);
+
+
+			// = FindViewById<TextView>(Resource.Id.description);
+			//textView.Text = Description;
+
 			Button btnDismiss = popUp.FindViewById<Button> (Resource.Id.btnPopUpOk);
 			btnDismiss.Click += (sender, e) => {
 				window.Dismiss();
@@ -108,14 +114,15 @@ namespace GoogleApiTest
 		{
 			Building b = BuildingManager.isInPolygon(e.Point);
 			if (b != null) {
-				MarkerOptions marker = new MarkerOptions ();
-				marker.SetPosition (e.Point);
-				marker.SetTitle (b.Name);
-				map.AddMarker (marker);
+				//MarkerOptions marker = new MarkerOptions ();
+				//marker.SetPosition (e.Point);
+				//marker.SetTitle (b.Name);
+				//map.AddMarker (marker);
+				CreateBuildingDescription (b.Name);
 			}
 
 			//if (SGWBuildings.Find (x => x.Abbreviation == "H").isInPolygon (e.Point)) {
-			//	CreateBuildingDescription ();
+			//	
 			//}
 
 			//foreach (Building x in SGWBuildings()) {

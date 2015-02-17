@@ -5,6 +5,7 @@
     android:layout_height="fill_parent"
     android:background="@drawable/border">
     <TextView
+        android:id="@+id/description"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="The Henry F. Hall Building is a high-density hub of Concordia’s downtown campus. It is a utilitarian, cube-shaped, 1960s-style high-rise university building made of pre-fabricated stressed concrete."
