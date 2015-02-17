@@ -10,6 +10,21 @@ namespace GoogleApiTest
 		List<Building> SGWBuildings = new List<Building> ();
 		List<Building> LoyolaBuildings = new List<Building> ();
 
+		public Building isInPolygon(LatLng point){
+
+			foreach (var building in SGWBuildings) {
+				if (building.isInPolygon (point)) {
+					return building;
+				}
+			}
+			foreach (var building in LoyolaBuildings) {
+				if (building.isInPolygon (point)) {
+					return building;
+				}
+			}
+			return null;
+		}
+
 		public List<Building> InitializeSGWBuildings(){
 
 			Building BBuilding = new Building ("B Building", "B", 45.497818, -73.579545);

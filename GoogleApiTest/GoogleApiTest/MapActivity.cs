@@ -106,9 +106,17 @@ namespace GoogleApiTest
 
 		void HandleMapClick (object sender, GoogleMap.MapClickEventArgs e)
 		{
-			if (SGWBuildings.Find (x => x.Abbreviation == "H").isInPolygon (e.Point)) {
-				CreateBuildingDescription ();
+			Building b = BuildingManager.isInPolygon(e.Point);
+			if (b != null) {
+				MarkerOptions marker = new MarkerOptions ();
+				marker.SetPosition (e.Point);
+				marker.SetTitle (b.Name);
+				map.AddMarker (marker);
 			}
+
+			//if (SGWBuildings.Find (x => x.Abbreviation == "H").isInPolygon (e.Point)) {
+			//	CreateBuildingDescription ();
+			//}
 
 			//foreach (Building x in SGWBuildings()) {
 			//	if (x.isInPolygon (e.Point)) {
