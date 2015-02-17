@@ -13,5 +13,6 @@
         android:id="@+id/btnPopUpOk"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="OK" />
+        android:layout_alignParentRight="true"
+        android:text="X" />
 </LinearLayout>

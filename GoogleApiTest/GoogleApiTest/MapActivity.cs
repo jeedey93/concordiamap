@@ -16,7 +16,7 @@ namespace GoogleApiTest
 	[Activity (Label = "MapActivity")]			
 	public class MapActivity : Activity
 	{
-
+		BuildingManager BuildingManager = new BuildingManager ();
 		ListView listview;
 		DrawerLayout drawer;
 		List<string> drawerSettings;
@@ -43,8 +43,10 @@ namespace GoogleApiTest
 				zoomSgw (map);
 			}
 
-			InitializeSGWBuildings ();
-			InitializeLoyolaBuildings ();
+			SGWBuildings = BuildingManager.InitializeSGWBuildings ();
+			LoyolaBuildings = BuildingManager.InitializeLoyolaBuildings ();
+			//InitializeSGWBuildings ();
+			//InitializeLoyolaBuildings ();
 
 			ToggleButton togglebutton = FindViewById<ToggleButton>(Resource.Id.togglebutton);
 

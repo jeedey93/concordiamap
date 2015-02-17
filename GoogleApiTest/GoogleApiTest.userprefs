@@ -1,12 +1,12 @@
 ﻿<Properties StartupItem="GoogleApiTest\GoogleApiTest.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoogleApiTest\MapActivity.cs">
     <Files>
-      <File FileName="GoogleApiTest\ExploreActivity.cs" Line="1" Column="1" />
-      <File FileName="GoogleApiTest\Objects\ImageAdapter.cs" Line="1" Column="1" />
-      <File FileName="GoogleApiTest\MapActivity.cs" Line="42" Column="42" />
-      <File FileName="GoogleApiTest\Objects\Building.cs" Line="1" Column="1" />
+      <File FileName="GoogleApiTest\MapActivity.cs" Line="4" Column="4" />
+      <File FileName="GoogleApiTest\Models\Building.cs" Line="4" Column="4" />
       <File FileName="GoogleApiTest\Resources\drawable-hdpi\border.xml" Line="1" Column="1" />
+      <File FileName="GoogleApiTest\ExploreActivity.cs" Line="1" Column="1" />
+      <File FileName="GoogleApiTest\Models\BuildingManager.cs" Line="33" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
