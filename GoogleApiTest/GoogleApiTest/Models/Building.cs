@@ -54,7 +54,7 @@ namespace GoogleApiTest
 			//polyY[2] = -73.57885658740997;
 			//polyY[3] = -73.57953518629074;
 
-			for (i=0; i< 4; i++) {
+			for (i=0; i< Corners.Count; i++) {
 				if (polyY[i]<y && polyY[j]>=y ||  polyY[j]<y && polyY[i]>=y) {
 					if (polyX[i]+(y-polyY[i])/(polyY[j]-polyY[i])*(polyX[j]-polyX[i])<x) {
 						oddNodes=!oddNodes; 
