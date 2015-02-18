@@ -108,9 +108,7 @@ namespace GoogleApiTest
 				CreateBuildingDescription (b.Name);
 			}
 		}
-
-
-
+			
 		public void zoomLoyola(GoogleMap map){
 			LatLng location = new LatLng(45.458593581866786, -73.64008069038391);
 			CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
