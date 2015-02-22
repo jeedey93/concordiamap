@@ -76,11 +76,15 @@ namespace GoogleApiTest
 			};
 		}
 
-		public void CreateBuildingDescription(String Description){
+		public void CreateBuildingDescription(Building building){
 			LayoutInflater inflater = (LayoutInflater)this.GetSystemService (Context.LayoutInflaterService);
 			View popUp = inflater.Inflate (Resource.Layout.BuildingDescription, null);
 			TextView textView = popUp.FindViewById<TextView>(Resource.Id.buildingName);
-			textView.Text = Description;
+			textView.Text = building.Name;
+
+			ImageView imageView = popUp.FindViewById<ImageView> (Resource.Id.buildingImage);
+			imageView.SetImageResource(building.BuildingImage);
+
 			PopupWindow window = new PopupWindow (popUp, WindowManagerLayoutParams.WrapContent, WindowManagerLayoutParams.WrapContent);
 
 			Button btnDismiss = popUp.FindViewById<Button> (Resource.Id.btnPopUpOk);
@@ -105,7 +109,7 @@ namespace GoogleApiTest
 		{
 			Building b = BuildingManager.isInPolygon(e.Point);
 			if (b != null) {
-				CreateBuildingDescription (b.Name);
+				CreateBuildingDescription (b);
 			}
 		}
 			

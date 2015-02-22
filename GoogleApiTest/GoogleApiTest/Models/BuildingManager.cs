@@ -36,6 +36,7 @@ namespace GoogleApiTest
 		public List<Building> InitializeSGWBuildings(){
 
 			Building BBuilding = new Building ("B Building", "B", 45.497818, -73.579545);
+			BBuilding.BuildingImage = Resource.Drawable.B;
 			BBuilding.Corners.Add (new LatLng (45.497885, -73.579421));
 			BBuilding.Corners.Add (new LatLng (45.497847, -73.579337));
 			BBuilding.Corners.Add (new LatLng (45.497592, -73.579583));
@@ -44,6 +45,7 @@ namespace GoogleApiTest
 
 
 			Building CBBuilding = new Building ("CB Building", "CB", 45.495189, -73.574308);
+			CBBuilding.BuildingImage = Resource.Drawable.CB;
 			CBBuilding.Corners.Add (new LatLng (45.495462, -73.574258));
 			CBBuilding.Corners.Add (new LatLng (45.495377, -73.57408));
 			CBBuilding.Corners.Add (new LatLng (45.495383, -73.574074));
@@ -66,6 +68,7 @@ namespace GoogleApiTest
 
 
 			Building CIBuilding = new Building ("CI Building", "CI", 45.497438, -73.579957);
+			CIBuilding.BuildingImage = Resource.Drawable.CI;
 			CIBuilding.Corners.Add (new LatLng (45.497522, -73.579937));
 			CIBuilding.Corners.Add (new LatLng (45.497478, -73.579848));
 			CIBuilding.Corners.Add (new LatLng (45.497368, -73.579958));
@@ -73,6 +76,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (CIBuilding);
 
 			Building CLBuilding = new Building ("CL Building", "CL", 45.494195, -73.579295);
+			CLBuilding.BuildingImage = Resource.Drawable.CL;
 			CLBuilding.Corners.Add (new LatLng (45.494478, -73.579272));
 			CLBuilding.Corners.Add (new LatLng (45.494268, -73.578926));
 			CLBuilding.Corners.Add (new LatLng (45.494017, -73.579237));
@@ -83,6 +87,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (CLBuilding);
 
 			Building DBuilding = new Building ("D Building", "D", 45.497736, -73.579390);
+			DBuilding.BuildingImage = Resource.Drawable.D;
 			DBuilding.Corners.Add (new LatLng (45.497846, -73.579335));
 			DBuilding.Corners.Add (new LatLng (45.497815, -73.57927));
 			DBuilding.Corners.Add (new LatLng (45.497649, -73.579432));
@@ -90,6 +95,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (DBuilding);
 
 			Building ENBuilding = new Building ("EN Building", "EN", 45.496823, -73.579661);
+			ENBuilding.BuildingImage = Resource.Drawable.EN;
 			ENBuilding.Corners.Add(new LatLng(45.496937, -73.579579));
 			ENBuilding.Corners.Add(new LatLng(45.496918, -73.579537));
 			ENBuilding.Corners.Add(new LatLng(45.496909, -73.579547));
@@ -101,6 +107,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (ENBuilding);
 
 			Building eVBuilding = new Building ("Computer Science, Engineering and Visual Arts Integrated Complex", "EV", 45.495572, -73.578285);
+			eVBuilding.BuildingImage = Resource.Drawable.EV;
 			eVBuilding.Corners.Add(new LatLng(45.495826707314045, -73.57856959104538));
 			eVBuilding.Corners.Add(new LatLng(45.49552588659263, -73.57787489891052));
 			eVBuilding.Corners.Add(new LatLng(45.49553716739868, -73.57781052589417));
@@ -113,6 +120,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (eVBuilding);
 
 			Building FABuilding = new Building ("FA Building", "FA", 45.496801, -73.579528);
+			FABuilding.BuildingImage = Resource.Drawable.FA;
 			FABuilding.Corners.Add(new LatLng(45.496865, -73.57952));
 			FABuilding.Corners.Add(new LatLng(45.496828, -73.579447));
 			FABuilding.Corners.Add(new LatLng(45.496745, -73.579529));
@@ -120,6 +128,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (FABuilding);
 
 			Building FBBuilding = new Building ("Faubourg Tower", "FB", 45.494673, -73.577642);
+			FBBuilding.BuildingImage = Resource.Drawable.FB;
 			FBBuilding.Corners.Add(new LatLng(45.494696, -73.578038));
 			FBBuilding.Corners.Add(new LatLng(45.494912, -73.577786));
 			FBBuilding.Corners.Add(new LatLng(45.494872, -73.577713));
@@ -137,6 +146,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (FBBuilding);
 
 			Building FGBuilding = new Building ("FG Building", "FG", 45.494195, -73.578328);
+			FGBuilding.BuildingImage = Resource.Drawable.FG;
 			FGBuilding.Corners.Add(new LatLng(45.494694, -73.578039));
 			FGBuilding.Corners.Add(new LatLng(45.494362, -73.578431));
 			FGBuilding.Corners.Add(new LatLng(45.494369, -73.578443));
@@ -162,6 +172,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (FGBuilding);
 
 			Building gMBuilding = new Building ("Guy-Metro Building", "GM", 45.495857, -73.578858);
+			gMBuilding.BuildingImage = Resource.Drawable.GM;
 			gMBuilding.Corners.Add(new LatLng(45.49611,-73.57888));
 			gMBuilding.Corners.Add(new LatLng(45.49595,-73.57852));
 			gMBuilding.Corners.Add(new LatLng(45.49562,-73.57884));
@@ -169,6 +180,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (gMBuilding);
 
 			Building GNBuilding = new Building ("Grey Nuns Building", "GN", 45.493522, -73.576724);
+			GNBuilding.BuildingImage = Resource.Drawable.GN;
 			GNBuilding.Corners.Add(new LatLng(45.49439, -73.577132));
 			GNBuilding.Corners.Add(new LatLng(45.494019, -73.576357));
 			GNBuilding.Corners.Add(new LatLng(45.494122, -73.576256));
@@ -225,6 +237,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (GNBuilding);
 
 			Building HallBuilding = new Building ("Henry F.Hall Building", "H", 45.497260, -73.578983);
+			HallBuilding.BuildingImage = Resource.Drawable.Hall;
 			HallBuilding.Corners.Add(new LatLng(45.49770868047681,-73.57903227210045));
 			HallBuilding.Corners.Add(new LatLng(45.497366508216466,-73.57833489775658));
 			HallBuilding.Corners.Add(new LatLng(45.4968288804749256,-73.57885658740997));
@@ -233,6 +246,7 @@ namespace GoogleApiTest
 
 
 			Building KBuilding = new Building ("K Building", "K", 45.497749, -73.579496);
+			KBuilding.BuildingImage = Resource.Drawable.K;
 			KBuilding.Corners.Add (new LatLng (45.497923, -73.579494));
 			KBuilding.Corners.Add (new LatLng (45.497887, -73.579419));
 			KBuilding.Corners.Add (new LatLng (45.497715, -73.579588));
@@ -240,6 +254,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (KBuilding);
 
 			Building libraryBuilding = new Building ("McConnell Library Building", "LB", 45.496775, -73.577904);
+			libraryBuilding.BuildingImage = Resource.Drawable.LB;
 			libraryBuilding.Corners.Add(new LatLng(45.496721, -73.578588));
 			libraryBuilding.Corners.Add(new LatLng(45.4967, -73.578549));
 			libraryBuilding.Corners.Add(new LatLng(45.496673, -73.578574));
@@ -281,6 +296,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (libraryBuilding);
 
 			Building MBuilding = new Building ("M Building", "M", 45.497357, -73.579789);
+			MBuilding.BuildingImage = Resource.Drawable.M;
 			MBuilding.Corners.Add (new LatLng (45.497433, -73.579765));
 			MBuilding.Corners.Add (new LatLng (45.497396, -73.579688));
 			MBuilding.Corners.Add (new LatLng (45.497287, -73.579797));
@@ -288,6 +304,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (MBuilding);
 
 			Building JMSBBuilding = new Building ("John Molson School of Business Building", "MB", 45.495270187715924, -73.57906848192215);
+			JMSBBuilding.BuildingImage = Resource.Drawable.MB;
 			JMSBBuilding.Corners.Add(new LatLng(45.495624, -73.57928));
 			JMSBBuilding.Corners.Add(new LatLng(45.495394, -73.579538));
 			JMSBBuilding.Corners.Add(new LatLng(45.495381, -73.579507));
@@ -303,6 +320,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (JMSBBuilding);
 
 			Building MTBuilding = new Building ("Montefiore Building", "MT", 45.494408, -73.576165);
+			MTBuilding.BuildingImage = Resource.Drawable.MT;
 			MTBuilding.Corners.Add (new LatLng (45.494553, -73.5762));
 			MTBuilding.Corners.Add (new LatLng (45.494463, -73.575983));
 			MTBuilding.Corners.Add (new LatLng (45.494305, -73.576125));
@@ -310,6 +328,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (MTBuilding);
 
 			Building MUBuilding = new Building ("MU Building", "MU", 45.497853, -73.579622);
+			MUBuilding.BuildingImage = Resource.Drawable.MU;
 			MUBuilding.Corners.Add (new LatLng (45.497963, -73.579571));
 			MUBuilding.Corners.Add (new LatLng (45.497929, -73.579496));
 			MUBuilding.Corners.Add (new LatLng (45.497753, -73.579666));
@@ -317,6 +336,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (MUBuilding);
 
 			Building MIBuilding = new Building ("MI Building", "MI", 45.497700, -73.579307);
+			MIBuilding.BuildingImage = Resource.Drawable.MI;
 			MIBuilding.Corners.Add (new LatLng (45.497813, -73.579266));
 			MIBuilding.Corners.Add (new LatLng (45.497769, -73.579173));
 			MIBuilding.Corners.Add (new LatLng (45.497601, -73.579336));
@@ -324,6 +344,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (MIBuilding);
 
 			Building OSBuilding = new Building ("OS Building", "OS", 45.497189, -73.573149);
+			OSBuilding.BuildingImage = Resource.Drawable.OS;
 			OSBuilding.Corners.Add (new LatLng (45.497291, -73.57319));
 			OSBuilding.Corners.Add (new LatLng (45.497203, -73.573013));
 			OSBuilding.Corners.Add (new LatLng (45.4971, -73.573119));
@@ -331,6 +352,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (OSBuilding);
 
 			Building PBuilding = new Building ("P Building", "P", 45.496648, -73.579202);
+			PBuilding.BuildingImage = Resource.Drawable.P;
 			PBuilding.Corners.Add(new LatLng(45.496719, -73.579193));
 			PBuilding.Corners.Add(new LatLng(45.496682, -73.579117));
 			PBuilding.Corners.Add(new LatLng(45.496583, -73.579217));
@@ -338,6 +360,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (PBuilding);
 
 			Building PRBuilding = new Building ("PR Building", "PR", 45.496921, -73.579917);
+			PRBuilding.BuildingImage = Resource.Drawable.PR;
 			PRBuilding.Corners.Add(new LatLng(45.49703, -73.579868));
 			PRBuilding.Corners.Add(new LatLng(45.496989, -73.579783));
 			PRBuilding.Corners.Add(new LatLng(45.496796, -73.579975));
@@ -345,6 +368,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (PRBuilding);
 
 			Building QBuilding = new Building ("Q Building", "Q", 45.496604, -73.579129);
+			QBuilding.BuildingImage = Resource.Drawable.Q;
 			QBuilding.Corners.Add(new LatLng(45.496683, -73.579112));
 			QBuilding.Corners.Add(new LatLng(45.496653, -73.579054));
 			QBuilding.Corners.Add(new LatLng(45.496549, -73.579156));
@@ -352,6 +376,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (QBuilding);
 
 			Building RBuilding = new Building ("R Building", "R", 45.496757, -73.579445);
+			RBuilding.BuildingImage = Resource.Drawable.R;
 			RBuilding.Corners.Add(new LatLng(45.496826, -73.579442));
 			RBuilding.Corners.Add(new LatLng(45.496787, -73.57936));
 			RBuilding.Corners.Add(new LatLng(45.4967, -73.579447));
@@ -359,6 +384,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (RBuilding);
 
 			Building RRBuilding = new Building ("RR Building", "RR", 45.496702, -73.579380);
+			RRBuilding.BuildingImage = Resource.Drawable.RR;
 			RRBuilding.Corners.Add(new LatLng(45.496783, -73.579358));
 			RRBuilding.Corners.Add(new LatLng(45.496743, -73.579274));
 			RRBuilding.Corners.Add(new LatLng(45.496612, -73.579405));
@@ -366,6 +392,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (RRBuilding);
 
 			Building SBuilding = new Building ("S Building", "S", 45.497400, -73.579867);
+			SBuilding.BuildingImage = Resource.Drawable.S;
 			SBuilding.Corners.Add (new LatLng (45.497488, -73.579834));
 			SBuilding.Corners.Add (new LatLng (45.497458, -73.579771));
 			SBuilding.Corners.Add (new LatLng (45.497435, -73.579792));
@@ -375,6 +402,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (SBuilding);
 
 			Building SBBuilding = new Building ("Samuel Bronfman Building", "SB", 45.496553, -73.586140);
+			SBBuilding.BuildingImage = Resource.Drawable.SB;
 			SBBuilding.Corners.Add (new LatLng (45.496697, -73.586202));
 			SBBuilding.Corners.Add (new LatLng (45.496665, -73.586129));
 			SBBuilding.Corners.Add (new LatLng (45.496672, -73.586121));
@@ -394,6 +422,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (SBBuilding);
 
 			Building TBuilding = new Building ("T Building", "T", 45.496676, -73.579289);
+			TBuilding.BuildingImage = Resource.Drawable.T;
 			TBuilding.Corners.Add(new LatLng(45.496731, -73.579283));
 			TBuilding.Corners.Add(new LatLng(45.496698, -73.579218));
 			TBuilding.Corners.Add(new LatLng(45.496625, -73.579292));
@@ -401,6 +430,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (TBuilding);
 
 			Building TDBuilding = new Building ("Toronto Dominion Building", "TD", 45.494667, -73.578743);
+			TDBuilding.BuildingImage = Resource.Drawable.TD;
 			TDBuilding.Corners.Add (new LatLng (45.494838, -73.578827));
 			TDBuilding.Corners.Add (new LatLng (45.494654, -73.578513));
 			TDBuilding.Corners.Add (new LatLng (45.494533, -73.578653));
@@ -408,6 +438,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (TDBuilding);
 
 			Building VBuilding = new Building ("V Building", "V", 45.497011, -73.579956);
+			VBuilding.BuildingImage = Resource.Drawable.V;
 			VBuilding.Corners.Add(new LatLng(45.49709, -73.579941));
 			VBuilding.Corners.Add(new LatLng(45.497049, -73.57986));
 			VBuilding.Corners.Add(new LatLng(45.497034, -73.579874));
@@ -417,6 +448,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (VBuilding);
 
 			Building VABuilding = new Building ("Visual Arts Building", "VA", 45.495730, -73.573868);
+			VABuilding.BuildingImage = Resource.Drawable.VA;
 			VABuilding.Corners.Add (new LatLng (45.495434, -73.57375));
 			VABuilding.Corners.Add (new LatLng (45.495702, -73.574293));
 			VABuilding.Corners.Add (new LatLng (45.496209, -73.573787));
@@ -426,6 +458,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (VABuilding);
 
 			Building XBuilding = new Building ("X Building", "X", 45.496884, -73.579699);
+			XBuilding.BuildingImage = Resource.Drawable.X;
 			XBuilding.Corners.Add(new LatLng(45.496906, -73.579615));
 			XBuilding.Corners.Add(new LatLng(45.496823, -73.579701));
 			XBuilding.Corners.Add(new LatLng(45.496859, -73.579776));
@@ -433,6 +466,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (XBuilding);
 
 			Building ZBuilding = new Building ("Z Building", "Z", 45.496920, -73.579785);
+			ZBuilding.BuildingImage = Resource.Drawable.Z;
 			ZBuilding.Corners.Add(new LatLng(45.49699, -73.579776));
 			ZBuilding.Corners.Add(new LatLng(45.496948, -73.579693));
 			ZBuilding.Corners.Add(new LatLng(45.496859, -73.579781));
@@ -444,6 +478,7 @@ namespace GoogleApiTest
 		public List<Building> InitializeLoyolaBuildings(){
 
 			Building AdministrationBuilding = new Building ("Administration Building", "AD", 45.458011, -73.639854);
+			AdministrationBuilding.BuildingImage = Resource.Drawable.AD;
 			AdministrationBuilding.Corners.Add (new LatLng (45.45783350439407, -73.6401692032814));
 			AdministrationBuilding.Corners.Add (new LatLng (45.45789464961923, -73.64012360572815));
 			AdministrationBuilding.Corners.Add (new LatLng (45.45786783979789, -73.64004917442799));
@@ -471,6 +506,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (AdministrationBuilding);
 
 			Building BBBuilding = new Building ("BB Building", "BB", 45.459856, -73.639320);
+			BBBuilding.BuildingImage = Resource.Drawable.BB;
 			BBBuilding.Corners.Add (new LatLng (45.45983338922264, -73.63943159580231));
 			BBBuilding.Corners.Add (new LatLng (45.45995191262564, -73.63935649394989));
 			BBBuilding.Corners.Add (new LatLng (45.459923692790376, -73.63925188779831));
@@ -478,6 +514,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (BBBuilding);
 
 			Building BHBuilding = new Building ("BH Building", "BH", 45.459738, -73.639154);
+			BHBuilding.BuildingImage = Resource.Drawable.BH;
 			BHBuilding.Corners.Add (new LatLng (45.459720509559546, -73.63926127552986));
 			BHBuilding.Corners.Add (new LatLng (45.459816457287566, -73.6391781270504));
 			BHBuilding.Corners.Add (new LatLng (45.459755314146435, -73.6390346288681));
@@ -485,6 +522,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (BHBuilding);
 
 			Building CentralBuilding = new Building ("Central Building", "CC", 45.458225, -73.640425);
+			CentralBuilding.BuildingImage = Resource.Drawable.CC;
 			CentralBuilding.Corners.Add (new LatLng (45.45829444368806, -73.64083841443062));
 			CentralBuilding.Corners.Add (new LatLng (45.45844871640609, -73.64071771502495));
 			CentralBuilding.Corners.Add (new LatLng (45.458241765102315, -73.64017724990845));
@@ -497,6 +535,7 @@ namespace GoogleApiTest
 
 
 			Building CJBuilding = new Building ("Communication & Journalism Building", "CJ", 45.457452, -73.640427);
+			CJBuilding.BuildingImage = Resource.Drawable.CJ;
 			CJBuilding.Corners.Add (new LatLng (45.4574214779174, -73.64024430513382));
 			CJBuilding.Corners.Add (new LatLng (45.45737162062813, -73.6401142179966));
 			CJBuilding.Corners.Add (new LatLng (45.457306712015665, -73.64007599651814));
@@ -534,14 +573,16 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (CJBuilding);
 
 			Building DOBuilding = new Building ("Stinger Dome (seasonal)", "DO", 45.457595, -73.636173);
+			DOBuilding.BuildingImage = Resource.Drawable.do1;
 			DOBuilding.Corners.Add (new LatLng (45.457372561332114, -73.63708734512329));
 			DOBuilding.Corners.Add (new LatLng (45.45833583397091, -73.63596081733704));
 			DOBuilding.Corners.Add (new LatLng (45.45792945533317, -73.63523930311203));
 			DOBuilding.Corners.Add (new LatLng (45.456956768643806, -73.6363497376442));
 			LoyolaBuildings.Add (DOBuilding);
 
-
-			Building FCBuilding = new Building ("F. C. Smith Building", "FC", 45.458487, -73.639347);
+			               
+		                                                                        Building FCBuilding = new Building ("F. C. Smith Building", "FC", 45.458487, -73.639347);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+			FCBuilding.BuildingImage = Resource.Drawable.FC;
 			FCBuilding.Corners.Add (new LatLng (45.458573827507685, -73.63969512283802));
 			FCBuilding.Corners.Add (new LatLng (45.458657548315394, -73.63962605595589));
 			FCBuilding.Corners.Add (new LatLng (45.45865990002167, -73.6395824700594));
@@ -576,6 +617,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (FCBuilding);
 
 			Building GEBuilding = new Building ("Centre for Structural and Functional Genomics", "GE", 45.456910, -73.640416);
+			GEBuilding.BuildingImage = Resource.Drawable.GE;
 			GEBuilding.Corners.Add (new LatLng (45.4568796302966, -73.64075660705566));
 			GEBuilding.Corners.Add (new LatLng (45.45710163793753, -73.64055275917053));
 			GEBuilding.Corners.Add (new LatLng (45.45697746427997, -73.64006459712982));
@@ -583,6 +625,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (GEBuilding);
 
 			Building HingstonABuilding = new Building ("Hingston Wing A", "HA", 45.459450, -73.641269);
+			HingstonABuilding.BuildingImage = Resource.Drawable.HA;
 			HingstonABuilding.Corners.Add (new LatLng (45.45942608070822, -73.6415733397007));
 			HingstonABuilding.Corners.Add (new LatLng (45.45967065430309, -73.64138424396515));
 			HingstonABuilding.Corners.Add (new LatLng (45.459647137657356, -73.64132389426231));
@@ -602,6 +645,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (HingstonABuilding);
 
 			Building HingstonBBuilding = new Building ("Hingston Wing B", "HB", 45.459234, -73.641903);
+			HingstonBBuilding.BuildingImage = Resource.Drawable.HB;
 			HingstonBBuilding.Corners.Add (new LatLng (45.45942608070822, -73.6415733397007));
 			HingstonBBuilding.Corners.Add (new LatLng (45.45940444530066, -73.64151701331139));
 			HingstonBBuilding.Corners.Add (new LatLng (45.459372462509094, -73.64153981208801));
@@ -627,6 +671,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (HingstonBBuilding);
 
 			Building HingstonCBuilding = new Building ("Hingston Wing C", "HC", 45.459669, -73.642079);
+			HingstonCBuilding.BuildingImage = Resource.Drawable.HC;
 			HingstonCBuilding.Corners.Add (new LatLng (45.45969134894318, -73.64189520478249));
 			HingstonCBuilding.Corners.Add (new LatLng (45.45951873659878, -73.64203333854675));
 			HingstonCBuilding.Corners.Add (new LatLng (45.45961562533672, -73.64228010177612));
@@ -638,6 +683,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (HingstonCBuilding);
 
 			Building JesuitBuilding = new Building ("Jesuit Residence", "JR", 45.458408, -73.643297);
+			JesuitBuilding.BuildingImage = Resource.Drawable.JR;
 			JesuitBuilding.Corners.Add (new LatLng (45.45850939062161, -73.64330872893333));
 			JesuitBuilding.Corners.Add (new LatLng (45.45852726363388, -73.64329196512699));
 			JesuitBuilding.Corners.Add (new LatLng (45.458487754862304, -73.6431933939457));
@@ -659,6 +705,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (JesuitBuilding);
 
 			Building PCBUilding = new Building ("PERFORM Centre", "PC", 45.457053, -73.637310);
+			PCBUilding.BuildingImage = Resource.Drawable.PC;
 			PCBUilding.Corners.Add (new LatLng (45.45711104502166, -73.63783299922943));
 			PCBUilding.Corners.Add (new LatLng (45.45737820555565, -73.6376291513443));
 			PCBUilding.Corners.Add (new LatLng (45.457048958237415, -73.63678425550461));
@@ -667,6 +714,7 @@ namespace GoogleApiTest
 
 
 			Building PhysicalServicesBuilding = new Building ("Physical Services Building", "PS", 45.459649, -73.639795);
+			PhysicalServicesBuilding.BuildingImage = Resource.Drawable.PS;
 			PhysicalServicesBuilding.Corners.Add (new LatLng (45.4597026369255, -73.64032879471779));
 			PhysicalServicesBuilding.Corners.Add (new LatLng (45.45984843982731, -73.64021345973015));
 			PhysicalServicesBuilding.Corners.Add (new LatLng (45.45982398259268, -73.64015311002731));
@@ -684,6 +732,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (PhysicalServicesBuilding);
 
 			Building PTBuilding = new Building ("Oscar Peterson Concert Hall", "PT", 45.459324, -73.639006);
+			PTBuilding.BuildingImage = Resource.Drawable.PT;
 			PTBuilding.Corners.Add (new LatLng (45.45949004621238, -73.63913387060165));
 			PTBuilding.Corners.Add (new LatLng (45.459459944807705, -73.63905474543571));
 			PTBuilding.Corners.Add (new LatLng (45.45944865677681, -73.63906279206276));
@@ -703,6 +752,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (PTBuilding);
 
 			Building PsychologyBuilding = new Building ("Psychology Building", "PY", 45.458906, -73.640530);
+			PsychologyBuilding.BuildingImage = Resource.Drawable.PY;
 			PsychologyBuilding.Corners.Add (new LatLng (45.45879488779811, -73.64084377884865));
 			PsychologyBuilding.Corners.Add (new LatLng (45.45910060804827, -73.64060908555984));
 			PsychologyBuilding.Corners.Add (new LatLng (45.45912036222279, -73.64066138863564));
@@ -722,6 +772,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (PsychologyBuilding);
 
 			Building athleticBuilding = new Building ("Recreation and Athletics Complex", "RA", 45.456703, -73.637680);
+			athleticBuilding.BuildingImage = Resource.Drawable.RA;
 			athleticBuilding.Corners.Add (new LatLng (45.45695817971015, -73.63793425261974));
 			athleticBuilding.Corners.Add (new LatLng (45.4570235590787, -73.63787725567818));
 			athleticBuilding.Corners.Add (new LatLng (45.45672206078385, -73.63710813224316));
@@ -746,6 +797,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (athleticBuilding);
 
 			Building RefectoryBuilding = new Building ("Loyola Jesuit Hall and Conference Centre", "RF", 45.458479, -73.641053);
+			RefectoryBuilding.BuildingImage = Resource.Drawable.RF;
 			RefectoryBuilding.Corners.Add (new LatLng (45.45842237719143, -73.64139631390572));
 			RefectoryBuilding.Corners.Add (new LatLng (45.45858041229482, -73.64127293229103));
 			RefectoryBuilding.Corners.Add (new LatLng (45.458552191773144, -73.6411964893341));
@@ -774,6 +826,7 @@ namespace GoogleApiTest
 
 
 			Building SCBuilding = new Building ("Student Centre", "SC", 45.459127, -73.639204);
+			SCBuilding.BuildingImage = Resource.Drawable.SC;
 			SCBuilding.Corners.Add (new LatLng (45.45899337098003, -73.63912582397461));
 			SCBuilding.Corners.Add (new LatLng (45.4591043707487, -73.63940745592117));
 			SCBuilding.Corners.Add (new LatLng (45.459216310972096, -73.63932028412819));
@@ -790,6 +843,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (SCBuilding);
 
 			Building SHBuilding = new Building ("Solar House", "SH", 45.459399, -73.642394);
+			SHBuilding.BuildingImage = Resource.Drawable.SH;
 			SHBuilding.Corners.Add (new LatLng (45.459395038599155, -73.64253491163254));
 			SHBuilding.Corners.Add (new LatLng (45.45941008932082, -73.64237666130066));
 			SHBuilding.Corners.Add (new LatLng (45.45935364909381, -73.64237666130066));
@@ -797,6 +851,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (SHBuilding);
 
 			Building stIgnatiusBuilding = new Building ("Saint-Ignatius of Loyola Church", "SI", 45.457836, -73.642331);
+			stIgnatiusBuilding.BuildingImage = Resource.Drawable.SI;
 			stIgnatiusBuilding.Corners.Add (new LatLng (45.45815334022274, -73.6425469815731));
 			stIgnatiusBuilding.Corners.Add (new LatLng (45.458103483580565, -73.64241756498814));
 			stIgnatiusBuilding.Corners.Add (new LatLng (45.45808608077999, -73.64243097603321));
@@ -833,6 +888,7 @@ namespace GoogleApiTest
 
 
 			Building RichardScienceBuilding = new Building ("Richard J. Renaud Science Complex", "SP", 45.457625, -73.641703);
+			RichardScienceBuilding.BuildingImage = Resource.Drawable.SP;
 			RichardScienceBuilding.Corners.Add (new LatLng (45.4582079002712, -73.64158071577549));
 			RichardScienceBuilding.Corners.Add (new LatLng (45.45819661198965, -73.64154987037182));
 			RichardScienceBuilding.Corners.Add (new LatLng (45.45832360502687, -73.64144995808601));
@@ -876,6 +932,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (RichardScienceBuilding);
 
 			Building TerreBonneBuilding = new Building ("Terrebonne Building", "TA", 45.459997, -73.640900);
+			TerreBonneBuilding.BuildingImage = Resource.Drawable.TA;
 			TerreBonneBuilding.Corners.Add (new LatLng (45.46008031269777, -73.64090748131275));
 			TerreBonneBuilding.Corners.Add (new LatLng (45.4600426863333, -73.64080622792244));
 			TerreBonneBuilding.Corners.Add (new LatLng (45.45993262907309, -73.64089138805866));
@@ -884,6 +941,7 @@ namespace GoogleApiTest
 
 
 			Building VanierExtensionBuilding = new Building ("Vanier Extension", "VE", 45.458845, -73.638635);
+			VanierExtensionBuilding.BuildingImage = Resource.Drawable.VE;
 			VanierExtensionBuilding.Corners.Add (new LatLng (45.45882028615895, -73.63900043070316));
 			VanierExtensionBuilding.Corners.Add (new LatLng (45.45883533703404, -73.6389883607626));
 			VanierExtensionBuilding.Corners.Add (new LatLng (45.45884709552742, -73.63901786506176));
@@ -908,6 +966,7 @@ namespace GoogleApiTest
 
 
 			Building VanierLibraryBuilding = new Building ("Vanier Library", "VL", 45.459093, -73.638367);
+			VanierLibraryBuilding.BuildingImage = Resource.Drawable.VL;
 			VanierLibraryBuilding.Corners.Add (new LatLng (45.45931320022971, -73.63867253065109));
 			VanierLibraryBuilding.Corners.Add (new LatLng (45.45928121738638, -73.63858938217163));
 			VanierLibraryBuilding.Corners.Add (new LatLng (45.45927651402553, -73.63859206438065));
@@ -935,8 +994,6 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (VanierLibraryBuilding);
 			return LoyolaBuildings;
 		}
-
-
 	}
 }
 

@@ -11,6 +11,7 @@ namespace GoogleApiTest
 		public double XCoordinate { get; set; }
 		public double YCoordinate{ get; set; }
 		public List<LatLng> Corners = new List<LatLng> ();
+		public int BuildingImage;
 
 		public Building (string Name, string Abbreviation, double XCoordinate, double YCoordinate)
 		{
