@@ -106,7 +106,7 @@ namespace GoogleApiTest
 			if (b != null && window ==null) {
 				CreateBuildingDescription (b);
 			}
-			else{
+			else if(window !=null){
 				window.Dismiss ();
 				window = null;
 			}
