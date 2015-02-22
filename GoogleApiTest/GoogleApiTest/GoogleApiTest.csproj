@@ -99,6 +99,31 @@
     <AndroidResource Include="Resources\layout\BuildingDescription.axml" />
     <AndroidResource Include="Resources\layout\ExploreView.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\border.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ad.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\bb.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\bh.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\cc.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\cj.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\fc.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\ge.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\ha.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\hb.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\hc.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\jr.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\pc.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\ps.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\pt.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\py.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\ra.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\rf.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\sc.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\sh.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\si.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\sp.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\ta.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\ve.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\vl.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\do1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

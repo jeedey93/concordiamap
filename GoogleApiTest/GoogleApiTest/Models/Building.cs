@@ -62,9 +62,7 @@ namespace GoogleApiTest
 				}
 				j=i; 
 			}
-			Console.WriteLine(oddNodes);
 			return oddNodes; 
-
 		}
 	}
 }

@@ -79,7 +79,7 @@ namespace GoogleApiTest
 		public void CreateBuildingDescription(String Description){
 			LayoutInflater inflater = (LayoutInflater)this.GetSystemService (Context.LayoutInflaterService);
 			View popUp = inflater.Inflate (Resource.Layout.BuildingDescription, null);
-			TextView textView = popUp.FindViewById<TextView>(Resource.Id.description);
+			TextView textView = popUp.FindViewById<TextView>(Resource.Id.buildingName);
 			textView.Text = Description;
 			PopupWindow window = new PopupWindow (popUp, WindowManagerLayoutParams.WrapContent, WindowManagerLayoutParams.WrapContent);
 
