@@ -584,12 +584,14 @@ namespace GoogleApiTest
 
 		}
 
-
+		//Click outside of buildings
 
 		[Test]
-		public void Fail ()
+		public void IsInPolygonTestOutsideOfBuilding ()
 		{
-			Assert.False (true);
+			LatLng testPointOutside = new LatLng (35.2323, -87.234324);
+
+			Assert.Equals (null, buildingManager.isInPolygon(testPointOutside));
 		}
 
 		[Test]
