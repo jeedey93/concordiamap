@@ -1,6 +1,9 @@
 ﻿using System;
 using Android.Gms.Maps.Model;
 using System.Collections.Generic;
+using System.Net.Http;
+using HtmlAgilityPack;
+using System.Linq;
 
 namespace GoogleApiTest
 {
@@ -12,6 +15,7 @@ namespace GoogleApiTest
 		public double YCoordinate{ get; set; }
 		public List<LatLng> Corners = new List<LatLng> ();
 		public int BuildingImage;
+		public string Description { get; set;}
 
 		public Building (string Name, string Abbreviation, double XCoordinate, double YCoordinate)
 		{
@@ -29,6 +33,29 @@ namespace GoogleApiTest
 			Corners = Points;
 		}
 
+		public void setDescription(string url , string classname){
+
+			var doc = new HtmlDocument (); 
+			//doc.LoadHtml (responseBody);
+
+			using (HttpClient client = new HttpClient ()) {
+
+				HttpResponseMessage response = client.GetAsync(url).Result;
+				response.EnsureSuccessStatusCode ();
+				string responseBody = response.Content.ReadAsStringAsync().Result;
+				doc.LoadHtml (responseBody);
+
+			}
+			var node = doc.DocumentNode.Descendants ("div").Where (
+				d => d.Attributes.Contains ("class") && d.Attributes ["class"].Value.Contains (classname));
+
+			Description = node.First().InnerHtml;
+
+			/*foreach (var n in node) {
+					Description = n.InnerText;
+				}*/
+		} 
+			
 		public Boolean isInPolygon(LatLng point){
 			double x = point.Latitude;
 			double y = point.Longitude;

@@ -237,6 +237,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (GNBuilding);
 
 			Building HallBuilding = new Building ("Henry F.Hall Building", "H", 45.497260, -73.578983);
+			HallBuilding.setDescription("http://www.concordia.ca/maps/buildings/h.html","rte");
 			HallBuilding.BuildingImage = Resource.Drawable.Hall;
 			HallBuilding.Corners.Add(new LatLng(45.49770868047681,-73.57903227210045));
 			HallBuilding.Corners.Add(new LatLng(45.497366508216466,-73.57833489775658));

@@ -23,6 +23,7 @@ namespace GoogleApiTest
 		ActionBarDrawerToggle mDrawerToggle;
 		GoogleMap map;
 		PopupWindow window=null;
+		MarkerOptions startingDestination;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -64,11 +65,6 @@ namespace GoogleApiTest
 			createSpinnerBuilding (map, BuildingManager.getSGWBuildings ());
 
 			map.MapClick += HandleMapClick;
-			//MarkerOptions markerOpt1 = new MarkerOptions();
-			//markerOpt1.SetPosition(new LatLng(45.49770868047681,-73.57903227210045));
-			//markerOpt1.SetTitle("Hall Building");
-			//markerOpt1.InvokeIcon (BitmapDescriptorFactory.FromResource(Resource.Drawable.h));
-			//map.AddMarker(markerOpt1);
 
 			Button exploreButton = FindViewById<Button> (Resource.Id.explore);
 			exploreButton.Click += (sender, e) => {
@@ -88,6 +84,26 @@ namespace GoogleApiTest
 
 			window = new PopupWindow (popUp, WindowManagerLayoutParams.WrapContent, WindowManagerLayoutParams.WrapContent);
 			window.ShowAtLocation (popUp, GravityFlags.Center, 0,0);
+
+			Button fromHere = popUp.FindViewById<Button> (Resource.Id.btnFromHere);
+			fromHere.Click += (sender, e) => {
+				if(startingDestination==null){
+					startingDestination = new MarkerOptions ();
+					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
+					startingDestination.SetTitle (building.Name);
+					map.AddMarker (startingDestination);
+				}
+				else{
+					Toast.MakeText(this, "You already have a starting destination, " + building.Name + " will be your new starting destination",ToastLength.Short).Show();
+					map.Clear();
+					drawSGWPolygons(map);
+					drawLoyolaPolygons(map);
+					startingDestination = new MarkerOptions ();
+					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
+					startingDestination.SetTitle (building.Name);
+					map.AddMarker (startingDestination);
+				}
+			};
 		}
 
 
