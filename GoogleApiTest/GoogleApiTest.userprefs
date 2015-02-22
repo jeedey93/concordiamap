@@ -1,12 +1,6 @@
 ﻿<Properties StartupItem="GoogleApiTest\GoogleApiTest.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.0666b490f0ec91e4" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoogleApiTest\Models\BuildingManager.cs">
-    <Files>
-      <File FileName="GoogleApiTest\MapActivity.cs" Line="40" Column="40" />
-      <File FileName="GoogleApiTest\Models\Building.cs" Line="1" Column="1" />
-      <File FileName="GoogleApiTest\Models\BuildingManager.cs" Line="72" Column="72" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.079a45360324477b" />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

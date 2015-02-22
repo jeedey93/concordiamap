@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 
 namespace GoogleApiTest
@@ -14,17 +9,76 @@ namespace GoogleApiTest
 	[Activity (Label = "ExploreActivity")]			
 	public class ExploreActivity : Activity
 	{
+		//List of buttons wihtin gridview
+		private List<Button> mButtons = new List<Button>();
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.ExploreView);
 
-			var gridView = FindViewById<GridView> (Resource.Id.gridView1);
-			gridView.Adapter = new ImageAdapter (this);
+			//Creat all buttons and add to list
+			mButtons = makeButtons ();
 
-			gridView.ItemClick += delegate(object sender, AdapterView.ItemClickEventArgs e) {
-				Toast.MakeText (this, e.Position.ToString (), ToastLength.Short).Show ();
+			var gridView = (GridView) FindViewById<GridView> (Resource.Id.exploreMenu);
+			gridView.Adapter = new ExploreMButtonAdapter (this, mButtons);
+
+		}
+
+		// Generate list of buttons
+		private List<Button> makeButtons(){
+			List<Button> tempList = new List<Button> ();
+
+			tempList.Add (makeRestaurantBtn ());
+			tempList.Add (makeCoffeeBtn ());
+			tempList.Add (makeBarBtn ());
+
+			return tempList;
+		}
+
+
+		private Button makeRestaurantBtn(){
+			Button btn = new Button (this);
+
+			btn.Text = "Retaurant";
+			btn.SetBackgroundResource (Resource.Drawable.Restaurant);
+
+			//Event Handler
+			btn.Click += (sender, e) => {
+				//Do Something
+				Console.WriteLine ("Restaurant");
 			};
+			return btn;
+		}
+
+		private Button makeCoffeeBtn(){
+			Button btn = new Button (this);
+
+			btn.Text = "Coffee";
+			btn.SetBackgroundResource (Resource.Drawable.Coffee);
+
+			//Event Handler
+			btn.Click += (sender, e) => {
+				//Do Something
+				Console.WriteLine ("Coffee");
+			};
+
+			return btn;
+		}
+
+		private Button makeBarBtn(){
+			Button btn = new Button (this);
+
+			btn.Text = "Bar";
+			btn.SetBackgroundResource (Resource.Drawable.Bar);
+
+			//Event Handler
+			btn.Click += (sender, e) => {
+				//Do Something
+				Console.WriteLine ("Bar");
+			};
+
+			return btn;
 		}
 	}
 }

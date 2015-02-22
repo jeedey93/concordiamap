@@ -70,6 +70,7 @@
     <Compile Include="Models\ImageAdapter.cs" />
     <Compile Include="Models\BuildingManager.cs" />
     <Compile Include="UnitTests\UnitTests.cs" />
+    <Compile Include="Models\ExploreMButtonAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -162,6 +163,9 @@
     <AndroidResource Include="Resources\drawable-hdpi\X.jpg" />
     <AndroidResource Include="Resources\drawable-hdpi\Z.jpg" />
     <AndroidResource Include="Resources\drawable-hdpi\Hall.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\Bar.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Coffee.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Restaurant.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
