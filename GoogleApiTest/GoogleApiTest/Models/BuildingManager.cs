@@ -172,6 +172,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (FGBuilding);
 
 			Building gMBuilding = new Building ("Guy-Metro Building", "GM", 45.495857, -73.578858);
+			gMBuilding.setDescription("http://www.concordia.ca/maps/buildings/gm.html","rte");
 			gMBuilding.BuildingImage = Resource.Drawable.GM;
 			gMBuilding.Corners.Add(new LatLng(45.49611,-73.57888));
 			gMBuilding.Corners.Add(new LatLng(45.49595,-73.57852));
@@ -180,6 +181,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (gMBuilding);
 
 			Building GNBuilding = new Building ("Grey Nuns Building", "GN", 45.493522, -73.576724);
+			GNBuilding.setDescription("http://www.concordia.ca/maps/buildings/gn.html","rte");
 			GNBuilding.BuildingImage = Resource.Drawable.GN;
 			GNBuilding.Corners.Add(new LatLng(45.49439, -73.577132));
 			GNBuilding.Corners.Add(new LatLng(45.494019, -73.576357));
@@ -255,6 +257,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (KBuilding);
 
 			Building libraryBuilding = new Building ("McConnell Library Building", "LB", 45.496775, -73.577904);
+			libraryBuilding.setDescription("http://www.concordia.ca/maps/buildings/lb.html","rte");
 			libraryBuilding.BuildingImage = Resource.Drawable.LB;
 			libraryBuilding.Corners.Add(new LatLng(45.496721, -73.578588));
 			libraryBuilding.Corners.Add(new LatLng(45.4967, -73.578549));
@@ -305,6 +308,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (MBuilding);
 
 			Building JMSBBuilding = new Building ("John Molson School of Business Building", "MB", 45.495270187715924, -73.57906848192215);
+			JMSBBuilding.setDescription("http://www.concordia.ca/maps/buildings/mb.html","rte");
 			JMSBBuilding.BuildingImage = Resource.Drawable.MB;
 			JMSBBuilding.Corners.Add(new LatLng(45.495624, -73.57928));
 			JMSBBuilding.Corners.Add(new LatLng(45.495394, -73.579538));
@@ -369,6 +373,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (PRBuilding);
 
 			Building QBuilding = new Building ("Q Building", "Q", 45.496604, -73.579129);
+			QBuilding.setDescription("http://www.concordia.ca/maps/buildings/quartier-concordia.html","rte");
 			QBuilding.BuildingImage = Resource.Drawable.Q;
 			QBuilding.Corners.Add(new LatLng(45.496683, -73.579112));
 			QBuilding.Corners.Add(new LatLng(45.496653, -73.579054));
@@ -431,6 +436,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (TBuilding);
 
 			Building TDBuilding = new Building ("Toronto Dominion Building", "TD", 45.494667, -73.578743);
+			TDBuilding.setDescription("http://www.concordia.ca/maps/buildings/td.html","rte");
 			TDBuilding.BuildingImage = Resource.Drawable.TD;
 			TDBuilding.Corners.Add (new LatLng (45.494838, -73.578827));
 			TDBuilding.Corners.Add (new LatLng (45.494654, -73.578513));
@@ -536,6 +542,7 @@ namespace GoogleApiTest
 
 
 			Building CJBuilding = new Building ("Communication & Journalism Building", "CJ", 45.457452, -73.640427);
+			CJBuilding.setDescription("http://www.concordia.ca/maps/buildings/cj.html","rte");
 			CJBuilding.BuildingImage = Resource.Drawable.CJ;
 			CJBuilding.Corners.Add (new LatLng (45.4574214779174, -73.64024430513382));
 			CJBuilding.Corners.Add (new LatLng (45.45737162062813, -73.6401142179966));
@@ -684,6 +691,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (HingstonCBuilding);
 
 			Building JesuitBuilding = new Building ("Jesuit Residence", "JR", 45.458408, -73.643297);
+			JesuitBuilding.setDescription("http://www.concordia.ca/maps/buildings/jr.html","rte");
 			JesuitBuilding.BuildingImage = Resource.Drawable.JR;
 			JesuitBuilding.Corners.Add (new LatLng (45.45850939062161, -73.64330872893333));
 			JesuitBuilding.Corners.Add (new LatLng (45.45852726363388, -73.64329196512699));
@@ -773,6 +781,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (PsychologyBuilding);
 
 			Building athleticBuilding = new Building ("Recreation and Athletics Complex", "RA", 45.456703, -73.637680);
+			athleticBuilding.setDescription("http://www.concordia.ca/maps/buildings/ra.html","rte");
 			athleticBuilding.BuildingImage = Resource.Drawable.RA;
 			athleticBuilding.Corners.Add (new LatLng (45.45695817971015, -73.63793425261974));
 			athleticBuilding.Corners.Add (new LatLng (45.4570235590787, -73.63787725567818));
@@ -798,6 +807,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (athleticBuilding);
 
 			Building RefectoryBuilding = new Building ("Loyola Jesuit Hall and Conference Centre", "RF", 45.458479, -73.641053);
+			RefectoryBuilding.setDescription("http://www.concordia.ca/maps/buildings/rf.html","rte");
 			RefectoryBuilding.BuildingImage = Resource.Drawable.RF;
 			RefectoryBuilding.Corners.Add (new LatLng (45.45842237719143, -73.64139631390572));
 			RefectoryBuilding.Corners.Add (new LatLng (45.45858041229482, -73.64127293229103));
@@ -889,6 +899,7 @@ namespace GoogleApiTest
 
 
 			Building RichardScienceBuilding = new Building ("Richard J. Renaud Science Complex", "SP", 45.457625, -73.641703);
+			RichardScienceBuilding.setDescription("http://www.concordia.ca/maps/buildings/sp.html","rte");
 			RichardScienceBuilding.BuildingImage = Resource.Drawable.SP;
 			RichardScienceBuilding.Corners.Add (new LatLng (45.4582079002712, -73.64158071577549));
 			RichardScienceBuilding.Corners.Add (new LatLng (45.45819661198965, -73.64154987037182));
@@ -942,6 +953,7 @@ namespace GoogleApiTest
 
 
 			Building VanierExtensionBuilding = new Building ("Vanier Extension", "VE", 45.458845, -73.638635);
+			VanierExtensionBuilding.setDescription("http://www.concordia.ca/maps/buildings/ve.html","rte");
 			VanierExtensionBuilding.BuildingImage = Resource.Drawable.VE;
 			VanierExtensionBuilding.Corners.Add (new LatLng (45.45882028615895, -73.63900043070316));
 			VanierExtensionBuilding.Corners.Add (new LatLng (45.45883533703404, -73.6389883607626));
