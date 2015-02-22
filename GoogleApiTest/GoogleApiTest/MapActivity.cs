@@ -87,12 +87,6 @@ namespace GoogleApiTest
 			imageView.SetImageResource(building.BuildingImage);
 
 			window = new PopupWindow (popUp, WindowManagerLayoutParams.WrapContent, WindowManagerLayoutParams.WrapContent);
-
-			//Button btnDismiss = popUp.FindViewById<Button> (Resource.Id.btnPopUpOk);
-			//btnDismiss.Click += (sender, e) => {
-			//	window.Dismiss(); 
-			//};
-
 			window.ShowAtLocation (popUp, GravityFlags.Center, 0,0);
 		}
 
@@ -109,11 +103,12 @@ namespace GoogleApiTest
 		void HandleMapClick (object sender, GoogleMap.MapClickEventArgs e)
 		{
 			Building b = BuildingManager.isInPolygon(e.Point);
-			if (b != null) {
+			if (b != null && window ==null) {
 				CreateBuildingDescription (b);
 			}
 			else{
 				window.Dismiss ();
+				window = null;
 			}
 		}
 			
