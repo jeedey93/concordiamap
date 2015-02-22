@@ -57,3 +57,7 @@ C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res
 C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\layout\buildingdescription.xml
 C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\R.cs.flag
 C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\uploadflags.txt
+C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\nunit.framework.dll
+C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\nunit.framework.xml
+C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\layout\exploreview.xml
+C:\Users\Jump\Sync\School\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\border.xml
