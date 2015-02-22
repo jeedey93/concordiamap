@@ -22,6 +22,7 @@ namespace GoogleApiTest
 		List<string> drawerSettings;
 		ActionBarDrawerToggle mDrawerToggle;
 		GoogleMap map;
+		PopupWindow window=null;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -85,12 +86,12 @@ namespace GoogleApiTest
 			ImageView imageView = popUp.FindViewById<ImageView> (Resource.Id.buildingImage);
 			imageView.SetImageResource(building.BuildingImage);
 
-			PopupWindow window = new PopupWindow (popUp, WindowManagerLayoutParams.WrapContent, WindowManagerLayoutParams.WrapContent);
+			window = new PopupWindow (popUp, WindowManagerLayoutParams.WrapContent, WindowManagerLayoutParams.WrapContent);
 
-			Button btnDismiss = popUp.FindViewById<Button> (Resource.Id.btnPopUpOk);
-			btnDismiss.Click += (sender, e) => {
-				window.Dismiss();
-			};
+			//Button btnDismiss = popUp.FindViewById<Button> (Resource.Id.btnPopUpOk);
+			//btnDismiss.Click += (sender, e) => {
+			//	window.Dismiss(); 
+			//};
 
 			window.ShowAtLocation (popUp, GravityFlags.Center, 0,0);
 		}
@@ -110,6 +111,9 @@ namespace GoogleApiTest
 			Building b = BuildingManager.isInPolygon(e.Point);
 			if (b != null) {
 				CreateBuildingDescription (b);
+			}
+			else{
+				window.Dismiss ();
 			}
 		}
 			
