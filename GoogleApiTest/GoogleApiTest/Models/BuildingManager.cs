@@ -10,15 +10,18 @@ namespace GoogleApiTest
 		List<Building> SGWBuildings = new List<Building> ();
 		List<Building> LoyolaBuildings = new List<Building> ();
 
-		public List<Building> getSGWBuildings(){
+		public List<Building> getSGWBuildings ()
+		{
 			return SGWBuildings;
 		}
 
-		public List<Building> getLoyolaBuildings(){
+		public List<Building> getLoyolaBuildings ()
+		{
 			return LoyolaBuildings;
 		}
 
-		public Building isInPolygon(LatLng point){
+		public Building isInPolygon (LatLng point)
+		{
 
 			foreach (var building in SGWBuildings) {
 				if (building.isInPolygon (point)) {
@@ -33,7 +36,8 @@ namespace GoogleApiTest
 			return null;
 		}
 
-		public List<Building> InitializeSGWBuildings(){
+		public List<Building> InitializeSGWBuildings ()
+		{
 
 			Building BBuilding = new Building ("B Building", "B", 45.497818, -73.579545);
 			BBuilding.BuildingImage = Resource.Drawable.B;
@@ -96,155 +100,160 @@ namespace GoogleApiTest
 
 			Building ENBuilding = new Building ("EN Building", "EN", 45.496823, -73.579661);
 			ENBuilding.BuildingImage = Resource.Drawable.EN;
-			ENBuilding.Corners.Add(new LatLng(45.496937, -73.579579));
-			ENBuilding.Corners.Add(new LatLng(45.496918, -73.579537));
-			ENBuilding.Corners.Add(new LatLng(45.496909, -73.579547));
-			ENBuilding.Corners.Add(new LatLng(45.496892, -73.579516));
-			ENBuilding.Corners.Add(new LatLng(45.496795, -73.579614));
-			ENBuilding.Corners.Add(new LatLng(45.496804, -73.579632));
-			ENBuilding.Corners.Add(new LatLng(45.496674, -73.579766));
-			ENBuilding.Corners.Add(new LatLng(45.4967, -73.579819));
+			ENBuilding.Corners.Add (new LatLng (45.496937, -73.579579));
+			ENBuilding.Corners.Add (new LatLng (45.496918, -73.579537));
+			ENBuilding.Corners.Add (new LatLng (45.496909, -73.579547));
+			ENBuilding.Corners.Add (new LatLng (45.496892, -73.579516));
+			ENBuilding.Corners.Add (new LatLng (45.496795, -73.579614));
+			ENBuilding.Corners.Add (new LatLng (45.496804, -73.579632));
+			ENBuilding.Corners.Add (new LatLng (45.496674, -73.579766));
+			ENBuilding.Corners.Add (new LatLng (45.4967, -73.579819));
 			SGWBuildings.Add (ENBuilding);
 
 			Building eVBuilding = new Building ("Computer Science, Engineering and Visual Arts Integrated Complex", "EV", 45.495572, -73.578285);
+			//eVBuilding.setDescription("http://www.concordia.ca/maps/buildings/ev.html", "rte");
+			eVBuilding.Description = "The Computer Science, Engineering and Visual Arts Integrated Complex (EV Building) opened in September 2005, a striking addition to Montreal’s downtown landscape.The two towers of the high-tech complex are completely integrated with links at every floor and a common corridor";
 			eVBuilding.BuildingImage = Resource.Drawable.EV;
-			eVBuilding.Corners.Add(new LatLng(45.495826707314045, -73.57856959104538));
-			eVBuilding.Corners.Add(new LatLng(45.49552588659263, -73.57787489891052));
-			eVBuilding.Corners.Add(new LatLng(45.49553716739868, -73.57781052589417));
-			eVBuilding.Corners.Add(new LatLng(45.49542623937432, -73.57765763998032));
-			eVBuilding.Corners.Add(new LatLng(45.49518746136016, -73.57789367437363));
-			eVBuilding.Corners.Add(new LatLng(45.49526266714314, -73.57806265354156));
-			eVBuilding.Corners.Add(new LatLng(45.49527582814485, -73.57813775539398));
-			eVBuilding.Corners.Add(new LatLng(45.495369835210354, -73.5784462094307));
-			eVBuilding.Corners.Add(new LatLng(45.49556160913736, -73.57885658740997));
+			eVBuilding.Corners.Add (new LatLng (45.495826707314045, -73.57856959104538));
+			eVBuilding.Corners.Add (new LatLng (45.49552588659263, -73.57787489891052));
+			eVBuilding.Corners.Add (new LatLng (45.49553716739868, -73.57781052589417));
+			eVBuilding.Corners.Add (new LatLng (45.49542623937432, -73.57765763998032));
+			eVBuilding.Corners.Add (new LatLng (45.49518746136016, -73.57789367437363));
+			eVBuilding.Corners.Add (new LatLng (45.49526266714314, -73.57806265354156));
+			eVBuilding.Corners.Add (new LatLng (45.49527582814485, -73.57813775539398));
+			eVBuilding.Corners.Add (new LatLng (45.495369835210354, -73.5784462094307));
+			eVBuilding.Corners.Add (new LatLng (45.49556160913736, -73.57885658740997));
 			SGWBuildings.Add (eVBuilding);
 
 			Building FABuilding = new Building ("FA Building", "FA", 45.496801, -73.579528);
 			FABuilding.BuildingImage = Resource.Drawable.FA;
-			FABuilding.Corners.Add(new LatLng(45.496865, -73.57952));
-			FABuilding.Corners.Add(new LatLng(45.496828, -73.579447));
-			FABuilding.Corners.Add(new LatLng(45.496745, -73.579529));
-			FABuilding.Corners.Add(new LatLng(45.496783, -73.579605));
+			FABuilding.Corners.Add (new LatLng (45.496865, -73.57952));
+			FABuilding.Corners.Add (new LatLng (45.496828, -73.579447));
+			FABuilding.Corners.Add (new LatLng (45.496745, -73.579529));
+			FABuilding.Corners.Add (new LatLng (45.496783, -73.579605));
 			SGWBuildings.Add (FABuilding);
 
 			Building FBBuilding = new Building ("Faubourg Tower", "FB", 45.494673, -73.577642);
 			FBBuilding.BuildingImage = Resource.Drawable.FB;
-			FBBuilding.Corners.Add(new LatLng(45.494696, -73.578038));
-			FBBuilding.Corners.Add(new LatLng(45.494912, -73.577786));
-			FBBuilding.Corners.Add(new LatLng(45.494872, -73.577713));
-			FBBuilding.Corners.Add(new LatLng(45.494876, -73.577704));
-			FBBuilding.Corners.Add(new LatLng(45.494837, -73.577634));
-			FBBuilding.Corners.Add(new LatLng(45.494842, -73.577625));
-			FBBuilding.Corners.Add(new LatLng(45.494799, -73.57755));
-			FBBuilding.Corners.Add(new LatLng(45.494806, -73.57754));
-			FBBuilding.Corners.Add(new LatLng(45.494763, -73.577465));
-			FBBuilding.Corners.Add(new LatLng(45.494775, -73.577452));
-			FBBuilding.Corners.Add(new LatLng(45.494692, -73.577309));
-			FBBuilding.Corners.Add(new LatLng(45.4947, -73.5773));
-			FBBuilding.Corners.Add(new LatLng(45.494654, -73.57722));
-			FBBuilding.Corners.Add(new LatLng(45.494397, -73.577521));
+			FBBuilding.Corners.Add (new LatLng (45.494696, -73.578038));
+			FBBuilding.Corners.Add (new LatLng (45.494912, -73.577786));
+			FBBuilding.Corners.Add (new LatLng (45.494872, -73.577713));
+			FBBuilding.Corners.Add (new LatLng (45.494876, -73.577704));
+			FBBuilding.Corners.Add (new LatLng (45.494837, -73.577634));
+			FBBuilding.Corners.Add (new LatLng (45.494842, -73.577625));
+			FBBuilding.Corners.Add (new LatLng (45.494799, -73.57755));
+			FBBuilding.Corners.Add (new LatLng (45.494806, -73.57754));
+			FBBuilding.Corners.Add (new LatLng (45.494763, -73.577465));
+			FBBuilding.Corners.Add (new LatLng (45.494775, -73.577452));
+			FBBuilding.Corners.Add (new LatLng (45.494692, -73.577309));
+			FBBuilding.Corners.Add (new LatLng (45.4947, -73.5773));
+			FBBuilding.Corners.Add (new LatLng (45.494654, -73.57722));
+			FBBuilding.Corners.Add (new LatLng (45.494397, -73.577521));
 			SGWBuildings.Add (FBBuilding);
 
 			Building FGBuilding = new Building ("FG Building", "FG", 45.494195, -73.578328);
 			FGBuilding.BuildingImage = Resource.Drawable.FG;
-			FGBuilding.Corners.Add(new LatLng(45.494694, -73.578039));
-			FGBuilding.Corners.Add(new LatLng(45.494362, -73.578431));
-			FGBuilding.Corners.Add(new LatLng(45.494369, -73.578443));
-			FGBuilding.Corners.Add(new LatLng(45.494301, -73.578523));
-			FGBuilding.Corners.Add(new LatLng(45.494293, -73.578511));
-			FGBuilding.Corners.Add(new LatLng(45.493823, -73.579068));
-			FGBuilding.Corners.Add(new LatLng(45.493626, -73.578728));
-			FGBuilding.Corners.Add(new LatLng(45.493848, -73.578465));
-			FGBuilding.Corners.Add(new LatLng(45.493836, -73.578441));
-			FGBuilding.Corners.Add(new LatLng(45.493883, -73.578386));
-			FGBuilding.Corners.Add(new LatLng(45.493891, -73.5784));
-			FGBuilding.Corners.Add(new LatLng(45.493923, -73.578362));
-			FGBuilding.Corners.Add(new LatLng(45.493912, -73.578343));
-			FGBuilding.Corners.Add(new LatLng(45.494105, -73.578115));
-			FGBuilding.Corners.Add(new LatLng(45.494111, -73.578126));
-			FGBuilding.Corners.Add(new LatLng(45.494204, -73.578017));
-			FGBuilding.Corners.Add(new LatLng(45.494186, -73.577986));
-			FGBuilding.Corners.Add(new LatLng(45.494371, -73.577768));
-			FGBuilding.Corners.Add(new LatLng(45.494393, -73.577802));
-			FGBuilding.Corners.Add(new LatLng(45.494428, -73.577762));
-			FGBuilding.Corners.Add(new LatLng(45.494389, -73.57769));
-			FGBuilding.Corners.Add(new LatLng(45.494452, -73.577618));
+			FGBuilding.Corners.Add (new LatLng (45.494694, -73.578039));
+			FGBuilding.Corners.Add (new LatLng (45.494362, -73.578431));
+			FGBuilding.Corners.Add (new LatLng (45.494369, -73.578443));
+			FGBuilding.Corners.Add (new LatLng (45.494301, -73.578523));
+			FGBuilding.Corners.Add (new LatLng (45.494293, -73.578511));
+			FGBuilding.Corners.Add (new LatLng (45.493823, -73.579068));
+			FGBuilding.Corners.Add (new LatLng (45.493626, -73.578728));
+			FGBuilding.Corners.Add (new LatLng (45.493848, -73.578465));
+			FGBuilding.Corners.Add (new LatLng (45.493836, -73.578441));
+			FGBuilding.Corners.Add (new LatLng (45.493883, -73.578386));
+			FGBuilding.Corners.Add (new LatLng (45.493891, -73.5784));
+			FGBuilding.Corners.Add (new LatLng (45.493923, -73.578362));
+			FGBuilding.Corners.Add (new LatLng (45.493912, -73.578343));
+			FGBuilding.Corners.Add (new LatLng (45.494105, -73.578115));
+			FGBuilding.Corners.Add (new LatLng (45.494111, -73.578126));
+			FGBuilding.Corners.Add (new LatLng (45.494204, -73.578017));
+			FGBuilding.Corners.Add (new LatLng (45.494186, -73.577986));
+			FGBuilding.Corners.Add (new LatLng (45.494371, -73.577768));
+			FGBuilding.Corners.Add (new LatLng (45.494393, -73.577802));
+			FGBuilding.Corners.Add (new LatLng (45.494428, -73.577762));
+			FGBuilding.Corners.Add (new LatLng (45.494389, -73.57769));
+			FGBuilding.Corners.Add (new LatLng (45.494452, -73.577618));
 			SGWBuildings.Add (FGBuilding);
 
 			Building gMBuilding = new Building ("Guy-Metro Building", "GM", 45.495857, -73.578858);
-			gMBuilding.setDescription("http://www.concordia.ca/maps/buildings/gm.html","rte");
+			//gMBuilding.setDescription ("http://www.concordia.ca/maps/buildings/gm.html", "rte");
+			gMBuilding.Description = "Concordia has gradually reclaimed rented spaces in the Guy Métro Building to accommodate Concordia administrative offices and there are currently very few external tenants with long-term leases. The Office of the President and members of the Cabinet took over the eighth floor in 2005; other administrative units have also recently joined long-time residents of the building.\n\nRenovations are ";
 			gMBuilding.BuildingImage = Resource.Drawable.GM;
-			gMBuilding.Corners.Add(new LatLng(45.49611,-73.57888));
-			gMBuilding.Corners.Add(new LatLng(45.49595,-73.57852));
-			gMBuilding.Corners.Add(new LatLng(45.49562,-73.57884));
-			gMBuilding.Corners.Add(new LatLng(45.49579,-73.57919));
+			gMBuilding.Corners.Add (new LatLng (45.49611, -73.57888));
+			gMBuilding.Corners.Add (new LatLng (45.49595, -73.57852));
+			gMBuilding.Corners.Add (new LatLng (45.49562, -73.57884));
+			gMBuilding.Corners.Add (new LatLng (45.49579, -73.57919));
 			SGWBuildings.Add (gMBuilding);
 
 			Building GNBuilding = new Building ("Grey Nuns Building", "GN", 45.493522, -73.576724);
-			GNBuilding.setDescription("http://www.concordia.ca/maps/buildings/gn.html","rte");
+			//GNBuilding.setDescription ("http://www.concordia.ca/maps/buildings/gn.html", "rte");
+			GNBuilding.Description = "Nearly 150 years ago the Sisters of Charity began construction of the Motherhouse of the Grey Nuns of Montreal. Acquired by Concordia University, this landmark has a new purpose, all the while preserving its outstanding heritage.";
 			GNBuilding.BuildingImage = Resource.Drawable.GN;
-			GNBuilding.Corners.Add(new LatLng(45.49439, -73.577132));
-			GNBuilding.Corners.Add(new LatLng(45.494019, -73.576357));
-			GNBuilding.Corners.Add(new LatLng(45.494122, -73.576256));
-			GNBuilding.Corners.Add(new LatLng(45.494035, -73.576074));
-			GNBuilding.Corners.Add(new LatLng(45.493933, -73.576172));
-			GNBuilding.Corners.Add(new LatLng(45.493716, -73.57572));
-			GNBuilding.Corners.Add(new LatLng(45.493602, -73.575832));
-			GNBuilding.Corners.Add(new LatLng(45.49382, -73.576294));
-			GNBuilding.Corners.Add(new LatLng(45.493492, -73.576616));
-			GNBuilding.Corners.Add(new LatLng(45.493472, -73.576574));
-			GNBuilding.Corners.Add(new LatLng(45.493344, -73.576704));
-			GNBuilding.Corners.Add(new LatLng(45.493367, -73.576755));
-			GNBuilding.Corners.Add(new LatLng(45.493033, -73.577081));
-			GNBuilding.Corners.Add(new LatLng(45.492934, -73.576878));
-			GNBuilding.Corners.Add(new LatLng(45.492946, -73.576846));
-			GNBuilding.Corners.Add(new LatLng(45.492925, -73.576798));
-			GNBuilding.Corners.Add(new LatLng(45.492899, -73.576787));
-			GNBuilding.Corners.Add(new LatLng(45.492761, -73.576495));
-			GNBuilding.Corners.Add(new LatLng(45.492625, -73.576629));
-			GNBuilding.Corners.Add(new LatLng(45.492762, -73.576928));
-			GNBuilding.Corners.Add(new LatLng(45.492686, -73.577007));
-			GNBuilding.Corners.Add(new LatLng(45.492718, -73.577072));
-			GNBuilding.Corners.Add(new LatLng(45.49277, -73.577021));
-			GNBuilding.Corners.Add(new LatLng(45.492821, -73.577017));
-			GNBuilding.Corners.Add(new LatLng(45.492904, -73.577192));
-			GNBuilding.Corners.Add(new LatLng(45.492855, -73.57724));
-			GNBuilding.Corners.Add(new LatLng(45.492935, -73.577408));
-			GNBuilding.Corners.Add(new LatLng(45.492999, -73.577349));
-			GNBuilding.Corners.Add(new LatLng(45.493105, -73.577569));
-			GNBuilding.Corners.Add(new LatLng(45.493203, -73.577474));
-			GNBuilding.Corners.Add(new LatLng(45.493104, -73.577263));
-			GNBuilding.Corners.Add(new LatLng(45.493188, -73.57718));
-			GNBuilding.Corners.Add(new LatLng(45.493198, -73.5772));
-			GNBuilding.Corners.Add(new LatLng(45.493363, -73.577036));
-			GNBuilding.Corners.Add(new LatLng(45.493354, -73.577015));
-			GNBuilding.Corners.Add(new LatLng(45.493439, -73.57693));
-			GNBuilding.Corners.Add(new LatLng(45.493479, -73.577013));
-			GNBuilding.Corners.Add(new LatLng(45.493453, -73.577039));
-			GNBuilding.Corners.Add(new LatLng(45.493531, -73.577204));
-			GNBuilding.Corners.Add(new LatLng(45.493579, -73.577158));
-			GNBuilding.Corners.Add(new LatLng(45.493603, -73.577209));
-			GNBuilding.Corners.Add(new LatLng(45.493583, -73.57723));
-			GNBuilding.Corners.Add(new LatLng(45.493616, -73.577298));
-			GNBuilding.Corners.Add(new LatLng(45.493727, -73.577192));
-			GNBuilding.Corners.Add(new LatLng(45.493674, -73.577076));
-			GNBuilding.Corners.Add(new LatLng(45.493728, -73.577022));
-			GNBuilding.Corners.Add(new LatLng(45.493669, -73.5769));
-			GNBuilding.Corners.Add(new LatLng(45.493616, -73.576952));
-			GNBuilding.Corners.Add(new LatLng(45.493554, -73.576824));
-			GNBuilding.Corners.Add(new LatLng(45.4939, -73.576485));
-			GNBuilding.Corners.Add(new LatLng(45.494194, -73.5771));
-			GNBuilding.Corners.Add(new LatLng(45.494043, -73.577248));
-			GNBuilding.Corners.Add(new LatLng(45.494118, -73.577399));
+			GNBuilding.Corners.Add (new LatLng (45.49439, -73.577132));
+			GNBuilding.Corners.Add (new LatLng (45.494019, -73.576357));
+			GNBuilding.Corners.Add (new LatLng (45.494122, -73.576256));
+			GNBuilding.Corners.Add (new LatLng (45.494035, -73.576074));
+			GNBuilding.Corners.Add (new LatLng (45.493933, -73.576172));
+			GNBuilding.Corners.Add (new LatLng (45.493716, -73.57572));
+			GNBuilding.Corners.Add (new LatLng (45.493602, -73.575832));
+			GNBuilding.Corners.Add (new LatLng (45.49382, -73.576294));
+			GNBuilding.Corners.Add (new LatLng (45.493492, -73.576616));
+			GNBuilding.Corners.Add (new LatLng (45.493472, -73.576574));
+			GNBuilding.Corners.Add (new LatLng (45.493344, -73.576704));
+			GNBuilding.Corners.Add (new LatLng (45.493367, -73.576755));
+			GNBuilding.Corners.Add (new LatLng (45.493033, -73.577081));
+			GNBuilding.Corners.Add (new LatLng (45.492934, -73.576878));
+			GNBuilding.Corners.Add (new LatLng (45.492946, -73.576846));
+			GNBuilding.Corners.Add (new LatLng (45.492925, -73.576798));
+			GNBuilding.Corners.Add (new LatLng (45.492899, -73.576787));
+			GNBuilding.Corners.Add (new LatLng (45.492761, -73.576495));
+			GNBuilding.Corners.Add (new LatLng (45.492625, -73.576629));
+			GNBuilding.Corners.Add (new LatLng (45.492762, -73.576928));
+			GNBuilding.Corners.Add (new LatLng (45.492686, -73.577007));
+			GNBuilding.Corners.Add (new LatLng (45.492718, -73.577072));
+			GNBuilding.Corners.Add (new LatLng (45.49277, -73.577021));
+			GNBuilding.Corners.Add (new LatLng (45.492821, -73.577017));
+			GNBuilding.Corners.Add (new LatLng (45.492904, -73.577192));
+			GNBuilding.Corners.Add (new LatLng (45.492855, -73.57724));
+			GNBuilding.Corners.Add (new LatLng (45.492935, -73.577408));
+			GNBuilding.Corners.Add (new LatLng (45.492999, -73.577349));
+			GNBuilding.Corners.Add (new LatLng (45.493105, -73.577569));
+			GNBuilding.Corners.Add (new LatLng (45.493203, -73.577474));
+			GNBuilding.Corners.Add (new LatLng (45.493104, -73.577263));
+			GNBuilding.Corners.Add (new LatLng (45.493188, -73.57718));
+			GNBuilding.Corners.Add (new LatLng (45.493198, -73.5772));
+			GNBuilding.Corners.Add (new LatLng (45.493363, -73.577036));
+			GNBuilding.Corners.Add (new LatLng (45.493354, -73.577015));
+			GNBuilding.Corners.Add (new LatLng (45.493439, -73.57693));
+			GNBuilding.Corners.Add (new LatLng (45.493479, -73.577013));
+			GNBuilding.Corners.Add (new LatLng (45.493453, -73.577039));
+			GNBuilding.Corners.Add (new LatLng (45.493531, -73.577204));
+			GNBuilding.Corners.Add (new LatLng (45.493579, -73.577158));
+			GNBuilding.Corners.Add (new LatLng (45.493603, -73.577209));
+			GNBuilding.Corners.Add (new LatLng (45.493583, -73.57723));
+			GNBuilding.Corners.Add (new LatLng (45.493616, -73.577298));
+			GNBuilding.Corners.Add (new LatLng (45.493727, -73.577192));
+			GNBuilding.Corners.Add (new LatLng (45.493674, -73.577076));
+			GNBuilding.Corners.Add (new LatLng (45.493728, -73.577022));
+			GNBuilding.Corners.Add (new LatLng (45.493669, -73.5769));
+			GNBuilding.Corners.Add (new LatLng (45.493616, -73.576952));
+			GNBuilding.Corners.Add (new LatLng (45.493554, -73.576824));
+			GNBuilding.Corners.Add (new LatLng (45.4939, -73.576485));
+			GNBuilding.Corners.Add (new LatLng (45.494194, -73.5771));
+			GNBuilding.Corners.Add (new LatLng (45.494043, -73.577248));
+			GNBuilding.Corners.Add (new LatLng (45.494118, -73.577399));
 			SGWBuildings.Add (GNBuilding);
 
 			Building HallBuilding = new Building ("Henry F.Hall Building", "H", 45.497260, -73.578983);
-			HallBuilding.setDescription("http://www.concordia.ca/maps/buildings/h.html","rte");
+			//HallBuilding.setDescription ("http://www.concordia.ca/maps/buildings/h.html", "rte");
+			HallBuilding.Description = "The Henry F. Hall Building is a high-density hub of Concordia’s downtown campus. It is a utilitarian, cube-shaped, 1960s-style high-rise university building made of pre-fabricated stressed concrete.\n\nIn 1994-95 the exterior of the building, damaged by time, acid rain and the elements, was cleaned and painted, and windows were repaired; other major repairs took place in 1998-99. The Hall Building is undergoing much-needed major renovations and updating.";
 			HallBuilding.BuildingImage = Resource.Drawable.Hall;
-			HallBuilding.Corners.Add(new LatLng(45.49770868047681,-73.57903227210045));
-			HallBuilding.Corners.Add(new LatLng(45.497366508216466,-73.57833489775658));
-			HallBuilding.Corners.Add(new LatLng(45.4968288804749256,-73.57885658740997));
-			HallBuilding.Corners.Add(new LatLng(45.49715787001796,-73.579544390347004));
+			HallBuilding.Corners.Add (new LatLng (45.49770868047681, -73.57903227210045));
+			HallBuilding.Corners.Add (new LatLng (45.497366508216466, -73.57833489775658));
+			HallBuilding.Corners.Add (new LatLng (45.4968288804749256, -73.57885658740997));
+			HallBuilding.Corners.Add (new LatLng (45.49715787001796, -73.579544390347004));
 			SGWBuildings.Add (HallBuilding);
 
 
@@ -257,46 +266,47 @@ namespace GoogleApiTest
 			SGWBuildings.Add (KBuilding);
 
 			Building libraryBuilding = new Building ("McConnell Library Building", "LB", 45.496775, -73.577904);
-			libraryBuilding.setDescription("http://www.concordia.ca/maps/buildings/lb.html","rte");
+			//libraryBuilding.setDescription ("http://www.concordia.ca/maps/buildings/lb.html", "rte");
+			libraryBuilding.Description = "The J. W. McConnell Building opened in 1992 to house the R. Howard Webster Library, teaching and research facilities, the Leonard and Bina Ellen Art Gallery, the de Sève Cinema and academic and administrative offices.";
 			libraryBuilding.BuildingImage = Resource.Drawable.LB;
-			libraryBuilding.Corners.Add(new LatLng(45.496721, -73.578588));
-			libraryBuilding.Corners.Add(new LatLng(45.4967, -73.578549));
-			libraryBuilding.Corners.Add(new LatLng(45.496673, -73.578574));
-			libraryBuilding.Corners.Add(new LatLng(45.496555, -73.578326));
-			libraryBuilding.Corners.Add(new LatLng(45.49658, -73.578301));
-			libraryBuilding.Corners.Add(new LatLng(45.496493, -73.578117));
-			libraryBuilding.Corners.Add(new LatLng(45.496465, -73.57814));
-			libraryBuilding.Corners.Add(new LatLng(45.496279, -73.577752));
-			libraryBuilding.Corners.Add(new LatLng(45.496271, -73.577759));
-			libraryBuilding.Corners.Add(new LatLng(45.496246, -73.577708));
-			libraryBuilding.Corners.Add(new LatLng(45.496487, -73.577473));
-			libraryBuilding.Corners.Add(new LatLng(45.4966, -73.577711));
-			libraryBuilding.Corners.Add(new LatLng(45.496661, -73.57765));
-			libraryBuilding.Corners.Add(new LatLng(45.496622, -73.577568));
-			libraryBuilding.Corners.Add(new LatLng(45.496694, -73.577495));
-			libraryBuilding.Corners.Add(new LatLng(45.496692, -73.577487));
-			libraryBuilding.Corners.Add(new LatLng(45.496883, -73.577302));
-			libraryBuilding.Corners.Add(new LatLng(45.497, -73.577545));
-			libraryBuilding.Corners.Add(new LatLng(45.496977, -73.577568));
-			libraryBuilding.Corners.Add(new LatLng(45.496999, -73.577617));
-			libraryBuilding.Corners.Add(new LatLng(45.496991, -73.577627));
-			libraryBuilding.Corners.Add(new LatLng(45.496999, -73.577644));
-			libraryBuilding.Corners.Add(new LatLng(45.497039, -73.577602));
-			libraryBuilding.Corners.Add(new LatLng(45.497112, -73.577757));
-			libraryBuilding.Corners.Add(new LatLng(45.497074, -73.577797));
-			libraryBuilding.Corners.Add(new LatLng(45.497082, -73.577817));
-			libraryBuilding.Corners.Add(new LatLng(45.497089, -73.577811));
-			libraryBuilding.Corners.Add(new LatLng(45.497114, -73.577859));
-			libraryBuilding.Corners.Add(new LatLng(45.497139, -73.577833));
-			libraryBuilding.Corners.Add(new LatLng(45.497254, -73.578069));
-			libraryBuilding.Corners.Add(new LatLng(45.49702, -73.578295));
-			libraryBuilding.Corners.Add(new LatLng(45.497002, -73.578258));
-			libraryBuilding.Corners.Add(new LatLng(45.496964, -73.578294));
-			libraryBuilding.Corners.Add(new LatLng(45.496941, -73.578248));
-			libraryBuilding.Corners.Add(new LatLng(45.496889, -73.578296));
-			libraryBuilding.Corners.Add(new LatLng(45.496911, -73.578343));
-			libraryBuilding.Corners.Add(new LatLng(45.496873, -73.578378));
-			libraryBuilding.Corners.Add(new LatLng(45.49689, -73.578414));
+			libraryBuilding.Corners.Add (new LatLng (45.496721, -73.578588));
+			libraryBuilding.Corners.Add (new LatLng (45.4967, -73.578549));
+			libraryBuilding.Corners.Add (new LatLng (45.496673, -73.578574));
+			libraryBuilding.Corners.Add (new LatLng (45.496555, -73.578326));
+			libraryBuilding.Corners.Add (new LatLng (45.49658, -73.578301));
+			libraryBuilding.Corners.Add (new LatLng (45.496493, -73.578117));
+			libraryBuilding.Corners.Add (new LatLng (45.496465, -73.57814));
+			libraryBuilding.Corners.Add (new LatLng (45.496279, -73.577752));
+			libraryBuilding.Corners.Add (new LatLng (45.496271, -73.577759));
+			libraryBuilding.Corners.Add (new LatLng (45.496246, -73.577708));
+			libraryBuilding.Corners.Add (new LatLng (45.496487, -73.577473));
+			libraryBuilding.Corners.Add (new LatLng (45.4966, -73.577711));
+			libraryBuilding.Corners.Add (new LatLng (45.496661, -73.57765));
+			libraryBuilding.Corners.Add (new LatLng (45.496622, -73.577568));
+			libraryBuilding.Corners.Add (new LatLng (45.496694, -73.577495));
+			libraryBuilding.Corners.Add (new LatLng (45.496692, -73.577487));
+			libraryBuilding.Corners.Add (new LatLng (45.496883, -73.577302));
+			libraryBuilding.Corners.Add (new LatLng (45.497, -73.577545));
+			libraryBuilding.Corners.Add (new LatLng (45.496977, -73.577568));
+			libraryBuilding.Corners.Add (new LatLng (45.496999, -73.577617));
+			libraryBuilding.Corners.Add (new LatLng (45.496991, -73.577627));
+			libraryBuilding.Corners.Add (new LatLng (45.496999, -73.577644));
+			libraryBuilding.Corners.Add (new LatLng (45.497039, -73.577602));
+			libraryBuilding.Corners.Add (new LatLng (45.497112, -73.577757));
+			libraryBuilding.Corners.Add (new LatLng (45.497074, -73.577797));
+			libraryBuilding.Corners.Add (new LatLng (45.497082, -73.577817));
+			libraryBuilding.Corners.Add (new LatLng (45.497089, -73.577811));
+			libraryBuilding.Corners.Add (new LatLng (45.497114, -73.577859));
+			libraryBuilding.Corners.Add (new LatLng (45.497139, -73.577833));
+			libraryBuilding.Corners.Add (new LatLng (45.497254, -73.578069));
+			libraryBuilding.Corners.Add (new LatLng (45.49702, -73.578295));
+			libraryBuilding.Corners.Add (new LatLng (45.497002, -73.578258));
+			libraryBuilding.Corners.Add (new LatLng (45.496964, -73.578294));
+			libraryBuilding.Corners.Add (new LatLng (45.496941, -73.578248));
+			libraryBuilding.Corners.Add (new LatLng (45.496889, -73.578296));
+			libraryBuilding.Corners.Add (new LatLng (45.496911, -73.578343));
+			libraryBuilding.Corners.Add (new LatLng (45.496873, -73.578378));
+			libraryBuilding.Corners.Add (new LatLng (45.49689, -73.578414));
 			SGWBuildings.Add (libraryBuilding);
 
 			Building MBuilding = new Building ("M Building", "M", 45.497357, -73.579789);
@@ -308,20 +318,21 @@ namespace GoogleApiTest
 			SGWBuildings.Add (MBuilding);
 
 			Building JMSBBuilding = new Building ("John Molson School of Business Building", "MB", 45.495270187715924, -73.57906848192215);
-			JMSBBuilding.setDescription("http://www.concordia.ca/maps/buildings/mb.html","rte");
+			JMSBBuilding.setDescription ("http://www.concordia.ca/maps/buildings/mb.html", "rte");
+			JMSBBuilding.Description = "In 2009 the John Molson School of Business Building officially opened on the corner of Guy and de Maisonneuve. It includes digitally equipped teaching amphitheatres and classrooms, faculty and graduate student offices, the Office of the Dean, student and faculty social space, as well as space for privatized programs. Special features also include case study rooms designed for group work, and laboratories for consumer behaviour research.";
 			JMSBBuilding.BuildingImage = Resource.Drawable.MB;
-			JMSBBuilding.Corners.Add(new LatLng(45.495624, -73.57928));
-			JMSBBuilding.Corners.Add(new LatLng(45.495394, -73.579538));
-			JMSBBuilding.Corners.Add(new LatLng(45.495381, -73.579507));
-			JMSBBuilding.Corners.Add(new LatLng(45.495312, -73.57959));
-			JMSBBuilding.Corners.Add(new LatLng(45.495179, -73.579335));
-			JMSBBuilding.Corners.Add(new LatLng(45.495235, -73.579267));
-			JMSBBuilding.Corners.Add(new LatLng(45.495001, -73.578826));
-			JMSBBuilding.Corners.Add(new LatLng(45.495064, -73.578755));
-			JMSBBuilding.Corners.Add(new LatLng(45.495086, -73.578792));
-			JMSBBuilding.Corners.Add(new LatLng(45.49513, -73.578747));
-			JMSBBuilding.Corners.Add(new LatLng(45.495105, -73.578686));
-			JMSBBuilding.Corners.Add(new LatLng(45.495259, -73.578516));
+			JMSBBuilding.Corners.Add (new LatLng (45.495624, -73.57928));
+			JMSBBuilding.Corners.Add (new LatLng (45.495394, -73.579538));
+			JMSBBuilding.Corners.Add (new LatLng (45.495381, -73.579507));
+			JMSBBuilding.Corners.Add (new LatLng (45.495312, -73.57959));
+			JMSBBuilding.Corners.Add (new LatLng (45.495179, -73.579335));
+			JMSBBuilding.Corners.Add (new LatLng (45.495235, -73.579267));
+			JMSBBuilding.Corners.Add (new LatLng (45.495001, -73.578826));
+			JMSBBuilding.Corners.Add (new LatLng (45.495064, -73.578755));
+			JMSBBuilding.Corners.Add (new LatLng (45.495086, -73.578792));
+			JMSBBuilding.Corners.Add (new LatLng (45.49513, -73.578747));
+			JMSBBuilding.Corners.Add (new LatLng (45.495105, -73.578686));
+			JMSBBuilding.Corners.Add (new LatLng (45.495259, -73.578516));
 			SGWBuildings.Add (JMSBBuilding);
 
 			Building MTBuilding = new Building ("Montefiore Building", "MT", 45.494408, -73.576165);
@@ -358,43 +369,44 @@ namespace GoogleApiTest
 
 			Building PBuilding = new Building ("P Building", "P", 45.496648, -73.579202);
 			PBuilding.BuildingImage = Resource.Drawable.P;
-			PBuilding.Corners.Add(new LatLng(45.496719, -73.579193));
-			PBuilding.Corners.Add(new LatLng(45.496682, -73.579117));
-			PBuilding.Corners.Add(new LatLng(45.496583, -73.579217));
-			PBuilding.Corners.Add(new LatLng(45.496619, -73.57929));
+			PBuilding.Corners.Add (new LatLng (45.496719, -73.579193));
+			PBuilding.Corners.Add (new LatLng (45.496682, -73.579117));
+			PBuilding.Corners.Add (new LatLng (45.496583, -73.579217));
+			PBuilding.Corners.Add (new LatLng (45.496619, -73.57929));
 			SGWBuildings.Add (PBuilding);
 
 			Building PRBuilding = new Building ("PR Building", "PR", 45.496921, -73.579917);
 			PRBuilding.BuildingImage = Resource.Drawable.PR;
-			PRBuilding.Corners.Add(new LatLng(45.49703, -73.579868));
-			PRBuilding.Corners.Add(new LatLng(45.496989, -73.579783));
-			PRBuilding.Corners.Add(new LatLng(45.496796, -73.579975));
-			PRBuilding.Corners.Add(new LatLng(45.496839, -73.580062));
+			PRBuilding.Corners.Add (new LatLng (45.49703, -73.579868));
+			PRBuilding.Corners.Add (new LatLng (45.496989, -73.579783));
+			PRBuilding.Corners.Add (new LatLng (45.496796, -73.579975));
+			PRBuilding.Corners.Add (new LatLng (45.496839, -73.580062));
 			SGWBuildings.Add (PRBuilding);
 
 			Building QBuilding = new Building ("Q Building", "Q", 45.496604, -73.579129);
-			QBuilding.setDescription("http://www.concordia.ca/maps/buildings/quartier-concordia.html","rte");
+			//QBuilding.setDescription ("http://www.concordia.ca/maps/buildings/quartier-concordia.html", "rte");
+			QBuilding.Description = "Quartier Concordia will transform the Sir George Williams campus from a collection of scattered buildings into a welcoming and cohesive urban campus in the area bordered generally by Sherbrooke, Guy, René-Lévesque, and Bishop.\n\nThe goals of the Quartier Concordia project include improving the use of outdoor spaces, stimulating street life, and providing respite for the Concordia community and the public.";
 			QBuilding.BuildingImage = Resource.Drawable.Q;
-			QBuilding.Corners.Add(new LatLng(45.496683, -73.579112));
-			QBuilding.Corners.Add(new LatLng(45.496653, -73.579054));
-			QBuilding.Corners.Add(new LatLng(45.496549, -73.579156));
-			QBuilding.Corners.Add(new LatLng(45.496578, -73.579214));
+			QBuilding.Corners.Add (new LatLng (45.496683, -73.579112));
+			QBuilding.Corners.Add (new LatLng (45.496653, -73.579054));
+			QBuilding.Corners.Add (new LatLng (45.496549, -73.579156));
+			QBuilding.Corners.Add (new LatLng (45.496578, -73.579214));
 			SGWBuildings.Add (QBuilding);
 
 			Building RBuilding = new Building ("R Building", "R", 45.496757, -73.579445);
 			RBuilding.BuildingImage = Resource.Drawable.R;
-			RBuilding.Corners.Add(new LatLng(45.496826, -73.579442));
-			RBuilding.Corners.Add(new LatLng(45.496787, -73.57936));
-			RBuilding.Corners.Add(new LatLng(45.4967, -73.579447));
-			RBuilding.Corners.Add(new LatLng(45.496739, -73.579529));
+			RBuilding.Corners.Add (new LatLng (45.496826, -73.579442));
+			RBuilding.Corners.Add (new LatLng (45.496787, -73.57936));
+			RBuilding.Corners.Add (new LatLng (45.4967, -73.579447));
+			RBuilding.Corners.Add (new LatLng (45.496739, -73.579529));
 			SGWBuildings.Add (RBuilding);
 
 			Building RRBuilding = new Building ("RR Building", "RR", 45.496702, -73.579380);
 			RRBuilding.BuildingImage = Resource.Drawable.RR;
-			RRBuilding.Corners.Add(new LatLng(45.496783, -73.579358));
-			RRBuilding.Corners.Add(new LatLng(45.496743, -73.579274));
-			RRBuilding.Corners.Add(new LatLng(45.496612, -73.579405));
-			RRBuilding.Corners.Add(new LatLng(45.496653, -73.579488));
+			RRBuilding.Corners.Add (new LatLng (45.496783, -73.579358));
+			RRBuilding.Corners.Add (new LatLng (45.496743, -73.579274));
+			RRBuilding.Corners.Add (new LatLng (45.496612, -73.579405));
+			RRBuilding.Corners.Add (new LatLng (45.496653, -73.579488));
 			SGWBuildings.Add (RRBuilding);
 
 			Building SBuilding = new Building ("S Building", "S", 45.497400, -73.579867);
@@ -429,14 +441,15 @@ namespace GoogleApiTest
 
 			Building TBuilding = new Building ("T Building", "T", 45.496676, -73.579289);
 			TBuilding.BuildingImage = Resource.Drawable.T;
-			TBuilding.Corners.Add(new LatLng(45.496731, -73.579283));
-			TBuilding.Corners.Add(new LatLng(45.496698, -73.579218));
-			TBuilding.Corners.Add(new LatLng(45.496625, -73.579292));
-			TBuilding.Corners.Add(new LatLng(45.496656, -73.579359));
+			TBuilding.Corners.Add (new LatLng (45.496731, -73.579283));
+			TBuilding.Corners.Add (new LatLng (45.496698, -73.579218));
+			TBuilding.Corners.Add (new LatLng (45.496625, -73.579292));
+			TBuilding.Corners.Add (new LatLng (45.496656, -73.579359));
 			SGWBuildings.Add (TBuilding);
 
 			Building TDBuilding = new Building ("Toronto Dominion Building", "TD", 45.494667, -73.578743);
-			TDBuilding.setDescription("http://www.concordia.ca/maps/buildings/td.html","rte");
+			//TDBuilding.setDescription ("http://www.concordia.ca/maps/buildings/td.html", "rte");
+			TDBuilding.Description = "The classic bank building at Guy and Ste-Catherine opened in 1903 as a branch of the Bank of Toronto. (The Bank became the Toronto-Dominion Bank in 1954 and TD Canada Trust in 2000). The building was one of the first commercial projects of the Montreal architectural firm Ross and MacFarlane.";
 			TDBuilding.BuildingImage = Resource.Drawable.TD;
 			TDBuilding.Corners.Add (new LatLng (45.494838, -73.578827));
 			TDBuilding.Corners.Add (new LatLng (45.494654, -73.578513));
@@ -446,12 +459,12 @@ namespace GoogleApiTest
 
 			Building VBuilding = new Building ("V Building", "V", 45.497011, -73.579956);
 			VBuilding.BuildingImage = Resource.Drawable.V;
-			VBuilding.Corners.Add(new LatLng(45.49709, -73.579941));
-			VBuilding.Corners.Add(new LatLng(45.497049, -73.57986));
-			VBuilding.Corners.Add(new LatLng(45.497034, -73.579874));
-			VBuilding.Corners.Add(new LatLng(45.497032, -73.579871));
-			VBuilding.Corners.Add(new LatLng(45.496943, -73.57996));
-			VBuilding.Corners.Add(new LatLng(45.496984, -73.580046));
+			VBuilding.Corners.Add (new LatLng (45.49709, -73.579941));
+			VBuilding.Corners.Add (new LatLng (45.497049, -73.57986));
+			VBuilding.Corners.Add (new LatLng (45.497034, -73.579874));
+			VBuilding.Corners.Add (new LatLng (45.497032, -73.579871));
+			VBuilding.Corners.Add (new LatLng (45.496943, -73.57996));
+			VBuilding.Corners.Add (new LatLng (45.496984, -73.580046));
 			SGWBuildings.Add (VBuilding);
 
 			Building VABuilding = new Building ("Visual Arts Building", "VA", 45.495730, -73.573868);
@@ -466,23 +479,24 @@ namespace GoogleApiTest
 
 			Building XBuilding = new Building ("X Building", "X", 45.496884, -73.579699);
 			XBuilding.BuildingImage = Resource.Drawable.X;
-			XBuilding.Corners.Add(new LatLng(45.496906, -73.579615));
-			XBuilding.Corners.Add(new LatLng(45.496823, -73.579701));
-			XBuilding.Corners.Add(new LatLng(45.496859, -73.579776));
-			XBuilding.Corners.Add(new LatLng(45.496944, -73.579691));
+			XBuilding.Corners.Add (new LatLng (45.496906, -73.579615));
+			XBuilding.Corners.Add (new LatLng (45.496823, -73.579701));
+			XBuilding.Corners.Add (new LatLng (45.496859, -73.579776));
+			XBuilding.Corners.Add (new LatLng (45.496944, -73.579691));
 			SGWBuildings.Add (XBuilding);
 
 			Building ZBuilding = new Building ("Z Building", "Z", 45.496920, -73.579785);
 			ZBuilding.BuildingImage = Resource.Drawable.Z;
-			ZBuilding.Corners.Add(new LatLng(45.49699, -73.579776));
-			ZBuilding.Corners.Add(new LatLng(45.496948, -73.579693));
-			ZBuilding.Corners.Add(new LatLng(45.496859, -73.579781));
-			ZBuilding.Corners.Add(new LatLng(45.496901, -73.579866));
+			ZBuilding.Corners.Add (new LatLng (45.49699, -73.579776));
+			ZBuilding.Corners.Add (new LatLng (45.496948, -73.579693));
+			ZBuilding.Corners.Add (new LatLng (45.496859, -73.579781));
+			ZBuilding.Corners.Add (new LatLng (45.496901, -73.579866));
 			SGWBuildings.Add (ZBuilding);
 			return SGWBuildings;
 		}
 
-		public List<Building> InitializeLoyolaBuildings(){
+		public List<Building> InitializeLoyolaBuildings ()
+		{
 
 			Building AdministrationBuilding = new Building ("Administration Building", "AD", 45.458011, -73.639854);
 			AdministrationBuilding.BuildingImage = Resource.Drawable.AD;
@@ -542,7 +556,8 @@ namespace GoogleApiTest
 
 
 			Building CJBuilding = new Building ("Communication & Journalism Building", "CJ", 45.457452, -73.640427);
-			CJBuilding.setDescription("http://www.concordia.ca/maps/buildings/cj.html","rte");
+			//CJBuilding.setDescription ("http://www.concordia.ca/maps/buildings/cj.html", "rte");
+			CJBuilding.Description = "The completely renovated and expanded Communication Studies and Journalism Building opened in September 2005. This building began life in 1962 as the Drummond Science Complex. It now houses state-of-the-art specialized facilities for Communications and Journalism, open lounge space, the bookstore for the Loyola Campus, and a small café.";
 			CJBuilding.BuildingImage = Resource.Drawable.CJ;
 			CJBuilding.Corners.Add (new LatLng (45.4574214779174, -73.64024430513382));
 			CJBuilding.Corners.Add (new LatLng (45.45737162062813, -73.6401142179966));
@@ -589,7 +604,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (DOBuilding);
 
 			               
-		                                                                        Building FCBuilding = new Building ("F. C. Smith Building", "FC", 45.458487, -73.639347);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+			Building FCBuilding = new Building ("F. C. Smith Building", "FC", 45.458487, -73.639347);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 			FCBuilding.BuildingImage = Resource.Drawable.FC;
 			FCBuilding.Corners.Add (new LatLng (45.458573827507685, -73.63969512283802));
 			FCBuilding.Corners.Add (new LatLng (45.458657548315394, -73.63962605595589));
@@ -691,7 +706,8 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (HingstonCBuilding);
 
 			Building JesuitBuilding = new Building ("Jesuit Residence", "JR", 45.458408, -73.643297);
-			JesuitBuilding.setDescription("http://www.concordia.ca/maps/buildings/jr.html","rte");
+			//JesuitBuilding.setDescription ("http://www.concordia.ca/maps/buildings/jr.html", "rte");
+			JesuitBuilding.Description = "In 1969 Jesuit priests, the owners and founders of Concordia University's founding institution Loyola College, moved from their cramped residence facilities in the Administration Building into the new seven-storey Jesuit Residence on the northwest corner of the campus. ";
 			JesuitBuilding.BuildingImage = Resource.Drawable.JR;
 			JesuitBuilding.Corners.Add (new LatLng (45.45850939062161, -73.64330872893333));
 			JesuitBuilding.Corners.Add (new LatLng (45.45852726363388, -73.64329196512699));
@@ -723,6 +739,8 @@ namespace GoogleApiTest
 
 
 			Building PhysicalServicesBuilding = new Building ("Physical Services Building", "PS", 45.459649, -73.639795);
+			//PhysicalServicesBuilding.setDescription ("http://www.concordia.ca/maps/buildings/ps.html", "rte");
+			PhysicalServicesBuilding.Description = "The building in which Concordia Physical Services has been housed for many years was built in 1923 as the first rink and arena built for Concordia's founding institution, Loyola College. ";
 			PhysicalServicesBuilding.BuildingImage = Resource.Drawable.PS;
 			PhysicalServicesBuilding.Corners.Add (new LatLng (45.4597026369255, -73.64032879471779));
 			PhysicalServicesBuilding.Corners.Add (new LatLng (45.45984843982731, -73.64021345973015));
@@ -781,7 +799,8 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (PsychologyBuilding);
 
 			Building athleticBuilding = new Building ("Recreation and Athletics Complex", "RA", 45.456703, -73.637680);
-			athleticBuilding.setDescription("http://www.concordia.ca/maps/buildings/ra.html","rte");
+			//athleticBuilding.setDescription ("http://www.concordia.ca/maps/buildings/ra.html", "rte");
+			athleticBuilding.Description = "Sports facilities and playing fields have always been an important part of the Loyola Campus. The first phase began in 2003 to develop both the outdoor and indoor Loyola Campus recreation and athletics facilities. Artificial surfaces were installed to create two new outdoor playing fields for football, soccer, rugby, and recreational activities.";
 			athleticBuilding.BuildingImage = Resource.Drawable.RA;
 			athleticBuilding.Corners.Add (new LatLng (45.45695817971015, -73.63793425261974));
 			athleticBuilding.Corners.Add (new LatLng (45.4570235590787, -73.63787725567818));
@@ -807,7 +826,8 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (athleticBuilding);
 
 			Building RefectoryBuilding = new Building ("Loyola Jesuit Hall and Conference Centre", "RF", 45.458479, -73.641053);
-			RefectoryBuilding.setDescription("http://www.concordia.ca/maps/buildings/rf.html","rte");
+			//RefectoryBuilding.setDescription ("http://www.concordia.ca/maps/buildings/rf.html", "rte");
+			RefectoryBuilding.Description = "The Refectory building has been renovated to create the Loyola Jesuit Hall and Conference Centre, an important element in the revitalization of the Loyola Campus. The new space was officially unveiled in 2012.";
 			RefectoryBuilding.BuildingImage = Resource.Drawable.RF;
 			RefectoryBuilding.Corners.Add (new LatLng (45.45842237719143, -73.64139631390572));
 			RefectoryBuilding.Corners.Add (new LatLng (45.45858041229482, -73.64127293229103));
@@ -899,7 +919,8 @@ namespace GoogleApiTest
 
 
 			Building RichardScienceBuilding = new Building ("Richard J. Renaud Science Complex", "SP", 45.457625, -73.641703);
-			RichardScienceBuilding.setDescription("http://www.concordia.ca/maps/buildings/sp.html","rte");
+			//RichardScienceBuilding.setDescription ("http://www.concordia.ca/maps/buildings/sp.html", "rte");
+			RichardScienceBuilding.Description = "The Richard J. Renaud Science Complex has changed the face of Concordia's west-end campus. This state-of-the-art teaching and research facility is a lynchpin of the Loyola Campus revitalization. The $85 million purpose-built complex includes teaching facilities, offices, and laboratories for various science departments.";
 			RichardScienceBuilding.BuildingImage = Resource.Drawable.SP;
 			RichardScienceBuilding.Corners.Add (new LatLng (45.4582079002712, -73.64158071577549));
 			RichardScienceBuilding.Corners.Add (new LatLng (45.45819661198965, -73.64154987037182));
@@ -953,7 +974,8 @@ namespace GoogleApiTest
 
 
 			Building VanierExtensionBuilding = new Building ("Vanier Extension", "VE", 45.458845, -73.638635);
-			VanierExtensionBuilding.setDescription("http://www.concordia.ca/maps/buildings/ve.html","rte");
+			//VanierExtensionBuilding.setDescription ("http://www.concordia.ca/maps/buildings/ve.html", "rte");
+			VanierExtensionBuilding.Description = "The original Vanier Library Building (1964) has been called the Vanier Extension since the new Vanier Library opened in 1989. During the spring and summer of 2005 the second and third floors (3,257 sq. metres) of the older building were renovated and refitted to accommodate the specific needs of the Department of Applied Human Sciences. The new facilities include digitally equipped multi-functional classrooms that can be set up for traditional teaching, workshops, or seminars.";
 			VanierExtensionBuilding.BuildingImage = Resource.Drawable.VE;
 			VanierExtensionBuilding.Corners.Add (new LatLng (45.45882028615895, -73.63900043070316));
 			VanierExtensionBuilding.Corners.Add (new LatLng (45.45883533703404, -73.6389883607626));
