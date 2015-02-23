@@ -20,7 +20,4 @@ Global
 		{D25C84E5-9FF9-4694-B0E4-6F4BAA1E75F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D25C84E5-9FF9-4694-B0E4-6F4BAA1E75F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(NDepend) = preSolution
-		Project = ".\GoogleApiTest.ndproj"
-	EndGlobalSection
 EndGlobal
