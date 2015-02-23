@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using Android.Widget;
+using Android.Content;
+
 
 namespace GoogleApiTest
 {
@@ -47,6 +49,8 @@ namespace GoogleApiTest
 			btn.Click += (sender, e) => {
 				//Do Something
 				Console.WriteLine ("Restaurant");
+				var exploreListActivity = new Intent (this, typeof(ExploreListActivity));
+				StartActivity (exploreListActivity);
 			};
 			return btn;
 		}

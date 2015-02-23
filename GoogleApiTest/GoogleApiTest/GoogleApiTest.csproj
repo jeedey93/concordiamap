@@ -75,6 +75,8 @@
     <Compile Include="Models\BuildingManager.cs" />
     <Compile Include="UnitTests\UnitTests.cs" />
     <Compile Include="Models\ExploreMButtonAdapter.cs" />
+    <Compile Include="Models\ExploreListAdapter.cs" />
+    <Compile Include="ExploreListActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -170,6 +172,7 @@
     <AndroidResource Include="Resources\drawable-hdpi\Bar.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Coffee.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Restaurant.png" />
+    <AndroidResource Include="Resources\layout\ExploreListView.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
