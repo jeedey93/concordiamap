@@ -60,8 +60,12 @@ namespace GoogleApiTest
 				}
 			};
 
+
 			drawSGWPolygons (map);
 			drawLoyolaPolygons (map);
+			BitmapDescriptor image = BitmapDescriptorFactory.FromResource (Resource.Drawable.Icon);
+			GroundOverlayOptions byo = new GroundOverlayOptions ().Position (new LatLng (45.497260, -73.578983), 50).InvokeImage (image);
+			map.AddGroundOverlay (byo);
 			createSettingsDrawer ();
 			createSpinnerBuilding (map, BuildingManager.getSGWBuildings ());
 
@@ -244,8 +248,9 @@ namespace GoogleApiTest
 				foreach (var p in building.Corners) {
 					SGWPolygon.Add (p);
 				}
-				int Color = Int32.Parse("ff800020", System.Globalization.NumberStyles.HexNumber);
+				int Color = Int32.Parse("50800020", System.Globalization.NumberStyles.HexNumber);
 				SGWPolygon.InvokeFillColor(Color);
+
 				SGWPolygon.InvokeStrokeWidth (4);
 				map.AddPolygon (SGWPolygon);
 			}
