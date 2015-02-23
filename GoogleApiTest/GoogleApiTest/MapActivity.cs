@@ -23,8 +23,8 @@ namespace GoogleApiTest
 		ActionBarDrawerToggle mDrawerToggle;
 		GoogleMap map;
 		PopupWindow window=null;
-		MarkerOptions startingDestination;
-		MarkerOptions endDestination;
+		Marker startPoint;
+		Marker endPoint;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -78,12 +78,12 @@ namespace GoogleApiTest
 			};
 		}
 
-		public MarkerOptions getStartDestination(){
-			return startingDestination;
+		public Marker getStartDestination(){
+			return startPoint;
 		}
 
-		public MarkerOptions getEndDestination(){
-			return endDestination;
+		public Marker getEndDestination(){
+			return endPoint;
 		}
 
 		public void CreateBuildingDescription(Building building){
@@ -100,45 +100,36 @@ namespace GoogleApiTest
 
 			Button fromHere = popUp.FindViewById<Button> (Resource.Id.btnFromHere);
 			fromHere.Click += (sender, e) => {
-				if(startingDestination==null){
-					startingDestination = new MarkerOptions ();
+				if(startPoint==null){
+					MarkerOptions startingDestination = new MarkerOptions ();
 					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
-					startingDestination.SetTitle (building.Name);
 					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPoint));
-					map.AddMarker (startingDestination);
+					startPoint = map.AddMarker (startingDestination);
 				}
 				else{
 					Toast.MakeText(this, "You already have a starting destination, " + building.Name + " will be your new starting destination",ToastLength.Short).Show();
-					map.Clear();
-					drawSGWPolygons(map);
-					drawLoyolaPolygons(map);
-					startingDestination = new MarkerOptions ();
+					startPoint.Remove();
+					MarkerOptions startingDestination = new MarkerOptions ();
 					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
-					startingDestination.SetTitle (building.Name);
 					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPoint));
-					map.AddMarker (startingDestination);
+					startPoint = map.AddMarker (startingDestination);
 				}
 			};
-
-
+				
 			Button toHere = popUp.FindViewById<Button> (Resource.Id.btnToHere);
 			toHere.Click += (sender, e) => {
-				if (endDestination == null) {
-					endDestination = new MarkerOptions ();
+				if (endPoint == null) {
+					MarkerOptions endDestination = new MarkerOptions ();
 					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
-					endDestination.SetTitle (building.Name);
 					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPoint));
-					map.AddMarker (endDestination);
+					endPoint = map.AddMarker (endDestination);
 				} else {
 					Toast.MakeText (this, "You already have an ending destination, " + building.Name + " will be your new ending destination", ToastLength.Short).Show ();
-					//map.Clear ();
-					//drawSGWPolygons (map);
-					//drawLoyolaPolygons (map); // remove single marker instead of clearing map logic needs to be implemented..
-					endDestination = new MarkerOptions ();
+					endPoint.Remove();
+					MarkerOptions endDestination = new MarkerOptions ();
 					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
-					endDestination.SetTitle (building.Name);
 					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPoint));
-					map.AddMarker (endDestination);
+					endPoint = map.AddMarker (endDestination);
 				}
 			};
 		}

@@ -507,3 +507,12 @@ C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\De
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\uploadflags.txt
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\endpoint.gif
 C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\startpoint.gif
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\HtmlAgilityPack.dll.mdb
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\bar.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\coffee.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\restaurant.png
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\layout\explorelistview.xml
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\endpoint.gif
+C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\startpoint.gif
