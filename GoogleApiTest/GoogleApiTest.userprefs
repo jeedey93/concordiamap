@@ -1,9 +1,11 @@
 ﻿<Properties StartupItem="GoogleApiTest\GoogleApiTest.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.ConcordiaMapsApp" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoogleApiTest\Models\BuildingManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\..\..\Program Files (x86)\MSBuild\Xamarin\Android\Xamarin.Android.Common.targets">
     <Files>
-      <File FileName="GoogleApiTest\Models\BuildingManager.cs" Line="4" Column="4" />
+      <File FileName="GoogleApiTest\Models\BuildingManager.cs" Line="87" Column="87" />
       <File FileName="GoogleApiTest\Models\Building.cs" Line="17" Column="17" />
+      <File FileName="GoogleApiTest\MapActivity.cs" Line="18" Column="18" />
+      <File FileName="..\..\..\..\..\..\Program Files (x86)\MSBuild\Xamarin\Android\Xamarin.Android.Common.targets" Line="56" Column="56" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

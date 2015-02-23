@@ -24,6 +24,7 @@ namespace GoogleApiTest
 		GoogleMap map;
 		PopupWindow window=null;
 		MarkerOptions startingDestination;
+		MarkerOptions endDestination;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -73,6 +74,14 @@ namespace GoogleApiTest
 			};
 		}
 
+		public MarkerOptions getStartDestination(){
+			return startingDestination;
+		}
+
+		public MarkerOptions getEndDestination(){
+			return endDestination;
+		}
+
 		public void CreateBuildingDescription(Building building){
 			LayoutInflater inflater = (LayoutInflater)this.GetSystemService (Context.LayoutInflaterService);
 			View popUp = inflater.Inflate (Resource.Layout.BuildingDescription, null);
@@ -91,6 +100,7 @@ namespace GoogleApiTest
 					startingDestination = new MarkerOptions ();
 					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
 					startingDestination.SetTitle (building.Name);
+					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPoint));
 					map.AddMarker (startingDestination);
 				}
 				else{
@@ -101,7 +111,30 @@ namespace GoogleApiTest
 					startingDestination = new MarkerOptions ();
 					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
 					startingDestination.SetTitle (building.Name);
+					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPoint));
 					map.AddMarker (startingDestination);
+				}
+			};
+
+
+			Button toHere = popUp.FindViewById<Button> (Resource.Id.btnToHere);
+			toHere.Click += (sender, e) => {
+				if (endDestination == null) {
+					endDestination = new MarkerOptions ();
+					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
+					endDestination.SetTitle (building.Name);
+					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPoint));
+					map.AddMarker (endDestination);
+				} else {
+					Toast.MakeText (this, "You already have an ending destination, " + building.Name + " will be your new ending destination", ToastLength.Short).Show ();
+					//map.Clear ();
+					//drawSGWPolygons (map);
+					//drawLoyolaPolygons (map); // remove single marker instead of clearing map logic needs to be implemented..
+					endDestination = new MarkerOptions ();
+					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
+					endDestination.SetTitle (building.Name);
+					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPoint));
+					map.AddMarker (endDestination);
 				}
 			};
 		}

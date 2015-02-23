@@ -173,6 +173,8 @@
     <AndroidResource Include="Resources\drawable-hdpi\Coffee.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Restaurant.png" />
     <AndroidResource Include="Resources\layout\ExploreListView.axml" />
+    <AndroidResource Include="Resources\drawable-hdpi\EndPoint.gif" />
+    <AndroidResource Include="Resources\drawable-hdpi\StartPoint.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

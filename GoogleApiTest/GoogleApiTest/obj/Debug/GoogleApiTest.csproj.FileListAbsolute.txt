@@ -303,7 +303,6 @@ C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin
 C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\nunit.framework.xml
 C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug\HtmlAgilityPack.dll.mdb
-C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\GoogleApiTest.csprojResolveAssemblyReference.cache
 C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\GoogleApiTest.dll
 C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\GoogleApiTest.pdb
 C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\android\bin\GoogleApiTest.GoogleApiTest.apk
@@ -395,5 +394,7 @@ C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj
 C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\coffee.png
 C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\restaurant.png
 C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\layout\explorelistview.xml
+C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\endpoint.gif
+C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\startpoint.gif
 C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\R.cs.flag
 C:\Users\tharaniya\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\uploadflags.txt
