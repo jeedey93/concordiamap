@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <NDepend AppName="GoogleApiTest" Platform="DotNet">
   <OutputDir KeepXmlFiles="False">C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\NDependOut</OutputDir>
   <Assemblies>
@@ -65,7 +65,8 @@
   </TrendMetrics>
   <HistoricAnalysisResult PersistRecurrence="2" UseCustomDir="False" CustomDir="" />
   <SourceFileRebasing FromPath="" ToPath="" />
-  <PathVariables /><Queries>
+  <PathVariables />
+  <Queries>
     <Group Name="Code Quality" Active="True" ShownInReport="False">
       <Query Active="True" DisplayList="True" DisplayStat="True" DisplaySelectionView="False" IsCriticalRule="True"><![CDATA[// <Name>Types too big - critical</Name>
 warnif count > 0 from t in JustMyCode.Types where 
@@ -3589,7 +3590,7 @@ Application.Methods.Where(m => !JustMyCode.Contains(m))
 // JustMyCode is defined by code queries prefixed with 'notmycode' 
 // in the group 'Defining JustMyCode'.
 ]]></Query>
-        <Query Active="True" DisplayList="True" DisplayStat="True" DisplaySelectionView="False" IsCriticalRule="False"><![CDATA[// <TrendMetric Name="# Lines of Comments" Unit="Lines" />  
+        <Query Active="True" DisplayList="True" DisplayStat="True" DisplaySelectionView="True" IsCriticalRule="False"><![CDATA[// <TrendMetric Name="# Lines of Comments" Unit="Lines" />  
 Application.Assemblies.Sum(a => a.NbLinesOfComment)
 
 // So far comments are only extracted from C# source code.
@@ -4100,4 +4101,5 @@ warnif count > 0 from n in Application.Namespaces where
 select new { n, n.NbLinesOfCode } ]]></Query>
       </Group>
     </Group>
-  </Queries></NDepend>
+  </Queries>
+</NDepend>

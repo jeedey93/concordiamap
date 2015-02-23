@@ -19,26 +19,21 @@ Can't find the .NET assembly {System.Core} in specified folders.
 Has it been compiled properly? 
 Is the NDepend project missing the containing folder of the .NET assembly?</Warning>
   <Info>Concurrent mode</Info>
+  <Info>.NET Assemblies loaded from {C:\Windows\Microsoft.NET\Framework\v2.0.50727} 
+   mscorlib.dll   v2.0.0.0
+   System.dll   v2.0.0.0</Info>
   <Info>.NET Assemblies loaded from {C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\bin\Debug} 
    GoogleApiTest.dll   v1.0.0.0
    Xamarin.Android.Support.v4.dll   v1.0.0.0
    GooglePlayServicesLib.dll   v1.0.0.0
    HtmlAgilityPack.dll   v1.4.9.0
    nunit.framework.dll   v2.6.4.14350</Info>
-  <Info>.NET Assemblies loaded from {C:\Windows\Microsoft.NET\Framework\v2.0.50727} 
-   mscorlib.dll   v2.0.0.0
-   System.dll   v2.0.0.0</Info>
   <Warning>Assembly {Mono.Android} is referenced by {GoogleApiTest} but is not found.</Warning>
   <Warning>Assembly {System.Net.Http} is referenced by {GoogleApiTest} but is not found.</Warning>
   <Warning>Assembly {System.Core} is referenced by {GoogleApiTest} but is not found.</Warning>
-  <Info>10 source files parsed ; all source files found ; all source files in-sync with PDB</Info>
+  <Info>12 source files parsed ; all source files found ; all source files in-sync with PDB</Info>
   <Info>0 code rule has been extracted from code.</Info>
   <Info>No dependency cycle detected in assemblies referencement graph.</Info>
-  <Info>02/22/2015 21:46:18 Analyse dependencies of your application.</Info>
-  <Info>02/22/2015 21:46:24 Log trend metrics values.</Info>
-  <Info>02/22/2015 21:46:25 Execute queries and rules</Info>
-  <Warning>1 critical rule is violated.
-  - Types too big - critical</Warning>
-  <Info>02/22/2015 21:46:27 NDepend analysis done. Duration: 00:09</Info>
-  <Info>02/22/2015 21:46:27 Building the report (standard).</Info>
+  <Info>02/23/2015 14:26:56 Log trend metrics values.</Info>
+  <Info>02/23/2015 14:27:28 NDepend analysis done. Duration: 00:34</Info>
 </InfoWarnings>
