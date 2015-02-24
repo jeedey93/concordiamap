@@ -141,7 +141,7 @@ namespace GoogleApiTest
 			builder.Target(location);
 			builder.Zoom(16);
 			CameraPosition cameraPosition = builder.Build();
-			map.MoveCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
+			map.AnimateCamera  (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 		}
 
 		void HandleMapClick (object sender, GoogleMap.MapClickEventArgs e)
@@ -162,7 +162,7 @@ namespace GoogleApiTest
 			builder.Target(location);
 			builder.Zoom(16);
 			CameraPosition cameraPosition = builder.Build();
-			map.MoveCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
+			map.AnimateCamera  (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 		}
 			
 		public void createSpinnerBuilding(GoogleMap map, List<Building> buildings){
@@ -197,7 +197,7 @@ namespace GoogleApiTest
 			builder.Target(location);
 			builder.Zoom(18);
 			CameraPosition cameraPosition = builder.Build();
-			map.MoveCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
+			map.AnimateCamera  (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 		}
 
 		public void createSettingsDrawer(){
@@ -241,7 +241,6 @@ namespace GoogleApiTest
 				}
 				int Color = Int32.Parse("50800020", System.Globalization.NumberStyles.HexNumber);
 				SGWPolygon.InvokeFillColor(Color);
-
 				SGWPolygon.InvokeStrokeWidth (4);
 				map.AddPolygon (SGWPolygon);
 			}
