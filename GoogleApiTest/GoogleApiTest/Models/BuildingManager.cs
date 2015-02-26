@@ -45,6 +45,8 @@ namespace GoogleApiTest
 			BBuilding.Corners.Add (new LatLng (45.497847, -73.579337));
 			BBuilding.Corners.Add (new LatLng (45.497592, -73.579583));
 			BBuilding.Corners.Add (new LatLng (45.497631, -73.579665));
+			BBuilding.BuildingOverlay = Resource.Drawable.B_Logo;
+			BBuilding.OverlaySize = 17;
 			SGWBuildings.Add (BBuilding);
 
 
@@ -68,6 +70,8 @@ namespace GoogleApiTest
 			CBBuilding.Corners.Add (new LatLng (45.495078, -73.574535));
 			CBBuilding.Corners.Add (new LatLng (45.49505, -73.574568));
 			CBBuilding.Corners.Add (new LatLng (45.495081, -73.574638));
+			CBBuilding.BuildingOverlay = Resource.Drawable.CB_Logo;
+			CBBuilding.OverlaySize = 17;
 			SGWBuildings.Add (CBBuilding);
 
 
@@ -77,6 +81,8 @@ namespace GoogleApiTest
 			CIBuilding.Corners.Add (new LatLng (45.497478, -73.579848));
 			CIBuilding.Corners.Add (new LatLng (45.497368, -73.579958));
 			CIBuilding.Corners.Add (new LatLng (45.497411, -73.580047));
+			CIBuilding.BuildingOverlay = Resource.Drawable.CI_Logo;
+			CIBuilding.OverlaySize = 17;
 			SGWBuildings.Add (CIBuilding);
 
 			Building CLBuilding = new Building ("CL Building", "CL", 45.494195, -73.579295);
@@ -88,6 +94,8 @@ namespace GoogleApiTest
 			CLBuilding.Corners.Add (new LatLng (45.493985, -73.579319));
 			CLBuilding.Corners.Add (new LatLng (45.49399, -73.579345));
 			CLBuilding.Corners.Add (new LatLng (45.49417, -73.579649));
+			CLBuilding.BuildingOverlay = Resource.Drawable.CL_Logo;
+			CLBuilding.OverlaySize = 17;
 			SGWBuildings.Add (CLBuilding);
 
 			Building DBuilding = new Building ("D Building", "D", 45.497736, -73.579390);
@@ -108,6 +116,8 @@ namespace GoogleApiTest
 			ENBuilding.Corners.Add (new LatLng (45.496804, -73.579632));
 			ENBuilding.Corners.Add (new LatLng (45.496674, -73.579766));
 			ENBuilding.Corners.Add (new LatLng (45.4967, -73.579819));
+			ENBuilding.BuildingOverlay = Resource.Drawable.EN_Logo;
+			ENBuilding.OverlaySize = 17;
 			SGWBuildings.Add (ENBuilding);
 
 			Building eVBuilding = new Building ("Computer Science, Engineering and Visual Arts Integrated Complex", "EV", 45.495572, -73.578285);
@@ -254,6 +264,8 @@ namespace GoogleApiTest
 			HallBuilding.Corners.Add (new LatLng (45.497366508216466, -73.57833489775658));
 			HallBuilding.Corners.Add (new LatLng (45.4968288804749256, -73.57885658740997));
 			HallBuilding.Corners.Add (new LatLng (45.49715787001796, -73.579544390347004));
+			HallBuilding.BuildingOverlay = Resource.Drawable.Hall_Logo;
+			HallBuilding.OverlaySize = 50;
 			SGWBuildings.Add (HallBuilding);
 
 

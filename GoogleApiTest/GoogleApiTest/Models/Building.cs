@@ -16,6 +16,8 @@ namespace GoogleApiTest
 		public List<LatLng> Corners = new List<LatLng> ();
 		public int BuildingImage;
 		public string Description { get; set;}
+		public int BuildingOverlay;
+		public int OverlaySize;
 
 		public Building (string Name, string Abbreviation, double XCoordinate, double YCoordinate)
 		{
@@ -23,8 +25,11 @@ namespace GoogleApiTest
 			this.Abbreviation = Abbreviation;
 			this.XCoordinate=XCoordinate;
 			this.YCoordinate=YCoordinate;
+			this.BuildingOverlay = 0;
 		}
 			
+
+
 		public String toString() {
 			return this.Abbreviation;           
 		}

@@ -175,6 +175,14 @@
     <AndroidResource Include="Resources\layout\ExploreListView.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\EndPoint.gif" />
     <AndroidResource Include="Resources\drawable-hdpi\StartPoint.gif" />
+    <AndroidResource Include="Resources\drawable-hdpi\EV_Icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Hall_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\B_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\CB_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\CI_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\CL_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\DB_Logo.psd" />
+    <AndroidResource Include="Resources\drawable-hdpi\EN_Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
