@@ -104,6 +104,8 @@ namespace GoogleApiTest
 			DBuilding.Corners.Add (new LatLng (45.497815, -73.57927));
 			DBuilding.Corners.Add (new LatLng (45.497649, -73.579432));
 			DBuilding.Corners.Add (new LatLng (45.49768, -73.579496));
+			DBuilding.BuildingOverlay = Resource.Drawable.D_Logo;
+			DBuilding.OverlaySize = 17;
 			SGWBuildings.Add (DBuilding);
 
 			Building ENBuilding = new Building ("EN Building", "EN", 45.496823, -73.579661);
@@ -117,7 +119,7 @@ namespace GoogleApiTest
 			ENBuilding.Corners.Add (new LatLng (45.496674, -73.579766));
 			ENBuilding.Corners.Add (new LatLng (45.4967, -73.579819));
 			ENBuilding.BuildingOverlay = Resource.Drawable.EN_Logo;
-			ENBuilding.OverlaySize = 17;
+			ENBuilding.OverlaySize = 13;
 			SGWBuildings.Add (ENBuilding);
 
 			Building eVBuilding = new Building ("Computer Science, Engineering and Visual Arts Integrated Complex", "EV", 45.495572, -73.578285);
@@ -133,6 +135,8 @@ namespace GoogleApiTest
 			eVBuilding.Corners.Add (new LatLng (45.49527582814485, -73.57813775539398));
 			eVBuilding.Corners.Add (new LatLng (45.495369835210354, -73.5784462094307));
 			eVBuilding.Corners.Add (new LatLng (45.49556160913736, -73.57885658740997));
+			eVBuilding.BuildingOverlay = Resource.Drawable.EV_Logo;
+			eVBuilding.OverlaySize = 25;
 			SGWBuildings.Add (eVBuilding);
 
 			Building FABuilding = new Building ("FA Building", "FA", 45.496801, -73.579528);
@@ -141,6 +145,8 @@ namespace GoogleApiTest
 			FABuilding.Corners.Add (new LatLng (45.496828, -73.579447));
 			FABuilding.Corners.Add (new LatLng (45.496745, -73.579529));
 			FABuilding.Corners.Add (new LatLng (45.496783, -73.579605));
+			FABuilding.BuildingOverlay = Resource.Drawable.FA_Logo;
+			FABuilding.OverlaySize = 14;
 			SGWBuildings.Add (FABuilding);
 
 			Building FBBuilding = new Building ("Faubourg Tower", "FB", 45.494673, -73.577642);
@@ -159,6 +165,8 @@ namespace GoogleApiTest
 			FBBuilding.Corners.Add (new LatLng (45.4947, -73.5773));
 			FBBuilding.Corners.Add (new LatLng (45.494654, -73.57722));
 			FBBuilding.Corners.Add (new LatLng (45.494397, -73.577521));
+			FBBuilding.BuildingOverlay = Resource.Drawable.FB_Logo;
+			FBBuilding.OverlaySize = 25;
 			SGWBuildings.Add (FBBuilding);
 
 			Building FGBuilding = new Building ("FG Building", "FG", 45.494195, -73.578328);
@@ -185,6 +193,8 @@ namespace GoogleApiTest
 			FGBuilding.Corners.Add (new LatLng (45.494428, -73.577762));
 			FGBuilding.Corners.Add (new LatLng (45.494389, -73.57769));
 			FGBuilding.Corners.Add (new LatLng (45.494452, -73.577618));
+			FGBuilding.BuildingOverlay = Resource.Drawable.FG_Logo;
+			FGBuilding.OverlaySize = 25;
 			SGWBuildings.Add (FGBuilding);
 
 			Building gMBuilding = new Building ("Guy-Metro Building", "GM", 45.495857, -73.578858);
@@ -195,6 +205,8 @@ namespace GoogleApiTest
 			gMBuilding.Corners.Add (new LatLng (45.49595, -73.57852));
 			gMBuilding.Corners.Add (new LatLng (45.49562, -73.57884));
 			gMBuilding.Corners.Add (new LatLng (45.49579, -73.57919));
+			gMBuilding.BuildingOverlay = Resource.Drawable.GM_Logo;
+			gMBuilding.OverlaySize = 20;
 			SGWBuildings.Add (gMBuilding);
 
 			Building GNBuilding = new Building ("Grey Nuns Building", "GN", 45.493522, -73.576724);
@@ -254,6 +266,8 @@ namespace GoogleApiTest
 			GNBuilding.Corners.Add (new LatLng (45.494194, -73.5771));
 			GNBuilding.Corners.Add (new LatLng (45.494043, -73.577248));
 			GNBuilding.Corners.Add (new LatLng (45.494118, -73.577399));
+			GNBuilding.BuildingOverlay = Resource.Drawable.GN_Logo;
+			GNBuilding.OverlaySize = 17;
 			SGWBuildings.Add (GNBuilding);
 
 			Building HallBuilding = new Building ("Henry F.Hall Building", "H", 45.497260, -73.578983);
@@ -275,6 +289,8 @@ namespace GoogleApiTest
 			KBuilding.Corners.Add (new LatLng (45.497887, -73.579419));
 			KBuilding.Corners.Add (new LatLng (45.497715, -73.579588));
 			KBuilding.Corners.Add (new LatLng (45.49775, -73.579662));
+			KBuilding.BuildingOverlay = Resource.Drawable.K_Logo;
+			KBuilding.OverlaySize = 17;
 			SGWBuildings.Add (KBuilding);
 
 			Building libraryBuilding = new Building ("McConnell Library Building", "LB", 45.496775, -73.577904);
@@ -319,6 +335,8 @@ namespace GoogleApiTest
 			libraryBuilding.Corners.Add (new LatLng (45.496911, -73.578343));
 			libraryBuilding.Corners.Add (new LatLng (45.496873, -73.578378));
 			libraryBuilding.Corners.Add (new LatLng (45.49689, -73.578414));
+			libraryBuilding.BuildingOverlay = Resource.Drawable.LB_Logo;
+			libraryBuilding.OverlaySize = 40;
 			SGWBuildings.Add (libraryBuilding);
 
 			Building MBuilding = new Building ("M Building", "M", 45.497357, -73.579789);
@@ -327,6 +345,8 @@ namespace GoogleApiTest
 			MBuilding.Corners.Add (new LatLng (45.497396, -73.579688));
 			MBuilding.Corners.Add (new LatLng (45.497287, -73.579797));
 			MBuilding.Corners.Add (new LatLng (45.497325, -73.579871));
+			MBuilding.BuildingOverlay = Resource.Drawable.M_Logo;
+			MBuilding.OverlaySize = 17;
 			SGWBuildings.Add (MBuilding);
 
 			Building JMSBBuilding = new Building ("John Molson School of Business Building", "MB", 45.495270187715924, -73.57906848192215);
@@ -345,6 +365,8 @@ namespace GoogleApiTest
 			JMSBBuilding.Corners.Add (new LatLng (45.49513, -73.578747));
 			JMSBBuilding.Corners.Add (new LatLng (45.495105, -73.578686));
 			JMSBBuilding.Corners.Add (new LatLng (45.495259, -73.578516));
+			JMSBBuilding.BuildingOverlay = Resource.Drawable.MB_Logo;
+			JMSBBuilding.OverlaySize = 25;
 			SGWBuildings.Add (JMSBBuilding);
 
 			Building MTBuilding = new Building ("Montefiore Building", "MT", 45.494408, -73.576165);
@@ -353,6 +375,8 @@ namespace GoogleApiTest
 			MTBuilding.Corners.Add (new LatLng (45.494463, -73.575983));
 			MTBuilding.Corners.Add (new LatLng (45.494305, -73.576125));
 			MTBuilding.Corners.Add (new LatLng (45.494397, -73.576333));
+			MTBuilding.BuildingOverlay = Resource.Drawable.MT_Logo;
+			MTBuilding.OverlaySize = 15;
 			SGWBuildings.Add (MTBuilding);
 
 			Building MUBuilding = new Building ("MU Building", "MU", 45.497853, -73.579622);
@@ -361,6 +385,8 @@ namespace GoogleApiTest
 			MUBuilding.Corners.Add (new LatLng (45.497929, -73.579496));
 			MUBuilding.Corners.Add (new LatLng (45.497753, -73.579666));
 			MUBuilding.Corners.Add (new LatLng (45.497789, -73.579739));
+			MUBuilding.BuildingOverlay = Resource.Drawable.MU_Logo;
+			MUBuilding.OverlaySize = 15;
 			SGWBuildings.Add (MUBuilding);
 
 			Building MIBuilding = new Building ("MI Building", "MI", 45.497700, -73.579307);
@@ -369,6 +395,8 @@ namespace GoogleApiTest
 			MIBuilding.Corners.Add (new LatLng (45.497769, -73.579173));
 			MIBuilding.Corners.Add (new LatLng (45.497601, -73.579336));
 			MIBuilding.Corners.Add (new LatLng (45.497645, -73.579429));
+			MIBuilding.BuildingOverlay = Resource.Drawable.MI_Logo;
+			MIBuilding.OverlaySize = 15;
 			SGWBuildings.Add (MIBuilding);
 
 			Building OSBuilding = new Building ("OS Building", "OS", 45.497189, -73.573149);
@@ -377,6 +405,8 @@ namespace GoogleApiTest
 			OSBuilding.Corners.Add (new LatLng (45.497203, -73.573013));
 			OSBuilding.Corners.Add (new LatLng (45.4971, -73.573119));
 			OSBuilding.Corners.Add (new LatLng (45.497186, -73.573295));
+			OSBuilding.BuildingOverlay = Resource.Drawable.OS_Logo;
+			OSBuilding.OverlaySize = 15;
 			SGWBuildings.Add (OSBuilding);
 
 			Building PBuilding = new Building ("P Building", "P", 45.496648, -73.579202);
@@ -385,6 +415,8 @@ namespace GoogleApiTest
 			PBuilding.Corners.Add (new LatLng (45.496682, -73.579117));
 			PBuilding.Corners.Add (new LatLng (45.496583, -73.579217));
 			PBuilding.Corners.Add (new LatLng (45.496619, -73.57929));
+			PBuilding.BuildingOverlay = Resource.Drawable.P_Logo;
+			PBuilding.OverlaySize = 15;
 			SGWBuildings.Add (PBuilding);
 
 			Building PRBuilding = new Building ("PR Building", "PR", 45.496921, -73.579917);
@@ -393,6 +425,8 @@ namespace GoogleApiTest
 			PRBuilding.Corners.Add (new LatLng (45.496989, -73.579783));
 			PRBuilding.Corners.Add (new LatLng (45.496796, -73.579975));
 			PRBuilding.Corners.Add (new LatLng (45.496839, -73.580062));
+			PRBuilding.BuildingOverlay = Resource.Drawable.PR_Logo;
+			PRBuilding.OverlaySize = 14;
 			SGWBuildings.Add (PRBuilding);
 
 			Building QBuilding = new Building ("Q Building", "Q", 45.496604, -73.579129);
@@ -403,6 +437,8 @@ namespace GoogleApiTest
 			QBuilding.Corners.Add (new LatLng (45.496653, -73.579054));
 			QBuilding.Corners.Add (new LatLng (45.496549, -73.579156));
 			QBuilding.Corners.Add (new LatLng (45.496578, -73.579214));
+			QBuilding.BuildingOverlay = Resource.Drawable.Q_Logo;
+			QBuilding.OverlaySize = 14;
 			SGWBuildings.Add (QBuilding);
 
 			Building RBuilding = new Building ("R Building", "R", 45.496757, -73.579445);
@@ -411,6 +447,8 @@ namespace GoogleApiTest
 			RBuilding.Corners.Add (new LatLng (45.496787, -73.57936));
 			RBuilding.Corners.Add (new LatLng (45.4967, -73.579447));
 			RBuilding.Corners.Add (new LatLng (45.496739, -73.579529));
+			RBuilding.BuildingOverlay = Resource.Drawable.R_Logo;
+			RBuilding.OverlaySize = 15;
 			SGWBuildings.Add (RBuilding);
 
 			Building RRBuilding = new Building ("RR Building", "RR", 45.496702, -73.579380);
@@ -419,6 +457,8 @@ namespace GoogleApiTest
 			RRBuilding.Corners.Add (new LatLng (45.496743, -73.579274));
 			RRBuilding.Corners.Add (new LatLng (45.496612, -73.579405));
 			RRBuilding.Corners.Add (new LatLng (45.496653, -73.579488));
+			RRBuilding.BuildingOverlay = Resource.Drawable.RR_Logo;
+			RRBuilding.OverlaySize = 13;
 			SGWBuildings.Add (RRBuilding);
 
 			Building SBuilding = new Building ("S Building", "S", 45.497400, -73.579867);
@@ -429,6 +469,8 @@ namespace GoogleApiTest
 			SBuilding.Corners.Add (new LatLng (45.497425, -73.579775));
 			SBuilding.Corners.Add (new LatLng (45.497328, -73.579874));
 			SBuilding.Corners.Add (new LatLng (45.497365, -73.579953));
+			SBuilding.BuildingOverlay = Resource.Drawable.S_Logo;
+			SBuilding.OverlaySize = 15;
 			SGWBuildings.Add (SBuilding);
 
 			Building SBBuilding = new Building ("Samuel Bronfman Building", "SB", 45.496553, -73.586140);
@@ -449,6 +491,8 @@ namespace GoogleApiTest
 			SBBuilding.Corners.Add (new LatLng (45.496534, -73.586248));
 			SBBuilding.Corners.Add (new LatLng (45.496532, -73.586282));
 			SBBuilding.Corners.Add (new LatLng (45.496551, -73.586323));
+			SBBuilding.BuildingOverlay = Resource.Drawable.SB_Logo;
+			SBBuilding.OverlaySize = 17;
 			SGWBuildings.Add (SBBuilding);
 
 			Building TBuilding = new Building ("T Building", "T", 45.496676, -73.579289);
@@ -457,6 +501,8 @@ namespace GoogleApiTest
 			TBuilding.Corners.Add (new LatLng (45.496698, -73.579218));
 			TBuilding.Corners.Add (new LatLng (45.496625, -73.579292));
 			TBuilding.Corners.Add (new LatLng (45.496656, -73.579359));
+			TBuilding.BuildingOverlay = Resource.Drawable.T_Logo;
+			TBuilding.OverlaySize = 15;
 			SGWBuildings.Add (TBuilding);
 
 			Building TDBuilding = new Building ("Toronto Dominion Building", "TD", 45.494667, -73.578743);
@@ -467,6 +513,8 @@ namespace GoogleApiTest
 			TDBuilding.Corners.Add (new LatLng (45.494654, -73.578513));
 			TDBuilding.Corners.Add (new LatLng (45.494533, -73.578653));
 			TDBuilding.Corners.Add (new LatLng (45.494724, -73.578974));
+			TDBuilding.BuildingOverlay = Resource.Drawable.TD_Logo;
+			TDBuilding.OverlaySize = 17;
 			SGWBuildings.Add (TDBuilding);
 
 			Building VBuilding = new Building ("V Building", "V", 45.497011, -73.579956);
@@ -477,6 +525,8 @@ namespace GoogleApiTest
 			VBuilding.Corners.Add (new LatLng (45.497032, -73.579871));
 			VBuilding.Corners.Add (new LatLng (45.496943, -73.57996));
 			VBuilding.Corners.Add (new LatLng (45.496984, -73.580046));
+			VBuilding.BuildingOverlay = Resource.Drawable.V_Logo;
+			VBuilding.OverlaySize = 13;
 			SGWBuildings.Add (VBuilding);
 
 			Building VABuilding = new Building ("Visual Arts Building", "VA", 45.495730, -73.573868);
@@ -487,6 +537,8 @@ namespace GoogleApiTest
 			VABuilding.Corners.Add (new LatLng (45.49609, -73.573543));
 			VABuilding.Corners.Add (new LatLng (45.495846, -73.573785));
 			VABuilding.Corners.Add (new LatLng (45.495698, -73.573482));
+			VABuilding.BuildingOverlay = Resource.Drawable.VA_Logo;
+			VABuilding.OverlaySize = 20;
 			SGWBuildings.Add (VABuilding);
 
 			Building XBuilding = new Building ("X Building", "X", 45.496884, -73.579699);
@@ -495,6 +547,8 @@ namespace GoogleApiTest
 			XBuilding.Corners.Add (new LatLng (45.496823, -73.579701));
 			XBuilding.Corners.Add (new LatLng (45.496859, -73.579776));
 			XBuilding.Corners.Add (new LatLng (45.496944, -73.579691));
+			XBuilding.BuildingOverlay = Resource.Drawable.X_Logo;
+			XBuilding.OverlaySize = 13;
 			SGWBuildings.Add (XBuilding);
 
 			Building ZBuilding = new Building ("Z Building", "Z", 45.496920, -73.579785);
@@ -503,6 +557,8 @@ namespace GoogleApiTest
 			ZBuilding.Corners.Add (new LatLng (45.496948, -73.579693));
 			ZBuilding.Corners.Add (new LatLng (45.496859, -73.579781));
 			ZBuilding.Corners.Add (new LatLng (45.496901, -73.579866));
+			ZBuilding.BuildingOverlay = Resource.Drawable.Z_Logo;
+			ZBuilding.OverlaySize = 14;
 			SGWBuildings.Add (ZBuilding);
 			return SGWBuildings;
 		}

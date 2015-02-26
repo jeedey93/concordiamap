@@ -267,7 +267,7 @@ namespace GoogleApiTest
 		public void drawSGWMarkers(GoogleMap map){
 			List<Building> b = BuildingManager.getSGWBuildings();
 			GroundOverlayOptions SGWOverlay;
-			foreach (var building in b) {
+			foreach (var building in b) { 
 			
 				if (building.BuildingOverlay != 0) {
 					BitmapDescriptor image = BitmapDescriptorFactory.FromResource (building.BuildingOverlay);
