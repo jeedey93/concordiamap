@@ -60,12 +60,11 @@ namespace GoogleApiTest
 				}
 			};
 
-
 			drawSGWPolygons (map);
 			drawLoyolaPolygons (map);
+
+			drawLOYMarkers (map);
 			drawSGWMarkers (map);
-
-
 
 			createSettingsDrawer ();
 			createSpinnerBuilding (map, BuildingManager.getSGWBuildings ());
@@ -256,7 +255,7 @@ namespace GoogleApiTest
 				foreach (var p in building.Corners) {
 					LoyolaPolygon.Add (p);
 				}
-				int Color = Int32.Parse("ff800020", System.Globalization.NumberStyles.HexNumber);
+				int Color = Int32.Parse ("50800020", System.Globalization.NumberStyles.HexNumber);
 				LoyolaPolygon.InvokeFillColor(Color);
 				LoyolaPolygon.InvokeStrokeWidth (4);
 				map.AddPolygon (LoyolaPolygon);
@@ -268,7 +267,22 @@ namespace GoogleApiTest
 			List<Building> b = BuildingManager.getSGWBuildings();
 			GroundOverlayOptions SGWOverlay;
 			foreach (var building in b) { 
-			
+
+				if (building.BuildingOverlay != 0) {
+					BitmapDescriptor image = BitmapDescriptorFactory.FromResource (building.BuildingOverlay);
+					GroundOverlayOptions byo = new GroundOverlayOptions ().Position (new LatLng (building.XCoordinate, building.YCoordinate), building.OverlaySize).InvokeImage (image);
+
+					map.AddGroundOverlay (byo);
+				}
+			}
+		}
+
+
+		public void drawLOYMarkers(GoogleMap map){
+			List<Building> b = BuildingManager.getLoyolaBuildings();
+
+			foreach (var building in b) { 
+
 				if (building.BuildingOverlay != 0) {
 					BitmapDescriptor image = BitmapDescriptorFactory.FromResource (building.BuildingOverlay);
 					GroundOverlayOptions byo = new GroundOverlayOptions ().Position (new LatLng (building.XCoordinate, building.YCoordinate), building.OverlaySize).InvokeImage (image);
