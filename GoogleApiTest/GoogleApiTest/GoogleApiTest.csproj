@@ -209,6 +209,31 @@
     <AndroidResource Include="Resources\drawable-hdpi\X_Logo.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Z_Logo.png" />
     <AndroidResource Include="Resources\drawable-hdpi\D_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\AD_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\BB_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\BH_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\CC_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\CJ_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\DO_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\FC_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\GE_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\HA_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\HB_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\HC_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\JR_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\PC_logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\PS_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\PT_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\PY_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\RA_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\RF_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\SC_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\SH_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\SI_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\SP_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\TA_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\VE_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\VL_Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
