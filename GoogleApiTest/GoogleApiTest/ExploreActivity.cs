@@ -20,70 +20,48 @@ namespace GoogleApiTest
 			SetContentView (Resource.Layout.ExploreView);
 
 			//Creat all buttons and add to list
-			mButtons = makeButtons ();
+			//mButtons = makeButtons ();
 
-			var gridView = (GridView) FindViewById<GridView> (Resource.Id.exploreMenu);
-			gridView.Adapter = new ExploreMButtonAdapter (this, mButtons);
+			//var gridView = (GridView) FindViewById<GridView> (Resource.Id.exploreMenu);
+			//gridView.Adapter = new ExploreMButtonAdapter (this, mButtons);
+			Button retaurantBtn = (Button)FindViewById<Button> (Resource.Id.exploreMBRestaurant);
+			Button coffeeBtn = (Button)FindViewById<Button> (Resource.Id.exploreMBCoffee);
+			Button barBtn = (Button)FindViewById<Button> (Resource.Id.exploreMBBar);
+			Button convinienceBtn = (Button)FindViewById<Button> (Resource.Id.exploreMBConvinience);
 
-		}
-
-		// Generate list of buttons
-		private List<Button> makeButtons(){
-			List<Button> tempList = new List<Button> ();
-
-			tempList.Add (makeRestaurantBtn ());
-			tempList.Add (makeCoffeeBtn ());
-			tempList.Add (makeBarBtn ());
-
-			return tempList;
-		}
-
-
-		private Button makeRestaurantBtn(){
-			Button btn = new Button (this);
-
-			btn.Text = "Retaurant";
-			btn.SetBackgroundResource (Resource.Drawable.Restaurant);
-
-			//Event Handler
-			btn.Click += (sender, e) => {
+			retaurantBtn.Click += (sender, e) => {
 				//Do Something
 				Console.WriteLine ("Restaurant");
+
 				var exploreListActivity = new Intent (this, typeof(ExploreListActivity));
 				StartActivity (exploreListActivity);
 			};
-			return btn;
-		}
 
-		private Button makeCoffeeBtn(){
-			Button btn = new Button (this);
-
-			btn.Text = "Coffee";
-			btn.SetBackgroundResource (Resource.Drawable.Coffee);
-
-			//Event Handler
-			btn.Click += (sender, e) => {
+			coffeeBtn.Click += (sender, e) => {
 				//Do Something
 				Console.WriteLine ("Coffee");
+
+				var exploreListActivity = new Intent (this, typeof(ExploreListActivity));
+				StartActivity (exploreListActivity);
 			};
 
-			return btn;
-		}
-
-		private Button makeBarBtn(){
-			Button btn = new Button (this);
-
-			btn.Text = "Bar";
-			btn.SetBackgroundResource (Resource.Drawable.Bar);
-
-			//Event Handler
-			btn.Click += (sender, e) => {
+			barBtn.Click += (sender, e) => {
 				//Do Something
 				Console.WriteLine ("Bar");
+
+				var exploreListActivity = new Intent (this, typeof(ExploreListActivity));
+				StartActivity (exploreListActivity);
 			};
 
-			return btn;
+			convinienceBtn.Click += (sender, e) => {
+				//Do Something
+				Console.WriteLine ("Convinience");
+
+				var exploreListActivity = new Intent (this, typeof(ExploreListActivity));
+				StartActivity (exploreListActivity);
+			};
 		}
+			
 	}
 }
 

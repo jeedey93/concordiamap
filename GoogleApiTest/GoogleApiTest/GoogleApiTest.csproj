@@ -234,6 +234,7 @@
     <AndroidResource Include="Resources\drawable-hdpi\TA_Logo.png" />
     <AndroidResource Include="Resources\drawable-hdpi\VE_Logo.png" />
     <AndroidResource Include="Resources\drawable-hdpi\VL_Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Pharmacy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

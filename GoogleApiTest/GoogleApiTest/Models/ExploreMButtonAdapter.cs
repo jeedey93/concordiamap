@@ -34,7 +34,8 @@ namespace GoogleApiTest
 		}  
 
 		public override View GetView(int position, View convertView, ViewGroup parent) {  
-			Button btn;  
+			Button btn; 
+
 			if (convertView == null) {    
 				// if it's not recycled, initialize some attributes  
 				btn = buttons.ToArray()[position];  
