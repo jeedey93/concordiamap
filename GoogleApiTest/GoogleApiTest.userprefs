@@ -1,6 +1,10 @@
 ﻿<Properties StartupItem="GoogleApiTest\GoogleApiTest.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.079a45360324477b" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="d:\GitHub\concordiamap\concordiamap\GoogleApiTest\GoogleApiTest\MapActivity.cs">
+    <Files>
+      <File FileName="d:\GitHub\concordiamap\concordiamap\GoogleApiTest\GoogleApiTest\MapActivity.cs" Line="23" Column="23" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -11,24 +11,20 @@ namespace GoogleApiTest
 	[Activity (Label = "ExploreActivity")]			
 	public class ExploreActivity : Activity
 	{
-		//List of buttons wihtin gridview
-		private List<Button> mButtons = new List<Button>();
-
 		protected override void OnCreate (Bundle bundle)
 		{
+
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.ExploreView);
 
-			//Creat all buttons and add to list
-			//mButtons = makeButtons ();
-
-			//var gridView = (GridView) FindViewById<GridView> (Resource.Id.exploreMenu);
-			//gridView.Adapter = new ExploreMButtonAdapter (this, mButtons);
+			// Get reference to each button within exploreMenu Layout
 			Button retaurantBtn = (Button)FindViewById<Button> (Resource.Id.exploreMBRestaurant);
 			Button coffeeBtn = (Button)FindViewById<Button> (Resource.Id.exploreMBCoffee);
 			Button barBtn = (Button)FindViewById<Button> (Resource.Id.exploreMBBar);
-			Button convinienceBtn = (Button)FindViewById<Button> (Resource.Id.exploreMBConvinience);
+			Button pharmacyBtn = (Button)FindViewById<Button> (Resource.Id.exploreMBPharmacy);
 
+
+			// Set all onClick events to above buttons
 			retaurantBtn.Click += (sender, e) => {
 				//Do Something
 				Console.WriteLine ("Restaurant");
@@ -53,7 +49,7 @@ namespace GoogleApiTest
 				StartActivity (exploreListActivity);
 			};
 
-			convinienceBtn.Click += (sender, e) => {
+			pharmacyBtn.Click += (sender, e) => {
 				//Do Something
 				Console.WriteLine ("Convinience");
 

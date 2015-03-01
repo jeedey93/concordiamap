@@ -3,46 +3,46 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+<!-- First row -->
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="100"
-        android:id="@+id/exploreMRow1">
+        android:weightSum="100">
         <Button
+            android:id="@+id/exploreMBRestaurant"
             android:text="Restaurant"
             android:layout_width="match_parent"
-            android:layout_weight="50"
             android:layout_height="wrap_content"
-            android:id="@+id/exploreMBRestaurant"
+            android:layout_weight="50"
             android:drawableTop="@drawable/Restaurant" />
         <Button
+            android:id="@+id/exploreMBCoffee"
             android:text="Coffee"
             android:layout_width="match_parent"
-            android:layout_weight="50"
             android:layout_height="wrap_content"
-            android:id="@+id/exploreMBCoffee"
+            android:layout_weight="50"
             android:drawableTop="@drawable/Coffee" />
     </LinearLayout>
+<!-- Second row -->
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="100"
-        android:id="@+id/exploreMRow2">
+        android:weightSum="100">
         <Button
+            android:id="@+id/exploreMBBar"
             android:text="Bar"
             android:layout_width="match_parent"
-            android:layout_weight="50"
             android:layout_height="wrap_content"
-            android:id="@+id/exploreMBBar"
+            android:layout_weight="50"
             android:drawableTop="@drawable/Bar" />
         <Button
-            android:text="Convinience Store"
+            android:id="@+id/exploreMBPharmacy"
+            android:text="Pharmacy"
             android:layout_width="match_parent"
-            android:layout_weight="50"
             android:layout_height="wrap_content"
-            android:id="@+id/exploreMBConvinience"
+            android:layout_weight="50"
             android:drawableTop="@drawable/Pharmacy" />
     </LinearLayout>
 </LinearLayout>
