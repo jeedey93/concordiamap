@@ -8,7 +8,6 @@ using Android.Widget;
 using System.Collections.Generic;
 using Android.Support.V4.Widget;
 using Android.Support.V4.App;
-using System.Collections;
 using Android.Content;
 
 namespace GoogleApiTest
@@ -91,6 +90,17 @@ namespace GoogleApiTest
 			View popUp = inflater.Inflate (Resource.Layout.BuildingDescription, null);
 			TextView textView = popUp.FindViewById<TextView>(Resource.Id.buildingName);
 			textView.Text = building.Name;
+
+			TextView descriptionView = popUp.FindViewById<TextView> (Resource.Id.buildingDescription);
+			if (building.Description != "" && building.Campus.CampusName == "SGW") {
+				descriptionView.Text = "Located on Sir George Williams Campus" + "\r\n" + building.Description;
+			} else if (building.Description != "" && building.Campus.CampusName == "Loyola") {
+				descriptionView.Text = "Located on Loyola Campus" + "\r\n" + building.Description;
+			} else if (building.Campus.CampusName == "SGW") {
+				descriptionView.Text = "Located on Sir George Williams Campus";
+			} else if (building.Campus.CampusName == "Loyola") {
+				descriptionView.Text = "Located on Loyola Campus";
+			}
 
 			ImageView imageView = popUp.FindViewById<ImageView> (Resource.Id.buildingImage);
 			imageView.SetImageResource(building.BuildingImage);

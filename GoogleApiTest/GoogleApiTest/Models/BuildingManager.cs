@@ -38,6 +38,7 @@ namespace GoogleApiTest
 
 		public List<Building> InitializeSGWBuildings ()
 		{
+			Campus SGWCampus = new Campus ("SGW");
 
 			Building BBuilding = new Building ("B Building", "B", 45.497818, -73.579545);
 			BBuilding.BuildingImage = Resource.Drawable.B;
@@ -272,7 +273,7 @@ namespace GoogleApiTest
 
 			Building HallBuilding = new Building ("Henry F.Hall Building", "H", 45.497260, -73.578983);
 			//HallBuilding.setDescription ("http://www.concordia.ca/maps/buildings/h.html", "rte");
-			HallBuilding.Description = "The Henry F. Hall Building is a high-density hub of Concordia’s downtown campus. It is a utilitarian, cube-shaped, 1960s-style high-rise university building made of pre-fabricated stressed concrete.\n\nIn 1994-95 the exterior of the building, damaged by time, acid rain and the elements, was cleaned and painted, and windows were repaired; other major repairs took place in 1998-99. The Hall Building is undergoing much-needed major renovations and updating.";
+			HallBuilding.Description = "The Henry F. Hall Building is a high-density hub of Concordia’s downtown campus. It is a utilitarian, cube-shaped, 1960s-style high-rise university building made of pre-fabricated stressed concrete.";
 			HallBuilding.BuildingImage = Resource.Drawable.Hall;
 			HallBuilding.Corners.Add (new LatLng (45.49770868047681, -73.57903227210045));
 			HallBuilding.Corners.Add (new LatLng (45.497366508216466, -73.57833489775658));
@@ -560,11 +561,19 @@ namespace GoogleApiTest
 			ZBuilding.BuildingOverlay = Resource.Drawable.Z_Logo;
 			ZBuilding.OverlaySize = 14;
 			SGWBuildings.Add (ZBuilding);
+
+
+			//Assign buildings to SGW Campus
+			foreach (Building sgwBuilding in SGWBuildings) {
+				sgwBuilding.Campus = SGWCampus;
+			}
+
 			return SGWBuildings;
 		}
 
 		public List<Building> InitializeLoyolaBuildings ()
 		{
+			Campus LoyolaCampus = new Campus ("Loyola");
 
 			Building AdministrationBuilding = new Building ("Administration Building", "AD", 45.458011, -73.639854);
 			AdministrationBuilding.BuildingImage = Resource.Drawable.AD;
@@ -1146,6 +1155,11 @@ namespace GoogleApiTest
 			VanierLibraryBuilding.BuildingOverlay = Resource.Drawable.VL_Logo;
 			VanierLibraryBuilding.OverlaySize = 25;
 			LoyolaBuildings.Add (VanierLibraryBuilding);
+
+			//Assign buildings to LOYOLA Campus
+			foreach (Building loyolaBuilding in LoyolaBuildings) {
+				loyolaBuilding.Campus = LoyolaCampus;
+			}
 
 			return LoyolaBuildings;
 		}

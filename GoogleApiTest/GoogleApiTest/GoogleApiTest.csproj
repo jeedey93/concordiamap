@@ -77,6 +77,7 @@
     <Compile Include="Models\ExploreMButtonAdapter.cs" />
     <Compile Include="Models\ExploreListAdapter.cs" />
     <Compile Include="ExploreListActivity.cs" />
+    <Compile Include="Models\Campus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

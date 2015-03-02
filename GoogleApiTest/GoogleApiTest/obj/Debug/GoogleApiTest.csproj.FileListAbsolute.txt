@@ -747,3 +747,6 @@ C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj
 C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\pharmacy.png
 C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\endpointpng.png
 C:\Users\Justin Do\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\startpointpng.png
+D:\GitHub\concordiamap\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\GoogleApiTest.csprojResolveAssemblyReference.cache
+D:\GitHub\concordiamap\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\endpointpng.png
+D:\GitHub\concordiamap\concordiamap\GoogleApiTest\GoogleApiTest\obj\Debug\res\drawable-hdpi\startpointpng.png

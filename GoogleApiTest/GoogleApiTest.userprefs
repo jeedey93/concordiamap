@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="GoogleApiTest\GoogleApiTest.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="d:\GitHub\concordiamap\concordiamap\GoogleApiTest\GoogleApiTest\MapActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoogleApiTest\ExploreListActivity.cs">
     <Files>
-      <File FileName="d:\GitHub\concordiamap\concordiamap\GoogleApiTest\GoogleApiTest\MapActivity.cs" Line="23" Column="23" />
+      <File FileName="d:\GitHub\concordiamap\concordiamap\GoogleApiTest\GoogleApiTest\MapActivity.cs" Line="7" Column="7" />
+      <File FileName="GoogleApiTest\ExploreListActivity.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
