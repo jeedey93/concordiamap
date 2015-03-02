@@ -103,7 +103,7 @@ namespace GoogleApiTest
 				if(startPoint==null){
 					MarkerOptions startingDestination = new MarkerOptions ();
 					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
-					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPoint));
+					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPointPNG));
 					startPoint = map.AddMarker (startingDestination);
 				}
 				else{
@@ -111,7 +111,7 @@ namespace GoogleApiTest
 					startPoint.Remove();
 					MarkerOptions startingDestination = new MarkerOptions ();
 					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
-					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPoint));
+					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPointPNG));
 					startPoint = map.AddMarker (startingDestination);
 				}
 			};
@@ -121,14 +121,14 @@ namespace GoogleApiTest
 				if (endPoint == null) {
 					MarkerOptions endDestination = new MarkerOptions ();
 					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
-					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPoint));
+					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
 					endPoint = map.AddMarker (endDestination);
 				} else {
 					Toast.MakeText (this, "You already have an ending destination, " + building.Name + " will be your new ending destination", ToastLength.Short).Show ();
 					endPoint.Remove();
 					MarkerOptions endDestination = new MarkerOptions ();
 					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
-					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPoint));
+					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
 					endPoint = map.AddMarker (endDestination);
 				}
 			};
