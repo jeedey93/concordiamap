@@ -76,6 +76,23 @@ namespace GoogleApiTest
 			//createSpinnerBuilding (map, BuildingManager.getSGWBuildings ());
 
 			map.MapClick += HandleMapClick;
+
+			Button clearButton = FindViewById<Button>(Resource.Id.clearMarker);
+			clearButton.Click += (o, e) => {
+				if(startPoint!=null){
+					startPoint.Remove();
+					startPoint = null;
+				}
+				if(endPoint!=null){
+					endPoint.Remove();
+					endPoint=null;
+				}
+				if(directionPath!=null){
+					directionPath.Remove();
+					directionPath=null;
+				}
+				clearButton.Visibility = ViewStates.Invisible;
+			};
 			/*
 			Button exploreButton = FindViewById<Button> (Resource.Id.explore);
 			exploreButton.Click += (sender, e) => {
@@ -138,11 +155,15 @@ namespace GoogleApiTest
 
 			Button fromHere = popUp.FindViewById<Button> (Resource.Id.btnFromHere);
 			fromHere.Click += (sender, e) => {
+
+				Button clearButton = FindViewById<Button>(Resource.Id.clearMarker);
+
 				if(startPoint==null && directionPath ==null){
 					MarkerOptions startingDestination = new MarkerOptions ();
 					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
 					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPointPNG));
 					startPoint = map.AddMarker (startingDestination);
+					clearButton.Visibility=ViewStates.Visible;
 				}
 				else{
 					Toast.MakeText(this, "You already have a starting destination, " + building.Name + " will be your new starting destination",ToastLength.Short).Show();
@@ -156,12 +177,14 @@ namespace GoogleApiTest
 					if(endPoint!=null){
 						drawDirections (startPoint.Position, endPoint.Position);
 					}
+					clearButton.Visibility=ViewStates.Visible;
 				}
 				window.Dismiss();
 			};
 				
 			Button toHere = popUp.FindViewById<Button> (Resource.Id.btnToHere);
 			toHere.Click += (sender, e) => {
+				Button clearButton = FindViewById<Button>(Resource.Id.clearMarker);
 				if (endPoint == null) {
 					MarkerOptions endDestination = new MarkerOptions ();
 					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
@@ -173,6 +196,7 @@ namespace GoogleApiTest
 					else if(startPoint == null && endPoint !=null && map.MyLocation !=null){
 						drawDirections (new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude), endPoint.Position);
 					}
+					clearButton.Visibility=ViewStates.Visible;
 				} else {
 					Toast.MakeText (this, "You already have an ending destination, " + building.Name + " will be your new ending destination", ToastLength.Short).Show ();
 					endPoint.Remove();
@@ -186,6 +210,7 @@ namespace GoogleApiTest
 					else if(startPoint == null && endPoint !=null && map.MyLocation !=null){
 						drawDirections (new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude), endPoint.Position);
 					}
+					clearButton.Visibility=ViewStates.Visible;
 				}
 				window.Dismiss();
 			};
