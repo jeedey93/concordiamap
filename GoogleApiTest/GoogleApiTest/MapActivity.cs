@@ -82,7 +82,9 @@ namespace GoogleApiTest
 		}
 
 		public async void drawDirections(LatLng startingPoint, LatLng endingPoint){
-			directionPath.Remove ();
+			if (directionPath != null) {
+				directionPath.Remove ();
+			}
 			JsonValue directions = await DirectionFetcher.getDirections(startingPoint,endingPoint);
 			JsonValue routesResults = directions ["routes"];
 			string points = routesResults [0] ["overview_polyline"] ["points"];
@@ -156,7 +158,12 @@ namespace GoogleApiTest
 					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
 					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
 					endPoint = map.AddMarker (endDestination);
-					drawDirections (startPoint.Position, endPoint.Position);
+					if(startPoint !=null && endPoint !=null){
+						drawDirections (startPoint.Position, endPoint.Position);
+					}
+					else if(startPoint == null && endPoint !=null){
+						//CURRENT LOCATION USED
+					}
 				} else {
 					Toast.MakeText (this, "You already have an ending destination, " + building.Name + " will be your new ending destination", ToastLength.Short).Show ();
 					endPoint.Remove();
@@ -164,7 +171,12 @@ namespace GoogleApiTest
 					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
 					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
 					endPoint = map.AddMarker (endDestination);
-					drawDirections (startPoint.Position, endPoint.Position);
+					if(startPoint !=null && endPoint !=null){
+						drawDirections (startPoint.Position, endPoint.Position);
+					}
+					else if(startPoint == null && endPoint !=null){
+						//CURRENT LOCATION USED
+					}
 				}
 			};
 		}
