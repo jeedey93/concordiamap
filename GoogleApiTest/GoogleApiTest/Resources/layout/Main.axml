@@ -18,11 +18,13 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:background="@android:color/white"
             android:padding="5dp">
             <SearchView
                 android:layout_width="700px"
                 android:layout_height="wrap_content"
                 android:iconifiedByDefault="false"
+                android:background="#00000000"
                 android:id="@+id/searchView1" />
             <ToggleButton
                 android:id="@+id/togglebutton"

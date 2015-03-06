@@ -13,7 +13,7 @@ using System.Json;
 
 namespace GoogleApiTest
 {
-	[Activity (Label = "MapActivity")]			
+	[Activity (Label = "CONCORDIA CONQUEST")]			
 	public class MapActivity : Activity
 	{
 		BuildingManager BuildingManager = new BuildingManager ();
