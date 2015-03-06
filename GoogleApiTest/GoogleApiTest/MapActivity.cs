@@ -152,6 +152,7 @@ namespace GoogleApiTest
 						drawDirections (startPoint.Position, endPoint.Position);
 					}
 				}
+				window.Dismiss();
 			};
 				
 			Button toHere = popUp.FindViewById<Button> (Resource.Id.btnToHere);
@@ -181,6 +182,7 @@ namespace GoogleApiTest
 						//CURRENT LOCATION USED
 					}
 				}
+				window.Dismiss();
 			};
 		}
 
