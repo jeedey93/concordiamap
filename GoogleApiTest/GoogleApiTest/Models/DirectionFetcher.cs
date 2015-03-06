@@ -12,7 +12,7 @@ namespace GoogleApiTest
 	{
 		public async Task<JsonValue> getDirections(LatLng startingPoint, LatLng endingPoint){
 		
-			string urlDirections = "http://maps.googleapis.com/maps/api/directions/json?origin="+startingPoint.Latitude+","+ startingPoint.Longitude+"&destination="+endingPoint.Latitude+","+ endingPoint.Longitude+"&sensor=false";
+			string urlDirections = "http://maps.googleapis.com/maps/api/directions/json?origin="+startingPoint.Latitude+","+ startingPoint.Longitude+"&destination="+endingPoint.Latitude+","+ endingPoint.Longitude+"&sensor=false&mode=walking";
 
 			HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create (new Uri (urlDirections));
 			request.ContentType = "application/json";
