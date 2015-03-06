@@ -91,7 +91,12 @@ namespace GoogleApiTest
 			foreach (var point in yo) {
 				Console.WriteLine (point);
 			}
-
+			List<LatLng> direction = yo;
+				PolylineOptions line = new PolylineOptions();
+			foreach (var point in direction) {
+				line.Add (point);
+			}
+			map.AddPolyline (line);
 			/*
 			 * 1. Routes
 			 * 2. Overview_Polylines
