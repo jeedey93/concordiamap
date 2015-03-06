@@ -26,6 +26,8 @@ namespace GoogleApiTest
 		PopupWindow window=null;
 		Marker startPoint;
 		Marker endPoint;
+		Polyline directionPath;
+
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -77,102 +79,27 @@ namespace GoogleApiTest
 				var exploreActivity = new Intent (this, typeof(ExploreActivity));
 				StartActivity (exploreActivity);
 			};
-
-			getDirectionFetcher ();
 		}
 
-		public async void getDirectionFetcher(){
-			JsonValue directions = await DirectionFetcher.getDirections();
-
+		public async void drawDirections(LatLng startingPoint, LatLng endingPoint){
+			directionPath.Remove ();
+			JsonValue directions = await DirectionFetcher.getDirections(startingPoint,endingPoint);
 			JsonValue routesResults = directions ["routes"];
 			string points = routesResults [0] ["overview_polyline"] ["points"];
-			var yo = DecodePolylinePoints (points);
+			var polyPoints = DirectionFetcher.DecodePolylinePoints (points);
 
-			foreach (var point in yo) {
-				Console.WriteLine (point);
-			}
-			List<LatLng> direction = yo;
-				PolylineOptions line = new PolylineOptions();
+			List<LatLng> direction = polyPoints;
+			PolylineOptions line = new PolylineOptions();
 			foreach (var point in direction) {
 				line.Add (point);
 			}
-			map.AddPolyline (line);
-			/*
-			 * 1. Routes
-			 * 2. Overview_Polylines
-			 * 3. Points
-			 */
-		//	var parsedValue = JsonValue.Parse (directions);
-		//	var data = parsedValue ["data"];
 
-		//	foreach (var node in data) {
-				//string myValue = node["routes"];
-		//		Console.WriteLine (node);
-		//	}
-
-			//JsonObject value = directions as JsonObject;
-			//Console.WriteLine ((string)value["routes"]);
-		//	Console.Write ("YO" + Copyrights);
+			directionPath = map.AddPolyline (line);
+			directionPath.Width = 8;
+			int Color = Int32.Parse ("ff800020", System.Globalization.NumberStyles.HexNumber);
+			directionPath.Color = Color;
 		}
-
-		private List<LatLng> DecodePolylinePoints(string encodedPoints) 
-		{
-			if (encodedPoints == null || encodedPoints == "") return null;
-			List<LatLng> poly = new List<LatLng>();
-			char[] polylinechars = encodedPoints.ToCharArray();
-			int index = 0;
-
-			int currentLat = 0;
-			int currentLng = 0;
-			int next5bits;
-			int sum;
-			int shifter;
-
-			try
-			{
-				while (index < polylinechars.Length)
-				{
-					// calculate next latitude
-					sum = 0;
-					shifter = 0;
-					do
-					{
-						next5bits = (int)polylinechars[index++] - 63;
-						sum |= (next5bits & 31) << shifter;
-						shifter += 5;
-					} while (next5bits >= 32 && index < polylinechars.Length);
-
-					if (index >= polylinechars.Length)
-						break;
-
-					currentLat += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
-
-					//calculate next longitude
-					sum = 0;
-					shifter = 0;
-					do
-					{
-						next5bits = (int)polylinechars[index++] - 63;
-						sum |= (next5bits & 31) << shifter;
-						shifter += 5;
-					} while (next5bits >= 32 && index < polylinechars.Length);
-
-					if (index >= polylinechars.Length && next5bits >= 32)
-						break;
-
-					currentLng += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
-					LatLng p = new LatLng(0,0);
-					p.Latitude = Convert.ToDouble(currentLat) / 100000.0;
-					p.Longitude = Convert.ToDouble(currentLng) / 100000.0;
-					poly.Add(p);
-				} 
-			}
-			catch (Exception ex)
-			{
-				// logo it
-			}
-			return poly;
-		}
+			
 		public Marker getStartDestination(){
 			return startPoint;
 		}
@@ -229,6 +156,7 @@ namespace GoogleApiTest
 					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
 					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
 					endPoint = map.AddMarker (endDestination);
+					drawDirections (startPoint.Position, endPoint.Position);
 				} else {
 					Toast.MakeText (this, "You already have an ending destination, " + building.Name + " will be your new ending destination", ToastLength.Short).Show ();
 					endPoint.Remove();
@@ -236,6 +164,7 @@ namespace GoogleApiTest
 					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
 					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
 					endPoint = map.AddMarker (endDestination);
+					drawDirections (startPoint.Position, endPoint.Position);
 				}
 			};
 		}

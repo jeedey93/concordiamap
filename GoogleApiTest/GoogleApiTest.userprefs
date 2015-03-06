@@ -1,20 +1,14 @@
 ﻿<Properties StartupItem="GoogleApiTest\GoogleApiTest.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoogleApiTest\Properties\AndroidManifest.xml">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.0666b490f0ec91e4" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoogleApiTest\MapActivity.cs">
     <Files>
-      <File FileName="GoogleApiTest\MapActivity.cs" Line="4" Column="4" />
-      <File FileName="GoogleApiTest\MainActivity.cs" Line="1" Column="1" />
       <File FileName="GoogleApiTest\ExploreListActivity.cs" Line="1" Column="1" />
-      <File FileName="GoogleApiTest\ExploreActivity.cs" Line="1" Column="1" />
       <File FileName="GoogleApiTest\Models\DirectionFetcher.cs" Line="1" Column="1" />
-      <File FileName="GoogleApiTest\Properties\AndroidManifest.xml" Line="79" Column="79" />
+      <File FileName="GoogleApiTest\MapActivity.cs" Line="21" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Renaud\Documents\GitHub\concordiamap\GoogleApiTest\GoogleApiTest\Models\DirectionFetcher.cs" line="29" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.GoogleApiTest MonoForAntroid.PreferredDevice="Nexus 4" />
 </Properties>
