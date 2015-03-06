@@ -135,7 +135,7 @@ namespace GoogleApiTest
 
 			Button fromHere = popUp.FindViewById<Button> (Resource.Id.btnFromHere);
 			fromHere.Click += (sender, e) => {
-				if(startPoint==null){
+				if(startPoint==null && directionPath ==null){
 					MarkerOptions startingDestination = new MarkerOptions ();
 					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
 					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPointPNG));
@@ -143,7 +143,9 @@ namespace GoogleApiTest
 				}
 				else{
 					Toast.MakeText(this, "You already have a starting destination, " + building.Name + " will be your new starting destination",ToastLength.Short).Show();
-					startPoint.Remove();
+					if(startPoint!=null){
+						startPoint.Remove();
+					}
 					MarkerOptions startingDestination = new MarkerOptions ();
 					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
 					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPointPNG));
@@ -165,8 +167,8 @@ namespace GoogleApiTest
 					if(startPoint !=null && endPoint !=null){
 						drawDirections (startPoint.Position, endPoint.Position);
 					}
-					else if(startPoint == null && endPoint !=null){
-						//CURRENT LOCATION USED
+					else if(startPoint == null && endPoint !=null && map.MyLocation !=null){
+						drawDirections (new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude), endPoint.Position);
 					}
 				} else {
 					Toast.MakeText (this, "You already have an ending destination, " + building.Name + " will be your new ending destination", ToastLength.Short).Show ();
@@ -178,8 +180,8 @@ namespace GoogleApiTest
 					if(startPoint !=null && endPoint !=null){
 						drawDirections (startPoint.Position, endPoint.Position);
 					}
-					else if(startPoint == null && endPoint !=null){
-						//CURRENT LOCATION USED
+					else if(startPoint == null && endPoint !=null && map.MyLocation !=null){
+						drawDirections (new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude), endPoint.Position);
 					}
 				}
 				window.Dismiss();
