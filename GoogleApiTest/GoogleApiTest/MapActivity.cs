@@ -56,10 +56,10 @@ namespace GoogleApiTest
 				// Perform action on clicks
 				if (togglebutton.Checked){
 					zoomLoyola (map);
-					createSpinnerBuilding (map, BuildingManager.getLoyolaBuildings());
+					//createSpinnerBuilding (map, BuildingManager.getLoyolaBuildings());
 				}else{
 					zoomSgw (map);
-					createSpinnerBuilding (map, BuildingManager.getSGWBuildings());
+					//createSpinnerBuilding (map, BuildingManager.getSGWBuildings());
 				}
 			};
 
@@ -70,16 +70,16 @@ namespace GoogleApiTest
 			drawSGWMarkers (map);
 
 			createSettingsDrawer ();
-			createSpinnerBuilding (map, BuildingManager.getSGWBuildings ());
+			//createSpinnerBuilding (map, BuildingManager.getSGWBuildings ());
 
 			map.MapClick += HandleMapClick;
-
+			/*
 			Button exploreButton = FindViewById<Button> (Resource.Id.explore);
 			exploreButton.Click += (sender, e) => {
 				var exploreActivity = new Intent (this, typeof(ExploreActivity));
 				StartActivity (exploreActivity);
-			};
-		}
+			};*/
+		} 
 
 		public async void drawDirections(LatLng startingPoint, LatLng endingPoint){
 			if (directionPath != null) {
@@ -219,7 +219,7 @@ namespace GoogleApiTest
 			map.AnimateCamera  (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 		}
 			
-		public void createSpinnerBuilding(GoogleMap map, List<Building> buildings){
+		/*public void createSpinnerBuilding(GoogleMap map, List<Building> buildings){
 			Spinner spinner = FindViewById<Spinner> (Resource.Id.spinner);
 			ArrayAdapter _adapterFrom;
 
@@ -243,7 +243,7 @@ namespace GoogleApiTest
 						zoomSpecificBuilding(map, building);
 				}
 			};
-		}
+		}*/
 
 		public void zoomSpecificBuilding(GoogleMap map, Building buildingToZoom){
 			LatLng location = new LatLng(buildingToZoom.XCoordinate, buildingToZoom.YCoordinate);
