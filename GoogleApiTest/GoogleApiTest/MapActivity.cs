@@ -148,6 +148,9 @@ namespace GoogleApiTest
 					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
 					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPointPNG));
 					startPoint = map.AddMarker (startingDestination);
+					if(endPoint!=null){
+						drawDirections (startPoint.Position, endPoint.Position);
+					}
 				}
 			};
 				
