@@ -1,10 +1,27 @@
 ﻿<Properties StartupItem="GoogleApiTest\GoogleApiTest.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoogleApiTest\MapActivity.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.036467074381c577" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="GoogleApiTest\Models\DirectionFetcher.cs" Line="4" Column="4" />
-      <File FileName="GoogleApiTest\MapActivity.cs" Line="27" Column="27" />
+      <File FileName="GoogleApiTest\Models\DirectionFetcher.cs" Line="66" Column="66" />
+      <File FileName="GoogleApiTest\MapActivity.cs" Line="76" Column="76" />
+      <File FileName="GoogleApiTest\MainActivity.cs" Line="1" Column="1" />
+      <File FileName="GoogleApiTest\ExploreListActivity.cs" Line="4" Column="4" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="GoogleApiTest" expanded="True">
+            <Node name="ComponentReferenceFolder" expanded="True" />
+            <Node name="Models" expanded="True" />
+            <Node name="Resources" expanded="True">
+              <Node name="layout" expanded="True">
+                <Node name="Main.axml" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
