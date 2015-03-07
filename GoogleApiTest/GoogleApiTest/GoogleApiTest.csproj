@@ -88,7 +88,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-mdpi\Icon.png" />
@@ -240,6 +239,11 @@
     <AndroidResource Include="Resources\drawable-hdpi\Pharmacy.png" />
     <AndroidResource Include="Resources\drawable-hdpi\EndPointPNG.png" />
     <AndroidResource Include="Resources\drawable-hdpi\StartPointPNG.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\locateMe.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\placeholder8.png" />
+    <AndroidResource Include="Resources\layout\list_locations.axml" />
+    <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\drawable-hdpi\Go.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

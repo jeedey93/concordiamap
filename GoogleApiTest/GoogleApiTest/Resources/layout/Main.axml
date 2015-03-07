@@ -20,21 +20,36 @@
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             android:padding="5dp">
-            <SearchView
-                android:layout_width="700px"
-                android:layout_height="wrap_content"
-                android:iconifiedByDefault="false"
-                android:background="#00000000"
-                android:id="@+id/searchView1" />
             <ToggleButton
                 android:id="@+id/togglebutton"
                 android:layout_width="200px "
                 android:layout_height="wrap_content"
                 android:textOn="LOY"
                 android:textOff="SGW"
-                android:gravity="center_horizontal"
-                android:textAlignment="center"
-                android:layout_toRightOf="@+id/searchView1" />
+                android:textAlignment="center" />
+            <AutoCompleteTextView
+                android:layout_width="600px"
+                android:layout_height="128px"
+                android:layout_gravity="center"
+                android:textColor="#FFFFFF"
+                android:text="GO TO BUILDING"
+                android:id="@+id/AutoCompleteInput"
+                android:layout_toRightOf="@+id/togglebutton" />
+            <ImageButton
+                android:id="@+id/imageButton1"
+                android:layout_width="128px"
+                android:layout_height="128px"
+                android:layout_toRightOf="@+id/AutoCompleteInput"
+                android:background="#00000000"
+                android:src="@drawable/Go" />
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:paddingLeft="2dp"
+                android:layout_width="128px"
+                android:layout_height="128px"
+                android:layout_toRightOf="@+id/imageButton1"
+                android:background="#00000000"
+                android:src="@drawable/placeholder8" />
         </RelativeLayout>
     </FrameLayout>
 <!-- The navigation drawer -->
