@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="bottom"
-    app:collapsedHeight="25dp">
+    app:collapsedHeight="75dp">
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
@@ -62,7 +62,7 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="15dp">
+                android:id="@+id/clearLayout">
                 <Button
                     android:id="@+id/clearMarker"
                     android:text="Clear Markers"
@@ -91,5 +91,6 @@
         android:layout_height="match_parent"
         android:text="Directions"
         android:textSize="18sp"
-        android:background="#00000000" />
+        android:background="#00000000"
+        android:visibility="gone" />
 </cheesebaron.slidinguppanel.SlidingUpPanelLayout>

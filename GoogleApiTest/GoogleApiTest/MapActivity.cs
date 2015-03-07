@@ -99,6 +99,10 @@ namespace GoogleApiTest
 					directionPath2=null;
 				}
 				clearButton.Visibility = ViewStates.Invisible;
+				TextView slideUp = FindViewById<TextView> (Resource.Id.SlideUpText);
+				slideUp.Visibility = ViewStates.Gone;
+				RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
+				clearLayout.SetPadding (0, 0, 0, 0);
 			};
 			/*
 			Button exploreButton = FindViewById<Button> (Resource.Id.explore);
@@ -147,6 +151,11 @@ namespace GoogleApiTest
 			directionPath2 = map.AddPolyline(line2);
 			directionPath2.Width = 9;
 			directionPath2.Color = Color;
+
+			TextView slideUp = FindViewById<TextView> (Resource.Id.SlideUpText);
+			slideUp.Visibility = ViewStates.Visible;
+			RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
+			clearLayout.SetPadding (0, 0, 0, 200);
 		}
 
 		public async void drawDirections(LatLng startingPoint, LatLng endingPoint){
@@ -184,7 +193,10 @@ namespace GoogleApiTest
 			CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
 			LatLngBounds bounds = boundsbuilder.Build();
 			map.AnimateCamera  (CameraUpdateFactory.NewLatLngBounds(bounds,200));
-
+			TextView slideUp = FindViewById<TextView> (Resource.Id.SlideUpText);
+			slideUp.Visibility = ViewStates.Visible;
+			RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
+			clearLayout.SetPadding (0, 0, 0, 200);
 		}
 
 		public void CreateBuildingDescription(Building building){
