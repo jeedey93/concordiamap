@@ -13,7 +13,7 @@ using System.Json;
 
 namespace GoogleApiTest
 {
-	[Activity (Label = "CONCORDIA CONQUEST",MainLauncher = false)]			
+	[Activity (Label = "CONCORDIA CONQUEST")]			
 	public class MapActivity : Activity
 	{
 		BuildingManager BuildingManager = new BuildingManager ();
@@ -28,16 +28,13 @@ namespace GoogleApiTest
 		Marker endPoint;
 		Polyline directionPath;
 
-		static string[] locations={"EV","HALL","FG","JMSB"};
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
 			// Create your application here
 			SetContentView (Resource.Layout.Main);
-
-			AutoCompleteTextView act = FindViewById<AutoCompleteTextView>(Resource.Id.AutoCompleteInput);
-			act.Adapter = new ArrayAdapter<string> (this, Resource.Layout.list_locations, locations);
 
 			MapFragment mapFrag = (MapFragment) FragmentManager.FindFragmentById(Resource.Id.map);
 			map = mapFrag.Map;

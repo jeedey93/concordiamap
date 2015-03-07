@@ -15,7 +15,6 @@ namespace GoogleApiTest
 			System.Threading.Thread.Sleep (3000);
 			var activity1 = new Intent (this, typeof(MapActivity));
 			StartActivity (activity1);
-			//act.Adapter = new PlacesAutoCompleteAdapter (this, Resource.Layout.list_locations, locations);
 			//var button = FindViewById<ImageButton> (Resource.Id.locateMe);
 		}
 	}
