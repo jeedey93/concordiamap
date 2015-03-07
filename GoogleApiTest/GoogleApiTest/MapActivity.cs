@@ -175,6 +175,8 @@ namespace GoogleApiTest
 			//GET INSTRUCTIONS
 			string instructions = DirectionFetcher.GetInstructions (routesResults);
 
+			TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
+			instructionsView.Text = instructions;
 
 			string points = routesResults [0] ["overview_polyline"] ["points"];
 			var polyPoints = DirectionFetcher.DecodePolylinePoints (points);
