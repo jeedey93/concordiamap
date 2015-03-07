@@ -110,6 +110,12 @@ namespace GoogleApiTest
 
 
 		public async void drawDirectionsDifferentCampus(LatLng startingPoint, LatLng endingPoint){
+			if (directionPath != null) {
+				directionPath.Remove ();
+			}
+			if (directionPath2 != null) {
+				directionPath2.Remove ();
+			}
 			JsonValue firstDirections = await DirectionFetcher.getDirections(startingPoint,startB.Campus.ExtractionPoint);
 			JsonValue firstRoutesResults = firstDirections ["routes"];
 			string points1 = firstRoutesResults [0] ["overview_polyline"] ["points"];
@@ -146,6 +152,9 @@ namespace GoogleApiTest
 		public async void drawDirections(LatLng startingPoint, LatLng endingPoint){
 			if (directionPath != null) {
 				directionPath.Remove ();
+			}
+			if (directionPath2 != null) {
+				directionPath2.Remove ();
 			}
 
 			JsonValue directions = await DirectionFetcher.getDirections(startingPoint,endingPoint);
