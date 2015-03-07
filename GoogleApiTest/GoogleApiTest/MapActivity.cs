@@ -132,7 +132,7 @@ namespace GoogleApiTest
 			CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
 
 			LatLngBounds bounds = boundsbuilder.Build();
-			map.AnimateCamera  (CameraUpdateFactory.NewLatLngBounds(bounds,100));
+			map.AnimateCamera  (CameraUpdateFactory.NewLatLngBounds(bounds,200));
 
 		}
 			
