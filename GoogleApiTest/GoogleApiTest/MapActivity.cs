@@ -147,6 +147,7 @@ namespace GoogleApiTest
 			directionPath2 = map.AddPolyline(line2);
 			directionPath2.Width = 9;
 			directionPath2.Color = Color;
+			DisplayStepDirections (direction);
 		}
 
 		public async void drawDirections(LatLng startingPoint, LatLng endingPoint){
@@ -176,6 +177,7 @@ namespace GoogleApiTest
 			directionPath.Width = 9;
 			int Color = Int32.Parse ("ff800020", System.Globalization.NumberStyles.HexNumber);
 			directionPath.Color = Color;
+			DisplayStepDirections (direction);
 			//Zoom to fit the line.
 			//center.Latitude /= direction.Count;
 			//center.Longitude /= direction.Count;
@@ -184,6 +186,10 @@ namespace GoogleApiTest
 			CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
 			LatLngBounds bounds = boundsbuilder.Build();
 			map.AnimateCamera  (CameraUpdateFactory.NewLatLngBounds(bounds,200));
+
+		}
+
+		public void DisplayStepDirections(List<LatLng> direction){
 
 		}
 
