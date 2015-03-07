@@ -28,6 +28,35 @@ namespace GoogleApiTest
 		}
 
 
+		public string GetInstructions(JsonValue results){
+			string allInstructions = "";
+
+			//START ADDRESS
+			string startAdress = results [0] ["legs"][0]["start_address"];
+			string endAdress = results [0] ["legs"][0]["end_address"];
+
+			//INSTRUCTIONS
+			string instructions="";
+			int numberSteps = results [0] ["legs"] [0] ["steps"].Count;
+			for (int i = 0; i < numberSteps; i++) {
+				instructions += results [0] ["legs"] [0] ["steps"] [i] ["html_instructions"];
+			}
+
+
+			//DISTANCE IN KM = firstRoutesResults [0] ["overview_polyline"] ["points"];
+			//DURATION IN MIN = firstRoutesResults [0] ["legs"][0]["duration"]["text"];
+			//START ADDRESS = firstRoutesResults [0] ["legs"][0]["start_address"];
+			//END ADDRESS = firstRoutesResults [0] ["legs"][0]["end_address"];
+
+
+			//INSTRUCTIONS = 
+			//	firstRoutesResults [0] ["legs"][0]["steps"].Count
+			//	firstRoutesResults [0] ["legs"][0]["steps"][0]["html_instructions"];
+
+			allInstructions = startAdress + endAdress + instructions;
+			return allInstructions;
+		}
+
 		public List<LatLng> DecodePolylinePoints(string encodedPoints) 
 		{
 			if (encodedPoints == null || encodedPoints == "") return null;

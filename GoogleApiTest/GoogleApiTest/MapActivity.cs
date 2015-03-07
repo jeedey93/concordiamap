@@ -171,6 +171,11 @@ namespace GoogleApiTest
 
 			JsonValue directions = await DirectionFetcher.getDirections(startingPoint,endingPoint);
 			JsonValue routesResults = directions ["routes"];
+
+			//GET INSTRUCTIONS
+			string instructions = DirectionFetcher.GetInstructions (routesResults);
+
+
 			string points = routesResults [0] ["overview_polyline"] ["points"];
 			var polyPoints = DirectionFetcher.DecodePolylinePoints (points);
 			//LatLng center = new LatLng (0.0, 0.0);
