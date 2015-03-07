@@ -30,6 +30,7 @@ namespace GoogleApiTest
 				Console.WriteLine ("Restaurant");
 
 				var exploreListActivity = new Intent (this, typeof(ExploreListActivity));
+				exploreListActivity.PutExtra("type","restaurant");
 				StartActivity (exploreListActivity);
 			};
 
@@ -38,6 +39,7 @@ namespace GoogleApiTest
 				Console.WriteLine ("Coffee");
 
 				var exploreListActivity = new Intent (this, typeof(ExploreListActivity));
+				exploreListActivity.PutExtra("type","cafe");
 				StartActivity (exploreListActivity);
 			};
 
@@ -46,6 +48,7 @@ namespace GoogleApiTest
 				Console.WriteLine ("Bar");
 
 				var exploreListActivity = new Intent (this, typeof(ExploreListActivity));
+				exploreListActivity.PutExtra("type","bar");
 				StartActivity (exploreListActivity);
 			};
 
@@ -54,6 +57,7 @@ namespace GoogleApiTest
 				Console.WriteLine ("Convinience");
 
 				var exploreListActivity = new Intent (this, typeof(ExploreListActivity));
+				exploreListActivity.PutExtra("type","pharmacy");
 				StartActivity (exploreListActivity);
 			};
 		}
