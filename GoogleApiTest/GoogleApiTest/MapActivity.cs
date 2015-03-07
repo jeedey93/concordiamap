@@ -127,10 +127,9 @@ namespace GoogleApiTest
 			//Zoom to fit the line.
 			//center.Latitude /= direction.Count;
 			//center.Longitude /= direction.Count;
-			LatLng level = new LatLng (direction[0].Latitude - direction [direction.Count - 1].Latitude, direction [0].Longitude - direction [direction.Count - 1].Longitude);
+			//LatLng level = new LatLng (direction[0].Latitude - direction [direction.Count - 1].Latitude, direction [0].Longitude - direction [direction.Count - 1].Longitude);
 
 			CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
-
 			LatLngBounds bounds = boundsbuilder.Build();
 			map.AnimateCamera  (CameraUpdateFactory.NewLatLngBounds(bounds,200));
 
