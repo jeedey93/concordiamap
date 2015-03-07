@@ -26,7 +26,10 @@ namespace GoogleApiTest
 		PopupWindow window=null;
 		Marker startPoint;
 		Marker endPoint;
+		Building startB;
+		Building endB;
 		Polyline directionPath;
+		Polyline directionPath2;
 
 		static string[] locations={"EV","HALL","FG","JMSB"};
 		protected override void OnCreate (Bundle bundle)
@@ -91,6 +94,10 @@ namespace GoogleApiTest
 					directionPath.Remove();
 					directionPath=null;
 				}
+				if(directionPath2!=null){
+					directionPath2.Remove();
+					directionPath2=null;
+				}
 				clearButton.Visibility = ViewStates.Invisible;
 			};
 			/*
@@ -101,10 +108,46 @@ namespace GoogleApiTest
 			};*/
 		} 
 
+
+		public async void drawDirectionsDifferentCampus(LatLng startingPoint, LatLng endingPoint){
+			JsonValue firstDirections = await DirectionFetcher.getDirections(startingPoint,startB.Campus.ExtractionPoint);
+			JsonValue firstRoutesResults = firstDirections ["routes"];
+			string points1 = firstRoutesResults [0] ["overview_polyline"] ["points"];
+			var polyPoints1 = DirectionFetcher.DecodePolylinePoints (points1);
+
+
+			JsonValue secondDirections = await DirectionFetcher.getDirections(endB.Campus.ExtractionPoint,endingPoint);
+			JsonValue secondRoutesResults = secondDirections ["routes"];
+			string points2 = secondRoutesResults [0] ["overview_polyline"] ["points"];
+			var polyPoints2 = DirectionFetcher.DecodePolylinePoints (points2);
+
+			List<LatLng> direction1 = polyPoints1;
+			List<LatLng> direction2 = polyPoints2;
+			PolylineOptions line1 = new PolylineOptions();
+			PolylineOptions line2 = new PolylineOptions();
+			foreach (var point in direction1) {
+				line1.Add (point);
+			}
+			foreach (var point in direction2) {
+				line2.Add (point);
+			}
+
+			directionPath = map.AddPolyline (line1);
+			directionPath.Width = 9;
+			int Color = Int32.Parse ("ff800020", System.Globalization.NumberStyles.HexNumber);
+			directionPath.Color = Color;
+
+
+			directionPath2 = map.AddPolyline(line2);
+			directionPath2.Width = 9;
+			directionPath2.Color = Color;
+		}
+
 		public async void drawDirections(LatLng startingPoint, LatLng endingPoint){
 			if (directionPath != null) {
 				directionPath.Remove ();
 			}
+
 			JsonValue directions = await DirectionFetcher.getDirections(startingPoint,endingPoint);
 			JsonValue routesResults = directions ["routes"];
 			string points = routesResults [0] ["overview_polyline"] ["points"];
@@ -133,14 +176,6 @@ namespace GoogleApiTest
 			LatLngBounds bounds = boundsbuilder.Build();
 			map.AnimateCamera  (CameraUpdateFactory.NewLatLngBounds(bounds,200));
 
-		}
-			
-		public Marker getStartDestination(){
-			return startPoint;
-		}
-
-		public Marker getEndDestination(){
-			return endPoint;
 		}
 
 		public void CreateBuildingDescription(Building building){
@@ -178,6 +213,7 @@ namespace GoogleApiTest
 					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPointPNG));
 					startPoint = map.AddMarker (startingDestination);
 					clearButton.Visibility=ViewStates.Visible;
+					startB=building;
 				}
 				else{
 					Toast.MakeText(this, "You already have a starting destination, " + building.Name + " will be your new starting destination",ToastLength.Short).Show();
@@ -189,7 +225,12 @@ namespace GoogleApiTest
 					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPointPNG));
 					startPoint = map.AddMarker (startingDestination);
 					if(endPoint!=null){
-						drawDirections (startPoint.Position, endPoint.Position);
+						//BUILDINGS NOT ON SAME CAMPUS
+						if (startB.Campus != endB.Campus) {
+							drawDirectionsDifferentCampus (startPoint.Position, endPoint.Position);
+						}else{
+							drawDirections (startPoint.Position, endPoint.Position);
+						}
 					}
 					clearButton.Visibility=ViewStates.Visible;
 				}
@@ -206,10 +247,17 @@ namespace GoogleApiTest
 					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
 					endPoint = map.AddMarker (endDestination);
 					if(startPoint !=null && endPoint !=null){
-						drawDirections (startPoint.Position, endPoint.Position);
+						endB=building;
+						//BUILDINGS NOT ON SAME CAMPUS
+						if (startB.Campus != endB.Campus) {
+							drawDirectionsDifferentCampus (startPoint.Position, endPoint.Position);
+						}else{
+							drawDirections (startPoint.Position, endPoint.Position);
+						}
 					}
 					else if(startPoint == null && endPoint !=null && map.MyLocation !=null){
 						drawDirections (new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude), endPoint.Position);
+						endB=building;
 					}
 					clearButton.Visibility=ViewStates.Visible;
 				} else {
@@ -220,10 +268,17 @@ namespace GoogleApiTest
 					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
 					endPoint = map.AddMarker (endDestination);
 					if(startPoint !=null && endPoint !=null){
-						drawDirections (startPoint.Position, endPoint.Position);
+						endB=building;
+						//BUILDINGS NOT ON SAME CAMPUS
+						if (startB.Campus != endB.Campus) {
+							drawDirectionsDifferentCampus (startPoint.Position, endPoint.Position);
+						}else{
+							drawDirections (startPoint.Position, endPoint.Position);
+						}
 					}
 					else if(startPoint == null && endPoint !=null && map.MyLocation !=null){
 						drawDirections (new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude), endPoint.Position);
+						endB=building;
 					}
 					clearButton.Visibility=ViewStates.Visible;
 				}

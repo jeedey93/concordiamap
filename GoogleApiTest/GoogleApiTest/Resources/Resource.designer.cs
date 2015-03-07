@@ -1973,8 +1973,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b002f
 			public const int classic = 2131427375;
 			
-			// aapt resource value: 0x7f0b0062
-			public const int clearMarker = 2131427426;
+			// aapt resource value: 0x7f0b0064
+			public const int clearMarker = 2131427428;
 			
 			// aapt resource value: 0x7f0b0017
 			public const int collapseActionView = 2131427351;
@@ -2053,15 +2053,15 @@ namespace GoogleApiTest
 			
 			// aapt resource value: 0x7f0b0037
 			public const int image = 2131427383;
-
+			
 			// aapt resource value: 0x7f0b0062
 			public const int imageButton1 = 2131427426;
 			
 			// aapt resource value: 0x7f0b0063
 			public const int imageButton2 = 2131427427;
 			
-			// aapt resource value: 0x7f0b0063
-			public const int left_drawer = 2131427427;
+			// aapt resource value: 0x7f0b0065
+			public const int left_drawer = 2131427429;
 			
 			// aapt resource value: 0x7f0b0009
 			public const int listMode = 2131427337;
@@ -2077,21 +2077,21 @@ namespace GoogleApiTest
 			
 			// aapt resource value: 0x7f0b002a
 			public const int match_parent = 2131427370;
-
-			// aapt resource value: 0x7f0b0067
-			public const int media_route_control_frame = 2131427431;
 			
-			// aapt resource value: 0x7f0b0068
-			public const int media_route_disconnect_button = 2131427432;
+			// aapt resource value: 0x7f0b0069
+			public const int media_route_control_frame = 2131427433;
 			
-			// aapt resource value: 0x7f0b0064
-			public const int media_route_list = 2131427428;
-			
-			// aapt resource value: 0x7f0b0065
-			public const int media_route_volume_layout = 2131427429;
+			// aapt resource value: 0x7f0b006a
+			public const int media_route_disconnect_button = 2131427434;
 			
 			// aapt resource value: 0x7f0b0066
-			public const int media_route_volume_slider = 2131427430;
+			public const int media_route_list = 2131427430;
+			
+			// aapt resource value: 0x7f0b0067
+			public const int media_route_volume_layout = 2131427431;
+			
+			// aapt resource value: 0x7f0b0068
+			public const int media_route_volume_slider = 2131427432;
 			
 			// aapt resource value: 0x7f0b0015
 			public const int middle = 2131427349;

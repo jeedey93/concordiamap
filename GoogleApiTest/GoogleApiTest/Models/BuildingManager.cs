@@ -38,7 +38,7 @@ namespace GoogleApiTest
 
 		public List<Building> InitializeSGWBuildings ()
 		{
-			Campus SGWCampus = new Campus ("SGW");
+			Campus SGWCampus = new Campus ("SGW", new LatLng(45.497083, -73.578440));
 
 			Building BBuilding = new Building ("B Building", "B", 45.497818, -73.579545);
 			BBuilding.BuildingImage = Resource.Drawable.B;
@@ -566,6 +566,7 @@ namespace GoogleApiTest
 			//Assign buildings to SGW Campus
 			foreach (Building sgwBuilding in SGWBuildings) {
 				sgwBuilding.Campus = SGWCampus;
+				SGWCampus.Buildings.Add (sgwBuilding);
 			}
 
 			return SGWBuildings;
@@ -573,7 +574,7 @@ namespace GoogleApiTest
 
 		public List<Building> InitializeLoyolaBuildings ()
 		{
-			Campus LoyolaCampus = new Campus ("Loyola");
+			Campus LoyolaCampus = new Campus ("LOYOLA", new LatLng(45.457683, -73.638978));
 
 			Building AdministrationBuilding = new Building ("Administration Building", "AD", 45.458011, -73.639854);
 			AdministrationBuilding.BuildingImage = Resource.Drawable.AD;
@@ -1159,6 +1160,7 @@ namespace GoogleApiTest
 			//Assign buildings to LOYOLA Campus
 			foreach (Building loyolaBuilding in LoyolaBuildings) {
 				loyolaBuilding.Campus = LoyolaCampus;
+				LoyolaCampus.Buildings.Add (loyolaBuilding);
 			}
 
 			return LoyolaBuildings;
