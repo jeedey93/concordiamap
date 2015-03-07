@@ -106,17 +106,31 @@ namespace GoogleApiTest
 			JsonValue routesResults = directions ["routes"];
 			string points = routesResults [0] ["overview_polyline"] ["points"];
 			var polyPoints = DirectionFetcher.DecodePolylinePoints (points);
-
+			//LatLng center = new LatLng (0.0, 0.0);
+			LatLngBounds.Builder boundsbuilder = new LatLngBounds.Builder ();
 			List<LatLng> direction = polyPoints;
 			PolylineOptions line = new PolylineOptions();
 			foreach (var point in direction) {
 				line.Add (point);
+				boundsbuilder.Include(point);
+				//center.Latitude += point.Latitude;
+				//center.Longitude += point.Longitude;
 			}
 
 			directionPath = map.AddPolyline (line);
-			directionPath.Width = 8;
+			directionPath.Width = 9;
 			int Color = Int32.Parse ("ff800020", System.Globalization.NumberStyles.HexNumber);
 			directionPath.Color = Color;
+			//Zoom to fit the line.
+			//center.Latitude /= direction.Count;
+			//center.Longitude /= direction.Count;
+			LatLng level = new LatLng (direction[0].Latitude - direction [direction.Count - 1].Latitude, direction [0].Longitude - direction [direction.Count - 1].Longitude);
+
+			CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
+
+			LatLngBounds bounds = boundsbuilder.Build();
+			map.AnimateCamera  (CameraUpdateFactory.NewLatLngBounds(bounds,100));
+
 		}
 			
 		public Marker getStartDestination(){
@@ -150,6 +164,7 @@ namespace GoogleApiTest
 			window = new PopupWindow (popUp, WindowManagerLayoutParams.WrapContent, WindowManagerLayoutParams.WrapContent);
 			window.ShowAtLocation (popUp, GravityFlags.Center, 0,0);
 
+			//Set Start Point Button
 			Button fromHere = popUp.FindViewById<Button> (Resource.Id.btnFromHere);
 			fromHere.Click += (sender, e) => {
 
@@ -178,7 +193,8 @@ namespace GoogleApiTest
 				}
 				window.Dismiss();
 			};
-				
+
+			//Set End Point Button
 			Button toHere = popUp.FindViewById<Button> (Resource.Id.btnToHere);
 			toHere.Click += (sender, e) => {
 				Button clearButton = FindViewById<Button>(Resource.Id.clearMarker);
