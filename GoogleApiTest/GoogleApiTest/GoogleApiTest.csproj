@@ -84,6 +84,8 @@
     <Compile Include="ExploreListActivity.cs" />
     <Compile Include="Models\Campus.cs" />
     <Compile Include="Models\DirectionFetcher.cs" />
+    <Compile Include="Models\GooglePlace.cs" />
+    <Compile Include="Models\GooglePlaceLocation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

@@ -152,7 +152,6 @@ namespace GoogleApiTest
 			directionPath2.Width = 9;
 			directionPath2.Color = Color;
 
-			DisplayStepDirections (direction);
 
 
 			TextView slideUp = FindViewById<TextView> (Resource.Id.SlideUpText);
