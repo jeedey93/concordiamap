@@ -329,6 +329,14 @@ namespace GoogleApiTest
 					if(startPoint!=null){
 						startPoint.Remove();
 					}
+					if(busPosition!=null){
+						busPosition.Remove();
+						busPosition=null;
+					}
+					if(busPosition2!=null){
+						busPosition2.Remove();
+						busPosition2=null;
+					}
 					MarkerOptions startingDestination = new MarkerOptions ();
 					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
 					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPointPNG));
@@ -375,6 +383,14 @@ namespace GoogleApiTest
 				} else {
 					Toast.MakeText (this, "You already have an ending destination, " + building.Name + " will be your new ending destination", ToastLength.Short).Show ();
 					endPoint.Remove();
+					if(busPosition!=null){
+						busPosition.Remove();
+						busPosition=null;
+					}
+					if(busPosition2!=null){
+						busPosition2.Remove();
+						busPosition2=null;
+					}
 					MarkerOptions endDestination = new MarkerOptions ();
 					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
 					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
