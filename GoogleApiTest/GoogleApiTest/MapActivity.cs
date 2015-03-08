@@ -137,7 +137,8 @@ namespace GoogleApiTest
 			string secondInstructions = DirectionFetcher.GetInstructions (secondRoutesResults);
 
 			TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
-			instructionsView.Text = firstInstructions + secondInstructions;
+			instructionsView.Text = DisplayStepDirections(firstInstructions + secondInstructions);
+			//instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
 
 			List<LatLng> direction1 = polyPoints1;
 			List<LatLng> direction2 = polyPoints2;
@@ -184,6 +185,7 @@ namespace GoogleApiTest
 			string instructions = DirectionFetcher.GetInstructions (routesResults);
 
 			TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
+			//instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
 			string formattedInstructions = DisplayStepDirections (instructions);
 
 			instructionsView.Text = formattedInstructions;
@@ -198,19 +200,13 @@ namespace GoogleApiTest
 			foreach (var point in direction) {
 				line.Add (point);
 				boundsbuilder.Include(point);
-				//center.Latitude += point.Latitude;
-				//center.Longitude += point.Longitude;
+
 			}
 
 			directionPath = map.AddPolyline (line);
 			directionPath.Width = 9;
 			int Color = Int32.Parse ("ff800020", System.Globalization.NumberStyles.HexNumber);
 			directionPath.Color = Color;
-
-			//Zoom to fit the line.
-			//center.Latitude /= direction.Count;
-			//center.Longitude /= direction.Count;
-			//LatLng level = new LatLng (direction[0].Latitude - direction [direction.Count - 1].Latitude, direction [0].Longitude - direction [direction.Count - 1].Longitude);
 
 			CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
 			LatLngBounds bounds = boundsbuilder.Build();
@@ -223,7 +219,7 @@ namespace GoogleApiTest
 
 		public String DisplayStepDirections(string unParsedInstructions){
 			String parsedInstructions = Regex.Replace(unParsedInstructions,@"<(.|\n)*?>",string.Empty);
-			parsedInstructions = Regex.Replace (parsedInstructions, @"(Destination)", "/nDestination");
+			parsedInstructions = Regex.Replace (parsedInstructions, @"(Destination)", "\nDestination");
 
 			return parsedInstructions;
 
