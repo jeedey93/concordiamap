@@ -25,7 +25,7 @@
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
+                android:background="@android:color/black"
                 android:padding="5dp">
                 <ToggleButton
                     android:id="@+id/togglebutton"

@@ -31,6 +31,8 @@ namespace GoogleApiTest
 		Building endB;
 		Polyline directionPath;
 		Polyline directionPath2;
+		Marker busPosition;
+		Marker busPosition2;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -99,6 +101,15 @@ namespace GoogleApiTest
 					directionPath2.Remove();
 					directionPath2=null;
 				}
+				if(busPosition!=null){
+					busPosition.Remove();
+					busPosition=null;
+				}
+				if(busPosition2!=null){
+					busPosition2.Remove();
+					busPosition2=null;
+				}
+
 				map.UiSettings.ZoomControlsEnabled = true;
 				clearButton.Visibility = ViewStates.Invisible;
 				TextView slideUp = FindViewById<TextView> (Resource.Id.SlideUpText);
@@ -171,11 +182,10 @@ namespace GoogleApiTest
 			var polyPoints2 = DirectionFetcher.DecodePolylinePoints (points2);
 
 			//GET INSTRUCTIONS
-			string firstInstructions = DirectionFetcher.GetInstructions (firstRoutesResults);
-			string secondInstructions = DirectionFetcher.GetInstructions (secondRoutesResults);
+			string Instructions = DirectionFetcher.GetInstructionsDifferentCampus (firstRoutesResults, secondRoutesResults);
 
 			TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
-			instructionsView.Text = DisplayStepDirections(firstInstructions + secondInstructions);
+			instructionsView.Text = DisplayStepDirections(Instructions);
 			//instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
 
 			List<LatLng> direction1 = polyPoints1;
@@ -199,6 +209,8 @@ namespace GoogleApiTest
 			directionPath2.Width = 9;
 			directionPath2.Color = Color;
 
+			createBusMarkers ();
+
 
 
 			TextView slideUp = FindViewById<TextView> (Resource.Id.SlideUpText);
@@ -206,6 +218,18 @@ namespace GoogleApiTest
 			RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
 			clearLayout.SetPadding (0, 0, 0, 200);
 
+		}
+
+		public void createBusMarkers(){
+			MarkerOptions busMarker = new MarkerOptions ();
+			busMarker.SetPosition (new LatLng (startB.Campus.ExtractionPoint.Latitude, startB.Campus.ExtractionPoint.Longitude));
+			busMarker.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.Bus));
+			busPosition = map.AddMarker (busMarker);
+
+			MarkerOptions busMarker2 = new MarkerOptions ();
+			busMarker2.SetPosition (new LatLng (endB.Campus.ExtractionPoint.Latitude, endB.Campus.ExtractionPoint.Longitude));
+			busMarker2.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.Bus));
+			busPosition2 = map.AddMarker (busMarker2);
 		}
 
 		public async void drawDirections(LatLng startingPoint, LatLng endingPoint){
