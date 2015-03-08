@@ -98,6 +98,7 @@ namespace GoogleApiTest
 					directionPath2.Remove();
 					directionPath2=null;
 				}
+				map.UiSettings.ZoomControlsEnabled = true;
 				clearButton.Visibility = ViewStates.Invisible;
 				TextView slideUp = FindViewById<TextView> (Resource.Id.SlideUpText);
 				slideUp.Visibility = ViewStates.Gone;
@@ -125,11 +126,17 @@ namespace GoogleApiTest
 			string points1 = firstRoutesResults [0] ["overview_polyline"] ["points"];
 			var polyPoints1 = DirectionFetcher.DecodePolylinePoints (points1);
 
-
 			JsonValue secondDirections = await DirectionFetcher.getDirections(endB.Campus.ExtractionPoint,endingPoint);
 			JsonValue secondRoutesResults = secondDirections ["routes"];
 			string points2 = secondRoutesResults [0] ["overview_polyline"] ["points"];
 			var polyPoints2 = DirectionFetcher.DecodePolylinePoints (points2);
+
+			//GET INSTRUCTIONS
+			string firstInstructions = DirectionFetcher.GetInstructions (firstRoutesResults);
+			string secondInstructions = DirectionFetcher.GetInstructions (secondRoutesResults);
+
+			TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
+			instructionsView.Text = firstInstructions + secondInstructions;
 
 			List<LatLng> direction1 = polyPoints1;
 			List<LatLng> direction2 = polyPoints2;
@@ -269,6 +276,7 @@ namespace GoogleApiTest
 						}
 					}
 					clearButton.Visibility=ViewStates.Visible;
+					map.UiSettings.ZoomControlsEnabled = false;
 				}
 				window.Dismiss();
 			};
@@ -296,6 +304,7 @@ namespace GoogleApiTest
 						endB=building;
 					}
 					clearButton.Visibility=ViewStates.Visible;
+					map.UiSettings.ZoomControlsEnabled = false;
 				} else {
 					Toast.MakeText (this, "You already have an ending destination, " + building.Name + " will be your new ending destination", ToastLength.Short).Show ();
 					endPoint.Remove();
@@ -317,6 +326,7 @@ namespace GoogleApiTest
 						endB=building;
 					}
 					clearButton.Visibility=ViewStates.Visible;
+					map.UiSettings.ZoomControlsEnabled = false;
 				}
 				window.Dismiss();
 			};
