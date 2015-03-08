@@ -32,16 +32,12 @@ namespace GoogleApiTest
 		Polyline directionPath;
 		Polyline directionPath2;
 
-		static string[] locations={"EV","HALL","FG","JMSB"};
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
 			// Create your application here
 			SetContentView (Resource.Layout.Main);
-
-			AutoCompleteTextView act = FindViewById<AutoCompleteTextView>(Resource.Id.AutoCompleteInput);
-			act.Adapter = new ArrayAdapter<string> (this, Resource.Layout.list_locations, locations);
 
 			MapFragment mapFrag = (MapFragment) FragmentManager.FindFragmentById(Resource.Id.map);
 			map = mapFrag.Map;
@@ -56,6 +52,9 @@ namespace GoogleApiTest
 
 			BuildingManager.InitializeSGWBuildings ();
 			BuildingManager.InitializeLoyolaBuildings ();
+
+			AutoCompleteTextView to = FindViewById<AutoCompleteTextView>(Resource.Id.AutoCompleteInput);
+			to.Adapter = new ArrayAdapter<string> (this, Resource.Layout.list_locations, allLocations(BuildingManager.getSGWBuildings (), BuildingManager.getLoyolaBuildings ()));
 
 			ToggleButton togglebutton = FindViewById<ToggleButton>(Resource.Id.togglebutton);
 
@@ -77,6 +76,7 @@ namespace GoogleApiTest
 			drawSGWMarkers (map);
 
 			createSettingsDrawer ();
+			zoomBuildingToTextEntry (BuildingManager.getSGWBuildings (), BuildingManager.getLoyolaBuildings ());
 			//createSpinnerBuilding (map, BuildingManager.getSGWBuildings ());
 
 			map.MapClick += HandleMapClick;
@@ -113,7 +113,45 @@ namespace GoogleApiTest
 				StartActivity (exploreActivity);
 			};*/
 		} 
+		public String[] allLocations (List<Building> sgw,List<Building> loy){ 
 
+			List<string> locations = new List<string> ();
+			List<String> strBuildings = new List<String> ();
+			foreach(Building loyBuilding in loy){
+				locations.Add (loyBuilding.toString());
+			}
+			foreach(Building sgwBuilding in sgw){
+				locations.Add (sgwBuilding.toString());
+			}
+			String[] locations_array = locations.ToArray ();
+			return locations_array;
+		}
+
+		public void zoomBuildingToTextEntry(List<Building> sgw,List<Building> loy){
+			ImageButton toDestination = FindViewById<ImageButton>(Resource.Id.load_to_direction);
+			AutoCompleteTextView entry = FindViewById<AutoCompleteTextView>(Resource.Id.AutoCompleteInput);
+
+			List<Building> buildBuildings = new List<Building> ();
+			List<String> strBuildings = new List<String> ();
+			foreach(Building loyBuilding in loy){
+				strBuildings.Add (loyBuilding.toString());
+				buildBuildings.Add (loyBuilding);
+			}
+			foreach(Building sgwBuilding in sgw){
+				strBuildings.Add (sgwBuilding.toString());
+				buildBuildings.Add (sgwBuilding);
+			}
+
+			toDestination.Click += (o, e) => {
+				// Perform action on clicks
+				foreach (Building building in buildBuildings){
+					string entryText = entry.Text.ToUpper();
+					if(building.Abbreviation == entryText){
+						zoomSpecificBuilding(map,building);
+					}
+				}
+			};
+		}
 
 		public async void drawDirectionsDifferentCampus(LatLng startingPoint, LatLng endingPoint){
 			if (directionPath != null) {

@@ -34,16 +34,23 @@
                     android:textOn="LOY"
                     android:textOff="SGW"
                     android:textAlignment="center" />
+                <TextView
+                    android:layout_width="600px"
+                    android:layout_height="128px"
+                    android:layout_gravity="center"
+                    android:textColor="#ffffff"
+                    android:id="@+id/text_AutoCompleteInput"
+                    android:layout_toRightOf="@+id/togglebutton" />
                 <AutoCompleteTextView
                     android:layout_width="600px"
                     android:layout_height="128px"
                     android:layout_gravity="center"
-                    android:textColor="#FFFFFF"
-                    android:text="GO TO BUILDING"
+                    android:textColor="#ffffff"
+                    android:hint="GO TO BUILDING"
                     android:id="@+id/AutoCompleteInput"
                     android:layout_toRightOf="@+id/togglebutton" />
                 <ImageButton
-                    android:id="@+id/imageButton1"
+                    android:id="@+id/load_to_direction"
                     android:layout_width="128px"
                     android:layout_height="128px"
                     android:layout_toRightOf="@+id/AutoCompleteInput"
@@ -54,7 +61,7 @@
                     android:paddingLeft="2dp"
                     android:layout_width="128px"
                     android:layout_height="128px"
-                    android:layout_toRightOf="@+id/imageButton1"
+                    android:layout_toRightOf="@+id/load_to_direction"
                     android:background="#00000000"
                     android:src="@drawable/placeholder8" />
             </RelativeLayout>
