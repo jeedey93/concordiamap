@@ -182,11 +182,10 @@ namespace GoogleApiTest
 			var polyPoints2 = DirectionFetcher.DecodePolylinePoints (points2);
 
 			//GET INSTRUCTIONS
-			string firstInstructions = DirectionFetcher.GetInstructions (firstRoutesResults);
-			string secondInstructions = DirectionFetcher.GetInstructions (secondRoutesResults);
+			string Instructions = DirectionFetcher.GetInstructionsDifferentCampus (firstRoutesResults, secondRoutesResults);
 
 			TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
-			instructionsView.Text = DisplayStepDirections(firstInstructions + secondInstructions);
+			instructionsView.Text = DisplayStepDirections(Instructions);
 			//instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
 
 			List<LatLng> direction1 = polyPoints1;
