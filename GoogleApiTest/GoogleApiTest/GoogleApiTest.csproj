@@ -250,6 +250,7 @@
     <AndroidResource Include="Resources\layout\list_locations.axml" />
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\Go.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\exploreMButtonStyle.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

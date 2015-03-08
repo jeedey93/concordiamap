@@ -36,12 +36,14 @@ namespace GoogleApiTest
 			string endAdress = results [0] ["legs"][0]["end_address"];
 
 			//INSTRUCTIONS
-			string instructions="";
+			string instructions="\r\n";
 			int numberSteps = results [0] ["legs"] [0] ["steps"].Count;
 			for (int i = 0; i < numberSteps; i++) {
-				instructions += results [0] ["legs"] [0] ["steps"] [i] ["html_instructions"];
+				int instructionNumber = i + 1;
+				instructions += instructionNumber + "." +results [0] ["legs"] [0] ["steps"] [i] ["html_instructions"] + "\r\n";
 			}
 
+			string duration = results [0] ["legs"][0]["duration"]["text"];
 
 			//DISTANCE IN KM = firstRoutesResults [0] ["overview_polyline"] ["points"];
 			//DURATION IN MIN = firstRoutesResults [0] ["legs"][0]["duration"]["text"];
@@ -53,7 +55,7 @@ namespace GoogleApiTest
 			//	firstRoutesResults [0] ["legs"][0]["steps"].Count
 			//	firstRoutesResults [0] ["legs"][0]["steps"][0]["html_instructions"];
 
-			allInstructions = startAdress + endAdress + instructions;
+			allInstructions = "START:\r\n" + startAdress + "\r\nEND:\r\n"+  endAdress + "\r\nDURATION:\r\n" + duration + "\r\nINSTRUCTIONS :" + instructions;
 			return allInstructions;
 		}
 
