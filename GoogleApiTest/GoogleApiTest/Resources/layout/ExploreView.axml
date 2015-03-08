@@ -8,7 +8,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="100">
+        android:weightSum="100"
+        android:padding="5dp">
         <Button
             android:id="@+id/exploreMBRestaurant"
             android:text="Restaurant"
@@ -16,7 +17,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:drawableTop="@drawable/Restaurant"
-            android:background="@drawable/exploreMButtonStyle" />
+            android:background="@drawable/exploreMButtonStyle"
+            android:layout_marginRight="2dp"
+            android:paddingTop="5dp" />
         <Button
             android:id="@+id/exploreMBCoffee"
             android:text="Coffee"
@@ -24,14 +27,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:drawableTop="@drawable/Coffee"
-            android:background="@drawable/exploreMButtonStyle" />
+            android:background="@drawable/exploreMButtonStyle"
+            android:layout_marginLeft="2dp"
+            android:paddingTop="5dp" />
     </LinearLayout>
 <!-- Second row -->
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="100">
+        android:weightSum="100"
+        android:padding="5dp">
         <Button
             android:id="@+id/exploreMBBar"
             android:text="Bar"
@@ -39,7 +45,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:drawableTop="@drawable/Bar"
-            android:background="@drawable/exploreMButtonStyle" />
+            android:background="@drawable/exploreMButtonStyle"
+            android:layout_marginRight="2dp"
+            android:paddingTop="5dp" />
         <Button
             android:id="@+id/exploreMBPharmacy"
             android:text="Pharmacy"
@@ -47,6 +55,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:drawableTop="@drawable/Pharmacy"
-            android:background="@drawable/exploreMButtonStyle" />
+            android:background="@drawable/exploreMButtonStyle"
+            android:layout_marginLeft="2dp"
+            android:paddingTop="5dp" />
     </LinearLayout>
 </LinearLayout>
