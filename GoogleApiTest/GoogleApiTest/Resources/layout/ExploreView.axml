@@ -15,14 +15,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50"
-            android:drawableTop="@drawable/Restaurant" />
+            android:drawableTop="@drawable/Restaurant"
+            android:background="@drawable/exploreMButtonStyle" />
         <Button
             android:id="@+id/exploreMBCoffee"
             android:text="Coffee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50"
-            android:drawableTop="@drawable/Coffee" />
+            android:drawableTop="@drawable/Coffee"
+            android:background="@drawable/exploreMButtonStyle" />
     </LinearLayout>
 <!-- Second row -->
     <LinearLayout
@@ -36,13 +38,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50"
-            android:drawableTop="@drawable/Bar" />
+            android:drawableTop="@drawable/Bar"
+            android:background="@drawable/exploreMButtonStyle" />
         <Button
             android:id="@+id/exploreMBPharmacy"
             android:text="Pharmacy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50"
-            android:drawableTop="@drawable/Pharmacy" />
+            android:drawableTop="@drawable/Pharmacy"
+            android:background="@drawable/exploreMButtonStyle" />
     </LinearLayout>
 </LinearLayout>
