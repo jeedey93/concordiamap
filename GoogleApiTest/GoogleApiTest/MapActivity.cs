@@ -10,6 +10,7 @@ using Android.Support.V4.Widget;
 using Android.Support.V4.App;
 using Android.Content;
 using System.Json;
+using System.Text.RegularExpressions;
 
 namespace GoogleApiTest
 {
@@ -183,7 +184,10 @@ namespace GoogleApiTest
 			string instructions = DirectionFetcher.GetInstructions (routesResults);
 
 			TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
-			instructionsView.Text = instructions;
+			string formattedInstructions = DisplayStepDirections (instructions);
+
+			instructionsView.Text = formattedInstructions;
+
 
 			string points = routesResults [0] ["overview_polyline"] ["points"];
 			var polyPoints = DirectionFetcher.DecodePolylinePoints (points);
@@ -202,7 +206,7 @@ namespace GoogleApiTest
 			directionPath.Width = 9;
 			int Color = Int32.Parse ("ff800020", System.Globalization.NumberStyles.HexNumber);
 			directionPath.Color = Color;
-			DisplayStepDirections (direction);
+
 			//Zoom to fit the line.
 			//center.Latitude /= direction.Count;
 			//center.Longitude /= direction.Count;
@@ -217,7 +221,11 @@ namespace GoogleApiTest
 			clearLayout.SetPadding (0, 0, 0, 200);
 		}
 
-		public void DisplayStepDirections(List<LatLng> direction){
+		public String DisplayStepDirections(string unParsedInstructions){
+			String parsedInstructions = Regex.Replace(unParsedInstructions,@"<(.|\n)*?>",string.Empty);
+			parsedInstructions = Regex.Replace (parsedInstructions, @"(Destination)", "/nDestination");
+
+			return parsedInstructions;
 
 		}
 
