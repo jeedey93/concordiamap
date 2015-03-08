@@ -267,6 +267,7 @@ namespace GoogleApiTest
 					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
 					startingDestination.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.StartPointPNG));
 					startPoint = map.AddMarker (startingDestination);
+					startB=building;
 					if(endPoint!=null){
 						//BUILDINGS NOT ON SAME CAMPUS
 						if (startB.Campus != endB.Campus) {
