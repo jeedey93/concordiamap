@@ -19,7 +19,7 @@ namespace GoogleApiTest
 	{
 		readonly string SERVER_API_KEY = "AIzaSyCb1zAnzvZpXSd_al21N9tSQ0uWBlrUYtM";
 		int radius = 5000;
-		List<GooglePlace> nearbyPlacesAdapterList = null ;
+		List<GooglePlace> nearbyPlacesAdapterList = new List<GooglePlace>() ;
 		LocationManager locationManager;
 		Location location;
 		string type;
@@ -67,7 +67,6 @@ namespace GoogleApiTest
 			makeListFromWebRequest (url);
 
 
-
 			ListView list = (ListView)FindViewById (Resource.Id.exploreLView);
 			//list.Adapter = new ExploreListAdapter (this, nearbyPlacesList);
 
@@ -109,19 +108,24 @@ namespace GoogleApiTest
 
 			foreach (JsonValue jsonResult in jsonWebResults) {
 
-				//Instantiate Object for 
-				gWebLocation = new GooglePlaceLocation (jsonResult ["geometry"] ["location"] ["lat"].ToString (), jsonResult ["geometry"] ["location"] ["lng"].ToString ());
-				gWebPlace = new GooglePlace (gWebLocation, jsonResult ["name"].ToString ());
+				//Get needed values
+				string lat = jsonResult ["geometry"] ["location"] ["lat"].ToString ();
+				string lng = jsonResult ["geometry"] ["location"] ["lng"].ToString ();
+				string name = jsonResult ["name"].ToString ();
 
+				//Create current GooglePlace Object
+				gWebLocation = new GooglePlaceLocation (lat, lng);
+				gWebPlace = new GooglePlace (gWebLocation, name);
+
+				//Add to adapter list
 				nearbyPlacesAdapterList.Add (gWebPlace);
 
+				foreach (GooglePlace gPlace in nearbyPlacesAdapterList) {
+					Console.WriteLine (gPlace.ToString());
+				}
 
-				//Console.WriteLine (jsonResult ["geometry"].ToString ());
-				//Console.WriteLine (jsonResult ["geometry"] ["location"] ["lat"].ToString ());
-				//Console.WriteLine (jsonResult ["geometry"] ["location"] ["lng"].ToString ());
 			}
-			//Console.WriteLine (json.ToString());
-			//Console.WriteLine (jsonWebLocation.ToString ());
+	
 		}
 
 

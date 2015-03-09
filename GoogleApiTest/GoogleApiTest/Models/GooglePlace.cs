@@ -28,6 +28,13 @@ namespace GoogleApiTest
 			this.name = name;
 		}
 
+		public string ToString(){
+			return "---------------------------------------------\nPlace - " + name + "\n" + location.ToString ();
+		}
+
+		public GooglePlace clone(){
+			return new GooglePlace (location, name);
+		}
 
 	}
 }
