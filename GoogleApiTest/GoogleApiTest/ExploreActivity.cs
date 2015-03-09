@@ -9,11 +9,13 @@ using Android.Content;
 namespace GoogleApiTest
 {
 	[Activity (Label = "ExploreActivity")]			
-	public class ExploreActivity : LeftDrawerActivity
+	public class ExploreActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)
 		{
-			base.OnCreate (bundle, Resource.Layout.ExploreView);
+
+			base.OnCreate (bundle);
+			SetContentView (Resource.Layout.ExploreView);
 
 			// Get reference to each button within exploreMenu Layout
 			Button retaurantBtn = (Button)FindViewById<Button> (Resource.Id.exploreMBRestaurant);

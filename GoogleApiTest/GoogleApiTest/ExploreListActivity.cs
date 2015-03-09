@@ -15,7 +15,7 @@ using Android.Widget;
 namespace GoogleApiTest
 {
 	[Activity (Label = "ExploreList")]			
-	public class ExploreListActivity: LeftDrawerActivity
+	public class ExploreListActivity: Activity
 	{
 		readonly string SERVER_API_KEY = "AIzaSyCb1zAnzvZpXSd_al21N9tSQ0uWBlrUYtM";
 		int radius = 5000;

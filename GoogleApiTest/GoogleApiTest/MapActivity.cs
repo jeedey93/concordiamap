@@ -15,10 +15,14 @@ using System.Text.RegularExpressions;
 namespace GoogleApiTest
 {
 	[Activity (Label = "CONCORDIA CONQUEST",MainLauncher = false)]			
-	public class MapActivity : LeftDrawerActivity
+	public class MapActivity : Activity
 	{
 		BuildingManager BuildingManager = new BuildingManager ();
 		DirectionFetcher DirectionFetcher = new DirectionFetcher ();
+		ListView listview;
+		DrawerLayout drawer;
+		List<string> drawerSettings;
+		ActionBarDrawerToggle mDrawerToggle;
 		GoogleMap map;
 		PopupWindow window=null;
 		Marker startPoint;
@@ -31,10 +35,10 @@ namespace GoogleApiTest
 		static string[] locations={"EV","HALL","FG","JMSB"};
 		protected override void OnCreate (Bundle bundle)
 		{
+			base.OnCreate (bundle);
 
-			base.OnCreate (bundle, Resource.Layout.Main);
-
-//			SetContentView (Resource.Layout.Main);
+			// Create your application here
+			SetContentView (Resource.Layout.Main);
 
 			AutoCompleteTextView act = FindViewById<AutoCompleteTextView>(Resource.Id.AutoCompleteInput);
 			act.Adapter = new ArrayAdapter<string> (this, Resource.Layout.list_locations, locations);
@@ -72,7 +76,7 @@ namespace GoogleApiTest
 			drawLOYMarkers (map);
 			drawSGWMarkers (map);
 
-//			createSettingsDrawer ();
+			createSettingsDrawer ();
 			//createSpinnerBuilding (map, BuildingManager.getSGWBuildings ());
 
 			map.MapClick += HandleMapClick;
@@ -364,32 +368,32 @@ namespace GoogleApiTest
 			map.AnimateCamera  (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 		}
 			
-//		public void createSpinnerBuilding(GoogleMap map, List<Building> buildings){
-//			Spinner spinner = FindViewById<Spinner> (Resource.Id.spinner);
-//			ArrayAdapter _adapterFrom;
-//
-//			List<string> strBuildings = new List<string> ();
-//			strBuildings.Add("Choose a Building");
-//			foreach(Building building in buildings){
-//				strBuildings.Add (building.toString());
-//			}
-//
-//			_adapterFrom = new ArrayAdapter (this, Android.Resource.Layout.SimpleSpinnerItem, strBuildings);
-//
-//			_adapterFrom.SetDropDownViewResource (Android.Resource.Layout.SimpleSpinnerDropDownItem);
-//			spinner.Adapter = _adapterFrom; 
-//
-//			spinner.ItemSelected += (object sender, AdapterView.ItemSelectedEventArgs e) => {
-//				foreach(Building building in buildings){
-//					if(e.Parent.GetItemAtPosition(e.Position).ToString()=="Choose a Building"){
-//
-//					}
-//					else if(e.Parent.GetItemAtPosition(e.Position).ToString()==building.toString())
-//						zoomSpecificBuilding(map, building);
-//				}
-//			};
-//		}
-//
+		/*public void createSpinnerBuilding(GoogleMap map, List<Building> buildings){
+			Spinner spinner = FindViewById<Spinner> (Resource.Id.spinner);
+			ArrayAdapter _adapterFrom;
+
+			List<string> strBuildings = new List<string> ();
+			strBuildings.Add("Choose a Building");
+			foreach(Building building in buildings){
+				strBuildings.Add (building.toString());
+			}
+
+			_adapterFrom = new ArrayAdapter (this, Android.Resource.Layout.SimpleSpinnerItem, strBuildings);
+
+			_adapterFrom.SetDropDownViewResource (Android.Resource.Layout.SimpleSpinnerDropDownItem);
+			spinner.Adapter = _adapterFrom; 
+
+			spinner.ItemSelected += (object sender, AdapterView.ItemSelectedEventArgs e) => {
+				foreach(Building building in buildings){
+					if(e.Parent.GetItemAtPosition(e.Position).ToString()=="Choose a Building"){
+
+					}
+					else if(e.Parent.GetItemAtPosition(e.Position).ToString()==building.toString())
+						zoomSpecificBuilding(map, building);
+				}
+			};
+		}*/
+
 		public void zoomSpecificBuilding(GoogleMap map, Building buildingToZoom){
 			LatLng location = new LatLng(buildingToZoom.XCoordinate, buildingToZoom.YCoordinate);
 			CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
@@ -399,7 +403,37 @@ namespace GoogleApiTest
 			map.AnimateCamera  (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 		}
 
-//	
+		public void createSettingsDrawer(){
+			drawerSettings = new List<string> ();
+			listview = FindViewById<ListView> (Resource.Id.left_drawer);
+			drawer = FindViewById<DrawerLayout> (Resource.Id.drawer_layout);
+			mDrawerToggle = new ActionBarDrawerToggle (this, drawer, Resource.Drawable.ic_navigation_drawer, Resource.String.open_drawer, Resource.String.close_drawer);
+
+			drawerSettings.Add ("Settings");
+			drawerSettings.Add ("Settings Working");
+			ArrayAdapter mLeftAdapter = new ArrayAdapter (this, Android.Resource.Layout.SimpleListItem1, drawerSettings);
+			listview.Adapter = mLeftAdapter;
+
+			drawer.SetDrawerListener (mDrawerToggle);
+			ActionBar.SetDisplayHomeAsUpEnabled (true);
+			ActionBar.SetHomeButtonEnabled (true);
+		}
+
+		protected override void OnPostCreate (Bundle savedInstanceState)
+		{
+			base.OnPostCreate (savedInstanceState);
+			mDrawerToggle.SyncState ();
+		}
+
+		public override bool OnOptionsItemSelected (IMenuItem item)
+		{
+			if (mDrawerToggle.OnOptionsItemSelected (item)) {
+				return true;
+			}
+
+			return base.OnOptionsItemSelected (item);
+		}
+
 		public void drawSGWPolygons(GoogleMap map){
 			List<Building> b = BuildingManager.getSGWBuildings();
 			PolygonOptions SGWPolygon;
