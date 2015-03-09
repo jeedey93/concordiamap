@@ -27,8 +27,11 @@ namespace GoogleApiTest
 		public void setLongitude(float lng){
 			longitude = lng;
 		}
-		
 
+
+		public string ToString(){
+			return "Location = "+latitude.ToString()+", "+longitude.ToString();
+		}
 
 
 	}
