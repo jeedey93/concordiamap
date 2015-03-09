@@ -7,7 +7,7 @@ using Android.OS;
 namespace GoogleApiTest
 {
 	[Activity (Label = "GoogleApiTest", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/Theme.Splash", NoHistory = true)]
-	public class MainActivity : Activity
+	public class MainActivity : LeftDrawerActivity
 	{
 		protected override void OnCreate (Bundle bundle)
 		{

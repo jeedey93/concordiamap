@@ -86,6 +86,8 @@
     <Compile Include="Models\DirectionFetcher.cs" />
     <Compile Include="Models\GooglePlace.cs" />
     <Compile Include="Models\GooglePlaceLocation.cs" />
+    <Compile Include="LeftDrawerActivity.cs" />
+    <Compile Include="Models\MyActionBarToggle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -251,6 +253,7 @@
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\Go.png" />
     <AndroidResource Include="Resources\drawable-hdpi\exploreMButtonStyle.xml" />
+    <AndroidResource Include="Resources\layout\LeftDrawer.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
