@@ -119,10 +119,14 @@ namespace GoogleApiTest
 
 				//Add to adapter list
 				nearbyPlacesAdapterList.Add (gWebPlace);
-
+				ListView explorelist = FindViewById<ListView> (Resource.Id.exploreLView);
+				List<string> placeList = new List<string>();
 				foreach (GooglePlace gPlace in nearbyPlacesAdapterList) {
 					Console.WriteLine (gPlace.ToString());
+					placeList.Add (gPlace.ToString ());
 				}
+				ArrayAdapter exploreAdapter = new ArrayAdapter (this, Android.Resource.Layout.SimpleListItem1,placeList);
+				explorelist.Adapter = exploreAdapter;
 
 			}
 	
