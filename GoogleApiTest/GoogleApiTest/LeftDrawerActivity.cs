@@ -19,8 +19,8 @@ namespace GoogleApiTest
 		List<string> mLeftItem = new List<string> ();
 		ArrayAdapter mLeftAdapter;
 		ListView mLeftDrawer;
-		String ActivityName;
 		private static List<Activity> activities = new List<Activity>();
+		ActionBarDrawerToggle mDrawerToggle;
 
 		protected void OnCreate (Bundle bundle, int layout){
 		
@@ -36,22 +36,25 @@ namespace GoogleApiTest
 			mLeftItem.Add ("Explore");
 		
 
-//			mDrawerToggle = new MyActionBarDrawerToggle (
-//				this,
-//				mDrawerLayout, 
-//				Resource.Drawable.ic_navigation_drawer, 
-//				Resource.String.open_drawer,
-//				Resource.String.close_drawer);
+			mDrawerToggle = new ActionBarDrawerToggle (
+				(Activity) this,
+				mDrawerLayout, 
+				Resource.Drawable.ic_navigation_drawer, 
+				Resource.String.open_drawer,
+				Resource.String.close_drawer);
+
+			Console.WriteLine (mDrawerToggle.ToString());
 
 			mLeftAdapter = new ArrayAdapter (this, Android.Resource.Layout.SimpleListItem1, mLeftItem);
 			mLeftDrawer.Adapter = mLeftAdapter;
 
-//
+
 			mLeftDrawer.ItemClick += LeftDrawerItemClick; 
 
-//			mDrawerLayout.SetDrawerListener (mDrawerToggle);
-//			ActionBar.SetDisplayHomeAsUpEnabled (true);
-//			ActionBar.SetHomeButtonEnabled (true);
+			mDrawerLayout.SetDrawerListener (mDrawerToggle);
+			ActionBar.SetDisplayHomeAsUpEnabled (true);
+			ActionBar.SetHomeButtonEnabled (true);
+
 
 		}
 			
@@ -59,26 +62,23 @@ namespace GoogleApiTest
 		void LeftDrawerItemClick (object sender, AdapterView.ItemClickEventArgs e)
 		{
 
-			if (e.Position == 0) {
-//				System.Threading.Thread.Sleep (5000);
-//				StartActivity (new Intent (this, typeof(MapActivity)));
+			if (e.Position == 0 ) 
 				Finish ();
+			else if (e.Position == 1)
+				StartActivity (new Intent (this, typeof(ExploreActivity)));
+		}
 
-			}
-			else if (e.Position == 1) 
-
-				StartActivity(new Intent (this, typeof(ExploreActivity)));
-			}
+	
 	
 
 //		protected override void OnPostCreate (Bundle savedInstanceState) 
 //		{
 //
-//			this.OnPostCreate (savedInstanceState);
+//			base.OnPostCreate (savedInstanceState);
 //			mDrawerToggle.SyncState ();					
 //		}
-//
-//		public override bool OnOptionsItemSelected(IMenuItem item){
+
+		//		public override bool OnOptionsItemSelected(IMenuItem item){
 //
 //			if(mDrawerToggle.OnOptionsItemSelected(item))
 //				return true;
