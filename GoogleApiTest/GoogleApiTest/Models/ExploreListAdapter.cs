@@ -14,30 +14,42 @@ using Android.Widget;
 
 namespace GoogleApiTest
 {
-	public class ExploreListAdapter : BaseAdapter<string> {
-		string[] items;
-		Activity context;
-		public ExploreListAdapter(Activity context, string[] items) : base() {
+	public class ExploreListAdapter : BaseAdapter<GooglePlace> {
+
+		List<GooglePlace> gWebPlaces;
+		Context context;
+
+		public ExploreListAdapter(Context context, List<GooglePlace> place){
 			this.context = context;
-			this.items = items;
+			gWebPlaces = place;
 		}
 		public override long GetItemId(int position)
 		{
 			return position;
 		}
-		public override string this[int position] {  
-			get { return items[position]; }
+		public override GooglePlace this[int position] {  
+			get { return gWebPlaces.ToArray()[position]; }
 		}
 		public override int Count {
-			get { return items.Length; }
+			get { return gWebPlaces.Count; }
 		}
 		public override View GetView(int position, View convertView, ViewGroup parent)
 		{
-			View view = convertView; // re-use an existing view, if one is available
-			if (view == null) // otherwise create a new one
-				view = context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null);
-			view.FindViewById<TextView>(Android.Resource.Id.Text1).Text = items[position];
-			return view;
+			View row = convertView;
+
+			if (row == null) {
+				row = LayoutInflater.From (context).Inflate (Resource.Layout.ExploreListView_Row, null, false); 
+			}
+
+			TextView countText = (TextView)row.FindViewById<TextView> (Resource.Id.exploreLTCount);
+			TextView nameText = (TextView)row.FindViewById<TextView> (Resource.Id.exploreLTTitle);
+			TextView distanceText = (TextView)row.FindViewById<TextView> (Resource.Id.exploreLTDistance);
+
+			countText.Text = position.ToString ();
+			nameText.Text = gWebPlaces.ToArray () [position].getName();
+			distanceText.Text = gWebPlaces.ToArray () [position].getDistance().ToString();
+
+			return row;
 		}
 	}
 }

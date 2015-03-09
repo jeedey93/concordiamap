@@ -10,6 +10,7 @@ using Android.Content;
 using Android.Locations;
 using Android.OS;
 using Android.Widget;
+using Android.Gms.Maps.Model;
 
 
 namespace GoogleApiTest
@@ -67,8 +68,10 @@ namespace GoogleApiTest
 			makeListFromWebRequest (url);
 
 
-			ListView list = (ListView)FindViewById (Resource.Id.exploreLView);
-			//list.Adapter = new ExploreListAdapter (this, nearbyPlacesList);
+			ListView listView = (ListView)FindViewById<ListView> (Resource.Id.exploreLView);
+			ExploreListAdapter adapter = new ExploreListAdapter (this , nearbyPlacesAdapterList);
+
+			listView.Adapter = adapter;
 
 		}
 
@@ -103,34 +106,57 @@ namespace GoogleApiTest
 
 			JsonValue jsonWebResults = json["results"];
 
-			GooglePlaceLocation gWebLocation;
+			LatLng gWebLocation;
 			GooglePlace gWebPlace;
+			LatLng currentLocation = new LatLng (0.0, 0.0);
 
 			foreach (JsonValue jsonResult in jsonWebResults) {
 
 				//Get needed values
-				string lat = jsonResult ["geometry"] ["location"] ["lat"].ToString ();
-				string lng = jsonResult ["geometry"] ["location"] ["lng"].ToString ();
+				double lat = jsonResult ["geometry"] ["location"] ["lat"];
+				double lng = jsonResult ["geometry"] ["location"] ["lng"];
 				string name = jsonResult ["name"].ToString ();
 
 				//Create current GooglePlace Object
-				gWebLocation = new GooglePlaceLocation (lat, lng);
+				gWebLocation = new LatLng (lat, lng);
 				gWebPlace = new GooglePlace (gWebLocation, name);
+
+				//Get current location & calculate distance between current and place
+				currentLocation.Latitude = location.Latitude;
+				currentLocation.Longitude = location.Longitude;
+				gWebPlace.setDistance (calcDistanceToPlace (currentLocation, gWebLocation));
 
 				//Add to adapter list
 				nearbyPlacesAdapterList.Add (gWebPlace);
-				ListView explorelist = FindViewById<ListView> (Resource.Id.exploreLView);
-				List<string> placeList = new List<string>();
+
 				foreach (GooglePlace gPlace in nearbyPlacesAdapterList) {
-					Console.WriteLine (gPlace.ToString());
-					placeList.Add (gPlace.ToString ());
+					Console.WriteLine (gPlace.ToString ());
 				}
-				ArrayAdapter exploreAdapter = new ArrayAdapter (this, Android.Resource.Layout.SimpleListItem1,placeList);
-				explorelist.Adapter = exploreAdapter;
 
 			}
 	
 		}
+
+		private double calcDistanceToPlace(LatLng start, LatLng end){
+			//double old = Math.Sqrt (Math.Pow ((end.Latitude - start.Latitude), 2) + Math.Pow ((end.Longitude - start.Longitude), 2));
+
+			double  earthRadius = 6378137; // Earth’s mean radius in meter
+			double dLat = rad(end.Latitude - start.Latitude);
+			double dLong = rad(end.Longitude - start.Longitude);
+			double a = Math.Sin(dLat / 2.0) * Math.Sin(dLat / 2.0) +
+				Math.Cos(rad(start.Latitude)) * Math.Cos(rad(end.Latitude)) *
+				Math.Sin(dLong / 2.0) * Math.Sin(dLong / 2.0);
+			double c = 2.0 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+			double d = earthRadius * c;
+
+
+			return d; // returns the distance in meter
+		}
+
+		private double rad(double d){
+			return d * Math.PI / 180.0;
+		}
+
 
 
 

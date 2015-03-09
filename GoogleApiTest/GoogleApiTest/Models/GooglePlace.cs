@@ -1,18 +1,28 @@
 ﻿using System;
+using Android.Gms.Maps.Model;
 
 namespace GoogleApiTest
 {
 	public class GooglePlace
 	{
-		GooglePlaceLocation location;
+		LatLng location;
 		string name;
+		double distanceToPlace;
 
-		public GooglePlace(GooglePlaceLocation loc, string name){
+		public GooglePlace(LatLng loc, string name){
 			location = loc;
 			this.name = name;
 		}
 
-		public GooglePlaceLocation getLocation(){
+		public void setDistance(double dist){
+			distanceToPlace = dist;
+		}
+
+		public double getDistance(){
+			return distanceToPlace;
+		}
+
+		public LatLng getLocation(){
 			return location;
 		}
 
@@ -20,7 +30,7 @@ namespace GoogleApiTest
 			return name;
 		}
 
-		public void setLocation(GooglePlaceLocation loc){
+		public void setLocation(LatLng loc){
 			location = loc;
 		}
 
@@ -28,8 +38,8 @@ namespace GoogleApiTest
 			this.name = name;
 		}
 
-		public string ToString(){
-			return "---------------------------------------------\nPlace - " + name + "\n" + location.ToString ();
+		public override string ToString(){
+			return "---------------------------------------------\nPlace - " + name + "\n" + location.ToString ()+"\nDistance = "+distanceToPlace.ToString();
 		}
 
 		public GooglePlace clone(){
