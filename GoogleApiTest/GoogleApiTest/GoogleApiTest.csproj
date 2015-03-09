@@ -76,10 +76,8 @@
     <Compile Include="MapActivity.cs" />
     <Compile Include="ExploreActivity.cs" />
     <Compile Include="Models\Building.cs" />
-    <Compile Include="Models\ImageAdapter.cs" />
     <Compile Include="Models\BuildingManager.cs" />
     <Compile Include="UnitTests\UnitTests.cs" />
-    <Compile Include="Models\ExploreMButtonAdapter.cs" />
     <Compile Include="Models\ExploreListAdapter.cs" />
     <Compile Include="ExploreListActivity.cs" />
     <Compile Include="Models\Campus.cs" />
