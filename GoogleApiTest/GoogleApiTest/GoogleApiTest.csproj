@@ -253,11 +253,7 @@
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\Go.png" />
     <AndroidResource Include="Resources\drawable-hdpi\exploreMButtonStyle.xml" />
-<<<<<<< HEAD
     <AndroidResource Include="Resources\layout\LeftDrawer.axml" />
-=======
-    <AndroidResource Include="Resources\drawable-hdpi\Bus.png" />
->>>>>>> origin/master
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
