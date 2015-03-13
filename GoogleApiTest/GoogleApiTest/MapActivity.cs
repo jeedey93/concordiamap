@@ -1,4 +1,4 @@
-﻿﻿using Android.App;
+﻿using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Gms.Maps;
@@ -29,6 +29,7 @@ namespace GoogleApiTest
 		Polyline directionPath2;
 		Marker busPosition;
 		Marker busPosition2;
+		Polygon ClickedPolygon;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -423,11 +424,16 @@ namespace GoogleApiTest
 		{
 			Building b = BuildingManager.isInPolygon(e.Point);
 			if (b != null && window ==null) {
+				ClickedPolygon = b.Polygon;
+				int Color = Int32.Parse("f0800020", System.Globalization.NumberStyles.HexNumber);
+				ClickedPolygon.FillColor = Color;
 				CreateBuildingDescription (b);
 			}
 			else if(window !=null){
 				window.Dismiss ();
 				window = null;
+				int Color = Int32.Parse("50800020", System.Globalization.NumberStyles.HexNumber);
+				ClickedPolygon.FillColor = Color;
 			}
 		}
 
@@ -482,7 +488,7 @@ namespace GoogleApiTest
 				int Color = Int32.Parse("50800020", System.Globalization.NumberStyles.HexNumber);
 				SGWPolygon.InvokeFillColor(Color);
 				SGWPolygon.InvokeStrokeWidth (4);
-				map.AddPolygon (SGWPolygon);
+				building.Polygon = map.AddPolygon (SGWPolygon);
 			}
 		}
 
@@ -498,7 +504,7 @@ namespace GoogleApiTest
 				int Color = Int32.Parse ("50800020", System.Globalization.NumberStyles.HexNumber);
 				LoyolaPolygon.InvokeFillColor(Color);
 				LoyolaPolygon.InvokeStrokeWidth (4);
-				map.AddPolygon (LoyolaPolygon);
+				building.Polygon = map.AddPolygon (LoyolaPolygon);
 			}
 		}
 
