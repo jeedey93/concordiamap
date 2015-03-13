@@ -68,6 +68,18 @@
       <HintPath>..\Components\slidinguppanel-1.0.1\lib\android\Cheesebaron.SlidingUpPanel.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android.Export" />
+    <Reference Include="Google.GData.Calendar">
+      <HintPath>bin\Debug\Google.GData.Calendar.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Client">
+      <HintPath>bin\Debug\Google.GData.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Extensions">
+      <HintPath>bin\Debug\Google.GData.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.AccessControl">
+      <HintPath>bin\Debug\Google.GData.AccessControl.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -85,6 +97,8 @@
     <Compile Include="Models\GooglePlace.cs" />
     <Compile Include="Models\GooglePlaceLocation.cs" />
     <Compile Include="LeftDrawerActivity.cs" />
+    <Compile Include="Models\GoogleCalendar.cs" />
+    <Compile Include="CalendarActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
