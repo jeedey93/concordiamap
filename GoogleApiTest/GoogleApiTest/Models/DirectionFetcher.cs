@@ -44,17 +44,6 @@ namespace GoogleApiTest
 			}
 
 			string duration = results [0] ["legs"][0]["duration"]["text"];
-
-			//DISTANCE IN KM = firstRoutesResults [0] ["overview_polyline"] ["points"];
-			//DURATION IN MIN = firstRoutesResults [0] ["legs"][0]["duration"]["text"];
-			//START ADDRESS = firstRoutesResults [0] ["legs"][0]["start_address"];
-			//END ADDRESS = firstRoutesResults [0] ["legs"][0]["end_address"];
-
-
-			//INSTRUCTIONS = 
-			//	firstRoutesResults [0] ["legs"][0]["steps"].Count
-			//	firstRoutesResults [0] ["legs"][0]["steps"][0]["html_instructions"];
-
 			allInstructions = "START:\r\n" + startAdress + "\r\nEND:\r\n"+  endAdress + "\r\nDURATION:\r\n" + duration + "\r\nINSTRUCTIONS :" + instructions;
 			return allInstructions;
 		}
@@ -88,23 +77,15 @@ namespace GoogleApiTest
 
 			string duration = results [0] ["legs"][0]["duration"]["text"] +" + bus travel time (~20mins) + "+ results2 [0] ["legs"][0]["duration"]["text"];
 
-			//DISTANCE IN KM = firstRoutesResults [0] ["overview_polyline"] ["points"];
-			//DURATION IN MIN = firstRoutesResults [0] ["legs"][0]["duration"]["text"];
-			//START ADDRESS = firstRoutesResults [0] ["legs"][0]["start_address"];
-			//END ADDRESS = firstRoutesResults [0] ["legs"][0]["end_address"];
-
-
-			//INSTRUCTIONS = 
-			//	firstRoutesResults [0] ["legs"][0]["steps"].Count
-			//	firstRoutesResults [0] ["legs"][0]["steps"][0]["html_instructions"];
-
 			allInstructions = "START:\r\n" + startAdress + "\r\nEND:\r\n"+  endAdress + "\r\nDURATION:\r\n" + duration + "\r\nINSTRUCTIONS :" + instructions;
 			return allInstructions;
 		}
 
 		public List<LatLng> DecodePolylinePoints(string encodedPoints) 
 		{
-			if (encodedPoints == null || encodedPoints == "") return null;
+			if (encodedPoints == null || encodedPoints == "") {
+				return null;
+			}
 			List<LatLng> poly = new List<LatLng>();
 			char[] polylinechars = encodedPoints.ToCharArray();
 			int index = 0;
@@ -129,9 +110,8 @@ namespace GoogleApiTest
 						shifter += 5;
 					} while (next5bits >= 32 && index < polylinechars.Length);
 
-					if (index >= polylinechars.Length)
-						break;
-
+					if (index < polylinechars.Length){
+					
 					currentLat += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
 
 					//calculate next longitude
@@ -144,14 +124,14 @@ namespace GoogleApiTest
 						shifter += 5;
 					} while (next5bits >= 32 && index < polylinechars.Length);
 
-					if (index >= polylinechars.Length && next5bits >= 32)
-						break;
-
-					currentLng += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
-					LatLng p = new LatLng(0,0);
-					p.Latitude = Convert.ToDouble(currentLat) / 100000.0;
-					p.Longitude = Convert.ToDouble(currentLng) / 100000.0;
-					poly.Add(p);
+						if (!(index >= polylinechars.Length && next5bits >= 32)){
+							currentLng += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
+							LatLng p = new LatLng(0,0);
+							p.Latitude = Convert.ToDouble(currentLat) / 100000.0;
+							p.Longitude = Convert.ToDouble(currentLng) / 100000.0;
+							poly.Add(p);
+						}
+					}
 				} 
 			}
 			catch (Exception ex)
