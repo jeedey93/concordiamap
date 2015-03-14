@@ -318,6 +318,7 @@ namespace GoogleApiTest
 					startPoint = map.AddMarker (startingDestination);
 					clearButton.Visibility=ViewStates.Visible;
 					startB=building;
+					ResetColorOfPolygon ();
 				}
 				else{
 					Toast.MakeText(this, "You already have a starting destination, " + building.Name + " will be your new starting destination",ToastLength.Short).Show();
@@ -360,6 +361,7 @@ namespace GoogleApiTest
 					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
 					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
 					endPoint = map.AddMarker (endDestination);
+					ResetColorOfPolygon ();
 					if(startPoint !=null && endPoint !=null){
 						endB=building;
 						//BUILDINGS NOT ON SAME CAMPUS
@@ -432,8 +434,7 @@ namespace GoogleApiTest
 			else if(window !=null){
 				window.Dismiss ();
 				window = null;
-				int Color = Int32.Parse("50800020", System.Globalization.NumberStyles.HexNumber);
-				ClickedPolygon.FillColor = Color;
+				ResetColorOfPolygon ();
 			}
 		}
 
@@ -536,6 +537,12 @@ namespace GoogleApiTest
 					map.AddGroundOverlay (byo);
 				}
 			}
+		}
+
+		public void ResetColorOfPolygon ()
+		{
+			int Color = Int32.Parse ("50800020", System.Globalization.NumberStyles.HexNumber);
+			ClickedPolygon.FillColor = Color;
 		}
 	}
 }
