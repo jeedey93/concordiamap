@@ -42,10 +42,10 @@ namespace GoogleApiTest
 
 			Building BBuilding = new Building ("B Building", "B", 45.497818, -73.579545);
 			BBuilding.BuildingImage = Resource.Drawable.B;
-			BBuilding.Corners.Add (new LatLng (45.497885, -73.579421));
-			BBuilding.Corners.Add (new LatLng (45.497847, -73.579337));
-			BBuilding.Corners.Add (new LatLng (45.497592, -73.579583));
-			BBuilding.Corners.Add (new LatLng (45.497631, -73.579665));
+			BBuilding.Corners.Add (new LatLng (45.497923, -73.579494));
+			BBuilding.Corners.Add (new LatLng (45.497887, -73.579419));
+			BBuilding.Corners.Add (new LatLng (45.497715, -73.579588));
+			BBuilding.Corners.Add (new LatLng (45.49775, -73.579662));
 			BBuilding.BuildingOverlay = Resource.Drawable.B_Logo;
 			BBuilding.OverlaySize = 17;
 			SGWBuildings.Add (BBuilding);
@@ -294,10 +294,10 @@ namespace GoogleApiTest
 
 			Building KBuilding = new Building ("K Building", "K", 45.497749, -73.579496);
 			KBuilding.BuildingImage = Resource.Drawable.K;
-			KBuilding.Corners.Add (new LatLng (45.497923, -73.579494));
-			KBuilding.Corners.Add (new LatLng (45.497887, -73.579419));
-			KBuilding.Corners.Add (new LatLng (45.497715, -73.579588));
-			KBuilding.Corners.Add (new LatLng (45.49775, -73.579662));
+			KBuilding.Corners.Add (new LatLng (45.497885, -73.579421));
+			KBuilding.Corners.Add (new LatLng (45.497847, -73.579337));
+			KBuilding.Corners.Add (new LatLng (45.497592, -73.579583));
+			KBuilding.Corners.Add (new LatLng (45.497631, -73.579665));
 			KBuilding.BuildingOverlay = Resource.Drawable.K_Logo;
 			KBuilding.OverlaySize = 17;
 			SGWBuildings.Add (KBuilding);
