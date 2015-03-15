@@ -10,9 +10,10 @@ namespace GoogleApiTest
 {
 	public class DirectionFetcher
 	{
-		public async Task<JsonValue> getDirections(LatLng startingPoint, LatLng endingPoint){
+		public async Task<JsonValue> GetDirections(LatLng startingPoint, LatLng endingPoint){
 
-			string urlDirections = "http://maps.googleapis.com/maps/api/directions/json?origin="+startingPoint.Latitude+","+ startingPoint.Longitude+"&destination="+endingPoint.Latitude+","+ endingPoint.Longitude+"&sensor=false&mode=walking";
+			string urlDirections = "http://maps.googleapis.com/maps/api/directions/json?origin="+startingPoint.Latitude+","
+				+ startingPoint.Longitude+"&destination="+endingPoint.Latitude+","+ endingPoint.Longitude+"&sensor=false&mode=walking";
 
 			HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create (new Uri (urlDirections));
 			request.ContentType = "application/json";
@@ -90,52 +91,49 @@ namespace GoogleApiTest
 			char[] polylinechars = encodedPoints.ToCharArray();
 			int index = 0;
 
+			return CalculateNextPoint (poly, polylinechars, ref index);
+		}
+
+		static List<LatLng> CalculateNextPoint (List<LatLng> poly, char[] polylinechars, ref int index)
+		{
 			int currentLat = 0;
 			int currentLng = 0;
 			int next5bits;
 			int sum;
 			int shifter;
-
-			try
-			{
-				while (index < polylinechars.Length)
-				{
+			try {
+				while (index < polylinechars.Length) {
 					// calculate next latitude
 					sum = 0;
 					shifter = 0;
-					do
-					{
-						next5bits = (int)polylinechars[index++] - 63;
+					do {
+						next5bits = (int)polylinechars [index++] - 63;
 						sum |= (next5bits & 31) << shifter;
 						shifter += 5;
-					} while (next5bits >= 32 && index < polylinechars.Length);
-
-					if (index < polylinechars.Length){
-					
-					currentLat += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
-
-					//calculate next longitude
-					sum = 0;
-					shifter = 0;
-					do
-					{
-						next5bits = (int)polylinechars[index++] - 63;
-						sum |= (next5bits & 31) << shifter;
-						shifter += 5;
-					} while (next5bits >= 32 && index < polylinechars.Length);
-
-						if (!(index >= polylinechars.Length && next5bits >= 32)){
+					}
+					while (next5bits >= 32 && index < polylinechars.Length);
+					if (index < polylinechars.Length) {
+						currentLat += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
+						//calculate next longitude
+						sum = 0;
+						shifter = 0;
+						do {
+							next5bits = (int)polylinechars [index++] - 63;
+							sum |= (next5bits & 31) << shifter;
+							shifter += 5;
+						}
+						while (next5bits >= 32 && index < polylinechars.Length);
+						if (!(index >= polylinechars.Length && next5bits >= 32)) {
 							currentLng += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
-							LatLng p = new LatLng(0,0);
-							p.Latitude = Convert.ToDouble(currentLat) / 100000.0;
-							p.Longitude = Convert.ToDouble(currentLng) / 100000.0;
-							poly.Add(p);
+							LatLng p = new LatLng (0, 0);
+							p.Latitude = Convert.ToDouble (currentLat) / 100000.0;
+							p.Longitude = Convert.ToDouble (currentLng) / 100000.0;
+							poly.Add (p);
 						}
 					}
-				} 
+				}
 			}
-			catch (Exception ex)
-			{
+			catch (Exception ex) {
 				// logo it
 			}
 			return poly;
