@@ -18,8 +18,8 @@ namespace GoogleApiTest
 			//BuildingManager buildingManager = new BuildingManager ();
 			buildingManager.InitializeLoyolaBuildings ();
 			buildingManager.InitializeSGWBuildings ();
-			SGW = buildingManager.getSGWBuildings ();
-			Loyola = buildingManager.getLoyolaBuildings ();
+			SGW = buildingManager.GetSGWBuildings ();
+			Loyola = buildingManager.GetLoyolaBuildings ();
 		}
 
 
@@ -34,7 +34,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.497260, -73.578983);
 			Building HallBuilding = SGW.Find (x => x.Abbreviation == "H");
-			Assert.Equals (HallBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (HallBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -44,7 +44,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.497818, -73.579545);
 			Building BBuilding = SGW.Find (x => x.Abbreviation == "B");
-			Assert.Equals (BBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (BBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -54,7 +54,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.495189, -73.574308);
 			Building CBBuilding = SGW.Find (x => x.Abbreviation == "CB");
-			Assert.Equals (CBBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (CBBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -64,7 +64,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.497438, -73.579957);
 			Building CIBuilding = SGW.Find (x => x.Abbreviation == "CI");
-			Assert.Equals (CIBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (CIBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -74,7 +74,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.494195, -73.579295);
 			Building CLBuilding = SGW.Find (x => x.Abbreviation == "CL");
-			Assert.Equals (CLBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (CLBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -84,7 +84,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.497736, -73.579390);
 			Building DBuilding = SGW.Find (x => x.Abbreviation == "D");
-			Assert.Equals (DBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (DBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -94,7 +94,7 @@ namespace GoogleApiTest
 	
 			LatLng testPointInside = new LatLng (45.496823, -73.579661);
 			Building ENBuilding = SGW.Find (x => x.Abbreviation == "EN");
-			Assert.Equals (ENBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (ENBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -104,7 +104,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.495572, -73.578285);
 			Building EVBuilding = SGW.Find (x => x.Abbreviation == "EV");
-			Assert.Equals (EVBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (EVBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -114,7 +114,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.496801, -73.579528);
 			Building FABuilding = SGW.Find (x => x.Abbreviation == "FA");
-			Assert.Equals (FABuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (FABuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -124,7 +124,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.494673, -73.577642);
 			Building FBBuilding = SGW.Find (x => x.Abbreviation == "FB");
-			Assert.Equals (FBBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (FBBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -134,7 +134,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.494195, -73.578328);
 			Building FGBuilding = SGW.Find (x => x.Abbreviation == "FB");
-			Assert.Equals (FGBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (FGBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -144,7 +144,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.495857, -73.578858);
 			Building GMBuilding = SGW.Find (x => x.Abbreviation == "GM");
-			Assert.Equals (GMBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (GMBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -154,7 +154,7 @@ namespace GoogleApiTest
 		
 			LatLng testPointInside = new LatLng (45.493522, -73.576724);
 			Building GNBuilding = SGW.Find (x => x.Abbreviation == "GN");
-			Assert.Equals (GNBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (GNBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -164,7 +164,7 @@ namespace GoogleApiTest
 		
 			LatLng testPointInside = new LatLng (45.497749, -73.579496);
 			Building KBuilding = SGW.Find (x => x.Abbreviation == "K");
-			Assert.Equals (KBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (KBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -174,7 +174,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.494673, -73.577642);
 			Building LBBuilding = SGW.Find (x => x.Abbreviation == "LB");
-			Assert.Equals (LBBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (LBBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -184,7 +184,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.497357, -73.579789);
 			Building MBuilding = SGW.Find (x => x.Abbreviation == "FB");
-			Assert.Equals (MBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (MBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -194,7 +194,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.495270187715924, -73.57906848192215);
 			Building MBBuilding = SGW.Find (x => x.Abbreviation == "MB");
-			Assert.Equals (MBBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (MBBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -204,7 +204,7 @@ namespace GoogleApiTest
 		
 			LatLng testPointInside = new LatLng (45.494408, -73.576165);
 			Building MTBuilding = SGW.Find (x => x.Abbreviation == "MT");
-			Assert.Equals (MTBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (MTBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -214,7 +214,7 @@ namespace GoogleApiTest
 	
 			LatLng testPointInside = new LatLng (45.497853, -73.579622);
 			Building MUBuilding = SGW.Find (x => x.Abbreviation == "MU");
-			Assert.Equals (MUBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (MUBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -224,7 +224,7 @@ namespace GoogleApiTest
 		
 			LatLng testPointInside = new LatLng (45.497700, -73.579307);
 			Building MIBuilding = SGW.Find (x => x.Abbreviation == "MI");
-			Assert.Equals (MIBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (MIBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -234,7 +234,7 @@ namespace GoogleApiTest
 		
 			LatLng testPointInside = new LatLng (45.497189, -73.573149);
 			Building OSBuilding = SGW.Find (x => x.Abbreviation == "OS");
-			Assert.Equals (OSBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (OSBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -244,7 +244,7 @@ namespace GoogleApiTest
 		
 			LatLng testPointInside = new LatLng (45.496648, -73.579202);
 			Building PBuilding = SGW.Find (x => x.Abbreviation == "P");
-			Assert.Equals (PBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (PBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -254,7 +254,7 @@ namespace GoogleApiTest
 		
 			LatLng testPointInside = new LatLng (45.496921, -73.579917);
 			Building PRBuilding = SGW.Find (x => x.Abbreviation == "PR");
-			Assert.Equals (PRBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (PRBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -264,7 +264,7 @@ namespace GoogleApiTest
 		
 			LatLng testPointInside = new LatLng (45.496604, -73.579129);
 			Building QBuilding = SGW.Find (x => x.Abbreviation == "Q");
-			Assert.Equals (QBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (QBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -274,7 +274,7 @@ namespace GoogleApiTest
 		
 			LatLng testPointInside = new LatLng (45.496757, -73.579445);
 			Building RBuilding = SGW.Find (x => x.Abbreviation == "R");
-			Assert.Equals (RBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (RBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -284,7 +284,7 @@ namespace GoogleApiTest
 		
 			LatLng testPointInside = new LatLng (45.496702, -73.579380);
 			Building RRBuilding = SGW.Find (x => x.Abbreviation == "RR");
-			Assert.Equals (RRBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (RRBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -294,7 +294,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.497400, -73.579867);
 			Building SBuilding = SGW.Find (x => x.Abbreviation == "S");
-			Assert.Equals (SBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (SBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -304,7 +304,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.496553, -73.586140);
 			Building SBBuilding = SGW.Find (x => x.Abbreviation == "SB");
-			Assert.Equals (SBBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (SBBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -314,7 +314,7 @@ namespace GoogleApiTest
 		
 			LatLng testPointInside = new LatLng (45.496676, -73.579289);
 			Building TBuilding = SGW.Find (x => x.Abbreviation == "T");
-			Assert.Equals (TBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (TBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -324,7 +324,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.494667, -73.578743);
 			Building TDBuilding = SGW.Find (x => x.Abbreviation == "TD");
-			Assert.Equals (TDBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (TDBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -334,7 +334,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.497011, -73.579956);
 			Building VBuilding = SGW.Find (x => x.Abbreviation == "V");
-			Assert.Equals (VBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (VBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -344,7 +344,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.495730, -73.573868);
 			Building VABuilding = SGW.Find (x => x.Abbreviation == "VA");
-			Assert.Equals (VABuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (VABuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -354,7 +354,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.496884, -73.579699);
 			Building XBuilding = SGW.Find (x => x.Abbreviation == "X");
-			Assert.Equals (XBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (XBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -364,7 +364,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.496920, -73.579785);
 			Building ZBuilding = SGW.Find (x => x.Abbreviation == "Z");
-			Assert.Equals (ZBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (ZBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 		////////////////////////////
@@ -376,7 +376,7 @@ namespace GoogleApiTest
 		
 			LatLng testPointInside = new LatLng (45.458011, -73.639854);
 			Building ADBuilding = Loyola.Find (x => x.Abbreviation == "AD");
-			Assert.Equals (ADBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (ADBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -386,7 +386,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.459856, -73.639320);
 			Building BBBuilding = Loyola.Find (x => x.Abbreviation == "BB");
-			Assert.Equals (BBBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (BBBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 		[Test]
@@ -395,7 +395,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.459738, -73.639154);
 			Building BHBuilding = Loyola.Find (x => x.Abbreviation == "BH");
-			Assert.Equals (BHBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (BHBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 		[Test]
@@ -404,7 +404,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.458225, -73.640425);
 			Building CCBuilding = Loyola.Find (x => x.Abbreviation == "CC");
-			Assert.Equals (CCBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (CCBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 		[Test]
@@ -413,7 +413,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.457452, -73.640427);
 			Building CJBuilding = Loyola.Find (x => x.Abbreviation == "CJ");
-			Assert.Equals (CJBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (CJBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 		[Test]
@@ -422,7 +422,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.457595, -73.636173);
 			Building DOBuilding = Loyola.Find (x => x.Abbreviation == "DO");
-			Assert.Equals (DOBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (DOBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 		[Test]
@@ -431,7 +431,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.458487, -73.639347);
 			Building FCBuilding = Loyola.Find (x => x.Abbreviation == "FC");
-			Assert.Equals (FCBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (FCBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 		[Test]
@@ -440,7 +440,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.456910, -73.640416);
 			Building GEBuilding = Loyola.Find (x => x.Abbreviation == "GE");
-			Assert.Equals (GEBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (GEBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}	[Test]
 		public void IsInPolygonTestHA ()
@@ -448,7 +448,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.459450, -73.641269);
 			Building HABuilding = Loyola.Find (x => x.Abbreviation == "HA");
-			Assert.Equals (HABuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (HABuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}	[Test]
 		public void IsInPolygonTestHB ()
@@ -456,7 +456,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.459234, -73.641903);
 			Building HBBuilding = Loyola.Find (x => x.Abbreviation == "HB");
-			Assert.Equals (HBBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (HBBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 		[Test]
@@ -465,7 +465,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.459669, -73.642079);
 			Building HCBuilding = Loyola.Find (x => x.Abbreviation == "HC");
-			Assert.Equals (HCBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (HCBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 		[Test]
@@ -474,7 +474,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.458408, -73.643297);
 			Building JRBuilding = Loyola.Find (x => x.Abbreviation == "JR");
-			Assert.Equals (JRBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (JRBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 		[Test]
@@ -483,7 +483,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.459649, -73.639795);
 			Building PSBuilding = Loyola.Find (x => x.Abbreviation == "PS");
-			Assert.Equals (PSBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (PSBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 		[Test]
@@ -492,7 +492,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.459324, -73.639006);
 			Building PTBuilding = Loyola.Find (x => x.Abbreviation == "PT");
-			Assert.Equals (PTBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (PTBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 		[Test]
@@ -501,7 +501,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.458906, -73.640530);
 			Building PYBuilding = Loyola.Find (x => x.Abbreviation == "PY");
-			Assert.Equals (PYBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (PYBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 		[Test]
@@ -510,7 +510,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.456703, -73.637680);
 			Building RABuilding = Loyola.Find (x => x.Abbreviation == "RA");
-			Assert.Equals (RABuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (RABuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -520,7 +520,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.458479, -73.641053);
 			Building RFBuilding = Loyola.Find (x => x.Abbreviation == "RF");
-			Assert.Equals (RFBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (RFBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -530,7 +530,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.459127, -73.639204);
 			Building SCBuilding = Loyola.Find (x => x.Abbreviation == "SC");
-			Assert.Equals (SCBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (SCBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -540,7 +540,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.459399, -73.642394);
 			Building SHBuilding = Loyola.Find (x => x.Abbreviation == "SH");
-			Assert.Equals (SHBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (SHBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -550,7 +550,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.457836, -73.642331);
 			Building SIBuilding = Loyola.Find (x => x.Abbreviation == "SI");
-			Assert.Equals (SIBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (SIBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -560,7 +560,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.457625, -73.641703);
 			Building SPBuilding = Loyola.Find (x => x.Abbreviation == "SP");
-			Assert.Equals (SPBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (SPBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -570,7 +570,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.458845, -73.638635);
 			Building VEBuilding = Loyola.Find (x => x.Abbreviation == "VE");
-			Assert.Equals (VEBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (VEBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -580,7 +580,7 @@ namespace GoogleApiTest
 
 			LatLng testPointInside = new LatLng (45.459093, -73.638367);
 			Building VLBuilding = Loyola.Find (x => x.Abbreviation == "VL");
-			Assert.Equals (VLBuilding, buildingManager.isInPolygon(testPointInside));
+			Assert.Equals (VLBuilding, buildingManager.IsInPolygon(testPointInside));
 
 		}
 
@@ -591,7 +591,7 @@ namespace GoogleApiTest
 		{
 			LatLng testPointOutside = new LatLng (35.2323, -87.234324);
 
-			Assert.Equals (null, buildingManager.isInPolygon(testPointOutside));
+			Assert.Equals (null, buildingManager.IsInPolygon(testPointOutside));
 		}
 
 		[Test]

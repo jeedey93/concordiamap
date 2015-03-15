@@ -32,18 +32,17 @@ namespace GoogleApiTest
 			
 
 
-		public String toString() {
+		public String ToString() {
 			return this.Abbreviation;           
 		}
 
-		public void setCorners(List<LatLng> Points){
+		public void SetCorners(List<LatLng> Points){
 			Corners = Points;
 		}
 
-		public void setDescription(string url , string classname){
+		public void SetDescription(string url , string classname){
 
 			var doc = new HtmlDocument (); 
-			//doc.LoadHtml (responseBody);
 
 			using (HttpClient client = new HttpClient ()) {
 
@@ -57,13 +56,9 @@ namespace GoogleApiTest
 				d => d.Attributes.Contains ("class") && d.Attributes ["class"].Value.Contains (classname));
 
 			Description = node.First().InnerHtml;
-
-			/*foreach (var n in node) {
-					Description = n.InnerText;
-				}*/
 		} 
 			
-		public Boolean isInPolygon(LatLng point){
+		public Boolean IsInPolygon(LatLng point){
 			double x = point.Latitude;
 			double y = point.Longitude;
 
@@ -79,15 +74,6 @@ namespace GoogleApiTest
 				polyY [count] = p.Longitude;
 				count++;
 			}
-			//polyX[0] = 45.49771432066147;
-			//polyX[1] = 45.497372148435424;
-			//polyX[2] = 45.4968288804749256;
-			//polyX[3] = 45.49715781971825;
-
-			//polyY[0] = -73.57902020215988;
-			//polyY[1] = -73.57835501432419;
-			//polyY[2] = -73.57885658740997;
-			//polyY[3] = -73.57953518629074;
 
 			for (i=0; i< Corners.Count; i++) {
 				if (polyY[i]<y && polyY[j]>=y ||  polyY[j]<y && polyY[i]>=y) {

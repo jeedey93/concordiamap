@@ -14,27 +14,27 @@ namespace GoogleApiTest
 			this.name = name;
 		}
 
-		public void setDistance(double dist){
+		public void SetDistance(double dist){
 			distanceToPlace = dist;
 		}
 
-		public double getDistance(){
+		public double GetDistance(){
 			return distanceToPlace;
 		}
 
-		public LatLng getLocation(){
+		public LatLng GetLocation(){
 			return location;
 		}
 
-		public string getName(){
+		public string GetName(){
 			return name;
 		}
 
-		public void setLocation(LatLng loc){
+		public void SetLocation(LatLng loc){
 			location = loc;
 		}
 
-		public void setName(string name){
+		public void SetName(string name){
 			this.name = name;
 		}
 
@@ -42,7 +42,7 @@ namespace GoogleApiTest
 			return "---------------------------------------------\nPlace - " + name + "\n" + location.ToString ()+"\nDistance = "+distanceToPlace.ToString();
 		}
 
-		public GooglePlace clone(){
+		public GooglePlace Clone(){
 			return new GooglePlace (location, name);
 		}
 

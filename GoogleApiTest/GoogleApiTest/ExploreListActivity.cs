@@ -1,5 +1,4 @@
-﻿	
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Json;
@@ -65,7 +64,7 @@ namespace GoogleApiTest
 
 
 			//Make async web request and add results to nearbyPlacesAdaperList
-			makeListFromWebRequest (url);
+			MakeListFromWebRequest (url);
 
 
 			ListView listView = (ListView)FindViewById<ListView> (Resource.Id.exploreLView);
@@ -75,7 +74,7 @@ namespace GoogleApiTest
 
 		}
 
-		private async Task<JsonValue> getNearbyPlacesWebRequest(string url){
+		private async Task<JsonValue> GetNearbyPlacesWebRequest(string url){
 
 			// Create an HTTP web request using the URL:
 			HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create (new Uri (url));
@@ -99,10 +98,10 @@ namespace GoogleApiTest
 			}
 		}
 
-		private async void makeListFromWebRequest(string url){
+		private async void MakeListFromWebRequest(string url){
 
 			//Issue & await async web resquest from Google Places API
-			JsonValue json = await getNearbyPlacesWebRequest (url);
+			JsonValue json = await GetNearbyPlacesWebRequest (url);
 
 			JsonValue jsonWebResults = json["results"];
 
@@ -124,7 +123,7 @@ namespace GoogleApiTest
 				//Get current location & calculate distance between current and place
 				currentLocation.Latitude = location.Latitude;
 				currentLocation.Longitude = location.Longitude;
-				gWebPlace.setDistance (calcDistanceToPlace (currentLocation, gWebLocation));
+				gWebPlace.SetDistance (CalcDistanceToPlace (currentLocation, gWebLocation));
 
 				//Add to adapter list
 				nearbyPlacesAdapterList.Add (gWebPlace);
@@ -137,14 +136,12 @@ namespace GoogleApiTest
 	
 		}
 
-		private double calcDistanceToPlace(LatLng start, LatLng end){
-			//double old = Math.Sqrt (Math.Pow ((end.Latitude - start.Latitude), 2) + Math.Pow ((end.Longitude - start.Longitude), 2));
-
+		private double CalcDistanceToPlace(LatLng start, LatLng end){
 			double  earthRadius = 6378137; // Earth’s mean radius in meter
-			double dLat = rad(end.Latitude - start.Latitude);
-			double dLong = rad(end.Longitude - start.Longitude);
+			double dLat = Rad(end.Latitude - start.Latitude);
+			double dLong = Rad(end.Longitude - start.Longitude);
 			double a = Math.Sin(dLat / 2.0) * Math.Sin(dLat / 2.0) +
-				Math.Cos(rad(start.Latitude)) * Math.Cos(rad(end.Latitude)) *
+				Math.Cos(Rad(start.Latitude)) * Math.Cos(Rad(end.Latitude)) *
 				Math.Sin(dLong / 2.0) * Math.Sin(dLong / 2.0);
 			double c = 2.0 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
 			double d = earthRadius * c;
@@ -153,7 +150,7 @@ namespace GoogleApiTest
 			return d; // returns the distance in meter
 		}
 
-		private double rad(double d){
+		private double Rad(double d){
 			return d * Math.PI / 180.0;
 		}
 

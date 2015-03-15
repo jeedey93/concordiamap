@@ -53,7 +53,7 @@ namespace GoogleApiTest
 			BuildingManager.InitializeLoyolaBuildings ();
 
 			AutoCompleteTextView to = FindViewById<AutoCompleteTextView>(Resource.Id.AutoCompleteInput);
-			to.Adapter = new ArrayAdapter<string> (this, Resource.Layout.list_locations, AllLocations(BuildingManager.getSGWBuildings (), BuildingManager.getLoyolaBuildings ()));
+			to.Adapter = new ArrayAdapter<string> (this, Resource.Layout.list_locations, AllLocations(BuildingManager.GetSGWBuildings (), BuildingManager.GetLoyolaBuildings ()));
 
 			ToggleButton togglebutton = FindViewById<ToggleButton>(Resource.Id.togglebutton);
 
@@ -74,7 +74,7 @@ namespace GoogleApiTest
 			DrawLOYMarkers (map);
 			DrawSGWMarkers (map);
 
-			ZoomBuildingToTextEntry (BuildingManager.getSGWBuildings (), BuildingManager.getLoyolaBuildings ());
+			ZoomBuildingToTextEntry (BuildingManager.GetSGWBuildings (), BuildingManager.GetLoyolaBuildings ());
 			//createSpinnerBuilding (map, BuildingManager.getSGWBuildings ());
 
 			map.MapClick += HandleMapClick;
@@ -119,10 +119,10 @@ namespace GoogleApiTest
 			List<string> locations = new List<string> ();
 			List<String> strBuildings = new List<String> ();
 			foreach(Building loyBuilding in loy){
-				locations.Add (loyBuilding.toString());
+				locations.Add (loyBuilding.ToString());
 			}
 			foreach(Building sgwBuilding in sgw){
-				locations.Add (sgwBuilding.toString());
+				locations.Add (sgwBuilding.ToString());
 			}
 			String[] locations_array = locations.ToArray ();
 			return locations_array;
@@ -135,11 +135,11 @@ namespace GoogleApiTest
 			List<Building> buildBuildings = new List<Building> ();
 			List<String> strBuildings = new List<String> ();
 			foreach(Building loyBuilding in loy){
-				strBuildings.Add (loyBuilding.toString());
+				strBuildings.Add (loyBuilding.ToString());
 				buildBuildings.Add (loyBuilding);
 			}
 			foreach(Building sgwBuilding in sgw){
-				strBuildings.Add (sgwBuilding.toString());
+				strBuildings.Add (sgwBuilding.ToString());
 				buildBuildings.Add (sgwBuilding);
 			}
 
@@ -434,7 +434,7 @@ namespace GoogleApiTest
 
 		void HandleMapClick (object sender, GoogleMap.MapClickEventArgs e)
 		{
-			Building b = BuildingManager.isInPolygon(e.Point);
+			Building b = BuildingManager.IsInPolygon(e.Point);
 			if (b != null && window ==null) {
 				ClickedPolygon = b.Polygon;
 				int Color = Int32.Parse("f0800020", System.Globalization.NumberStyles.HexNumber);
@@ -468,7 +468,7 @@ namespace GoogleApiTest
 	
 
 		public void DrawSGWPolygons(GoogleMap map){
-			List<Building> b = BuildingManager.getSGWBuildings();
+			List<Building> b = BuildingManager.GetSGWBuildings();
 			PolygonOptions SGWPolygon;
 			foreach (var building in b) {
 				SGWPolygon = new PolygonOptions();
@@ -484,7 +484,7 @@ namespace GoogleApiTest
 
 		public void DrawLoyolaPolygons(GoogleMap map){
 
-			List<Building> b = BuildingManager.getLoyolaBuildings();
+			List<Building> b = BuildingManager.GetLoyolaBuildings();
 			PolygonOptions LoyolaPolygon = new PolygonOptions();
 			foreach (var building in b) {
 				LoyolaPolygon = new PolygonOptions();
@@ -500,7 +500,7 @@ namespace GoogleApiTest
 
 
 		public void DrawSGWMarkers(GoogleMap map){
-			List<Building> b = BuildingManager.getSGWBuildings();
+			List<Building> b = BuildingManager.GetSGWBuildings();
 			GroundOverlayOptions SGWOverlay;
 			foreach (var building in b) { 
 
@@ -515,7 +515,7 @@ namespace GoogleApiTest
 
 
 		public void DrawLOYMarkers(GoogleMap map){
-			List<Building> b = BuildingManager.getLoyolaBuildings();
+			List<Building> b = BuildingManager.GetLoyolaBuildings();
 
 			foreach (var building in b) { 
 

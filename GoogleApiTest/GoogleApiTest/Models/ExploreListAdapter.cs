@@ -46,8 +46,8 @@ namespace GoogleApiTest
 			TextView distanceText = (TextView)row.FindViewById<TextView> (Resource.Id.exploreLTDistance);
 
 			countText.Text = position.ToString ();
-			nameText.Text = gWebPlaces.ToArray () [position].getName();
-			distanceText.Text = gWebPlaces.ToArray () [position].getDistance().ToString();
+			nameText.Text = gWebPlaces.ToArray () [position].GetName();
+			distanceText.Text = gWebPlaces.ToArray () [position].GetDistance().ToString();
 
 			return row;
 		}

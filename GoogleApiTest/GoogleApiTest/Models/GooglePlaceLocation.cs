@@ -12,19 +12,19 @@ namespace GoogleApiTest
 			longitude = float.Parse (lng);
 		}
 
-		public float getLatitude(){
+		public float GetLatitude(){
 			return latitude;	
 		}
 
-		public float getLongitude(){
+		public float GetLongitude(){
 			return longitude;
 		}
 
-		public void setLatitude(float lat){
+		public void SetLatitude(float lat){
 			latitude = lat;
 		}
 
-		public void setLongitude(float lng){
+		public void SetLongitude(float lng){
 			longitude = lng;
 		}
 
