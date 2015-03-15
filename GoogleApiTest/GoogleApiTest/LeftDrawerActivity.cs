@@ -35,6 +35,7 @@ namespace GoogleApiTest
 			mLeftItem.Add ("Map");
 			mLeftItem.Add ("Explore");
 			mLeftItem.Add ("My Calendar");
+			mLeftItem.Add ("Navigate");
 		
 
 			mDrawerToggle = new ActionBarDrawerToggle (
@@ -67,6 +68,9 @@ namespace GoogleApiTest
 				StartActivity (new Intent (this, typeof(ExploreActivity)));
 			else if (e.Position == 2) {
 				StartActivity (new Intent (this, typeof(CalendarActivity)));
+			}
+			else if (e.Position == 3) {
+				StartActivity (new Intent (this, typeof(NavigateActivity)));
 			}
 		}
 

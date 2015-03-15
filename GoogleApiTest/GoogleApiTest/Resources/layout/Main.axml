@@ -42,7 +42,8 @@
                     android:hint="GO TO "
                     android:completionThreshold="1"
                     android:id="@+id/AutoCompleteInput"
-                    android:layout_toRightOf="@+id/togglebutton" />
+                    android:layout_toRightOf="@+id/togglebutton"
+                    android:singleLine="true" />
                 <ImageButton
                     android:id="@+id/load_to_direction"
                     android:layout_width="128px"

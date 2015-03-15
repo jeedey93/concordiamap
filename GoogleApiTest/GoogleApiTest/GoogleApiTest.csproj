@@ -99,6 +99,7 @@
     <Compile Include="LeftDrawerActivity.cs" />
     <Compile Include="Models\GoogleCalendar.cs" />
     <Compile Include="CalendarActivity.cs" />
+    <Compile Include="NavigateActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -267,6 +268,7 @@
     <AndroidResource Include="Resources\layout\LeftDrawer.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\Bus.png" />
     <AndroidResource Include="Resources\layout\ExploreListView_Row.axml" />
+    <AndroidResource Include="Resources\layout\Navigate.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

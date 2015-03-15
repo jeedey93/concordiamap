@@ -71,22 +71,6 @@ namespace GoogleApiTest
 			}
 		}
 		
-		public partial class Array
-		{
-			
-			// aapt resource value: 0x7f0d0000
-			public const int planets_array = 2131558400;
-			
-			static Array()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
-			private Array()
-			{
-			}
-		}
-		
 		public partial class Attribute
 		{
 			
@@ -1922,8 +1906,17 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0066
 			public const int AutoCompleteInput = 2131427430;
 			
+			// aapt resource value: 0x7f0b0073
+			public const int From = 2131427443;
+			
+			// aapt resource value: 0x7f0b0075
+			public const int Search = 2131427445;
+			
 			// aapt resource value: 0x7f0b006b
 			public const int SlideUpText = 2131427435;
+			
+			// aapt resource value: 0x7f0b0074
+			public const int To = 2131427444;
 			
 			// aapt resource value: 0x7f0b0045
 			public const int action_bar = 2131427397;
@@ -2111,8 +2104,14 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0068
 			public const int imageButton2 = 2131427432;
 			
+			// aapt resource value: 0x7f0b0072
+			public const int layout = 2131427442;
+			
 			// aapt resource value: 0x7f0b0062
 			public const int left_drawer = 2131427426;
+			
+			// aapt resource value: 0x7f0b0077
+			public const int linearLayout1 = 2131427447;
 			
 			// aapt resource value: 0x7f0b0009
 			public const int listMode = 2131427337;
@@ -2122,6 +2121,9 @@ namespace GoogleApiTest
 			
 			// aapt resource value: 0x7f0b0067
 			public const int load_to_direction = 2131427431;
+			
+			// aapt resource value: 0x7f0b0071
+			public const int logo = 2131427441;
 			
 			// aapt resource value: 0x7f0b0064
 			public const int map = 2131427428;
@@ -2251,6 +2253,12 @@ namespace GoogleApiTest
 			
 			// aapt resource value: 0x7f0b0012
 			public const int useLogo = 2131427346;
+			
+			// aapt resource value: 0x7f0b0076
+			public const int view1 = 2131427446;
+			
+			// aapt resource value: 0x7f0b0078
+			public const int view2 = 2131427448;
 			
 			// aapt resource value: 0x7f0b001a
 			public const int withText = 2131427354;
@@ -2390,7 +2398,10 @@ namespace GoogleApiTest
 			public const int mr_media_route_list_item = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int support_simple_spinner_dropdown_item = 2130903073;
+			public const int Navigate = 2130903073;
+			
+			// aapt resource value: 0x7f030022
+			public const int support_simple_spinner_dropdown_item = 2130903074;
 			
 			static Layout()
 			{
@@ -2571,6 +2582,9 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f060019
 			public const int decline = 2131099673;
 			
+			// aapt resource value: 0x7f06003e
+			public const int from = 2131099710;
+			
 			// aapt resource value: 0x7f060039
 			public const int hello = 2131099705;
 			
@@ -2603,6 +2617,9 @@ namespace GoogleApiTest
 			
 			// aapt resource value: 0x7f060016
 			public const int store_picture_title = 2131099670;
+			
+			// aapt resource value: 0x7f06003f
+			public const int to = 2131099711;
 			
 			// aapt resource value: 0x7f060038
 			public const int wallet_buy_button_place_holder = 2131099704;

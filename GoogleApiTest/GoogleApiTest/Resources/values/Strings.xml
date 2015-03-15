@@ -5,14 +5,10 @@
 	<string name="open_drawer">Open Drawer</string>
 	<string name="close_drawer">Close Drawer</string>
 	<string name="planet_prompt">Buildings</string>
-    <string-array name="planets_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-    </string-array>
+    <string name="from">
+        <item>TEST1</item>
+    </string>
+       <string name="to">
+        <item>TEST1</item>
+    </string>
 </resources>
