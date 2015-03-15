@@ -11,6 +11,7 @@ using Android.Support.V4.App;
 using Android.Content;
 using System.Json;
 using System.Text.RegularExpressions;
+using Android.Views.InputMethods;
 
 namespace GoogleApiTest
 {
@@ -144,13 +145,18 @@ namespace GoogleApiTest
 
 			toDestination.Click += (o, e) => {
 				// Perform action on clicks
+				InputMethodManager imm = (InputMethodManager)GetSystemService(Context.InputMethodService);
+				imm.HideSoftInputFromWindow(entry.WindowToken, 0);
 				foreach (Building building in buildBuildings){
 					string entryText = entry.Text.ToUpper();
 					if(building.Abbreviation == entryText){
+
 						zoomSpecificBuilding(map,building);
 					}
 				}
+
 			};
+
 		}
 
 		public async void DrawDirectionsDifferentCampus(LatLng startingPoint, LatLng endingPoint){
