@@ -278,6 +278,7 @@ namespace GoogleApiTest
 			GNBuilding.OverlaySize = 17;
 			SGWBuildings.Add (GNBuilding);
 
+
 			Building HallBuilding = new Building ("Henry F.Hall Building", "H", 45.497260, -73.578983);
 			//HallBuilding.setDescription ("http://www.concordia.ca/maps/buildings/h.html", "rte");
 			HallBuilding.Description = "The Henry F. Hall Building is a high-density hub of Concordia’s downtown campus. It is a "+
@@ -289,6 +290,7 @@ namespace GoogleApiTest
 			HallBuilding.Corners.Add (new LatLng (45.49715787001796, -73.579544390347004));
 			HallBuilding.BuildingOverlay = Resource.Drawable.Hall_Logo;
 			HallBuilding.OverlaySize = 50;
+			HallBuilding.BuildingEntrance = new LatLng (45.49715593963818, -73.57873857021332);
 			SGWBuildings.Add (HallBuilding);
 
 

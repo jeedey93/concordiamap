@@ -18,6 +18,7 @@ namespace GoogleApiTest
 		public string Description { get; set;}
 		public int BuildingOverlay;
 		public int OverlaySize;
+		public LatLng BuildingEntrance;
 		public Campus Campus;
 		public Polygon Polygon;
 

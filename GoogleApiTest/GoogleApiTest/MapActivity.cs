@@ -317,7 +317,10 @@ namespace GoogleApiTest
 				ResetColorOfPolygon ();
 				if (startPoint == null && directionPath == null) {
 					MarkerOptions startingDestination = new MarkerOptions ();
-					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
+					if (building.BuildingEntrance == null) 
+						startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
+					else
+						startingDestination.SetPosition (building.BuildingEntrance);
 					startingDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.StartPointPNG));
 					startPoint = map.AddMarker (startingDestination);
 					clearButton.Visibility = ViewStates.Visible;
@@ -337,7 +340,10 @@ namespace GoogleApiTest
 						busPosition2 = null;
 					}
 					MarkerOptions startingDestination = new MarkerOptions ();
-					startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
+					if (building.BuildingEntrance == null) 
+						startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
+					else
+						startingDestination.SetPosition (building.BuildingEntrance);
 					startingDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.StartPointPNG));
 					startPoint = map.AddMarker (startingDestination);
 					startB = building;
@@ -365,7 +371,10 @@ namespace GoogleApiTest
 				ResetColorOfPolygon ();
 				if (endPoint == null) {
 					MarkerOptions endDestination = new MarkerOptions ();
+					if (building.BuildingEntrance == null) 
 					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
+					else
+						endDestination.SetPosition (building.BuildingEntrance);
 					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
 					endPoint = map.AddMarker (endDestination);
 					if (startPoint != null && endPoint != null) {
@@ -398,7 +407,10 @@ namespace GoogleApiTest
 						busPosition2 = null;
 					}
 					MarkerOptions endDestination = new MarkerOptions ();
+					if (building.BuildingEntrance == null) 
 					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
+					else
+						endDestination.SetPosition (building.BuildingEntrance);
 					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
 					endPoint = map.AddMarker (endDestination);
 					if (startPoint != null && endPoint != null) {
