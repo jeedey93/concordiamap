@@ -2017,8 +2017,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0017
 			public const int collapseActionView = 2131427351;
 			
-			// aapt resource value: 0x7f0b005d
-			public const int content_frame = 2131427421;
+			// aapt resource value: 0x7f0b0059
+			public const int content_frame = 2131427417;
 			
 			// aapt resource value: 0x7f0b0043
 			public const int decor_content_parent = 2131427395;
@@ -2035,8 +2035,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b002e
 			public const int donate_with_google = 2131427374;
 			
-			// aapt resource value: 0x7f0b005c
-			public const int drawer_layout = 2131427420;
+			// aapt resource value: 0x7f0b0058
+			public const int drawer_layout = 2131427416;
 			
 			// aapt resource value: 0x7f0b001c
 			public const int dropdown = 2131427356;
@@ -2053,29 +2053,29 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b003c
 			public const int expanded_menu = 2131427388;
 			
-			// aapt resource value: 0x7f0b0059
-			public const int exploreLTCount = 2131427417;
-			
-			// aapt resource value: 0x7f0b005b
-			public const int exploreLTDistance = 2131427419;
-			
-			// aapt resource value: 0x7f0b005a
-			public const int exploreLTTitle = 2131427418;
-			
-			// aapt resource value: 0x7f0b0058
-			public const int exploreLView = 2131427416;
-			
-			// aapt resource value: 0x7f0b0060
-			public const int exploreMBBar = 2131427424;
-			
-			// aapt resource value: 0x7f0b005f
-			public const int exploreMBCoffee = 2131427423;
-			
-			// aapt resource value: 0x7f0b0061
-			public const int exploreMBPharmacy = 2131427425;
+			// aapt resource value: 0x7f0b005c
+			public const int exploreLTCount = 2131427420;
 			
 			// aapt resource value: 0x7f0b005e
-			public const int exploreMBRestaurant = 2131427422;
+			public const int exploreLTDistance = 2131427422;
+			
+			// aapt resource value: 0x7f0b005d
+			public const int exploreLTTitle = 2131427421;
+			
+			// aapt resource value: 0x7f0b005a
+			public const int exploreLView = 2131427418;
+			
+			// aapt resource value: 0x7f0b0061
+			public const int exploreMBBar = 2131427425;
+			
+			// aapt resource value: 0x7f0b0060
+			public const int exploreMBCoffee = 2131427424;
+			
+			// aapt resource value: 0x7f0b0062
+			public const int exploreMBPharmacy = 2131427426;
+			
+			// aapt resource value: 0x7f0b005f
+			public const int exploreMBRestaurant = 2131427423;
 			
 			// aapt resource value: 0x7f0b0030
 			public const int grayscale = 2131427376;
@@ -2110,8 +2110,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0073
 			public const int layout = 2131427443;
 			
-			// aapt resource value: 0x7f0b0062
-			public const int left_drawer = 2131427426;
+			// aapt resource value: 0x7f0b005b
+			public const int left_drawer = 2131427419;
 			
 			// aapt resource value: 0x7f0b0078
 			public const int linearLayout1 = 2131427448;

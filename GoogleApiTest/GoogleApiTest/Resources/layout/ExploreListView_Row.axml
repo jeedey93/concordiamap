@@ -3,7 +3,9 @@
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="99">
+    android:weightSum="99"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
     <TextView
         android:id="@+id/exploreLTCount"
         android:layout_width="fill_parent"
@@ -15,11 +17,13 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="33"
-        android:text="Title" />
+        android:text="Title"
+        android:gravity="center" />
     <TextView
         android:id="@+id/exploreLTDistance"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="33"
-        android:text="Distance" />
+        android:text="Distance"
+        android:gravity="right" />
 </LinearLayout>

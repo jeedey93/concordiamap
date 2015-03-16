@@ -33,6 +33,9 @@ namespace GoogleApiTest
 			//Get current type of this activity based on passed value in intent
 			type = Intent.GetStringExtra ("type");
 
+			//Set activity label to current type
+			this.Title = char.ToUpper(type[0])+type.Substring(1);
+
 			//Get location manager to access location services
 			locationManager = GetSystemService (Context.LocationService) as LocationManager; 
 
@@ -55,23 +58,17 @@ namespace GoogleApiTest
 			string url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"+
 				"location="+
 				location.Latitude+","+location.Longitude+"&"+
-				"radius="+
-				radius+"&"+
-				"type="+
+				//"radius="+
+				//radius+"&"+
+				"types="+
 				type+"&"+
 				"key="+
-				SERVER_API_KEY;
+				SERVER_API_KEY+"&"+
+				"rankby=distance";
 
 
 			//Make async web request and add results to nearbyPlacesAdaperList
-			MakeListFromWebRequest (url);
-
-
-			ListView listView = (ListView)FindViewById<ListView> (Resource.Id.exploreLView);
-			ExploreListAdapter adapter = new ExploreListAdapter (this , nearbyPlacesAdapterList);
-
-			listView.Adapter = adapter;
-
+			CreateAndSetAdapter (url);
 		}
 
 		private async Task<JsonValue> GetNearbyPlacesWebRequest(string url){
@@ -98,7 +95,7 @@ namespace GoogleApiTest
 			}
 		}
 
-		private async void MakeListFromWebRequest(string url){
+		private async void CreateAndSetAdapter(string url){
 
 			//Issue & await async web resquest from Google Places API
 			JsonValue json = await GetNearbyPlacesWebRequest (url);
@@ -133,6 +130,10 @@ namespace GoogleApiTest
 				}
 
 			}
+
+			//Create and set adapter
+			ListView listView = FindViewById<ListView> (Resource.Id.exploreLView);
+			listView.Adapter = new ExploreListAdapter(this , nearbyPlacesAdapterList);
 	
 		}
 

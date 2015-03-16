@@ -17,11 +17,11 @@ namespace GoogleApiTest
 	public class ExploreListAdapter : BaseAdapter<GooglePlace> {
 
 		List<GooglePlace> gWebPlaces;
-		Context context;
+		Activity context;
 
-		public ExploreListAdapter(Context context, List<GooglePlace> place){
+		public ExploreListAdapter(Activity context, List<GooglePlace> places) : base(){
 			this.context = context;
-			gWebPlaces = place;
+			gWebPlaces = places;
 		}
 		public override long GetItemId(int position)
 		{
@@ -36,18 +36,19 @@ namespace GoogleApiTest
 		public override View GetView(int position, View convertView, ViewGroup parent)
 		{
 			View row = convertView;
+			var gWebPlace = gWebPlaces.ToArray () [position];
 
+			//Row re-use
 			if (row == null) {
-				row = LayoutInflater.From (context).Inflate (Resource.Layout.ExploreListView_Row, null, false); 
+				row = context.LayoutInflater.Inflate (Resource.Layout.ExploreListView_Row, null); 
 			}
 
-			TextView countText = (TextView)row.FindViewById<TextView> (Resource.Id.exploreLTCount);
-			TextView nameText = (TextView)row.FindViewById<TextView> (Resource.Id.exploreLTTitle);
-			TextView distanceText = (TextView)row.FindViewById<TextView> (Resource.Id.exploreLTDistance);
 
-			countText.Text = position.ToString ();
-			nameText.Text = gWebPlaces.ToArray () [position].GetName();
-			distanceText.Text = gWebPlaces.ToArray () [position].GetDistance().ToString();
+			//Set text fields wihtin row
+			row.FindViewById<TextView> (Resource.Id.exploreLTCount).Text = position.ToString();
+			row.FindViewById<TextView> (Resource.Id.exploreLTTitle).Text = gWebPlace.GetName();
+			row.FindViewById<TextView> (Resource.Id.exploreLTDistance).Text = String.Format("{0:0,0.00}" , gWebPlace.GetDistance())+"m";
+
 
 			return row;
 		}
