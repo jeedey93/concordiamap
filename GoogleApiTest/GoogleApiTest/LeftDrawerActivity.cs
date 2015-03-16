@@ -21,6 +21,8 @@ namespace GoogleApiTest
 		ListView mLeftDrawer;
 		private static List<Activity> activities = new List<Activity>();
 		ActionBarDrawerToggle mDrawerToggle;
+		bool test = false;
+
 
 		protected void OnCreate (Bundle bundle, int layout){
 		
@@ -56,6 +58,9 @@ namespace GoogleApiTest
 			mDrawerLayout.SetDrawerListener (mDrawerToggle);
 			ActionBar.SetDisplayHomeAsUpEnabled (true);
 			ActionBar.SetHomeButtonEnabled (true);
+
+			test = true;
+
 		}
 			
 
@@ -77,19 +82,21 @@ namespace GoogleApiTest
 	
 	
 
-//		protected override void OnPostCreate (Bundle savedInstanceState) 
-//		{
-//
-//			base.OnPostCreate (savedInstanceState);
-//			mDrawerToggle.SyncState ();					
-//		}
+		protected override void OnPostCreate (Bundle savedInstanceState) 
+		{
 
-		//		public override bool OnOptionsItemSelected(IMenuItem item){
-//
-//			if(mDrawerToggle.OnOptionsItemSelected(item))
-//				return true;
-//			return base.OnOptionsItemSelected(item);
-//		}
+//			if (test) {
+				base.OnPostCreate (savedInstanceState);
+				mDrawerToggle.SyncState ();					
+//			}
+		}
+
+				public override bool OnOptionsItemSelected(IMenuItem item){
+
+			if(mDrawerToggle.OnOptionsItemSelected(item))
+				return true;
+			return base.OnOptionsItemSelected(item);
+		}
 
 	}
 }

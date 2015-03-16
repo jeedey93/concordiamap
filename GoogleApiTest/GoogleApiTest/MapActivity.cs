@@ -34,6 +34,7 @@ namespace GoogleApiTest
 
 		protected override void OnCreate (Bundle bundle)
 		{
+			
 			base.OnCreate (bundle,Resource.Layout.Main );
 
 			// Create your application here
