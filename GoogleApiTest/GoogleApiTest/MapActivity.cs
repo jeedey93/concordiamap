@@ -108,7 +108,7 @@ namespace GoogleApiTest
 
 				map.UiSettings.ZoomControlsEnabled = true;
 				clearButton.Visibility = ViewStates.Invisible;
-				TextView slideUp = FindViewById<TextView> (Resource.Id.SlideUpText);
+				LinearLayout slideUp = FindViewById<LinearLayout> (Resource.Id.SlideUpText);
 				slideUp.Visibility = ViewStates.Gone;
 				RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
 				clearLayout.SetPadding (0, 0, 0, 0);
@@ -177,11 +177,18 @@ namespace GoogleApiTest
 			var polyPoints2 = DirectionFetcher.DecodePolylinePoints (points2);
 
 			//GET INSTRUCTIONS
-			string Instructions = DirectionFetcher.GetInstructionsDifferentCampus (firstRoutesResults, secondRoutesResults);
+			string Instructions = DisplayStepDirections(DirectionFetcher.GetInstructionsDifferentCampus (firstRoutesResults, secondRoutesResults));
 
-			TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
-			instructionsView.Text = DisplayStepDirections(Instructions);
-			//instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+			//TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
+			//instructionsView.Text = DisplayStepDirections(Instructions);
+			instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+			ListView instructionsView = FindViewById<ListView> (Resource.Id.SlideUpList);
+			List<String> instructionslist = new List<String> ();
+			instructionslist.Add (Instructions);
+			instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+
+			ArrayAdapter instructionsAdapter = new ArrayAdapter (this, Android.Resource.Layout.SimpleListItem1, instructionslist);
+			instructionsView.Adapter = instructionsAdapter;
 
 			List<LatLng> direction1 = polyPoints1;
 			List<LatLng> direction2 = polyPoints2;
@@ -208,7 +215,7 @@ namespace GoogleApiTest
 
 
 
-			TextView slideUp = FindViewById<TextView> (Resource.Id.SlideUpText);
+			LinearLayout slideUp = FindViewById<LinearLayout> (Resource.Id.SlideUpText);
 			slideUp.Visibility = ViewStates.Visible;
 			RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
 			clearLayout.SetPadding (0, 0, 0, 200);
@@ -241,11 +248,17 @@ namespace GoogleApiTest
 			//GET INSTRUCTIONS
 			string instructions = DirectionFetcher.GetInstructions (routesResults);
 
-			TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
+			//TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
 			//instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
 			string formattedInstructions = DisplayStepDirections (instructions);
 
-			instructionsView.Text = formattedInstructions;
+			//instructionsView.Text = formattedInstructions;
+			ListView instructionsView = FindViewById<ListView> (Resource.Id.SlideUpList);
+			List<String> instructionslist = new List<String> ();
+			instructionslist.Add (formattedInstructions);
+
+			ArrayAdapter instructionsAdapter = new ArrayAdapter (this, Android.Resource.Layout.SimpleListItem1, instructionslist);
+			instructionsView.Adapter = instructionsAdapter;
 
 
 			string points = routesResults [0] ["overview_polyline"] ["points"];
@@ -267,7 +280,7 @@ namespace GoogleApiTest
 
 			LatLngBounds bounds = boundsbuilder.Build();
 			map.AnimateCamera  (CameraUpdateFactory.NewLatLngBounds(bounds,200));
-			TextView slideUp = FindViewById<TextView> (Resource.Id.SlideUpText);
+			LinearLayout slideUp = FindViewById<LinearLayout> (Resource.Id.SlideUpText);
 			slideUp.Visibility = ViewStates.Visible;
 			RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
 			clearLayout.SetPadding (0, 0, 0, 200);

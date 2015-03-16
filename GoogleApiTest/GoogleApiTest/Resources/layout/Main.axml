@@ -87,7 +87,7 @@
             android:dividerHeight="0dp"
             android:background="#000000" />
     </android.support.v4.widget.DrawerLayout>
-    <TextView
+<!-- <TextView
         android:id="@+id/SlideUpText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -96,5 +96,21 @@
         android:background="#00000000"
         android:scrollbars="vertical"
         android:maxLines="22"
-        android:visibility="gone" />
+        android:visibility="gone" /> -->
+    <LinearLayout
+        android:id="@+id/SlideUpText"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:scrollbars="vertical">
+        <ListView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/SlideUpList"
+            android:text="Directions"
+            android:scrollbars="vertical" />
+    </LinearLayout>
 </cheesebaron.slidinguppanel.SlidingUpPanelLayout>
