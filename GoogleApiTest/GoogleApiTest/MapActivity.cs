@@ -181,11 +181,11 @@ namespace GoogleApiTest
 
 			//TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
 			//instructionsView.Text = DisplayStepDirections(Instructions);
-			instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+			//instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
 			ListView instructionsView = FindViewById<ListView> (Resource.Id.SlideUpList);
 			List<String> instructionslist = new List<String> ();
 			instructionslist.Add (Instructions);
-			instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+			//instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
 
 			ArrayAdapter instructionsAdapter = new ArrayAdapter (this, Android.Resource.Layout.SimpleListItem1, instructionslist);
 			instructionsView.Adapter = instructionsAdapter;
