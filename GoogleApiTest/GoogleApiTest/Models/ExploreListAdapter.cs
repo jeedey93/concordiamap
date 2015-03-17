@@ -45,7 +45,7 @@ namespace GoogleApiTest
 
 
 			//Set text fields wihtin row
-			row.FindViewById<TextView> (Resource.Id.exploreLTCount).Text = position.ToString();
+			row.FindViewById<TextView> (Resource.Id.exploreLTCount).Text = (position+1).ToString()+".";
 			row.FindViewById<TextView> (Resource.Id.exploreLTTitle).Text = gWebPlace.GetName();
 			row.FindViewById<TextView> (Resource.Id.exploreLTDistance).Text = String.Format("{0:0,0.00}" , gWebPlace.GetDistance())+"m";
 

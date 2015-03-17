@@ -12,10 +12,11 @@ using Android.Content;
 using System.Json;
 using System.Text.RegularExpressions;
 using Android.Views.InputMethods;
+using Android.Content.PM;
 
 namespace GoogleApiTest
 {
-	[Activity (Label = "CONCORDIA CONQUEST",MainLauncher = false)]			
+	[Activity (Label = "CONCORDIA CONQUEST",MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]			
 	public class MapActivity : LeftDrawerActivity
 	{
 		BuildingManager BuildingManager = new BuildingManager ();
