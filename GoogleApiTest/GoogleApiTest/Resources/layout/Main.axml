@@ -23,6 +23,7 @@
                 android:layout_marginTop="0.0dp" />
             <RelativeLayout
                 android:orientation="horizontal"
+                android:id="@+id/toolbar"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
@@ -59,6 +60,39 @@
                     android:layout_toRightOf="@+id/load_to_direction"
                     android:background="#00000000"
                     android:src="@drawable/placeholder8" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/toolbar"
+                android:paddingTop="50dip"
+                android:visibility="gone"
+                android:id="@+id/mode">
+                <Button
+                    android:id="@+id/Walking"
+                    android:text="Walking"
+                    android:background="@drawable/exploreMButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center" />
+                <Button
+                    android:id="@+id/Driving"
+                    android:paddingLeft="10px"
+                    android:text="Driving"
+                    android:background="@drawable/exploreMButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/Walking"
+                    android:textAlignment="center" />
+                <Button
+                    android:id="@+id/Transit"
+                    android:text="Transit"
+                    android:background="@drawable/exploreMButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/Driving"
+                    android:textAlignment="center" />
             </RelativeLayout>
             <RelativeLayout
                 android:orientation="horizontal"

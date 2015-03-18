@@ -10,10 +10,10 @@ namespace GoogleApiTest
 {
 	public class DirectionFetcher
 	{
-		public async Task<JsonValue> GetDirections(LatLng startingPoint, LatLng endingPoint){
+		public async Task<JsonValue> GetDirections(LatLng startingPoint, LatLng endingPoint, string option = "walking"){
 
 			string urlDirections = "http://maps.googleapis.com/maps/api/directions/json?origin="+startingPoint.Latitude+","
-				+ startingPoint.Longitude+"&destination="+endingPoint.Latitude+","+ endingPoint.Longitude+"&sensor=false&mode=walking";
+				+ startingPoint.Longitude+"&destination="+endingPoint.Latitude+","+ endingPoint.Longitude+"&sensor=false&mode="+option;
 
 			HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create (new Uri (urlDirections));
 			request.ContentType = "application/json";

@@ -57,6 +57,12 @@ namespace GoogleApiTest
 			AutoCompleteTextView to = FindViewById<AutoCompleteTextView>(Resource.Id.AutoCompleteInput);
 			to.Adapter = new ArrayAdapter<string> (this, Resource.Layout.list_locations, AllLocations(BuildingManager.GetSGWBuildings (), BuildingManager.GetLoyolaBuildings ()));
 
+
+			ImageButton myLocation = FindViewById<ImageButton> (Resource.Id.imageButton2);
+			myLocation.Click += (o, e) => {
+				ZoomMyLocation();
+			};
+
 			ToggleButton togglebutton = FindViewById<ToggleButton>(Resource.Id.togglebutton);
 
 			togglebutton.Click += (o, e) => {
@@ -80,6 +86,42 @@ namespace GoogleApiTest
 			//createSpinnerBuilding (map, BuildingManager.getSGWBuildings ());
 
 			map.MapClick += HandleMapClick;
+
+			Button DrivingMode = FindViewById<Button> (Resource.Id.Driving);
+			Button WalkingMode = FindViewById<Button> (Resource.Id.Walking);
+			Button TransitMode = FindViewById<Button> (Resource.Id.Transit);
+
+			DrivingMode.Click += (o, e) => {
+				DrivingMode.SetBackgroundColor(Android.Graphics.Color.YellowGreen);
+				WalkingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
+				TransitMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
+				if(startB!=null)
+					DrawDirections(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate), "driving");
+				else
+					DrawDirections(new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude),new LatLng(endB.XCoordinate,endB.YCoordinate), "driving");
+			};
+
+
+			WalkingMode.Click += (o, e) => {
+				DrivingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
+				WalkingMode.SetBackgroundColor(Android.Graphics.Color.LightYellow);
+				TransitMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
+				if(startB!=null)
+					DrawDirections(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate));
+				else
+					DrawDirections(new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude),new LatLng(endB.XCoordinate,endB.YCoordinate));
+			};
+
+
+			TransitMode.Click += (o, e) => {
+				DrivingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
+				WalkingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
+				TransitMode.SetBackgroundColor(Android.Graphics.Color.GreenYellow);
+				if(startB!=null)
+					DrawDirections(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate), "transit");
+				else
+					DrawDirections(new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude),new LatLng(endB.XCoordinate,endB.YCoordinate), "transit");
+			};
 
 			Button clearButton = FindViewById<Button>(Resource.Id.clearMarker);
 			clearButton.Click += (o, e) => {
@@ -114,6 +156,8 @@ namespace GoogleApiTest
 				slideUp.Visibility = ViewStates.Gone;
 				RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
 				clearLayout.SetPadding (0, 0, 0, 0);
+				RelativeLayout mode = FindViewById<RelativeLayout> (Resource.Id.mode);
+				mode.Visibility = ViewStates.Gone;
 			};
 		} 
 		public String[] AllLocations (List<Building> sgw,List<Building> loy){ 
@@ -128,6 +172,18 @@ namespace GoogleApiTest
 			}
 			String[] locations_array = locations.ToArray ();
 			return locations_array;
+		}
+
+
+		public void ZoomMyLocation(){
+			if (map.MyLocation != null) {
+				LatLng location = new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude);
+				CameraPosition.Builder builder = CameraPosition.InvokeBuilder ();
+				builder.Target (location);
+				builder.Zoom (18);
+				CameraPosition cameraPosition = builder.Build ();
+				map.AnimateCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
+			}
 		}
 
 		public void ZoomBuildingToTextEntry(List<Building> sgw,List<Building> loy){
@@ -222,6 +278,8 @@ namespace GoogleApiTest
 			RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
 			clearLayout.SetPadding (0, 0, 0, 200);
 
+			RelativeLayout mode = FindViewById<RelativeLayout> (Resource.Id.mode);
+			mode.Visibility = ViewStates.Visible;
 		}
 
 		public void CreateBusMarkers(){
@@ -236,7 +294,7 @@ namespace GoogleApiTest
 			busPosition2 = map.AddMarker (busMarker2);
 		}
 
-		public async void DrawDirections(LatLng startingPoint, LatLng endingPoint){
+		public async void DrawDirections(LatLng startingPoint, LatLng endingPoint, string transitMode=""){
 			if (directionPath != null) {
 				directionPath.Remove ();
 			}
@@ -244,7 +302,11 @@ namespace GoogleApiTest
 				directionPath2.Remove ();
 			}
 
-			JsonValue directions = await DirectionFetcher.GetDirections(startingPoint,endingPoint);
+			JsonValue directions;
+			if(transitMode!= "")
+				directions = await DirectionFetcher.GetDirections(startingPoint,endingPoint, transitMode);
+			else 
+				directions = await DirectionFetcher.GetDirections(startingPoint,endingPoint);
 			JsonValue routesResults = directions ["routes"];
 
 			//GET INSTRUCTIONS
@@ -286,6 +348,8 @@ namespace GoogleApiTest
 			slideUp.Visibility = ViewStates.Visible;
 			RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
 			clearLayout.SetPadding (0, 0, 0, 200);
+			RelativeLayout mode = FindViewById<RelativeLayout> (Resource.Id.mode);
+			mode.Visibility = ViewStates.Visible;
 		}
 
 		public String DisplayStepDirections(string unParsedInstructions){
