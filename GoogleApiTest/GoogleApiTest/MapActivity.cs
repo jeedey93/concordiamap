@@ -90,12 +90,17 @@ namespace GoogleApiTest
 			Button DrivingMode = FindViewById<Button> (Resource.Id.Driving);
 			Button WalkingMode = FindViewById<Button> (Resource.Id.Walking);
 			Button TransitMode = FindViewById<Button> (Resource.Id.Transit);
+			WalkingMode.SetBackgroundColor(Android.Graphics.Color.Gold);
+
 
 			DrivingMode.Click += (o, e) => {
-				DrivingMode.SetBackgroundColor(Android.Graphics.Color.YellowGreen);
+				DrivingMode.SetBackgroundColor(Android.Graphics.Color.Gold);
 				WalkingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
 				TransitMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
-				if(startB!=null)
+
+				ClearBusMarkers ();
+					
+				if(startB!=null && endB !=null)
 					DrawDirections(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate), "driving");
 				else
 					DrawDirections(new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude),new LatLng(endB.XCoordinate,endB.YCoordinate), "driving");
@@ -104,20 +109,27 @@ namespace GoogleApiTest
 
 			WalkingMode.Click += (o, e) => {
 				DrivingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
-				WalkingMode.SetBackgroundColor(Android.Graphics.Color.LightYellow);
+				WalkingMode.SetBackgroundColor(Android.Graphics.Color.Gold);
 				TransitMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
-				if(startB!=null)
+
+				if(startB!=null && endB !=null && startB.Campus == endB.Campus){
 					DrawDirections(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate));
-				else
+				}
+				else if(startB.Campus != endB.Campus){
+					DrawDirectionsDifferentCampus(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate));
+				}
+				else{
 					DrawDirections(new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude),new LatLng(endB.XCoordinate,endB.YCoordinate));
+				}
 			};
 
 
 			TransitMode.Click += (o, e) => {
 				DrivingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
 				WalkingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
-				TransitMode.SetBackgroundColor(Android.Graphics.Color.GreenYellow);
-				if(startB!=null)
+				TransitMode.SetBackgroundColor(Android.Graphics.Color.Gold);
+				ClearBusMarkers ();
+				if(startB!=null && endB !=null)
 					DrawDirections(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate), "transit");
 				else
 					DrawDirections(new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude),new LatLng(endB.XCoordinate,endB.YCoordinate), "transit");
@@ -125,30 +137,8 @@ namespace GoogleApiTest
 
 			Button clearButton = FindViewById<Button>(Resource.Id.clearMarker);
 			clearButton.Click += (o, e) => {
-				if(startPoint!=null){
-					startPoint.Remove();
-					startPoint = null;
-				}
-				if(endPoint!=null){
-					endPoint.Remove();
-					endPoint=null;
-				}
-				if(directionPath!=null){
-					directionPath.Remove();
-					directionPath=null;
-				}
-				if(directionPath2!=null){
-					directionPath2.Remove();
-					directionPath2=null;
-				}
-				if(busPosition!=null){
-					busPosition.Remove();
-					busPosition=null;
-				}
-				if(busPosition2!=null){
-					busPosition2.Remove();
-					busPosition2=null;
-				}
+				ClearStartEndPath ();
+				ClearBusMarkers ();
 
 				map.UiSettings.ZoomControlsEnabled = true;
 				clearButton.Visibility = ViewStates.Invisible;
@@ -174,6 +164,25 @@ namespace GoogleApiTest
 			return locations_array;
 		}
 
+		void ClearStartEndPath ()
+		{
+			if (startPoint != null) {
+				startPoint.Remove ();
+				startPoint = null;
+			}
+			if (endPoint != null) {
+				endPoint.Remove ();
+				endPoint = null;
+			}
+			if (directionPath != null) {
+				directionPath.Remove ();
+				directionPath = null;
+			}
+			if (directionPath2 != null) {
+				directionPath2.Remove ();
+				directionPath2 = null;
+			}
+		}
 
 		public void ZoomMyLocation(){
 			if (map.MyLocation != null) {
@@ -183,6 +192,18 @@ namespace GoogleApiTest
 				builder.Zoom (18);
 				CameraPosition cameraPosition = builder.Build ();
 				map.AnimateCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
+			}
+		}
+
+		public void ClearBusMarkers ()
+		{
+			if (busPosition != null) {
+				busPosition.Remove ();
+				busPosition = null;
+			}
+			if (busPosition2 != null) {
+				busPosition2.Remove ();
+				busPosition2 = null;
 			}
 		}
 
