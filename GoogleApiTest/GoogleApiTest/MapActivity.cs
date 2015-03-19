@@ -13,6 +13,7 @@ using System.Json;
 using System.Text.RegularExpressions;
 using Android.Views.InputMethods;
 using Android.Content.PM;
+using System.Timers;
 
 namespace GoogleApiTest
 {
@@ -32,6 +33,8 @@ namespace GoogleApiTest
 		Marker busPosition;
 		Marker busPosition2;
 		Polygon ClickedPolygon;
+		enum TravelMode{Walking, Driving, Transit};
+		TravelMode TravelModeChosen = TravelMode.Walking;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -97,6 +100,7 @@ namespace GoogleApiTest
 				DrivingMode.SetBackgroundColor(Android.Graphics.Color.Gold);
 				WalkingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
 				TransitMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
+				TravelModeChosen = TravelMode.Driving;
 
 				ClearBusMarkers ();
 					
@@ -111,13 +115,17 @@ namespace GoogleApiTest
 				DrivingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
 				WalkingMode.SetBackgroundColor(Android.Graphics.Color.Gold);
 				TransitMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
+				TravelModeChosen= TravelMode.Walking;
 
 				if(startB!=null && endB !=null && startB.Campus == endB.Campus){
 					DrawDirections(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate));
 				}
-				else if(startB.Campus != endB.Campus){
+				else if(startB!= null && startB.Campus != endB.Campus){
 					DrawDirectionsDifferentCampus(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate));
 				}
+				//else if(startB==null){
+				//	DrawDirectionsDifferentCampus(new LatLng(map.MyLocation.Latitude, map.MyLocation.Longitude),new LatLng(endB.XCoordinate,endB.YCoordinate));
+				//}
 				else{
 					DrawDirections(new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude),new LatLng(endB.XCoordinate,endB.YCoordinate));
 				}
@@ -128,6 +136,8 @@ namespace GoogleApiTest
 				DrivingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
 				WalkingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
 				TransitMode.SetBackgroundColor(Android.Graphics.Color.Gold);
+				TravelModeChosen = TravelMode.Transit;
+
 				ClearBusMarkers ();
 				if(startB!=null && endB !=null)
 					DrawDirections(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate), "transit");
@@ -238,6 +248,10 @@ namespace GoogleApiTest
 
 		}
 
+		public Campus GetClosestCampus(){
+			return new Campus ("SGW", new LatLng(45.497083, -73.578440));
+		}
+
 		public async void DrawDirectionsDifferentCampus(LatLng startingPoint, LatLng endingPoint){
 			if (directionPath != null) {
 				directionPath.Remove ();
@@ -245,7 +259,14 @@ namespace GoogleApiTest
 			if (directionPath2 != null) {
 				directionPath2.Remove ();
 			}
-			JsonValue firstDirections = await DirectionFetcher.GetDirections(startingPoint,startB.Campus.ExtractionPoint);
+
+			Campus ClosestCampus;
+			if (startB == null) {
+				ClosestCampus = GetClosestCampus ();
+			} else {
+				ClosestCampus = startB.Campus;
+			}
+			JsonValue firstDirections = await DirectionFetcher.GetDirections(startingPoint,ClosestCampus.ExtractionPoint);
 			JsonValue firstRoutesResults = firstDirections ["routes"];
 			string points1 = firstRoutesResults [0] ["overview_polyline"] ["points"];
 			var polyPoints1 = DirectionFetcher.DecodePolylinePoints (points1);
@@ -491,6 +512,7 @@ namespace GoogleApiTest
 						if (startPoint == null && endPoint != null && map.MyLocation != null) {
 							DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
 							endB = building;
+							StartCurrentLocationPath(endPoint.Position);
 						}
 					clearButton.Visibility = ViewStates.Visible;
 					map.UiSettings.ZoomControlsEnabled = false;
@@ -498,14 +520,7 @@ namespace GoogleApiTest
 				else {
 					Toast.MakeText (this, "You already have an ending destination, " + building.Name + " will be your new ending destination", ToastLength.Short).Show ();
 					endPoint.Remove ();
-					if (busPosition != null) {
-						busPosition.Remove ();
-						busPosition = null;
-					}
-					if (busPosition2 != null) {
-						busPosition2.Remove ();
-						busPosition2 = null;
-					}
+					ClearBusMarkers();
 					MarkerOptions endDestination = new MarkerOptions ();
 					if (building.BuildingEntrance == null) 
 					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
@@ -526,6 +541,7 @@ namespace GoogleApiTest
 					else
 						if (startPoint == null && endPoint != null && map.MyLocation != null) {
 							DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+							StartCurrentLocationPath(endPoint.Position);
 							endB = building;
 						}
 					clearButton.Visibility = ViewStates.Visible;
@@ -534,6 +550,22 @@ namespace GoogleApiTest
 				window.Dismiss ();
 			};
 		}
+			
+		public void StartCurrentLocationPath(LatLng EndPoint){
+			Button Reload = FindViewById<Button> (Resource.Id.Reload);
+			Reload.Visibility = ViewStates.Visible;
+
+			Reload.Click += (o, e) => {
+				if(TravelModeChosen == TravelMode.Walking){
+					DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+				}else if(TravelModeChosen == TravelMode.Driving){
+					DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position, "driving");
+				}else if(TravelModeChosen == TravelMode.Transit){
+					DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position, "transit");
+				}
+			};
+		}
+
 
 		public void ZoomSgw(GoogleMap map){
 			LatLng location = new LatLng(45.49564057468219, -73.57727140188217);
