@@ -246,7 +246,15 @@ namespace GoogleApiTest
 		}
 
 		public Campus GetClosestCampus(){
-			return new Campus ("SGW", new LatLng(45.497083, -73.578440));
+			double distanceSGW = Math.Sqrt (Math.Pow (45.49564057468219 - map.MyLocation.Latitude,2) + Math.Pow (-73.57727140188217 -
+			map.MyLocation.Longitude,2));
+			double distanceLoyola = Math.Sqrt (Math.Pow (45.458593581866786 - map.MyLocation.Latitude,2) + Math.Pow (-73.64008069038391 -
+				map.MyLocation.Longitude,2));
+			if (distanceSGW < distanceLoyola) {
+				return new Campus ("SGW", new LatLng (45.497083, -73.578440));
+			} else {
+				return new Campus ("LOYOLA", new LatLng(45.457683, -73.638978));
+			}
 		}
 
 		public async void DrawDirectionsDifferentCampus(LatLng startingPoint, LatLng endingPoint){
