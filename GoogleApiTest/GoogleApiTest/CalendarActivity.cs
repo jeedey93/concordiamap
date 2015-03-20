@@ -31,9 +31,6 @@ namespace GoogleApiTest
 
 		protected override void OnCreate (Bundle bundle)
 		{
-<<<<<<< HEAD
-			base.OnCreate (bundle, Resource.Layout.LeftDrawer);
-=======
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.Calendar);
 
@@ -114,10 +111,6 @@ namespace GoogleApiTest
 				mGoogleApiClient.Disconnect ();
 			}
 		}
-<<<<<<< Updated upstream
-=======
->>>>>>> origin/master
->>>>>>> Stashed changes
 
 		public void OnConnected (Bundle connectionHint)
 		{
