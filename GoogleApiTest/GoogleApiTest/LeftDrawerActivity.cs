@@ -26,7 +26,9 @@ namespace GoogleApiTest
 
 
 		protected void OnCreate (Bundle bundle, int layout){
-		
+
+			RequestWindowFeature(WindowFeatures.NoTitle);
+
 			base.OnCreate (bundle);
 			activities.Add (this);
 
@@ -58,8 +60,8 @@ namespace GoogleApiTest
 			mLeftDrawer.ItemClick += LeftDrawerItemClick; 
 
 			mDrawerLayout.SetDrawerListener (mDrawerToggle);
-			ActionBar.SetDisplayHomeAsUpEnabled (true);
-			ActionBar.SetHomeButtonEnabled (true);
+			//ActionBar.SetDisplayHomeAsUpEnabled (true);
+			//ActionBar.SetHomeButtonEnabled (true);
 
 
 		}

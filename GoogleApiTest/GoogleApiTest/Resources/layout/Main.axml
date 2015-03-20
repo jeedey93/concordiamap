@@ -19,7 +19,7 @@
                 android:name="com.google.android.gms.maps.MapFragment"
                 android:id="@+id/map"
                 android:layout_width="match_parent"
-                android:layout_height="1500px"
+                android:layout_height="1700px"
                 android:layout_marginTop="0.0dp" />
             <RelativeLayout
                 android:orientation="horizontal"
