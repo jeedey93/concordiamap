@@ -363,7 +363,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (MBuilding);
 
 			Building JMSBBuilding = new Building ("John Molson School of Business Building", "MB", 45.495270187715924, -73.57906848192215);
-			JMSBBuilding.SetDescription ("http://www.concordia.ca/maps/buildings/mb.html", "rte");
+			//JMSBBuilding.SetDescription ("http://www.concordia.ca/maps/buildings/mb.html", "rte");
 			JMSBBuilding.Description = "In 2009 the John Molson School of Business Building officially opened on the corner of Guy "+
 				"and de Maisonneuve. It includes digitally equipped teaching amphitheatres and classrooms, faculty and graduate "+
 				"student offices, the Office of the Dean, student and faculty social space, as well as space for privatized programs. "+

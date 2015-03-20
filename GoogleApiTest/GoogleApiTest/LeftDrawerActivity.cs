@@ -72,7 +72,7 @@ namespace GoogleApiTest
 			else if (e.Position == 1)
 				StartActivity (new Intent (this, typeof(ExploreActivity)));
 			else if (e.Position == 2) {
-				StartActivity (new Intent (this, typeof(CalendarActivity)));
+				StartActivity (new Intent (this, typeof(CalendarListActivity)));
 			}
 			else if (e.Position == 3) {
 				StartActivity (new Intent (this, typeof(NavigateActivity)));
