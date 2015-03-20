@@ -6,14 +6,11 @@ using System;
 using Android.Gms.Maps.Model;
 using Android.Widget;
 using System.Collections.Generic;
-using Android.Support.V4.Widget;
-using Android.Support.V4.App;
 using Android.Content;
 using System.Json;
 using System.Text.RegularExpressions;
 using Android.Views.InputMethods;
 using Android.Content.PM;
-using System.Timers;
 
 namespace GoogleApiTest
 {
@@ -123,11 +120,8 @@ namespace GoogleApiTest
 				else if(startB!= null && startB.Campus != endB.Campus){
 					DrawDirectionsDifferentCampus(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate));
 				}
-				//else if(startB==null){
-				//	DrawDirectionsDifferentCampus(new LatLng(map.MyLocation.Latitude, map.MyLocation.Longitude),new LatLng(endB.XCoordinate,endB.YCoordinate));
-				//}
-				else{
-					DrawDirections(new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude),new LatLng(endB.XCoordinate,endB.YCoordinate));
+				else if(startB==null){
+					DrawDirectionsDifferentCampus(new LatLng(map.MyLocation.Latitude, map.MyLocation.Longitude),new LatLng(endB.XCoordinate,endB.YCoordinate));
 				}
 			};
 
@@ -146,12 +140,15 @@ namespace GoogleApiTest
 			};
 
 			Button clearButton = FindViewById<Button>(Resource.Id.clearMarker);
+			Button Reload = FindViewById<Button> (Resource.Id.Reload);
+
 			clearButton.Click += (o, e) => {
 				ClearStartEndPath ();
 				ClearBusMarkers ();
 
 				map.UiSettings.ZoomControlsEnabled = true;
 				clearButton.Visibility = ViewStates.Invisible;
+				Reload.Visibility = ViewStates.Invisible;
 				LinearLayout slideUp = FindViewById<LinearLayout> (Resource.Id.SlideUpText);
 				slideUp.Visibility = ViewStates.Gone;
 				RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
@@ -311,9 +308,7 @@ namespace GoogleApiTest
 			directionPath2.Width = 9;
 			directionPath2.Color = Color;
 
-			CreateBusMarkers ();
-
-
+			CreateBusMarkers (ClosestCampus);
 
 			LinearLayout slideUp = FindViewById<LinearLayout> (Resource.Id.SlideUpText);
 			slideUp.Visibility = ViewStates.Visible;
@@ -324,9 +319,13 @@ namespace GoogleApiTest
 			mode.Visibility = ViewStates.Visible;
 		}
 
-		public void CreateBusMarkers(){
+		public void CreateBusMarkers(Campus StartingCampus =null){
 			MarkerOptions busMarker = new MarkerOptions ();
-			busMarker.SetPosition (new LatLng (startB.Campus.ExtractionPoint.Latitude, startB.Campus.ExtractionPoint.Longitude));
+			if (StartingCampus != null) {
+				busMarker.SetPosition (new LatLng (StartingCampus.ExtractionPoint.Latitude, StartingCampus.ExtractionPoint.Longitude));
+			} else {
+				busMarker.SetPosition (new LatLng (startB.Campus.ExtractionPoint.Latitude, startB.Campus.ExtractionPoint.Longitude));
+			}
 			busMarker.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.Bus));
 			busPosition = map.AddMarker (busMarker);
 
