@@ -517,9 +517,10 @@ namespace GoogleApiTest
 					}
 					else
 						if (startPoint == null && endPoint != null && map.MyLocation != null) {
-							DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+							//DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+							DrawDirectionsDifferentCampus(new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
 							endB = building;
-							StartCurrentLocationPath(endPoint.Position);
+							StartCurrentLocationPath();
 						}
 					clearButton.Visibility = ViewStates.Visible;
 					map.UiSettings.ZoomControlsEnabled = false;
@@ -547,8 +548,9 @@ namespace GoogleApiTest
 					}
 					else
 						if (startPoint == null && endPoint != null && map.MyLocation != null) {
-							DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
-							StartCurrentLocationPath(endPoint.Position);
+							//DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+							DrawDirectionsDifferentCampus (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+							StartCurrentLocationPath();
 							endB = building;
 						}
 					clearButton.Visibility = ViewStates.Visible;
@@ -558,7 +560,7 @@ namespace GoogleApiTest
 			};
 		}
 			
-		public void StartCurrentLocationPath(LatLng EndPoint){
+		public void StartCurrentLocationPath(){
 			Button Reload = FindViewById<Button> (Resource.Id.Reload);
 			Reload.Visibility = ViewStates.Visible;
 
