@@ -18,6 +18,8 @@ namespace GoogleApiTest
 		private string m_CalendarUrl = null;
 		private string m_CalendarId = null;
 		private readonly CalendarService m_Service = null;
+		static bool isDefaultCalendarSelected;
+		static int DefaultCalendarId;
 
 		private readonly string m_CalendarName;
 		private readonly string m_UserName;

@@ -30,7 +30,30 @@ namespace GoogleApiTest
             ListEvents ();
             
             InitAddEvent ();
+
+			MakeDefaultCalendar ();
         }
+
+
+		void MakeDefaultCalendar(){
+			var defaultCalendar = FindViewById<Button> (Resource.Id.defaultCalendar);
+							
+			if (BuildingManager.isDefaultCalendarSelected) {
+				defaultCalendar.Text = "Change Default Calendar";
+			}
+				
+			defaultCalendar.Click += (sender, e) => { 
+				if (!BuildingManager.isDefaultCalendarSelected) {
+					defaultCalendar.Text = "Change Default Calendar";
+					BuildingManager.isDefaultCalendarSelected = true;
+					BuildingManager.DefaultCalendarId = _calId; 
+				} else {
+					defaultCalendar.Text = "Make this my default calendar";
+					BuildingManager.isDefaultCalendarSelected = false;
+					BuildingManager.DefaultCalendarId = 0; 
+				}
+			};
+		}
 
         void ListEvents ()
         {       
@@ -61,15 +84,15 @@ namespace GoogleApiTest
          
             ListAdapter = adapter;
             
-//            ListView.ItemClick += (sender, e) => { 
-//                int i = (e as ItemEventArgs).Position;
-//                
-//                cursor.MoveToPosition(i);
-//                int eventId = cursor.GetInt (cursor.GetColumnIndex (eventsProjection [0]));
-//                var uri = ContentUris.WithAppendedId(CalendarContract.Events.ContentUri, eventId);
-//                var intent = new Intent(Intent.ActionView, uri);
-//                StartActivity(intent);              
-//            };
+            ListView.ItemClick += (sender, e) => { 
+                int i = e.Position;
+                
+                cursor.MoveToPosition(i);
+                int eventId = cursor.GetInt (cursor.GetColumnIndex (eventsProjection [0]));
+                var uri = ContentUris.WithAppendedId(CalendarContract.Events.ContentUri, eventId);
+                var intent = new Intent(Intent.ActionView, uri);
+                StartActivity(intent);              
+            };
         }
         
         void InitAddEvent ()

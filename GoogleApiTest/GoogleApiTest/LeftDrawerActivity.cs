@@ -74,6 +74,11 @@ namespace GoogleApiTest
 				StartActivity (new Intent (this, typeof(ExploreActivity)));
 			}
 			else if (e.Position == 2) {
+				if (BuildingManager.isDefaultCalendarSelected) {
+					var showEvents = new Intent(this, typeof(EventListActivity));
+					showEvents.PutExtra("calId", BuildingManager.DefaultCalendarId);
+					StartActivity(showEvents);
+				}else
 				StartActivity (new Intent (this, typeof(CalendarListActivity)));
 			}
 			else if (e.Position == 3) {

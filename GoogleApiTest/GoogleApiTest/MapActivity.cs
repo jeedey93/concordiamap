@@ -32,6 +32,8 @@ namespace GoogleApiTest
 		Polygon ClickedPolygon;
 		enum TravelMode{Walking, Driving, Transit};
 		TravelMode TravelModeChosen = TravelMode.Walking;
+		public static bool isDefaultCalendarSelected=false;
+		public static int DefaultCalendarId;
 
 		protected override void OnCreate (Bundle bundle)
 		{

@@ -9,6 +9,8 @@ namespace GoogleApiTest
 
 		List<Building> SGWBuildings = new List<Building> ();
 		List<Building> LoyolaBuildings = new List<Building> ();
+		public static bool isDefaultCalendarSelected;
+		public static int DefaultCalendarId;
 
 		public List<Building> GetSGWBuildings ()
 		{
