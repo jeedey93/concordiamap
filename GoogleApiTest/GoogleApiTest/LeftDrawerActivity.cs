@@ -21,7 +21,8 @@ namespace GoogleApiTest
 		ListView mLeftDrawer;
 		private static List<Activity> activities = new List<Activity>();
 		ActionBarDrawerToggle mDrawerToggle;
-		bool test = false;
+		bool MapActivity;
+
 
 
 		protected void OnCreate (Bundle bundle, int layout){
@@ -52,6 +53,7 @@ namespace GoogleApiTest
 			mLeftAdapter = new ArrayAdapter (this, Android.Resource.Layout.SimpleListItem1, mLeftItem);
 			mLeftDrawer.Adapter = mLeftAdapter;
 
+			MapActivity = IsMapActivity (layout); 
 
 			mLeftDrawer.ItemClick += LeftDrawerItemClick; 
 
@@ -59,7 +61,6 @@ namespace GoogleApiTest
 			ActionBar.SetDisplayHomeAsUpEnabled (true);
 			ActionBar.SetHomeButtonEnabled (true);
 
-			test = true;
 
 		}
 			
@@ -67,10 +68,11 @@ namespace GoogleApiTest
 		void LeftDrawerItemClick (object sender, AdapterView.ItemClickEventArgs e)
 		{
 
-			if (e.Position == 0)
+			if (e.Position == 0 && !MapActivity) {
 				Finish ();
-			else if (e.Position == 1)
+			} else if (e.Position == 1){
 				StartActivity (new Intent (this, typeof(ExploreActivity)));
+			}
 			else if (e.Position == 2) {
 				StartActivity (new Intent (this, typeof(CalendarActivity)));
 			}
@@ -78,26 +80,39 @@ namespace GoogleApiTest
 				StartActivity (new Intent (this, typeof(NavigateActivity)));
 			}
 		}
-
-	
 	
 
 		protected override void OnPostCreate (Bundle savedInstanceState) 
 		{
 
-//			if (test) {
 				base.OnPostCreate (savedInstanceState);
 				mDrawerToggle.SyncState ();					
-//			}
 		}
 
-				public override bool OnOptionsItemSelected(IMenuItem item){
+		public override bool OnOptionsItemSelected(IMenuItem item){
 
 			if(mDrawerToggle.OnOptionsItemSelected(item))
 				return true;
 			return base.OnOptionsItemSelected(item);
 		}
 
+		protected override void OnPause ()
+		{
+			base.OnPause ();
+
+			if (!MapActivity) 
+				Finish ();
+			else
+				mDrawerLayout.CloseDrawers();
+		}
+
+		bool IsMapActivity(int Layout){
+
+			if(Layout == Resource.Layout.Main)
+				return true;
+
+			return false;
+		}
 	}
 }
 
