@@ -154,7 +154,7 @@ namespace GoogleApiTest
 		public Boolean IsConnectedToNetwork()
 		{
 			//access android's connectivity manager
-			var connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
+			var connectivityManager = (ConnectivityManager)mContext.GetSystemService(Context.ConnectivityService);
 			//Try to check for activeNetwork info and if it is connected.
 			var activeConnection = connectivityManager.ActiveNetworkInfo;
 
