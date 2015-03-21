@@ -11,8 +11,8 @@ using Java.Util;
 
 namespace GoogleApiTest
 {
-    [Activity (Label = "CalendarDemo", MainLauncher = true)]
-    public class CalendarListActivity : ListActivity
+    [Activity (Label = "CalendarListActivity")]
+	public class CalendarListActivity : ListActivity
     {
         protected override void OnCreate (Bundle bundle)
         {

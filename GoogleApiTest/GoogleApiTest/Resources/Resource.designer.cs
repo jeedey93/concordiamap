@@ -1978,8 +1978,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0035
 			public const int activity_chooser_view_content = 2131427381;
 			
-			// aapt resource value: 0x7f0b005c
-			public const int addSampleEvent = 2131427420;
+			// aapt resource value: 0x7f0b005f
+			public const int addSampleEvent = 2131427423;
 			
 			// aapt resource value: 0x7f0b001e
 			public const int adjust_height = 2131427358;
@@ -2020,11 +2020,11 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b002d
 			public const int buy_with_google = 2131427373;
 			
-			// aapt resource value: 0x7f0b005a
-			public const int calAccountName = 2131427418;
+			// aapt resource value: 0x7f0b005d
+			public const int calAccountName = 2131427421;
 			
-			// aapt resource value: 0x7f0b0059
-			public const int calDisplayName = 2131427417;
+			// aapt resource value: 0x7f0b005c
+			public const int calDisplayName = 2131427420;
 			
 			// aapt resource value: 0x7f0b003d
 			public const int checkbox = 2131427389;
@@ -2041,14 +2041,14 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0017
 			public const int collapseActionView = 2131427351;
 			
-			// aapt resource value: 0x7f0b0061
-			public const int content_frame = 2131427425;
+			// aapt resource value: 0x7f0b005a
+			public const int content_frame = 2131427418;
 			
 			// aapt resource value: 0x7f0b0043
 			public const int decor_content_parent = 2131427395;
 			
-			// aapt resource value: 0x7f0b005b
-			public const int defaultCalendar = 2131427419;
+			// aapt resource value: 0x7f0b005e
+			public const int defaultCalendar = 2131427422;
 			
 			// aapt resource value: 0x7f0b0038
 			public const int default_activity_button = 2131427384;
@@ -2062,8 +2062,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b002e
 			public const int donate_with_google = 2131427374;
 			
-			// aapt resource value: 0x7f0b0060
-			public const int drawer_layout = 2131427424;
+			// aapt resource value: 0x7f0b0059
+			public const int drawer_layout = 2131427417;
 			
 			// aapt resource value: 0x7f0b001c
 			public const int dropdown = 2131427356;
@@ -2074,14 +2074,14 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0014
 			public const int end = 2131427348;
 			
-			// aapt resource value: 0x7f0b005f
-			public const int eventLocation = 2131427423;
+			// aapt resource value: 0x7f0b0062
+			public const int eventLocation = 2131427426;
 			
-			// aapt resource value: 0x7f0b005e
-			public const int eventStartDate = 2131427422;
+			// aapt resource value: 0x7f0b0061
+			public const int eventStartDate = 2131427425;
 			
-			// aapt resource value: 0x7f0b005d
-			public const int eventTitle = 2131427421;
+			// aapt resource value: 0x7f0b0060
+			public const int eventTitle = 2131427424;
 			
 			// aapt resource value: 0x7f0b0036
 			public const int expand_activities_button = 2131427382;
@@ -2098,8 +2098,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0065
 			public const int exploreLTTitle = 2131427429;
 			
-			// aapt resource value: 0x7f0b0062
-			public const int exploreLView = 2131427426;
+			// aapt resource value: 0x7f0b0063
+			public const int exploreLView = 2131427427;
 			
 			// aapt resource value: 0x7f0b0069
 			public const int exploreMBBar = 2131427433;
@@ -2146,8 +2146,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0b0081
 			public const int layout = 2131427457;
 			
-			// aapt resource value: 0x7f0b0063
-			public const int left_drawer = 2131427427;
+			// aapt resource value: 0x7f0b005b
+			public const int left_drawer = 2131427419;
 			
 			// aapt resource value: 0x7f0b0086
 			public const int linearLayout1 = 2131427462;
