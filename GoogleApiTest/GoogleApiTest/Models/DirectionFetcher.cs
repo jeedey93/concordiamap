@@ -153,8 +153,9 @@ namespace GoogleApiTest
 		//Check if Phone is connected to network, try this before trying to connect to the internet (httpRequests)
 		public Boolean IsConnectedToNetwork()
 		{
-			var connectivityManager = (ConnectivityManager)mContext.GetSystemService(Context.ConnectivityService);
-
+			//access android's connectivity manager
+			var connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
+			//Try to check for activeNetwork info and if it is connected.
 			var activeConnection = connectivityManager.ActiveNetworkInfo;
 
 			if ((activeConnection != null) && activeConnection.IsConnected) {
@@ -164,6 +165,5 @@ namespace GoogleApiTest
 			}
 
 		}
-
 	}
 }

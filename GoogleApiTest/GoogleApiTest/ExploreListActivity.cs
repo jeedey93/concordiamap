@@ -10,6 +10,8 @@ using Android.Locations;
 using Android.OS;
 using Android.Widget;
 using Android.Gms.Maps.Model;
+using Android.Net;
+using System.Net.Http;
 
 
 namespace GoogleApiTest
@@ -23,6 +25,7 @@ namespace GoogleApiTest
 		LocationManager locationManager;
 		Location location;
 		string type;
+
 
 		protected override void OnCreate (Bundle bundle)
 		{	
@@ -74,24 +77,28 @@ namespace GoogleApiTest
 		private async Task<JsonValue> GetNearbyPlacesWebRequest(string url){
 
 			// Create an HTTP web request using the URL:
-			HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create (new Uri (url));
+			HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create (new System.Uri (url));
 			request.ContentType = "application/json";
 			request.Method = "GET";
 
 
-			// Send the request to the server and wait for the response:
-			using (WebResponse response = await request.GetResponseAsync ())
-			{
-				// Get a stream representation of the HTTP web response:
-				using (Stream stream = response.GetResponseStream ())
-				{
-					// Use this stream to build a JSON document object:
-					JsonValue jsonDoc = await Task.Run (() => JsonObject.Load (stream));
-					//Console.Out.WriteLine("Response: {0}", jsonDoc.ToString ());
+			//check if there is network connection
+			if (IsConnectedToNetwork ()) {
+				// Send the request to the server and wait for the response:
+				using (WebResponse response = await request.GetResponseAsync ()) {
+					// Get a stream representation of the HTTP web response:
+					using (Stream stream = response.GetResponseStream ()) {
+						// Use this stream to build a JSON document object:
+						JsonValue jsonDoc = await Task.Run (() => JsonObject.Load (stream));
+						//Console.Out.WriteLine("Response: {0}", jsonDoc.ToString ());
 
-					// Return the JSON document:
-					return jsonDoc;
+						// Return the JSON document:
+						return jsonDoc;
+					}
 				}
+			} else {
+
+				return null;
 			}
 		}
 
@@ -99,41 +106,47 @@ namespace GoogleApiTest
 
 			//Issue & await async web resquest from Google Places API
 			JsonValue json = await GetNearbyPlacesWebRequest (url);
+			//If the HTTP request failed or returned null, don't try to open it.
+			if (json != null) {
+				JsonValue jsonWebResults = json ["results"];
 
-			JsonValue jsonWebResults = json["results"];
+				LatLng gWebLocation;
+				GooglePlace gWebPlace;
+				LatLng currentLocation = new LatLng (0.0, 0.0);
 
-			LatLng gWebLocation;
-			GooglePlace gWebPlace;
-			LatLng currentLocation = new LatLng (0.0, 0.0);
+				foreach (JsonValue jsonResult in jsonWebResults) {
 
-			foreach (JsonValue jsonResult in jsonWebResults) {
+					//Get needed values
+					double lat = jsonResult ["geometry"] ["location"] ["lat"];
+					double lng = jsonResult ["geometry"] ["location"] ["lng"];
+					string name = jsonResult ["name"].ToString ();
 
-				//Get needed values
-				double lat = jsonResult ["geometry"] ["location"] ["lat"];
-				double lng = jsonResult ["geometry"] ["location"] ["lng"];
-				string name = jsonResult ["name"].ToString ();
+					//Create current GooglePlace Object
+					gWebLocation = new LatLng (lat, lng);
+					gWebPlace = new GooglePlace (gWebLocation, name);
 
-				//Create current GooglePlace Object
-				gWebLocation = new LatLng (lat, lng);
-				gWebPlace = new GooglePlace (gWebLocation, name);
+					//Get current location & calculate distance between current and place
+					currentLocation.Latitude = location.Latitude;
+					currentLocation.Longitude = location.Longitude;
+					gWebPlace.SetDistance (CalcDistanceToPlace (currentLocation, gWebLocation));
 
-				//Get current location & calculate distance between current and place
-				currentLocation.Latitude = location.Latitude;
-				currentLocation.Longitude = location.Longitude;
-				gWebPlace.SetDistance (CalcDistanceToPlace (currentLocation, gWebLocation));
+					//Add to adapter list
+					nearbyPlacesAdapterList.Add (gWebPlace);
 
-				//Add to adapter list
-				nearbyPlacesAdapterList.Add (gWebPlace);
+					foreach (GooglePlace gPlace in nearbyPlacesAdapterList) {
+						Console.WriteLine (gPlace.ToString ());
+					}
 
-				foreach (GooglePlace gPlace in nearbyPlacesAdapterList) {
-					Console.WriteLine (gPlace.ToString ());
 				}
 
-			}
+				//Create and set adapter
+				ListView listView = FindViewById<ListView> (Resource.Id.exploreLView);
+				listView.Adapter = new ExploreListAdapter (this, nearbyPlacesAdapterList);
 
-			//Create and set adapter
-			ListView listView = FindViewById<ListView> (Resource.Id.exploreLView);
-			listView.Adapter = new ExploreListAdapter(this , nearbyPlacesAdapterList);
+				//Not connected to a network, Give message
+			} else {
+				Toast.MakeText (this, "Please connect to a network", ToastLength.Short).Show ();
+			}
 	
 		}
 
@@ -155,7 +168,21 @@ namespace GoogleApiTest
 			return d * Math.PI / 180.0;
 		}
 
+		//Check if Phone is connected to network, try this before trying to connect to the internet (httpRequests)
+		public Boolean IsConnectedToNetwork()
+		{
+			//access android's connectivity manager
+			var connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
+			//Try to check for activeNetwork info and if it is connected.
+			var activeConnection = connectivityManager.ActiveNetworkInfo;
 
+			if ((activeConnection != null) && activeConnection.IsConnected) {
+				return true;
+			} else {
+				return false;
+			}
+
+		}
 
 
 
