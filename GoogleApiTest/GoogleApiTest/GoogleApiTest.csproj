@@ -101,6 +101,7 @@
     <Compile Include="NavigateActivity.cs" />
     <Compile Include="CalendarListActivity.cs" />
     <Compile Include="EventListActivity.cs" />
+    <Compile Include="AddEventActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -276,6 +277,7 @@
     <AndroidResource Include="Resources\layout\CalListItem.axml" />
     <AndroidResource Include="Resources\layout\EventList.axml" />
     <AndroidResource Include="Resources\layout\EventListItem.axml" />
+    <AndroidResource Include="Resources\layout\AddEventView.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

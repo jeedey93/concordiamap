@@ -99,22 +99,26 @@ namespace GoogleApiTest
         {
             var addSampleEvent = FindViewById<Button> (Resource.Id.addSampleEvent);
          
-            addSampleEvent.Click += (sender, e) => {           
+            addSampleEvent.Click += (sender, e) => {       
+
+				var AddEventActivity = new Intent (this, typeof(AddEventActivity));
+				StartActivity (AddEventActivity);
                 // Create Event code
-                ContentValues eventValues = new ContentValues ();
-                eventValues.Put (CalendarContract.Events.InterfaceConsts.CalendarId, _calId);
-                eventValues.Put (CalendarContract.Events.InterfaceConsts.Title, "Test Event from M4A");
-                eventValues.Put (CalendarContract.Events.InterfaceConsts.Description, "This is an event created from Mono for Android");
-                eventValues.Put (CalendarContract.Events.InterfaceConsts.Dtstart, GetDateTimeMS (2011, 12, 15, 10, 0));
-                eventValues.Put (CalendarContract.Events.InterfaceConsts.Dtend, GetDateTimeMS (2011, 12, 15, 11, 0));
+                //ContentValues eventValues = new ContentValues ();
+                //eventValues.Put (CalendarContract.Events.InterfaceConsts.CalendarId, _calId);
+                //eventValues.Put (CalendarContract.Events.InterfaceConsts.Title, "Test Event from M4A");
+                //eventValues.Put (CalendarContract.Events.InterfaceConsts.Description, "This is an event created from Mono for Android");
+                //eventValues.Put (CalendarContract.Events.InterfaceConsts.Dtstart, GetDateTimeMS (2011, 12, 15, 10, 0));
+               // eventValues.Put (CalendarContract.Events.InterfaceConsts.Dtend, GetDateTimeMS (2011, 12, 15, 11, 0));
             
                 // GitHub issue #9 : Event start and end times need timezone support.
                 // https://github.com/xamarin/monodroid-samples/issues/9
-                eventValues.Put(CalendarContract.Events.InterfaceConsts.EventTimezone, "UTC");
-                eventValues.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone, "UTC");
+               // eventValues.Put(CalendarContract.Events.InterfaceConsts.EventTimezone, "UTC");
+               // eventValues.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone, "UTC");
 
-                var uri = ContentResolver.Insert (CalendarContract.Events.ContentUri, eventValues);
-                Console.WriteLine ("Uri for new event: {0}", uri);
+               // var uri = ContentResolver.Insert (CalendarContract.Events.ContentUri, eventValues);
+               // Console.WriteLine ("Uri for new event: {0}", uri);
+
             };
         }
         
