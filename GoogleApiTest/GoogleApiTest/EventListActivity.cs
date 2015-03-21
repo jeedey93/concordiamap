@@ -15,18 +15,24 @@ using Java.Util;
 namespace GoogleApiTest
 {
     [Activity (Label = "EventListActivity")]            
-    public class EventListActivity : ListActivity
+	public class EventListActivity : ListActivity
     {   
         int _calId;
+		string title;
+		string date;
+		string location;
+		string startingTime;
+		string endTime;
         
         protected override void OnCreate (Bundle bundle)
         {
             base.OnCreate (bundle);
 
             SetContentView (Resource.Layout.EventList);
-            
+
+			//Get current type of this activity based on passed value in intent
             _calId = Intent.GetIntExtra ("calId", -1); 
-            
+
             ListEvents ();
             
             InitAddEvent ();
@@ -34,6 +40,36 @@ namespace GoogleApiTest
 			MakeDefaultCalendar ();
         }
 
+		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+		{
+			base.OnActivityResult(requestCode, resultCode, data);
+			title = data.GetStringExtra ("title");
+			date = data.GetStringExtra ("date");
+			location = data.GetStringExtra ("location");
+			startingTime = data.GetStringExtra ("startTime");
+			endTime = data.GetStringExtra ("endTime");
+			CreateEvent();
+		}
+
+		void CreateEvent(){
+			// Create Event code
+			ContentValues eventValues = new ContentValues ();
+			eventValues.Put (CalendarContract.Events.InterfaceConsts.CalendarId, _calId);
+			eventValues.Put (CalendarContract.Events.InterfaceConsts.Title, title);
+			//eventValues.Put (CalendarContract.Events.InterfaceConsts.Description, "This is an event created from Mono for Android");
+			eventValues.Put (CalendarContract.Events.InterfaceConsts.EventLocation, location);
+			eventValues.Put (CalendarContract.Events.InterfaceConsts.Dtstart, GetDateTimeMS (2011, 12, 15, 10, 0));
+			eventValues.Put (CalendarContract.Events.InterfaceConsts.Dtend, GetDateTimeMS (2011, 12, 15, 11, 0));
+
+			// GitHub issue #9 : Event start and end times need timezone support.
+			// https://github.com/xamarin/monodroid-samples/issues/9
+			 eventValues.Put(CalendarContract.Events.InterfaceConsts.EventTimezone, "UTC");
+			 eventValues.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone, "UTC");
+
+			 var uri = ContentResolver.Insert (CalendarContract.Events.ContentUri, eventValues);
+			 Console.WriteLine ("Uri for new event: {0}", uri);
+
+		}
 
 		void MakeDefaultCalendar(){
 			var defaultCalendar = FindViewById<Button> (Resource.Id.defaultCalendar);
@@ -102,23 +138,7 @@ namespace GoogleApiTest
             addSampleEvent.Click += (sender, e) => {       
 
 				var AddEventActivity = new Intent (this, typeof(AddEventActivity));
-				StartActivity (AddEventActivity);
-                // Create Event code
-                //ContentValues eventValues = new ContentValues ();
-                //eventValues.Put (CalendarContract.Events.InterfaceConsts.CalendarId, _calId);
-                //eventValues.Put (CalendarContract.Events.InterfaceConsts.Title, "Test Event from M4A");
-                //eventValues.Put (CalendarContract.Events.InterfaceConsts.Description, "This is an event created from Mono for Android");
-                //eventValues.Put (CalendarContract.Events.InterfaceConsts.Dtstart, GetDateTimeMS (2011, 12, 15, 10, 0));
-               // eventValues.Put (CalendarContract.Events.InterfaceConsts.Dtend, GetDateTimeMS (2011, 12, 15, 11, 0));
-            
-                // GitHub issue #9 : Event start and end times need timezone support.
-                // https://github.com/xamarin/monodroid-samples/issues/9
-               // eventValues.Put(CalendarContract.Events.InterfaceConsts.EventTimezone, "UTC");
-               // eventValues.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone, "UTC");
-
-               // var uri = ContentResolver.Insert (CalendarContract.Events.ContentUri, eventValues);
-               // Console.WriteLine ("Uri for new event: {0}", uri);
-
+				StartActivityForResult(AddEventActivity, 0);
             };
         }
         

@@ -4,13 +4,69 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
     <TextView
-        android:id="@+id/dateDisplay"
+        android:id="@+id/dateTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:text="Enter the name of the event" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTitle" />
+    <TextView
+        android:id="@+id/dateInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter a date" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/dateDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:text="" />
+        <Button
+            android:id="@+id/pickDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change the date" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/locationDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter the location" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editLocation" />
+    <TextView
+        android:id="@+id/timeDisplayStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter starting time" />
+    <EditText
+        android:inputType="time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editStartTime"
+        android:hint="00:00" />
+    <TextView
+        android:id="@+id/timeDisplayEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter end time" />
+    <EditText
+        android:inputType="time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="00:00"
+        android:id="@+id/editEndTime" />
     <Button
-        android:id="@+id/pickDate"
+        android:id="@+id/AddEventBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change the date" />
+        android:text="Add Event" />
 </LinearLayout>

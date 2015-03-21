@@ -41,7 +41,35 @@ namespace GoogleApiTest
 
 			// display the current date (this method is below)
 			UpdateDisplay ();
+
+
+			Button addEvent = FindViewById<Button> (Resource.Id.AddEventBtn);
+			addEvent.Click += (o, e) => {
+				EditText editTitle = FindViewById<EditText> (Resource.Id.editTitle);
+				TextView dateDisplay2 = FindViewById<TextView> (Resource.Id.dateDisplay); 
+				EditText editLocation = FindViewById<EditText> (Resource.Id.editLocation);
+				EditText editStartTime = FindViewById<EditText> (Resource.Id.editStartTime);
+				EditText editEndTime = FindViewById<EditText> (Resource.Id.editEndTime);
+
+				//var EventListActivity = new Intent (this, typeof(EventListActivity));
+				//EventListActivity.PutExtra ("title", editTitle.Text);
+				//EventListActivity.PutExtra ("date", dateDisplay2.Text);
+				//EventListActivity.PutExtra ("location", editLocation.Text);
+				//EventListActivity.PutExtra ("startTime", editStartTime.Text);
+				//EventListActivity.PutExtra ("endTime", editEndTime.Text);
+				//StartActivity (EventListActivity);
+
+				var EventListActivity = new Intent();
+				EventListActivity.PutExtra ("title", editTitle.Text);
+				EventListActivity.PutExtra ("date", dateDisplay2.Text);
+				EventListActivity.PutExtra ("location", editLocation.Text);
+				EventListActivity.PutExtra ("startTime", editStartTime.Text);
+				EventListActivity.PutExtra ("endTime", editEndTime.Text);
+				SetResult(Result.Ok,EventListActivity);
+				Finish();
+			};
 		}
+				
 
 		// updates the date in the TextView
 		private void UpdateDisplay ()
