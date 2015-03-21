@@ -158,6 +158,25 @@ namespace GoogleApiTest
 				mode.Visibility = ViewStates.Gone;
 			};
 		} 
+
+		protected override void OnActivityResult (int requestCode, Result resultCode, Intent data)
+		{
+
+			double startPositionX = data.GetDoubleExtra("startPositionX",0);
+			double startPositionY = data.GetDoubleExtra("startPositionY",0);
+			double endPositionX = data.GetDoubleExtra("endPositionY",0);
+			double endPositionY = data.GetDoubleExtra("endPositionY",0);
+			Boolean campus = data.GetBooleanExtra ("sameCampus", false);
+
+			if (campus) {
+				DrawDirections(new LatLng(startPositionX,startPositionY),	new LatLng(endPositionX,endPositionY));
+
+			} else {
+				DrawDirectionsDifferentCampus(new LatLng(startPositionX,startPositionY),	new LatLng(endPositionX,endPositionY));
+			}
+
+		}
+
 		public String[] AllLocations (List<Building> sgw,List<Building> loy){ 
 
 			List<string> locations = new List<string> ();

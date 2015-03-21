@@ -278,6 +278,7 @@
     <AndroidResource Include="Resources\layout\EventList.axml" />
     <AndroidResource Include="Resources\layout\EventListItem.axml" />
     <AndroidResource Include="Resources\layout\AddEventView.axml" />
+    <AndroidResource Include="Resources\drawable-hdpi\toggleDrawer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

@@ -84,7 +84,8 @@ namespace GoogleApiTest
 				StartActivity (new Intent (this, typeof(CalendarListActivity)));
 			}
 			else if (e.Position == 3) {
-				StartActivity (new Intent (this, typeof(NavigateActivity)));
+				var NavigateActivity = new Intent (this, typeof(NavigateActivity));
+				StartActivityForResult(NavigateActivity, 0);
 			}
 		}
 	
