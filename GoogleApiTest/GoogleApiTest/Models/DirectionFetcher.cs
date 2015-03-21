@@ -5,26 +5,37 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Android.Gms.Maps.Model;
+using Android.Net;
+using Android.Content;
 
 namespace GoogleApiTest
 {
 	public class DirectionFetcher
 	{
+		Context mContext;
+		public DirectionFetcher(Context mContext){
+			this.mContext = mContext;
+		}
+
+
 		public async Task<JsonValue> GetDirections(LatLng startingPoint, LatLng endingPoint, string option = "walking"){
 
 			string urlDirections = "http://maps.googleapis.com/maps/api/directions/json?origin="+startingPoint.Latitude+","
 				+ startingPoint.Longitude+"&destination="+endingPoint.Latitude+","+ endingPoint.Longitude+"&sensor=false&mode="+option;
 
-			HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create (new Uri (urlDirections));
+			HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create (new System.Uri (urlDirections));
 			request.ContentType = "application/json";
 			request.Method = "GET";
+			if (IsConnectedToNetwork()) {
+				using (WebResponse response = await request.GetResponseAsync ()) {
+					using (Stream stream = response.GetResponseStream ()) {
 
-			using(WebResponse response = await request.GetResponseAsync()){
-				using(Stream stream = response.GetResponseStream()){
-
-					JsonValue jsonDoc = await Task.Run(() => JsonObject.Load(stream));
-					return jsonDoc;
+						JsonValue jsonDoc = await Task.Run (() => JsonObject.Load (stream));
+						return jsonDoc;
+					}
 				}
+			} else {
+				return null;
 			}
 		}
 
@@ -138,5 +149,21 @@ namespace GoogleApiTest
 			}
 			return poly;
 		}
+
+		//Check if Phone is connected to network, try this before trying to connect to the internet (httpRequests)
+		public Boolean IsConnectedToNetwork()
+		{
+			var connectivityManager = (ConnectivityManager)mContext.GetSystemService(Context.ConnectivityService);
+
+			var activeConnection = connectivityManager.ActiveNetworkInfo;
+
+			if ((activeConnection != null) && activeConnection.IsConnected) {
+				return true;
+			} else {
+				return false;
+			}
+
+		}
+
 	}
 }

@@ -12,13 +12,14 @@ using System.Text.RegularExpressions;
 using Android.Views.InputMethods;
 using Android.Content.PM;
 
+
 namespace GoogleApiTest
 {
 	[Activity (Label = "CONCORDIA CONQUEST",MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]			
 	public class MapActivity : LeftDrawerActivity
 	{
 		BuildingManager BuildingManager = new BuildingManager ();
-		DirectionFetcher DirectionFetcher = new DirectionFetcher ();
+		DirectionFetcher DirectionFetcher;
 		GoogleMap map;
 		PopupWindow window=null;
 		Marker startPoint;
@@ -41,7 +42,7 @@ namespace GoogleApiTest
 			base.OnCreate (bundle,Resource.Layout.Main );
 
 			// Create your application here
-
+			DirectionFetcher = new DirectionFetcher (this);
 			MapFragment mapFrag = (MapFragment) FragmentManager.FindFragmentById(Resource.Id.map);
 			map = mapFrag.Map;
 			if (map != null) {
@@ -274,11 +275,19 @@ namespace GoogleApiTest
 				ClosestCampus = startB.Campus;
 			}
 			JsonValue firstDirections = await DirectionFetcher.GetDirections(startingPoint,ClosestCampus.ExtractionPoint);
+			if (firstDirections == null) {
+				Toast.MakeText (this, "Please connect to a network", ToastLength.Short).Show ();
+				return;
+			}
 			JsonValue firstRoutesResults = firstDirections ["routes"];
 			string points1 = firstRoutesResults [0] ["overview_polyline"] ["points"];
 			var polyPoints1 = DirectionFetcher.DecodePolylinePoints (points1);
 
 			JsonValue secondDirections = await DirectionFetcher.GetDirections(endB.Campus.ExtractionPoint,endingPoint);
+			if (secondDirections == null) {
+				Toast.MakeText (this, "Please connect to a network", ToastLength.Short).Show ();
+				return;
+			}
 			JsonValue secondRoutesResults = secondDirections ["routes"];
 			string points2 = secondRoutesResults [0] ["overview_polyline"] ["points"];
 			var polyPoints2 = DirectionFetcher.DecodePolylinePoints (points2);
@@ -358,6 +367,11 @@ namespace GoogleApiTest
 				directions = await DirectionFetcher.GetDirections(startingPoint,endingPoint, transitMode);
 			else 
 				directions = await DirectionFetcher.GetDirections(startingPoint,endingPoint);
+			if (directions == null) {
+				Toast.MakeText (this, "Please connect to a network", ToastLength.Short).Show ();
+				return;
+			}
+
 			JsonValue routesResults = directions ["routes"];
 
 			//GET INSTRUCTIONS
@@ -688,6 +702,10 @@ namespace GoogleApiTest
 			int Color = Int32.Parse ("50800020", System.Globalization.NumberStyles.HexNumber);
 			ClickedPolygon.FillColor = Color;
 		}
+
+
+
+
 	}
 }
 
