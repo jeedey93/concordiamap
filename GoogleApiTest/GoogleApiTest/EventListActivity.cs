@@ -1,12 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Provider;
@@ -23,6 +19,16 @@ namespace GoogleApiTest
 		string location;
 		string startingTime;
 		string endTime;
+
+		//Parsing Properties
+		int startingYear;
+		int startingMonth;
+		int startingDay;
+		int startingHour;
+		int startingMinute;
+
+		int endingHour;
+		int endingMinute;
         
         protected override void OnCreate (Bundle bundle)
         {
@@ -58,8 +64,9 @@ namespace GoogleApiTest
 			eventValues.Put (CalendarContract.Events.InterfaceConsts.Title, title);
 			//eventValues.Put (CalendarContract.Events.InterfaceConsts.Description, "This is an event created from Mono for Android");
 			eventValues.Put (CalendarContract.Events.InterfaceConsts.EventLocation, location);
-			eventValues.Put (CalendarContract.Events.InterfaceConsts.Dtstart, GetDateTimeMS (2011, 12, 15, 10, 0));
-			eventValues.Put (CalendarContract.Events.InterfaceConsts.Dtend, GetDateTimeMS (2011, 12, 15, 11, 0));
+			ParseDayAndTime (date,startingTime, endTime);
+			eventValues.Put (CalendarContract.Events.InterfaceConsts.Dtstart, GetDateTimeMS (startingYear, startingMonth, startingDay, startingHour, startingMinute));
+			eventValues.Put (CalendarContract.Events.InterfaceConsts.Dtend, GetDateTimeMS (startingYear, startingMonth, startingDay, endingHour, endingMinute));
 
 			// GitHub issue #9 : Event start and end times need timezone support.
 			// https://github.com/xamarin/monodroid-samples/issues/9
@@ -69,6 +76,21 @@ namespace GoogleApiTest
 			 var uri = ContentResolver.Insert (CalendarContract.Events.ContentUri, eventValues);
 			 Console.WriteLine ("Uri for new event: {0}", uri);
 
+		}
+
+		void ParseDayAndTime(string date, string startingTime, string endTime){
+			var dateParsed = DateTime.Parse(date);
+			startingYear = dateParsed.Year;
+			startingMonth = dateParsed.Month;
+			startingDay = dateParsed.Day;
+
+			var startingTimeParsed = DateTime.Parse (startingTime);
+			startingHour = startingTimeParsed.Hour;
+			startingMinute = startingTimeParsed.Minute;
+
+			var endTimeParsed = DateTime.Parse (endTime);
+			endingHour = endTimeParsed.Hour;
+			endingMinute = endTimeParsed.Minute;
 		}
 
 		void MakeDefaultCalendar(){
@@ -165,11 +187,11 @@ namespace GoogleApiTest
         {
             Calendar c = Calendar.GetInstance (Java.Util.TimeZone.Default);
             
-            c.Set (Calendar.DayOfMonth, 15);
+			c.Set (Calendar.DayOfMonth, day);
             c.Set (Calendar.HourOfDay, hr);
             c.Set (Calendar.Minute, min);
-            c.Set (Calendar.Month, Calendar.December);
-            c.Set (Calendar.Year, 2011);
+			c.Set (Calendar.Month, month);
+			c.Set (Calendar.Year, yr);
                   
             return c.TimeInMillis;
         }
