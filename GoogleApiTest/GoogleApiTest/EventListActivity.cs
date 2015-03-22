@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Provider;
 using Java.Util;
+using System.Collections.Generic;
 
 namespace GoogleApiTest
 {
@@ -30,6 +31,8 @@ namespace GoogleApiTest
 
 		int endingHour;
 		int endingMinute;
+
+		List<Event> EventList = new List<Event>();
         
         protected override void OnCreate (Bundle bundle)
         {
@@ -45,7 +48,7 @@ namespace GoogleApiTest
 
 			if(isNextClass){
 				Toast.MakeText (this, "Let's fetch the next class", ToastLength.Short).Show ();
-
+				PickNextClass ();
 			}
 
             
@@ -119,6 +122,36 @@ namespace GoogleApiTest
 					BuildingManager.DefaultCalendarId = 0; 
 				}
 			};
+		}
+
+		Event PickNextClass(){
+			var numberofEvents = ListAdapter.Count;
+			var eventsUri = CalendarContract.Events.ContentUri;
+
+			string[] eventsProjection = { 
+				CalendarContract.Events.InterfaceConsts.Id,
+				CalendarContract.Events.InterfaceConsts.Title,
+				CalendarContract.Events.InterfaceConsts.Dtstart,
+				CalendarContract.Events.InterfaceConsts.EventLocation
+			};
+
+			var cursor = ManagedQuery (eventsUri, eventsProjection, 
+				String.Format ("calendar_id={0}", _calId), null, "dtstart ASC");
+
+
+			for (int i = 0; i < numberofEvents; i++) {
+				cursor.MoveToPosition (i);
+				var eventId = cursor.GetInt (cursor.GetColumnIndex (eventsProjection [0]));
+				var eventTitle = cursor.GetString (cursor.GetColumnIndex (eventsProjection [1]));
+				var eventDtStart = cursor.GetString (cursor.GetColumnIndex (eventsProjection [2]));
+				var eventLocation = cursor.GetString (cursor.GetColumnIndex (eventsProjection [3]));
+
+				EventList.Add(new Event(_calId, eventId,eventTitle,eventDtStart,eventLocation));
+			}
+
+			var NextClass = Event.GetNextEvent (EventList);
+			return NextClass;
+
 		}
 
         void ListEvents ()

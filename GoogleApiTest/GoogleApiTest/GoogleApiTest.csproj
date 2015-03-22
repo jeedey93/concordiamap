@@ -102,6 +102,7 @@
     <Compile Include="CalendarListActivity.cs" />
     <Compile Include="EventListActivity.cs" />
     <Compile Include="AddEventActivity.cs" />
+    <Compile Include="Models\Event.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
