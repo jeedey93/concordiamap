@@ -48,7 +48,7 @@ namespace GoogleApiTest
 
 			if(isNextClass){
 				Toast.MakeText (this, "Let's fetch the next class", ToastLength.Short).Show ();
-				PickNextClass ();
+				var nextEvent = PickNextClass ();
 			}
 
             
