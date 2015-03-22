@@ -94,59 +94,72 @@ namespace GoogleApiTest
 			WalkingMode.SetBackgroundColor(Android.Graphics.Color.Gold);
 
 
-			DrivingMode.Click += (o, e) => {
-				DrivingMode.SetBackgroundColor(Android.Graphics.Color.Gold);
-				WalkingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
-				TransitMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
+			DrivingModeClick (DrivingMode, WalkingMode, TransitMode);
+			WalkingModeClick (DrivingMode, WalkingMode, TransitMode);
+			TransitModeClick (DrivingMode, WalkingMode, TransitMode);
+
+			ClearMarkerFromMap ();
+
+		} 
+
+		void DrivingModeClick (Button DrivingMode, Button WalkingMode, Button TransitMode)
+		{
+			DrivingMode.Click += (o, e) =>  {
+				DrivingMode.SetBackgroundColor (Android.Graphics.Color.Gold);
+				WalkingMode.SetBackgroundResource (Resource.Drawable.exploreMButtonStyle);
+				TransitMode.SetBackgroundResource (Resource.Drawable.exploreMButtonStyle);
 				TravelModeChosen = TravelMode.Driving;
-
 				ClearBusMarkers ();
-					
-				if(startB!=null && endB !=null)
-					DrawDirections(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate), "driving");
+				if (startB != null && endB != null)
+					DrawDirections (new LatLng (startB.XCoordinate, startB.YCoordinate), new LatLng (endB.XCoordinate, endB.YCoordinate), "driving");
 				else
-					DrawDirections(new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude),new LatLng(endB.XCoordinate,endB.YCoordinate), "driving");
+					DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), new LatLng (endB.XCoordinate, endB.YCoordinate), "driving");
 			};
+		}
 
-
-			WalkingMode.Click += (o, e) => {
-				DrivingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
-				WalkingMode.SetBackgroundColor(Android.Graphics.Color.Gold);
-				TransitMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
-				TravelModeChosen= TravelMode.Walking;
-
-				if(startB!=null && endB !=null && startB.Campus == endB.Campus){
-					DrawDirections(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate));
+		void WalkingModeClick (Button DrivingMode, Button WalkingMode, Button TransitMode)
+		{
+			WalkingMode.Click += (o, e) =>  {
+				DrivingMode.SetBackgroundResource (Resource.Drawable.exploreMButtonStyle);
+				WalkingMode.SetBackgroundColor (Android.Graphics.Color.Gold);
+				TransitMode.SetBackgroundResource (Resource.Drawable.exploreMButtonStyle);
+				TravelModeChosen = TravelMode.Walking;
+				if (startB != null && endB != null && startB.Campus == endB.Campus) {
+					DrawDirections (new LatLng (startB.XCoordinate, startB.YCoordinate), new LatLng (endB.XCoordinate, endB.YCoordinate));
 				}
-				else if(startB!= null && startB.Campus != endB.Campus){
-					DrawDirectionsDifferentCampus(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate));
-				}
-				else if(startB==null){
-					DrawDirectionsDifferentCampus(new LatLng(map.MyLocation.Latitude, map.MyLocation.Longitude),new LatLng(endB.XCoordinate,endB.YCoordinate));
-				}
+				else
+					if (startB != null && startB.Campus != endB.Campus) {
+						DrawDirectionsDifferentCampus (new LatLng (startB.XCoordinate, startB.YCoordinate), new LatLng (endB.XCoordinate, endB.YCoordinate));
+					}
+					else
+						if (startB == null) {
+							DrawDirectionsDifferentCampus (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), new LatLng (endB.XCoordinate, endB.YCoordinate));
+						}
 			};
+		}
 
-
-			TransitMode.Click += (o, e) => {
-				DrivingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
-				WalkingMode.SetBackgroundResource(Resource.Drawable.exploreMButtonStyle);
-				TransitMode.SetBackgroundColor(Android.Graphics.Color.Gold);
+		void TransitModeClick (Button DrivingMode, Button WalkingMode, Button TransitMode)
+		{
+			TransitMode.Click += (o, e) =>  {
+				DrivingMode.SetBackgroundResource (Resource.Drawable.exploreMButtonStyle);
+				WalkingMode.SetBackgroundResource (Resource.Drawable.exploreMButtonStyle);
+				TransitMode.SetBackgroundColor (Android.Graphics.Color.Gold);
 				TravelModeChosen = TravelMode.Transit;
-
 				ClearBusMarkers ();
-				if(startB!=null && endB !=null)
-					DrawDirections(new LatLng(startB.XCoordinate,startB.YCoordinate),new LatLng(endB.XCoordinate,endB.YCoordinate), "transit");
+				if (startB != null && endB != null)
+					DrawDirections (new LatLng (startB.XCoordinate, startB.YCoordinate), new LatLng (endB.XCoordinate, endB.YCoordinate), "transit");
 				else
-					DrawDirections(new LatLng(map.MyLocation.Latitude,map.MyLocation.Longitude),new LatLng(endB.XCoordinate,endB.YCoordinate), "transit");
+					DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), new LatLng (endB.XCoordinate, endB.YCoordinate), "transit");
 			};
+		}
 
-			Button clearButton = FindViewById<Button>(Resource.Id.clearMarker);
+		void ClearMarkerFromMap ()
+		{
+			Button clearButton = FindViewById<Button> (Resource.Id.clearMarker);
 			Button Reload = FindViewById<Button> (Resource.Id.Reload);
-
-			clearButton.Click += (o, e) => {
+			clearButton.Click += (o, e) =>  {
 				ClearStartEndPath ();
 				ClearBusMarkers ();
-
 				map.UiSettings.ZoomControlsEnabled = true;
 				clearButton.Visibility = ViewStates.Invisible;
 				Reload.Visibility = ViewStates.Invisible;
@@ -157,7 +170,7 @@ namespace GoogleApiTest
 				RelativeLayout mode = FindViewById<RelativeLayout> (Resource.Id.mode);
 				mode.Visibility = ViewStates.Gone;
 			};
-		} 
+		}
 
 		protected override void OnActivityResult (int requestCode, Result resultCode, Intent data)
 		{
@@ -309,9 +322,12 @@ namespace GoogleApiTest
 			string points2 = secondRoutesResults [0] ["overview_polyline"] ["points"];
 			var polyPoints2 = DirectionFetcher.DecodePolylinePoints (points2);
 
-			//GET INSTRUCTIONS
-			string Instructions = DisplayStepDirections(DirectionFetcher.GetInstructionsDifferentCampus (firstRoutesResults, secondRoutesResults));
+			GetInstructionDifferentCampus (ClosestCampus, firstRoutesResults, polyPoints1, secondRoutesResults, polyPoints2);
+		}
 
+		void GetInstructionDifferentCampus (Campus ClosestCampus, JsonValue firstRoutesResults, List<LatLng> polyPoints1, JsonValue secondRoutesResults, List<LatLng> polyPoints2)
+		{
+			string Instructions = DisplayStepDirections (DirectionFetcher.GetInstructionsDifferentCampus (firstRoutesResults, secondRoutesResults));
 			//TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
 			//instructionsView.Text = DisplayStepDirections(Instructions);
 			//instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
@@ -319,38 +335,30 @@ namespace GoogleApiTest
 			List<String> instructionslist = new List<String> ();
 			instructionslist.Add (Instructions);
 			//instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
-
 			ArrayAdapter instructionsAdapter = new ArrayAdapter (this, Android.Resource.Layout.SimpleListItem1, instructionslist);
 			instructionsView.Adapter = instructionsAdapter;
-
 			List<LatLng> direction1 = polyPoints1;
 			List<LatLng> direction2 = polyPoints2;
-			PolylineOptions line1 = new PolylineOptions();
-			PolylineOptions line2 = new PolylineOptions();
+			PolylineOptions line1 = new PolylineOptions ();
+			PolylineOptions line2 = new PolylineOptions ();
 			foreach (var point in direction1) {
 				line1.Add (point);
 			}
 			foreach (var point in direction2) {
 				line2.Add (point);
 			}
-
 			directionPath = map.AddPolyline (line1);
 			directionPath.Width = 9;
 			int Color = Int32.Parse ("ff800020", System.Globalization.NumberStyles.HexNumber);
 			directionPath.Color = Color;
-
-
-			directionPath2 = map.AddPolyline(line2);
+			directionPath2 = map.AddPolyline (line2);
 			directionPath2.Width = 9;
 			directionPath2.Color = Color;
-
 			CreateBusMarkers (ClosestCampus);
-
 			LinearLayout slideUp = FindViewById<LinearLayout> (Resource.Id.SlideUpText);
 			slideUp.Visibility = ViewStates.Visible;
 			RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
 			clearLayout.SetPadding (0, 0, 0, 200);
-
 			RelativeLayout mode = FindViewById<RelativeLayout> (Resource.Id.mode);
 			mode.Visibility = ViewStates.Visible;
 		}
@@ -391,41 +399,37 @@ namespace GoogleApiTest
 
 			JsonValue routesResults = directions ["routes"];
 
-			//GET INSTRUCTIONS
-			string instructions = DirectionFetcher.GetInstructions (routesResults);
+			GetInstructionSameCampus (routesResults);
+		}
 
+		void GetInstructionSameCampus (JsonValue routesResults)
+		{
+			string instructions = DirectionFetcher.GetInstructions (routesResults);
 			//TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
 			//instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
 			string formattedInstructions = DisplayStepDirections (instructions);
-
 			//instructionsView.Text = formattedInstructions;
 			ListView instructionsView = FindViewById<ListView> (Resource.Id.SlideUpList);
 			List<String> instructionslist = new List<String> ();
 			instructionslist.Add (formattedInstructions);
-
 			ArrayAdapter instructionsAdapter = new ArrayAdapter (this, Android.Resource.Layout.SimpleListItem1, instructionslist);
 			instructionsView.Adapter = instructionsAdapter;
-
-
 			string points = routesResults [0] ["overview_polyline"] ["points"];
 			var polyPoints = DirectionFetcher.DecodePolylinePoints (points);
 			//LatLng center = new LatLng (0.0, 0.0);
 			LatLngBounds.Builder boundsbuilder = new LatLngBounds.Builder ();
 			List<LatLng> direction = polyPoints;
-			PolylineOptions line = new PolylineOptions();
+			PolylineOptions line = new PolylineOptions ();
 			foreach (var point in direction) {
 				line.Add (point);
-				boundsbuilder.Include(point);
-
+				boundsbuilder.Include (point);
 			}
-
 			directionPath = map.AddPolyline (line);
 			directionPath.Width = 9;
 			int Color = Int32.Parse ("ff800020", System.Globalization.NumberStyles.HexNumber);
 			directionPath.Color = Color;
-
-			LatLngBounds bounds = boundsbuilder.Build();
-			map.AnimateCamera  (CameraUpdateFactory.NewLatLngBounds(bounds,200));
+			LatLngBounds bounds = boundsbuilder.Build ();
+			map.AnimateCamera (CameraUpdateFactory.NewLatLngBounds (bounds, 200));
 			LinearLayout slideUp = FindViewById<LinearLayout> (Resource.Id.SlideUpText);
 			slideUp.Visibility = ViewStates.Visible;
 			RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
