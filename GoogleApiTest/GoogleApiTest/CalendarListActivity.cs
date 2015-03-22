@@ -12,14 +12,14 @@ using Java.Util;
 namespace GoogleApiTest
 {
     [Activity (Label = "CalendarListActivity")]
-	public class CalendarListActivity : ListActivity
+	public class CalendarListActivity : LeftDrawerActivity
     {
         protected override void OnCreate (Bundle bundle)
         {
-            base.OnCreate (bundle);
+			base.OnCreate (bundle, Resource.Layout.CalendarList);
 
             // Set our view from the "main" layout resource
-            SetContentView (Resource.Layout.CalendarList);
+//            SetContentView (Resource.Layout.CalendarList);
            
             // List Calendars
             var calendarsUri = CalendarContract.Calendars.ContentUri;
@@ -40,9 +40,10 @@ namespace GoogleApiTest
             SimpleCursorAdapter adapter = new SimpleCursorAdapter (this, Resource.Layout.CalListItem, 
                 cursor, sourceColumns, targetResources);
             
-            ListAdapter = adapter;
+			ListView lv = FindViewById<ListView> (Android.Resource.Id.List);
+			lv.SetAdapter(adapter);
             
-            ListView.ItemClick += (sender, e) => { 
+			lv.ItemClick += (sender, e) => { 
                 int i = (e as Android.Widget.AdapterView.ItemClickEventArgs).Position;
                 
                 cursor.MoveToPosition(i);

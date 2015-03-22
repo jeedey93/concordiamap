@@ -19,18 +19,14 @@ namespace GoogleApiTest
 		List<string> mLeftItem = new List<string> ();
 		ArrayAdapter mLeftAdapter;
 		ListView mLeftDrawer;
-		private static List<Activity> activities = new List<Activity>();
 		ActionBarDrawerToggle mDrawerToggle;
 		bool MapActivity;
-
-
 
 		protected void OnCreate (Bundle bundle, int layout){
 
 			RequestWindowFeature(WindowFeatures.NoTitle);
 
 			base.OnCreate (bundle);
-			activities.Add (this);
 
 			SetContentView (layout);
 
@@ -42,7 +38,6 @@ namespace GoogleApiTest
 			mLeftItem.Add ("My Calendar");
 			mLeftItem.Add ("Navigate");
 			mLeftItem.Add ("Go to my next class");
-		
 
 			mDrawerToggle = new ActionBarDrawerToggle (
 				(Activity) this,

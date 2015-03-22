@@ -18,7 +18,7 @@ using Android.Gms.Plus.Model.People;
 namespace GoogleApiTest
 {
 	[Activity (Label = "CalendarActivity")]			
-	public class CalendarActivity : Activity, IGoogleApiClientConnectionCallbacks, IGoogleApiClientOnConnectionFailedListener
+	public class CalendarActivity : LeftDrawerActivity, IGoogleApiClientConnectionCallbacks, IGoogleApiClientOnConnectionFailedListener
 	{
 		private IGoogleApiClient mGoogleApiClient;
 		private SignInButton mGoogleSignIn;
@@ -31,9 +31,7 @@ namespace GoogleApiTest
 
 		protected override void OnCreate (Bundle bundle)
 		{
-			base.OnCreate (bundle);
-			SetContentView (Resource.Layout.Calendar);
-
+			base.OnCreate (bundle, Resource.Layout.Calendar);
 
 			mGoogleSignIn = FindViewById<SignInButton> (Resource.Id.sign_in_button);
 			mGoogleSignIn.Click += mGoogleSignIn_Click;
