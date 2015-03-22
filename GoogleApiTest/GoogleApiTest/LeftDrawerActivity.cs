@@ -41,6 +41,7 @@ namespace GoogleApiTest
 			mLeftItem.Add ("Explore");
 			mLeftItem.Add ("My Calendar");
 			mLeftItem.Add ("Navigate");
+			mLeftItem.Add ("Go to my next class");
 		
 
 			mDrawerToggle = new ActionBarDrawerToggle (
@@ -72,20 +73,28 @@ namespace GoogleApiTest
 
 			if (e.Position == 0 && !MapActivity) {
 				Finish ();
-			} else if (e.Position == 1){
+			} else if (e.Position == 1) {
 				StartActivity (new Intent (this, typeof(ExploreActivity)));
-			}
-			else if (e.Position == 2) {
+			} else if (e.Position == 2) {
 				if (BuildingManager.isDefaultCalendarSelected) {
-					var showEvents = new Intent(this, typeof(EventListActivity));
-					showEvents.PutExtra("calId", BuildingManager.DefaultCalendarId);
-					StartActivity(showEvents);
-				}else
-				StartActivity (new Intent (this, typeof(CalendarListActivity)));
-			}
-			else if (e.Position == 3) {
+					var showEvents = new Intent (this, typeof(EventListActivity));
+					showEvents.PutExtra ("calId", BuildingManager.DefaultCalendarId);
+					StartActivity (showEvents);
+				} else
+					StartActivity (new Intent (this, typeof(CalendarListActivity)));
+			} else if (e.Position == 3) {
 				var NavigateActivity = new Intent (this, typeof(NavigateActivity));
-				StartActivityForResult(NavigateActivity, 0);
+				StartActivityForResult (NavigateActivity, 0);
+			} else if (e.Position == 4) {
+				if (BuildingManager.isDefaultCalendarSelected) {
+					var showEvents = new Intent (this, typeof(EventListActivity));
+					showEvents.PutExtra ("calId", BuildingManager.DefaultCalendarId);
+					showEvents.PutExtra ("isNextClass", true);
+					StartActivity (showEvents);
+				} else {
+					Toast.MakeText (this, "Please choose a default calendar", ToastLength.Short).Show ();
+					return;
+				}
 			}
 		}
 	

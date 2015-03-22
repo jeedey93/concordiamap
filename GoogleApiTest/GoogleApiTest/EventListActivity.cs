@@ -14,6 +14,7 @@ namespace GoogleApiTest
 	public class EventListActivity : ListActivity
     {   
         int _calId;
+		bool isNextClass;
 		string title;
 		string date;
 		string location;
@@ -38,8 +39,15 @@ namespace GoogleApiTest
 
 			//Get current type of this activity based on passed value in intent
             _calId = Intent.GetIntExtra ("calId", -1); 
-
+			isNextClass = Intent.GetBooleanExtra ("isNextClass", false);
+		
             ListEvents ();
+
+			if(isNextClass){
+				Toast.MakeText (this, "Let's fetch the next class", ToastLength.Short).Show ();
+
+			}
+
             
             InitAddEvent ();
 
