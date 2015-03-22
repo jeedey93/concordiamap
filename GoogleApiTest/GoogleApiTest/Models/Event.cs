@@ -9,7 +9,7 @@ namespace GoogleApiTest
 		int mCalendarId;
 		int mEventId;
 		string mTitle;
-		string mDtStart;
+		DateTime mDtStart;
 		string mEventLocation;
 
 		public Event (int CalendarId, int EventId, string Title, string DtStart, string EventLocation)
@@ -43,11 +43,12 @@ namespace GoogleApiTest
 				}
 
 				return nextEvent;
-		}else{
+			}else{
 
-			return null;
+				return null;
+			}
+
 		}
-
 	}
 }
 
