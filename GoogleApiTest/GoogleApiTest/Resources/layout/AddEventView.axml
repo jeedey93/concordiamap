@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/dateDisplay"
+            android:id="@+id/editStartDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="32sp"
@@ -47,26 +47,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter starting time" />
-    <EditText
-        android:inputType="time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editStartTime"
-        android:hint="00:00" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/editStartTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:text="" />
+        <Button
+            android:id="@+id/pickTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change the time" />
+    </LinearLayout>
     <TextView
         android:id="@+id/timeDisplayEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter end time" />
-    <EditText
-        android:inputType="time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="00:00"
-        android:id="@+id/editEndTime" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/editEndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:text="" />
+        <Button
+            android:id="@+id/pickTime2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change the time" />
+    </LinearLayout>
     <Button
         android:id="@+id/AddEventBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/@android:color/holo_green_dark"
+        android:layout_alignParentBottom="true"
         android:text="Add Event" />
 </LinearLayout>
