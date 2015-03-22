@@ -34,17 +34,12 @@ namespace GoogleApiTest
 				foreach (Event e in EventList) {
 					//make sure the event time is after now.
 					if ((e.mDtStart.CompareTo (now)) > 0) {
-						delta = e.mDtStart - now;
-						if (delta.CompareTo (closestDelta) < 0) {
-							closestDelta = delta;
-							nextEvent = e;
-						}
-
+						nextEvent = e;
+						break;
 					}
 				}
 				return nextEvent;
 			}else{
-
 				return null;
 			}
 
