@@ -143,7 +143,7 @@ namespace GoogleApiTest
 				cursor.MoveToPosition (i);
 				var eventId = cursor.GetInt (cursor.GetColumnIndex (eventsProjection [0]));
 				var eventTitle = cursor.GetString (cursor.GetColumnIndex (eventsProjection [1]));
-				var eventDtStart = cursor.GetString (cursor.GetColumnIndex (eventsProjection [2]));
+				var eventDtStart = cursor.GetDouble (cursor.GetColumnIndex (eventsProjection [2]));
 				var eventLocation = cursor.GetString (cursor.GetColumnIndex (eventsProjection [3]));
 
 				EventList.Add(new Event(_calId, eventId,eventTitle,eventDtStart,eventLocation));

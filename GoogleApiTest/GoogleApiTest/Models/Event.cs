@@ -6,18 +6,19 @@ namespace GoogleApiTest
 {
 	public class Event
 	{
-		int mCalendarId;
-		int mEventId;
-		string mTitle;
-		DateTime mDtStart;
-		string mEventLocation;
+		public int mCalendarId;
+		public int mEventId;
+		public string mTitle;
+		public DateTime mDtStart;
+		public string mEventLocation;
 
-		public Event (int CalendarId, int EventId, string Title, string DtStart, string EventLocation)
+		public Event (int CalendarId, int EventId, string Title, double DtStart, string EventLocation)
 		{
 			mCalendarId = CalendarId;
 			mEventId = EventId;
 			mTitle = Title;
-			mDtStart = DtStart;
+			DateTime date = new DateTime (1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds (DtStart).ToLocalTime ();
+			mDtStart = date;
 			mEventLocation = EventLocation;
 		}
 
@@ -27,7 +28,7 @@ namespace GoogleApiTest
 
 			if (EventList.Count > 0) {
 				DateTime now = DateTime.Now.ToLocalTime ();
-				Event nextEvent;
+				Event nextEvent=null;
 				TimeSpan delta = new TimeSpan ();
 				TimeSpan closestDelta = new TimeSpan (1000000, 50, 50); //hh,mm,ss
 				foreach (Event e in EventList) {
@@ -41,7 +42,6 @@ namespace GoogleApiTest
 
 					}
 				}
-
 				return nextEvent;
 			}else{
 
