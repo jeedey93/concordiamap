@@ -9,10 +9,10 @@ namespace GoogleApiTest
 		int mCalendarId;
 		int mEventId;
 		string mTitle;
-		DateTime mDtStart;
+		string mDtStart;
 		string mEventLocation;
 
-		public Event (int CalendarId, int EventId, string Title, DateTime DtStart, string EventLocation)
+		public Event (int CalendarId, int EventId, string Title, string DtStart, string EventLocation)
 		{
 			mCalendarId = CalendarId;
 			mEventId = EventId;
@@ -23,6 +23,7 @@ namespace GoogleApiTest
 
 
 		public static Event GetNextEvent(List<Event> EventList){
+
 
 			if (EventList.Count > 0) {
 				DateTime now = DateTime.Now.ToLocalTime ();
@@ -43,6 +44,7 @@ namespace GoogleApiTest
 
 				return nextEvent;
 		}else{
+
 			return null;
 		}
 
