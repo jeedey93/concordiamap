@@ -164,7 +164,7 @@ namespace GoogleApiTest
 
 			double startPositionX = data.GetDoubleExtra("startPositionX",0);
 			double startPositionY = data.GetDoubleExtra("startPositionY",0);
-			double endPositionX = data.GetDoubleExtra("endPositionY",0);
+			double endPositionX = data.GetDoubleExtra("endPositionX",0);
 			double endPositionY = data.GetDoubleExtra("endPositionY",0);
 			Boolean campus = data.GetBooleanExtra ("sameCampus", false);
 

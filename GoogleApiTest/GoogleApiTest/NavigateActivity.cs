@@ -67,13 +67,13 @@ namespace GoogleApiTest
 						String campusStart = fromBuilding.Campus.CampusName;
 						foreach(Building toBuilding in buildBuildings){
 							if (toBuilding.Abbreviation == toText) {
-								endPositionX = fromBuilding.XCoordinate;
-								endPositionY = fromBuilding.YCoordinate;
+								endPositionX = toBuilding.XCoordinate;
+								endPositionY = toBuilding.YCoordinate;
 								String campusEnd = toBuilding.Campus.CampusName;
 								var mapActivity = new Intent (this, typeof(MapActivity));
 								mapActivity.PutExtra("startPositionX",startPositionX);
 								mapActivity.PutExtra("startPositionY",startPositionY);
-								mapActivity.PutExtra("startPositionX",endPositionX);
+								mapActivity.PutExtra("endPositionX",endPositionX);
 								mapActivity.PutExtra("endPositionY",endPositionY);
 								if(campusStart == campusEnd)
 									mapActivity.PutExtra("sameCampus",true);
