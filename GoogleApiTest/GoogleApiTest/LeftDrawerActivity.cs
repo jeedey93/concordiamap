@@ -38,6 +38,7 @@ namespace GoogleApiTest
 			mLeftItem.Add ("My Calendar");
 			mLeftItem.Add ("Navigate");
 			mLeftItem.Add ("Go to my next class");
+			mLeftItem.Add ("Bus Schedule");
 
 			mDrawerToggle = new ActionBarDrawerToggle (
 				(Activity) this,
@@ -90,7 +91,11 @@ namespace GoogleApiTest
 					Toast.MakeText (this, "Please choose a default calendar", ToastLength.Short).Show ();
 					return;
 				}
+			} else if (e.Position == 5) {
+				var BusSchedule = new Intent (this, typeof(BusScheduleActivity));
+				StartActivityForResult (BusSchedule, 0);
 			}
+
 		}
 	
 

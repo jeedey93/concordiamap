@@ -103,6 +103,7 @@
     <Compile Include="EventListActivity.cs" />
     <Compile Include="AddEventActivity.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="BusScheduleActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -280,6 +281,7 @@
     <AndroidResource Include="Resources\layout\EventListItem.axml" />
     <AndroidResource Include="Resources\layout\AddEventView.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\toggleDrawer.png" />
+    <AndroidResource Include="Resources\layout\BusSchedule.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
