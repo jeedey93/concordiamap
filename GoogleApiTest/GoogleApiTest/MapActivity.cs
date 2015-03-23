@@ -191,8 +191,24 @@ namespace GoogleApiTest
 			}
 			else if (requestCode==1) {
 				string buildingAbrev = data.GetStringExtra ("nextBuilding");
+				FindBuildingName (buildingAbrev);
 				Toast.MakeText (this, "Let's fetch the next class", ToastLength.Short).Show ();
 			}
+		}
+
+		Building FindBuildingName (string buildingAbrev)
+		{
+			foreach (Building item in BuildingManager.GetSGWBuildings) {
+				if (item.Abbreviation == buildingAbrev) {
+					return item;
+				}
+			}
+			foreach (Building item in BuildingManager.GetLoyolaBuildings) {
+				if (item.Abbreviation == buildingAbrev) {
+					return item;
+				}
+			}
+			return null;
 		}
 
 		public String[] AllLocations (List<Building> sgw,List<Building> loy){ 
