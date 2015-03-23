@@ -90,8 +90,12 @@ namespace GoogleApiTest
 						}
 					} 
 				}
+				//if none is found return null
+				if (nextEvent == null)
+					return null;
 				//Check that event corresponds to a building
-				Building nextBuilding = nextEvent.AbbreviationToBuilding (LocationToBuildingAbbreviation (nextEvent.mEventLocation));
+				String location = LocationToBuildingAbbreviation (nextEvent.mEventLocation);
+				Building nextBuilding = nextEvent.AbbreviationToBuilding (location);
 				//If the abbreviation does correspond, return that building
 				if (nextBuilding != null) {
 					return nextBuilding;
