@@ -75,6 +75,8 @@ namespace GoogleApiTest
 								mapActivity.PutExtra("startPositionY",startPositionY);
 								mapActivity.PutExtra("endPositionX",endPositionX);
 								mapActivity.PutExtra("endPositionY",endPositionY);
+								mapActivity.PutExtra("startBuilding",fromBuilding.Abbreviation);
+								mapActivity.PutExtra("endBuilding",toBuilding.Abbreviation);
 								if(campusStart == campusEnd)
 									mapActivity.PutExtra("sameCampus",true);
 								else
