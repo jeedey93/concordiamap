@@ -124,7 +124,7 @@ namespace GoogleApiTest
 				}
 			};
 		}
-
+			
 		void AutomaticReminder (){
 			Switch automatic = FindViewById<Switch> (Resource.Id.autoSwitch);
 
@@ -167,8 +167,8 @@ namespace GoogleApiTest
 			};
 
 		}
-
-		Event PickNextClass(){
+			
+		Building PickNextClass(){
 			var numberofEvents = ListAdapter.Count;
 			var eventsUri = CalendarContract.Events.ContentUri;
 
@@ -192,8 +192,8 @@ namespace GoogleApiTest
 
 				EventList.Add(new Event(_calId, eventId,eventTitle,eventDtStart,eventLocation));
 			}
-
-			var NextClass = Event.GetNextEvent (EventList);
+			//Event tempEvent=new Event();
+			var NextClass = Event.GetNextEventBuilding (EventList);
 			return NextClass;
 
 		}
