@@ -49,6 +49,11 @@ namespace GoogleApiTest
 			if(isNextClass){
 				Toast.MakeText (this, "Let's fetch the next class", ToastLength.Short).Show ();
 				var nextEvent = PickNextClass ();
+				var mapActivity = new Intent (this, typeof(MapActivity));
+				mapActivity.PutExtra("code","NextClass");
+				mapActivity.PutExtra("nextBuilding",nextEvent.Abbreviation);
+				SetResult(Result.Ok, mapActivity);
+				Finish();
 			}
 
             

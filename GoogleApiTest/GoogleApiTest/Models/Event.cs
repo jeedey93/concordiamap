@@ -88,7 +88,6 @@ namespace GoogleApiTest
 							closestDelta = delta;
 							nextEvent = e;
 						}
-
 					} 
 				}
 				//Check that event corresponds to a building

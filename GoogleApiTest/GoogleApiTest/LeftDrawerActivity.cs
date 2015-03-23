@@ -85,7 +85,7 @@ namespace GoogleApiTest
 					var showEvents = new Intent (this, typeof(EventListActivity));
 					showEvents.PutExtra ("calId", BuildingManager.DefaultCalendarId);
 					showEvents.PutExtra ("isNextClass", true);
-					StartActivity (showEvents);
+					StartActivityForResult (showEvents, 1);
 				} else {
 					Toast.MakeText (this, "Please choose a default calendar", ToastLength.Short).Show ();
 					return;
