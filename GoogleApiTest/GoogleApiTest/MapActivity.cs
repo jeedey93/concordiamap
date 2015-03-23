@@ -116,7 +116,7 @@ namespace GoogleApiTest
 					DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), new LatLng (endB.XCoordinate, endB.YCoordinate), "driving");
 			};
 		}
-
+			
 		void WalkingModeClick (Button DrivingMode, Button WalkingMode, Button TransitMode)
 		{
 			WalkingMode.Click += (o, e) =>  {
@@ -174,20 +174,95 @@ namespace GoogleApiTest
 
 		protected override void OnActivityResult (int requestCode, Result resultCode, Intent data)
 		{
-			if (data != null) {
-				double startPositionX = data.GetDoubleExtra ("startPositionX", 0);
-				double startPositionY = data.GetDoubleExtra ("startPositionY", 0);
-				double endPositionX = data.GetDoubleExtra ("endPositionX", 0);
-				double endPositionY = data.GetDoubleExtra ("endPositionY", 0);
-				Boolean campus = data.GetBooleanExtra ("sameCampus", false);
+			if(data!=null){
+				if (requestCode==0) {
+					double startPositionX = data.GetDoubleExtra ("startPositionX", 0);
+					double startPositionY = data.GetDoubleExtra ("startPositionY", 0);
+					double endPositionX = data.GetDoubleExtra ("endPositionX", 0);
+					double endPositionY = data.GetDoubleExtra ("endPositionY", 0);
+					Boolean campus = data.GetBooleanExtra ("sameCampus", false);
+					string startBuilding = data.GetStringExtra("startBuilding");
+					string endBuilding = data.GetStringExtra("endBuilding");
+					startB = FindBuildingName (startBuilding);
+					endB = FindBuildingName (endBuilding);
 
-				if (campus) {
-					DrawDirections (new LatLng (startPositionX, startPositionY),	new LatLng (endPositionX, endPositionY));
 
-				} else {
-					DrawDirectionsDifferentCampus (new LatLng (startPositionX, startPositionY),	new LatLng (endPositionX, endPositionY));
+					if (campus) {
+						//set start and End buildings before drawing directions accross campuses.
+						startB = FindBuildingFromCoordinates (startPositionX, startPositionY);
+						endB = FindBuildingFromCoordinates (endPositionX, endPositionY);
+						if (startB == null || endB == null) {
+							Toast.MakeText (this, "Building doesn't exist", ToastLength.Short).Show ();
+							return;
+						}
+
+						SetStartMarker (startB);
+						SetEndMarker (endB);
+
+						DrawDirections (startPoint.Position, endPoint.Position);
+
+					} else {
+						//set start and End buildings before drawing directions accross campuses.
+						startB = FindBuildingFromCoordinates (startPositionX, startPositionY);
+						endB = FindBuildingFromCoordinates (endPositionX, endPositionY);
+						if (startB == null || endB == null) {
+							Toast.MakeText (this, "Building doesn't exist", ToastLength.Short).Show ();
+							return;
+						}
+
+						SetStartMarker (startB);
+						SetEndMarker (endB);
+						DrawDirectionsDifferentCampus(startPoint.Position,	endPoint.Position);
+					}
+				}
+				else if (requestCode==1) {
+					string buildingAbrev = data.GetStringExtra ("nextBuilding");
+					if (buildingAbrev != null) {
+						Building Destination = FindBuildingName (buildingAbrev);
+
+						DrawDirectionsDifferentCampus (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), new LatLng (Destination.XCoordinate, Destination.YCoordinate));
+						endB = Destination;
+						SetEndMarker (endB);
+					}
 				}
 			}
+		}
+
+		//retrieve building from Both Loyola and SGW using their Coordinates
+		Building FindBuildingFromCoordinates(double XCoordinate, double YCoordinate){
+
+			foreach(Building b in BuildingManager.GetSGWBuildings()){
+
+				if (b.XCoordinate == XCoordinate && b.YCoordinate == YCoordinate) {
+					return b;
+				}
+
+			}
+			foreach(Building b in BuildingManager.GetLoyolaBuildings()){
+
+				if (b.XCoordinate == XCoordinate && b.YCoordinate == YCoordinate) {
+					return b;
+				} 
+
+
+			}
+			return null;
+
+		}
+
+		Building FindBuildingName (string buildingAbrev)
+		{
+			foreach (Building item in BuildingManager.GetSGWBuildings()) {
+				if (item.Abbreviation == buildingAbrev) {
+					return item;
+				}
+			}
+			foreach (Building item in BuildingManager.GetLoyolaBuildings()) {
+				if (item.Abbreviation == buildingAbrev) {
+					return item;
+				}
+			}
+			return null;
 		}
 
 		public String[] AllLocations (List<Building> sgw,List<Building> loy){ 
@@ -313,7 +388,18 @@ namespace GoogleApiTest
 			string points1 = firstRoutesResults [0] ["overview_polyline"] ["points"];
 			var polyPoints1 = DirectionFetcher.DecodePolylinePoints (points1);
 
-			JsonValue secondDirections = await DirectionFetcher.GetDirections(endB.Campus.ExtractionPoint,endingPoint);
+			Campus OtherCampus;
+			if (endB == null) {
+				if (ClosestCampus.CampusName == "SGW") {
+					OtherCampus = new Campus ("LOYOLA", new LatLng (45.457683, -73.638978));
+				} else {
+					OtherCampus = new Campus ("SGW", new LatLng (45.497083, -73.578440));
+				}
+			} else {
+				OtherCampus = endB.Campus;
+			}
+
+			JsonValue secondDirections = await DirectionFetcher.GetDirections(OtherCampus.ExtractionPoint,endingPoint);
 			if (secondDirections == null) {
 				Toast.MakeText (this, "Please connect to a network", ToastLength.Short).Show ();
 				return;
@@ -322,19 +408,17 @@ namespace GoogleApiTest
 			string points2 = secondRoutesResults [0] ["overview_polyline"] ["points"];
 			var polyPoints2 = DirectionFetcher.DecodePolylinePoints (points2);
 
-			GetInstructionDifferentCampus (ClosestCampus, firstRoutesResults, polyPoints1, secondRoutesResults, polyPoints2);
+			GetInstructionDifferentCampus (ClosestCampus, OtherCampus, firstRoutesResults, polyPoints1, secondRoutesResults, polyPoints2);
 		}
 
-		void GetInstructionDifferentCampus (Campus ClosestCampus, JsonValue firstRoutesResults, List<LatLng> polyPoints1, JsonValue secondRoutesResults, List<LatLng> polyPoints2)
+		void GetInstructionDifferentCampus (Campus ClosestCampus, Campus OtherCampus, JsonValue firstRoutesResults, List<LatLng> polyPoints1, JsonValue secondRoutesResults, List<LatLng> polyPoints2)
 		{
 			string Instructions = DisplayStepDirections (DirectionFetcher.GetInstructionsDifferentCampus (firstRoutesResults, secondRoutesResults));
-			//TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
-			//instructionsView.Text = DisplayStepDirections(Instructions);
-			//instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+
 			ListView instructionsView = FindViewById<ListView> (Resource.Id.SlideUpList);
 			List<String> instructionslist = new List<String> ();
 			instructionslist.Add (Instructions);
-			//instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+
 			ArrayAdapter instructionsAdapter = new ArrayAdapter (this, Android.Resource.Layout.SimpleListItem1, instructionslist);
 			instructionsView.Adapter = instructionsAdapter;
 			List<LatLng> direction1 = polyPoints1;
@@ -354,7 +438,7 @@ namespace GoogleApiTest
 			directionPath2 = map.AddPolyline (line2);
 			directionPath2.Width = 9;
 			directionPath2.Color = Color;
-			CreateBusMarkers (ClosestCampus);
+			CreateBusMarkers (ClosestCampus, OtherCampus);
 			LinearLayout slideUp = FindViewById<LinearLayout> (Resource.Id.SlideUpText);
 			slideUp.Visibility = ViewStates.Visible;
 			RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
@@ -363,7 +447,7 @@ namespace GoogleApiTest
 			mode.Visibility = ViewStates.Visible;
 		}
 
-		public void CreateBusMarkers(Campus StartingCampus =null){
+		public void CreateBusMarkers(Campus StartingCampus =null, Campus EndingCampus = null){
 			MarkerOptions busMarker = new MarkerOptions ();
 			if (StartingCampus != null) {
 				busMarker.SetPosition (new LatLng (StartingCampus.ExtractionPoint.Latitude, StartingCampus.ExtractionPoint.Longitude));
@@ -374,7 +458,12 @@ namespace GoogleApiTest
 			busPosition = map.AddMarker (busMarker);
 
 			MarkerOptions busMarker2 = new MarkerOptions ();
-			busMarker2.SetPosition (new LatLng (endB.Campus.ExtractionPoint.Latitude, endB.Campus.ExtractionPoint.Longitude));
+
+			if (EndingCampus != null) {
+				busMarker2.SetPosition (new LatLng (EndingCampus.ExtractionPoint.Latitude, EndingCampus.ExtractionPoint.Longitude));
+			} else {
+				busMarker2.SetPosition (new LatLng (endB.Campus.ExtractionPoint.Latitude, endB.Campus.ExtractionPoint.Longitude));
+			}
 			busMarker2.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.Bus));
 			busPosition2 = map.AddMarker (busMarker2);
 		}
@@ -405,10 +494,9 @@ namespace GoogleApiTest
 		void GetInstructionSameCampus (JsonValue routesResults)
 		{
 			string instructions = DirectionFetcher.GetInstructions (routesResults);
-			//TextView instructionsView = FindViewById<TextView>(Resource.Id.SlideUpText);
-			//instructionsView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+		
 			string formattedInstructions = DisplayStepDirections (instructions);
-			//instructionsView.Text = formattedInstructions;
+
 			ListView instructionsView = FindViewById<ListView> (Resource.Id.SlideUpList);
 			List<String> instructionslist = new List<String> ();
 			instructionslist.Add (formattedInstructions);
@@ -429,7 +517,8 @@ namespace GoogleApiTest
 			int Color = Int32.Parse ("ff800020", System.Globalization.NumberStyles.HexNumber);
 			directionPath.Color = Color;
 			LatLngBounds bounds = boundsbuilder.Build ();
-			map.AnimateCamera (CameraUpdateFactory.NewLatLngBounds (bounds, 200));
+			//Set Camera so that it can fit the bounds with padding
+			map.AnimateCamera (CameraUpdateFactory.NewLatLngBounds (bounds, 400));
 			LinearLayout slideUp = FindViewById<LinearLayout> (Resource.Id.SlideUpText);
 			slideUp.Visibility = ViewStates.Visible;
 			RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
@@ -474,6 +563,38 @@ namespace GoogleApiTest
 			SetEndPoint (building, popUp);
 		}
 
+
+		//extracted logic for placing start markers on buildings of the map
+		void SetStartMarker (Building building){
+			MarkerOptions startingDestination = new MarkerOptions ();
+			if (building.BuildingEntrance == null) 
+				startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
+			else
+				startingDestination.SetPosition (building.BuildingEntrance);
+			startingDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.StartPointPNG));
+			startPoint = map.AddMarker (startingDestination);
+			startB = building;
+			//Allow clearMarker buttons so that the user can clear the screen
+			Button clearButton = FindViewById<Button> (Resource.Id.clearMarker);
+			clearButton.Visibility = ViewStates.Visible;
+		}
+
+		//extracted logic for placing end markers on buildings of the map
+		void SetEndMarker(Building building){
+			MarkerOptions endDestination = new MarkerOptions ();
+			if (building.BuildingEntrance == null) 
+				endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
+			else
+				endDestination.SetPosition (building.BuildingEntrance);
+			endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
+			endPoint = map.AddMarker (endDestination);
+			endB = building;
+
+			//Allow clearMarker buttons so that the user can clear the screen
+			Button clearButton = FindViewById<Button> (Resource.Id.clearMarker);
+			clearButton.Visibility = ViewStates.Visible;
+		}
+
 		void SetStartPoint (Building building, View popUp)
 		{
 			Button fromHere = popUp.FindViewById<Button> (Resource.Id.btnFromHere);
@@ -481,15 +602,7 @@ namespace GoogleApiTest
 				Button clearButton = FindViewById<Button> (Resource.Id.clearMarker);
 				ResetColorOfPolygon ();
 				if (startPoint == null && directionPath == null) {
-					MarkerOptions startingDestination = new MarkerOptions ();
-					if (building.BuildingEntrance == null) 
-						startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
-					else
-						startingDestination.SetPosition (building.BuildingEntrance);
-					startingDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.StartPointPNG));
-					startPoint = map.AddMarker (startingDestination);
-					clearButton.Visibility = ViewStates.Visible;
-					startB = building;
+					SetStartMarker(building);
 				}
 				else {
 					Toast.MakeText (this, "You already have a starting destination, " + building.Name + " will be your new starting destination", ToastLength.Short).Show ();
@@ -504,14 +617,7 @@ namespace GoogleApiTest
 						busPosition2.Remove ();
 						busPosition2 = null;
 					}
-					MarkerOptions startingDestination = new MarkerOptions ();
-					if (building.BuildingEntrance == null) 
-						startingDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
-					else
-						startingDestination.SetPosition (building.BuildingEntrance);
-					startingDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.StartPointPNG));
-					startPoint = map.AddMarker (startingDestination);
-					startB = building;
+					SetStartMarker(building);
 					if (endPoint != null) {
 						//BUILDINGS NOT ON SAME CAMPUS
 						if (startB.Campus != endB.Campus) {
@@ -535,15 +641,9 @@ namespace GoogleApiTest
 				Button clearButton = FindViewById<Button> (Resource.Id.clearMarker);
 				ResetColorOfPolygon ();
 				if (endPoint == null) {
-					MarkerOptions endDestination = new MarkerOptions ();
-					if (building.BuildingEntrance == null) 
-					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
-					else
-						endDestination.SetPosition (building.BuildingEntrance);
-					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
-					endPoint = map.AddMarker (endDestination);
+					SetEndMarker(building);
 					if (startPoint != null && endPoint != null) {
-						endB = building;
+
 						//BUILDINGS NOT ON SAME CAMPUS
 						if (startB.Campus != endB.Campus) {
 							DrawDirectionsDifferentCampus (startPoint.Position, endPoint.Position);
@@ -566,15 +666,9 @@ namespace GoogleApiTest
 					Toast.MakeText (this, "You already have an ending destination, " + building.Name + " will be your new ending destination", ToastLength.Short).Show ();
 					endPoint.Remove ();
 					ClearBusMarkers();
-					MarkerOptions endDestination = new MarkerOptions ();
-					if (building.BuildingEntrance == null) 
-					endDestination.SetPosition (new LatLng (building.XCoordinate, building.YCoordinate));
-					else
-						endDestination.SetPosition (building.BuildingEntrance);
-					endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
-					endPoint = map.AddMarker (endDestination);
+					SetEndMarker(building);
 					if (startPoint != null && endPoint != null) {
-						endB = building;
+
 						//BUILDINGS NOT ON SAME CAMPUS
 						if (startB.Campus != endB.Campus) {
 							DrawDirectionsDifferentCampus (startPoint.Position, endPoint.Position);

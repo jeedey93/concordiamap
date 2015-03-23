@@ -8,6 +8,17 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Make this my default calendar" />
+    <Switch
+        android:text="Daily Automatic Reminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dip"
+        android:id="@+id/autoSwitch"
+        android:checked="false"
+        android:textOn="YES"
+        android:paddingTop="15dip"
+        android:paddingBottom="15dip"
+        android:textOff="NO" />
     <ListView
         android:id="@android:id/android:list"
         android:layout_width="fill_parent"
