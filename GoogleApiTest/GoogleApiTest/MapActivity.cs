@@ -217,10 +217,13 @@ namespace GoogleApiTest
 				}
 				else if (requestCode==1) {
 					string buildingAbrev = data.GetStringExtra ("nextBuilding");
-					Building Destination = FindBuildingName (buildingAbrev);
+					if (buildingAbrev != null) {
+						Building Destination = FindBuildingName (buildingAbrev);
 
-					DrawDirectionsDifferentCampus (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), new LatLng (Destination.XCoordinate, Destination.YCoordinate));
-					endB = Destination;
+						DrawDirectionsDifferentCampus (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), new LatLng (Destination.XCoordinate, Destination.YCoordinate));
+						endB = Destination;
+						SetEndMarker (endB);
+					}
 				}
 			}
 		}

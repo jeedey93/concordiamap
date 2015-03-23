@@ -58,8 +58,6 @@ namespace GoogleApiTest
 			mDrawerLayout.SetDrawerListener (mDrawerToggle);
 			//ActionBar.SetDisplayHomeAsUpEnabled (true);
 			//ActionBar.SetHomeButtonEnabled (true);
-
-
 		}
 			
 
