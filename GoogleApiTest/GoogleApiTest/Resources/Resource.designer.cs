@@ -2047,8 +2047,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0c002c
 			public const int collapseActionView = 2131492908;
 			
-			// aapt resource value: 0x7f0c0068
-			public const int content_frame = 2131492968;
+			// aapt resource value: 0x7f0c0067
+			public const int content_frame = 2131492967;
 			
 			// aapt resource value: 0x7f0c0055
 			public const int dateInput = 2131492949;
@@ -2074,8 +2074,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0c001c
 			public const int donate_with_google = 2131492892;
 			
-			// aapt resource value: 0x7f0c0067
-			public const int drawer_layout = 2131492967;
+			// aapt resource value: 0x7f0c0066
+			public const int drawer_layout = 2131492966;
 			
 			// aapt resource value: 0x7f0c0031
 			public const int dropdown = 2131492913;
@@ -2305,8 +2305,8 @@ namespace GoogleApiTest
 			// aapt resource value: 0x7f0c0026
 			public const int showTitle = 2131492902;
 			
-			// aapt resource value: 0x7f0c0066
-			public const int sign_in_button = 2131492966;
+			// aapt resource value: 0x7f0c0068
+			public const int sign_in_button = 2131492968;
 			
 			// aapt resource value: 0x7f0c0079
 			public const int sliding_layout = 2131492985;
