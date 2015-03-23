@@ -174,11 +174,8 @@ namespace GoogleApiTest
 
 		protected override void OnActivityResult (int requestCode, Result resultCode, Intent data)
 		{
-			if (data.GetStringExtra ("code") == "NextClass") {
-				string buildingAbrev = data.GetStringExtra ("nextBuilding");
-				Toast.MakeText (this, "Let's fetch the next class", ToastLength.Short).Show ();
-			}
-			else if (data != null) {
+
+			if (requestCode==0) {
 				double startPositionX = data.GetDoubleExtra ("startPositionX", 0);
 				double startPositionY = data.GetDoubleExtra ("startPositionY", 0);
 				double endPositionX = data.GetDoubleExtra ("endPositionX", 0);
@@ -191,6 +188,10 @@ namespace GoogleApiTest
 				} else {
 					DrawDirectionsDifferentCampus (new LatLng (startPositionX, startPositionY),	new LatLng (endPositionX, endPositionY));
 				}
+			}
+			else if (requestCode==1) {
+				string buildingAbrev = data.GetStringExtra ("nextBuilding");
+				Toast.MakeText (this, "Let's fetch the next class", ToastLength.Short).Show ();
 			}
 		}
 
