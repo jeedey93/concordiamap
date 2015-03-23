@@ -23,9 +23,29 @@ namespace GoogleApiTest
 		}
 
 
+		public static List<Event> GetClassesOfDay(List<Event> EventList){
+			List<Event> classesOfDay = new List<Event> ();
+			if (EventList.Count > 0) {
+				DateTime now = DateTime.Now.ToLocalTime ();
+				Event nextEvent=null;
+				TimeSpan delta = new TimeSpan ();
+				TimeSpan closestDelta = new TimeSpan (1, 0, 0); //hh,mm,ss
+				foreach (Event e in EventList) {
+					//make sure the event time is after now.
+					if ((e.mDtStart.CompareTo (now)) > 0) {
+						delta = e.mDtStart - now;
+						if(delta< closestDelta){
+							classesOfDay.Add (e);
+						}
+					}
+				}
+				return classesOfDay;
+			}else{
+				return null;
+			}
+		}
+
 		public static Event GetNextEvent(List<Event> EventList){
-
-
 			if (EventList.Count > 0) {
 				DateTime now = DateTime.Now.ToLocalTime ();
 				Event nextEvent=null;

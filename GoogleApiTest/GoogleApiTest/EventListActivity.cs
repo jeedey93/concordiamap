@@ -55,6 +55,7 @@ namespace GoogleApiTest
             InitAddEvent ();
 
 			MakeDefaultCalendar ();
+			AutomaticReminder (); 
         }
 
 		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -122,6 +123,49 @@ namespace GoogleApiTest
 					BuildingManager.DefaultCalendarId = 0; 
 				}
 			};
+		}
+
+		void AutomaticReminder (){
+			Switch automatic = FindViewById<Switch> (Resource.Id.autoSwitch);
+
+			automatic.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) {
+				if(automatic.Checked){
+					var numberofEvents = ListAdapter.Count;
+					var eventsUri = CalendarContract.Events.ContentUri;
+
+					string[] eventsProjection = { 
+						CalendarContract.Events.InterfaceConsts.Id,
+						CalendarContract.Events.InterfaceConsts.Title,
+						CalendarContract.Events.InterfaceConsts.Dtstart,
+						CalendarContract.Events.InterfaceConsts.EventLocation
+					};
+
+					var cursor = ManagedQuery (eventsUri, eventsProjection, 
+						String.Format ("calendar_id={0}", _calId), null, "dtstart ASC");
+
+
+					for (int i = 0; i < numberofEvents; i++) {
+						cursor.MoveToPosition (i);
+						var eventId = cursor.GetInt (cursor.GetColumnIndex (eventsProjection [0]));
+						var eventTitle = cursor.GetString (cursor.GetColumnIndex (eventsProjection [1]));
+						var eventDtStart = cursor.GetDouble (cursor.GetColumnIndex (eventsProjection [2]));
+						var eventLocation = cursor.GetString (cursor.GetColumnIndex (eventsProjection [3]));
+
+						EventList.Add(new Event(_calId, eventId,eventTitle,eventDtStart,eventLocation));
+					}
+
+					var classesOfTheDay = Event.GetClassesOfDay(EventList);
+
+					foreach(var a in classesOfTheDay){
+						Intent alarm = new Intent(AlarmClock.ActionSetAlarm);
+						alarm.PutExtra(AlarmClock.ExtraHour, a.mDtStart.Hour);
+						alarm.PutExtra(AlarmClock.ExtraHour, a.mDtStart.Minute);
+						alarm.PutExtra(AlarmClock.ExtraMessage, a.mTitle + " in " + a.mEventLocation + " at " + a.mDtStart);
+						StartActivity(alarm);
+					}
+				}
+			};
+
 		}
 
 		Event PickNextClass(){
