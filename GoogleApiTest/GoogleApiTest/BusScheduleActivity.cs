@@ -39,7 +39,7 @@ namespace GoogleApiTest
 			LOYButton = (Button)FindViewById (Resource.Id.buttonLOYBus);
 
 			MonThurButton.SetBackgroundColor (new Android.Graphics.Color(146,35,56,255));
-			FridayButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,100));
+			FridayButton.SetBackgroundColor (new Android.Graphics.Color (146,35,56,100));
 
 			ArrayAdapter<string> itemsAdapter = new ArrayAdapter<string>(this,Android.Resource.Layout.SimpleListItem1, SGWMonThur);
 			ArrayAdapter<string> itemsAdapter1 = new ArrayAdapter<string>(this,Android.Resource.Layout.SimpleListItem1, LOYMonThur);
@@ -58,7 +58,7 @@ namespace GoogleApiTest
 				MonThurButtonClick(itemsAdapter, itemsAdapter1);
 
 				MonThurButton.SetBackgroundColor (new Android.Graphics.Color(146,35,56,255));
-				FridayButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,100));
+				FridayButton.SetBackgroundColor (new Android.Graphics.Color (146,35,56,100));
 
 			};
 
@@ -66,8 +66,8 @@ namespace GoogleApiTest
 				//Do Something
 				FridayButtonClick(itemsAdapter, itemsAdapter1);
 
-				MonThurButton.SetBackgroundColor (new Android.Graphics.Color(146,35,56,100));
-				FridayButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,255));
+				MonThurButton.SetBackgroundColor (new Android.Graphics.Color(203,181,118,255));
+				FridayButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,100));
 			}; 
 
 			SGWButton.Click += (sender, e) => {
@@ -75,8 +75,8 @@ namespace GoogleApiTest
 				listViewSGW.SetBackgroundColor(new Android.Graphics.Color(255,255,255,60));
 				listViewLOY.SetBackgroundColor(new Android.Graphics.Color(255,255,255,0));
 
-				SGWButton.SetBackgroundColor (new Android.Graphics.Color(146,35,56,255));
-				LOYButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,60));
+				SGWButton.SetBackgroundColor (new Android.Graphics.Color(203,181,118,255));
+				LOYButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,100));
 
 			};
 
@@ -85,7 +85,7 @@ namespace GoogleApiTest
 				listViewLOY.SetBackgroundColor(new Android.Graphics.Color(255,255,255,80));
 				listViewSGW.SetBackgroundColor(new Android.Graphics.Color(255,255,255,0));
 
-				SGWButton.SetBackgroundColor (new Android.Graphics.Color(146,35,56,100));
+				SGWButton.SetBackgroundColor (new Android.Graphics.Color(203,181,118,100));
 				LOYButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,255));
 			};
 
