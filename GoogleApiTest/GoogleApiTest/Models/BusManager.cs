@@ -111,7 +111,7 @@ namespace GoogleApiTest
 			LOYBusFriday.Add ("19:15");
 			LOYBusFriday.Add ("19:45");
 
-			return SGWBusMonThur;
+			return LOYBusFriday;
 		}
 
 
@@ -149,7 +149,7 @@ namespace GoogleApiTest
 			SGWBusFriday.Add ("19:15");
 			SGWBusFriday.Add ("19:45");
 
-			return SGWBusMonThur;
+			return SGWBusFriday;
 		}
 	}
 }
