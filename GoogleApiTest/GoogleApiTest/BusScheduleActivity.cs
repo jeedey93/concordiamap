@@ -40,6 +40,8 @@ namespace GoogleApiTest
 
 			MonThurButton.SetBackgroundColor (new Android.Graphics.Color(146,35,56,255));
 			FridayButton.SetBackgroundColor (new Android.Graphics.Color (146,35,56,100));
+			SGWButton.SetBackgroundColor (new Android.Graphics.Color(203,181,118,255));
+			LOYButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,100));
 
 			ArrayAdapter<string> itemsAdapter = new ArrayAdapter<string>(this,Android.Resource.Layout.SimpleListItem1, SGWMonThur);
 			ArrayAdapter<string> itemsAdapter1 = new ArrayAdapter<string>(this,Android.Resource.Layout.SimpleListItem1, LOYMonThur);
