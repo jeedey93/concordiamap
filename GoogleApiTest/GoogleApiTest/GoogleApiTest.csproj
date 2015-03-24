@@ -104,6 +104,7 @@
     <Compile Include="AddEventActivity.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="BusScheduleActivity.cs" />
+    <Compile Include="Models\BusManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
