@@ -7,35 +7,51 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="horizontal">
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Toggle Campus"
-            android:layout_weight="1" />
         <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/button3">
+            android:layout_height="wrap_content">
             <Button
                 android:id="@+id/buttonMonThur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Monday-Thursday"
+                android:padding="1dp"
                 android:layout_weight="1" />
             <Button
                 android:id="@+id/buttonFriday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Friday"
+                android:padding="1dp"
                 android:layout_weight="1" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="2dp"
             android:layout_below="@+id/linearLayout1">
+            <Button
+                android:id="@+id/buttonSGWBus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SGW"
+                android:padding="1dp"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/buttonLOYBus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loyola"
+                android:padding="1dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout2">
             <ListView
                 android:id="@+id/SGWBusListView"
                 android:layout_width="0dp"

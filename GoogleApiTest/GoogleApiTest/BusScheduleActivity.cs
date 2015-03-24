@@ -20,6 +20,8 @@ namespace GoogleApiTest
 		List<string> SGWFriday = new List<string>();
 		Button MonThurButton;
 		Button FridayButton;
+		Button SGWButton;
+		Button LOYButton;
 
 
 		protected override void OnCreate (Bundle bundle)
@@ -33,10 +35,11 @@ namespace GoogleApiTest
 		
 			MonThurButton = (Button)FindViewById (Resource.Id.buttonMonThur);
 			FridayButton = (Button)FindViewById (Resource.Id.buttonFriday);
-
+			SGWButton = (Button)FindViewById (Resource.Id.buttonSGWBus);
+			LOYButton = (Button)FindViewById (Resource.Id.buttonLOYBus);
 
 			MonThurButton.SetBackgroundColor (new Android.Graphics.Color(146,35,56,255));
-			FridayButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,150));
+			FridayButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,100));
 
 			ArrayAdapter<string> itemsAdapter = new ArrayAdapter<string>(this,Android.Resource.Layout.SimpleListItem1, SGWMonThur);
 			ArrayAdapter<string> itemsAdapter1 = new ArrayAdapter<string>(this,Android.Resource.Layout.SimpleListItem1, LOYMonThur);
@@ -55,7 +58,7 @@ namespace GoogleApiTest
 				MonThurButtonClick(itemsAdapter, itemsAdapter1);
 
 				MonThurButton.SetBackgroundColor (new Android.Graphics.Color(146,35,56,255));
-				FridayButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,150));
+				FridayButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,100));
 
 			};
 
@@ -63,39 +66,59 @@ namespace GoogleApiTest
 				//Do Something
 				FridayButtonClick(itemsAdapter, itemsAdapter1);
 
-				MonThurButton.SetBackgroundColor (new Android.Graphics.Color(203,181,118,150));
-				FridayButton.SetBackgroundColor (new Android.Graphics.Color (146,35,56,255));
-
+				MonThurButton.SetBackgroundColor (new Android.Graphics.Color(146,35,56,100));
+				FridayButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,255));
 			}; 
+
+			SGWButton.Click += (sender, e) => {
+
+				listViewSGW.SetBackgroundColor(new Android.Graphics.Color(255,255,255,60));
+				listViewLOY.SetBackgroundColor(new Android.Graphics.Color(255,255,255,0));
+
+				SGWButton.SetBackgroundColor (new Android.Graphics.Color(146,35,56,255));
+				LOYButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,60));
+
+			};
+
+			LOYButton.Click += (sender, e) => {
+
+				listViewLOY.SetBackgroundColor(new Android.Graphics.Color(255,255,255,80));
+				listViewSGW.SetBackgroundColor(new Android.Graphics.Color(255,255,255,0));
+
+				SGWButton.SetBackgroundColor (new Android.Graphics.Color(146,35,56,100));
+				LOYButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,255));
+			};
 
 
 
 			}
-		void MonThurButtonClick(ArrayAdapter<string> itemsAdapter, ArrayAdapter<string> itemsAdapter1 ){
-
-			itemsAdapter = new ArrayAdapter<string> (this, Android.Resource.Layout.SimpleListItem1, SGWMonThur);
-			itemsAdapter1 = new ArrayAdapter<string>(this,Android.Resource.Layout.SimpleListItem1, LOYMonThur);
 			
-			ListView listViewSGW = (ListView) FindViewById(Resource.Id.SGWBusListView);
-			listViewSGW.SetAdapter (itemsAdapter);
 
-			ListView listViewLOY = (ListView) FindViewById(Resource.Id.LOYBusListView);
-			listViewLOY.SetAdapter (itemsAdapter1);
+			void MonThurButtonClick(ArrayAdapter<string> itemsAdapter, ArrayAdapter<string> itemsAdapter1 ){
 
-		}
+				itemsAdapter = new ArrayAdapter<string> (this, Android.Resource.Layout.SimpleListItem1, SGWMonThur);
+				itemsAdapter1 = new ArrayAdapter<string>(this,Android.Resource.Layout.SimpleListItem1, LOYMonThur);
+				
+				ListView listViewSGW = (ListView) FindViewById(Resource.Id.SGWBusListView);
+				listViewSGW.SetAdapter (itemsAdapter);
 
-		void FridayButtonClick( ArrayAdapter<string> itemsAdapter, ArrayAdapter<string> itemsAdapter1 ){
+				ListView listViewLOY = (ListView) FindViewById(Resource.Id.LOYBusListView);
+				listViewLOY.SetAdapter (itemsAdapter1);
 
-			itemsAdapter = new ArrayAdapter<string> (this, Android.Resource.Layout.SimpleListItem1, SGWFriday);
-			itemsAdapter1 = new ArrayAdapter<string>(this,Android.Resource.Layout.SimpleListItem1, LOYFriday);
+			}
 
-			ListView listViewSGW = (ListView) FindViewById(Resource.Id.SGWBusListView);
-			listViewSGW.SetAdapter (itemsAdapter);
+			void FridayButtonClick( ArrayAdapter<string> itemsAdapter, ArrayAdapter<string> itemsAdapter1 ){
 
-			ListView listViewLOY = (ListView) FindViewById(Resource.Id.LOYBusListView);
-			listViewLOY.SetAdapter (itemsAdapter1);
+				itemsAdapter = new ArrayAdapter<string> (this, Android.Resource.Layout.SimpleListItem1, SGWFriday);
+				itemsAdapter1 = new ArrayAdapter<string>(this,Android.Resource.Layout.SimpleListItem1, LOYFriday);
 
-		}
+				ListView listViewSGW = (ListView) FindViewById(Resource.Id.SGWBusListView);
+				listViewSGW.SetAdapter (itemsAdapter);
+
+				ListView listViewLOY = (ListView) FindViewById(Resource.Id.LOYBusListView);
+				listViewLOY.SetAdapter (itemsAdapter1);
+
+			}
 
 	}
 }
