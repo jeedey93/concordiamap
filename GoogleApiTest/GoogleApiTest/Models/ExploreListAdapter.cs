@@ -46,8 +46,25 @@ namespace GoogleApiTest
 
 			//Set text fields wihtin row
 			row.FindViewById<TextView> (Resource.Id.exploreLTCount).Text = (position+1).ToString()+".";
-			row.FindViewById<TextView> (Resource.Id.exploreLTTitle).Text = gWebPlace.GetName();
-			row.FindViewById<TextView> (Resource.Id.exploreLTDistance).Text = String.Format("{0:0,0.00}" , gWebPlace.GetDistance())+"m";
+			row.FindViewById<TextView> (Resource.Id.exploreLTTitle).Text = gWebPlace.GetName ().ToString ().Replace ("\"", "");
+
+
+			row.FindViewById<TextView> (Resource.Id.exploreLTDistance).TextSize = 9;
+			if (gWebPlace.GetDistance () > 1000.0) {
+				double distance = gWebPlace.GetDistance ()/1000.0;
+
+				row.FindViewById<TextView> (Resource.Id.exploreLTDistance).Text = String.Format("{0:0.0}" ,distance)+"Km";
+
+			} else {
+				row.FindViewById<TextView> (Resource.Id.exploreLTDistance).Text = String.Format("{0:0,0.00}" , gWebPlace.GetDistance())+"m";
+
+			}
+
+			//row.FindViewById<TextView> (Resource.Id.exploreLType).TextSize = 9;
+			//row.FindViewById<TextView> (Resource.Id.exploreLType).Text = gWebPlace.GetTypes ().Replace("\"", "");
+
+			row.FindViewById<TextView> (Resource.Id.exploreLAdress).TextSize = 10;
+			row.FindViewById<TextView> (Resource.Id.exploreLAdress).Text = gWebPlace.GetAdress ();
 
 
 			return row;

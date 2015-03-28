@@ -73,8 +73,8 @@ namespace GoogleApiTest
 			//Make async web request and add results to nearbyPlacesAdaperList
 			CreateAndSetAdapter (url);
 		}
-
-		private async Task<JsonValue> GetNearbyPlacesWebRequest(string url){
+			
+		private async Task<JsonValue> GooglePlaceWebRequest(string url){
 
 			// Create an HTTP web request using the URL:
 			HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create (new System.Uri (url));
@@ -105,7 +105,7 @@ namespace GoogleApiTest
 		private async void CreateAndSetAdapter(string url){
 
 			//Issue & await async web resquest from Google Places API
-			JsonValue json = await GetNearbyPlacesWebRequest (url);
+			JsonValue json = await GooglePlaceWebRequest (url);
 			//If the HTTP request failed or returned null, don't try to open it.
 			if (json != null) {
 				JsonValue jsonWebResults = json ["results"];
@@ -114,12 +114,41 @@ namespace GoogleApiTest
 				GooglePlace gWebPlace;
 				LatLng currentLocation = new LatLng (0.0, 0.0);
 
-				foreach (JsonValue jsonResult in jsonWebResults) {
+				foreach (JsonValue jsonResult in jsonWebResults){
 
 					//Get needed values
 					double lat = jsonResult ["geometry"] ["location"] ["lat"];
 					double lng = jsonResult ["geometry"] ["location"] ["lng"];
 					string name = jsonResult ["name"].ToString ();
+					JsonValue types = null;
+						
+					if (jsonResult ["types"] != null) {
+						types = jsonResult ["types"];
+					}
+
+					//Get id for detailed search
+					string placeId = jsonResult ["place_id"];
+
+					//Make URL
+					string detailedPlaceURL = "https://maps.googleapis.com/maps/api/place/details/json?"+
+						"key="+SERVER_API_KEY+"&"+
+						"placeid="+placeId;
+
+					//Issue & await async web resquest from Google Places API
+					JsonValue jsonDetailed = await GooglePlaceWebRequest(detailedPlaceURL);
+					string adress = "";
+
+					//If the HTTP request failed or returned null, don't try to open it.
+					if (jsonDetailed != null) {
+						JsonValue jsonDetailedResults = jsonDetailed ["result"];
+
+						adress = jsonDetailedResults["formatted_address"].ToString().Replace("\"","");
+
+
+						adress = adress.Remove (adress.LastIndexOf (','));
+						adress = adress.Remove (adress.LastIndexOf (','));
+					}
+
 
 					//Create current GooglePlace Object
 					gWebLocation = new LatLng (lat, lng);
@@ -130,13 +159,16 @@ namespace GoogleApiTest
 					currentLocation.Longitude = location.Longitude;
 					gWebPlace.SetDistance (CalcDistanceToPlace (currentLocation, gWebLocation));
 
+					//Get types for google place
+					List<string> typeList = new List<string> ();
+					foreach (JsonValue type in types) {
+						typeList.Add (type.ToString ());
+					}
+					gWebPlace.SetType (typeList);
+					gWebPlace.SetAdress (adress);
+						
 					//Add to adapter list
 					nearbyPlacesAdapterList.Add (gWebPlace);
-
-					foreach (GooglePlace gPlace in nearbyPlacesAdapterList) {
-						Console.WriteLine (gPlace.ToString ());
-					}
-
 				}
 
 				//Create and set adapter

@@ -1,5 +1,7 @@
 ﻿using System;
 using Android.Gms.Maps.Model;
+using System.Collections.Generic;
+using System.Json;
 
 namespace GoogleApiTest
 {
@@ -8,10 +10,54 @@ namespace GoogleApiTest
 		LatLng location;
 		string name;
 		double distanceToPlace;
+		int priceLvl;
+		List<string> types;
+		string adress;
+		double raiting;
 
 		public GooglePlace(LatLng loc, string name){
 			location = loc;
 			this.name = name;
+		}
+
+		public void SetRaiting(double rate){
+			raiting = rate;
+		}
+
+		public double GetRaiting(){
+			return raiting;
+		}
+
+		public void SetAdress(string id){
+			adress = id;
+		}
+
+		public string GetAdress(){
+			return adress;
+		}
+
+		public void SetType(List<string> type){
+			types= type;
+		}
+			
+
+		public string GetTypes(){
+			string temp = "";
+
+			foreach (string s in types) {
+				temp += s + ", ";
+			}
+			int index = temp.LastIndexOf (',');
+
+			return temp.Remove(index, 1);
+		}
+
+		public int GetPriceLvl(){
+			return priceLvl;
+		}
+
+		public void SetPriceLvL(int lvl){
+			priceLvl = lvl;
 		}
 
 		public void SetDistance(double dist){
@@ -39,7 +85,7 @@ namespace GoogleApiTest
 		}
 
 		public override string ToString(){
-			return "---------------------------------------------\nPlace - " + name + "\n" + location.ToString ()+"\nDistance = "+distanceToPlace.ToString();
+			return "---------------------------------------------\nPlace - " + name + "\n" + location.ToString ()+"\nDistance = "+distanceToPlace.ToString()+"\nTypes = "+types.ToString();
 		}
 
 		public GooglePlace Clone(){
