@@ -282,8 +282,9 @@
     <AndroidResource Include="Resources\layout\EventListItem.axml" />
     <AndroidResource Include="Resources\layout\AddEventView.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\toggleDrawer.png" />
-    <AndroidResource Include="Resources\layout\BusSchedule.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\office17.png" />
+    <AndroidResource Include="Resources\layout\BusSchedule.axml" />
+    <AndroidResource Include="Resources\layout\SplashScreen.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
