@@ -167,7 +167,7 @@ namespace GoogleApiTest
 				slideUp.Visibility = ViewStates.Gone;
 				RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
 				clearLayout.SetPadding (0, 0, 0, 0);
-				RelativeLayout mode = FindViewById<RelativeLayout> (Resource.Id.mode);
+				LinearLayout mode = FindViewById<LinearLayout> (Resource.Id.mode);
 				mode.Visibility = ViewStates.Gone;
 			};
 		}
@@ -443,7 +443,7 @@ namespace GoogleApiTest
 			slideUp.Visibility = ViewStates.Visible;
 			RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
 			clearLayout.SetPadding (0, 0, 0, 200);
-			RelativeLayout mode = FindViewById<RelativeLayout> (Resource.Id.mode);
+			LinearLayout mode = FindViewById<LinearLayout> (Resource.Id.mode);
 			mode.Visibility = ViewStates.Visible;
 		}
 
@@ -523,7 +523,7 @@ namespace GoogleApiTest
 			slideUp.Visibility = ViewStates.Visible;
 			RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
 			clearLayout.SetPadding (0, 0, 0, 200);
-			RelativeLayout mode = FindViewById<RelativeLayout> (Resource.Id.mode);
+			LinearLayout mode = FindViewById<LinearLayout> (Resource.Id.mode);
 			mode.Visibility = ViewStates.Visible;
 		}
 
