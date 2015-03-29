@@ -19,6 +19,7 @@ namespace GoogleApiTest
 	public class MapActivity : LeftDrawerActivity
 	{
 		BuildingManager BuildingManager = new BuildingManager ();
+		BusManager BusManager = new BusManager();
 		DirectionFetcher DirectionFetcher;
 		GoogleMap map;
 		PopupWindow window=null;
@@ -36,7 +37,6 @@ namespace GoogleApiTest
 
 		protected override void OnCreate (Bundle bundle)
 		{
-			
 			base.OnCreate (bundle,Resource.Layout.Main );
 
 			// Create your application here
@@ -353,11 +353,22 @@ namespace GoogleApiTest
 
 		}
 
-		public Campus GetClosestCampus(){
-			double distanceSGW = Math.Sqrt (Math.Pow (45.49564057468219 - map.MyLocation.Latitude,2) + Math.Pow (-73.57727140188217 -
-			map.MyLocation.Longitude,2));
-			double distanceLoyola = Math.Sqrt (Math.Pow (45.458593581866786 - map.MyLocation.Latitude,2) + Math.Pow (-73.64008069038391 -
-				map.MyLocation.Longitude,2));
+		public Campus GetClosestCampus(double xCoordinate=0, double yCoordinate=0){
+			double locationLat;
+			double locationLong;
+
+			if (xCoordinate != 0 && yCoordinate != 0) {
+				locationLat = xCoordinate;
+				locationLong = yCoordinate;
+			} else {
+				locationLat =  map.MyLocation.Latitude;
+				locationLong = map.MyLocation.Longitude;
+			}
+			double distanceSGW = Math.Sqrt (Math.Pow (45.49564057468219 - locationLat,2) + Math.Pow (-73.57727140188217 -
+				locationLong,2));
+			double distanceLoyola = Math.Sqrt (Math.Pow (45.458593581866786 - locationLat,2) + Math.Pow (-73.64008069038391 -
+				locationLong,2));
+
 			if (distanceSGW < distanceLoyola) {
 				return new Campus ("SGW", new LatLng (45.497083, -73.578440));
 			} else {
@@ -455,7 +466,9 @@ namespace GoogleApiTest
 				busMarker.SetPosition (new LatLng (startB.Campus.ExtractionPoint.Latitude, startB.Campus.ExtractionPoint.Longitude));
 			}
 			busMarker.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.Bus));
+			DefineBusTime (busMarker);
 			busPosition = map.AddMarker (busMarker);
+
 
 			MarkerOptions busMarker2 = new MarkerOptions ();
 
@@ -465,7 +478,69 @@ namespace GoogleApiTest
 				busMarker2.SetPosition (new LatLng (endB.Campus.ExtractionPoint.Latitude, endB.Campus.ExtractionPoint.Longitude));
 			}
 			busMarker2.InvokeIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.Bus));
+			DefineBusTime (busMarker2);
 			busPosition2 = map.AddMarker (busMarker2);
+		}
+
+		public void DefineBusTime(MarkerOptions marker){
+			double xCoordinate = marker.Position.Latitude;
+			double yCoordinate = marker.Position.Longitude;
+
+			Campus BusCampus = GetClosestCampus (xCoordinate,yCoordinate);
+			string NextBusTime = GetNextBusTime (BusCampus);
+			marker.SetTitle (NextBusTime);
+		}
+
+		public string GetNextBusTime(Campus campus){
+			DateTime now = DateTime.Now;
+			List<String> BusListTime = new List<string>();
+			string NextBusTime = "No next bus available";
+
+			if (now.DayOfWeek == DayOfWeek.Saturday || now.DayOfWeek == DayOfWeek.Sunday) {
+				BusListTime = null;
+			} else if (now.DayOfWeek == DayOfWeek.Friday && campus.CampusName == "SGW") {
+				BusListTime = BusManager.InitializeSGWBusFriday ();
+			} else if (now.DayOfWeek == DayOfWeek.Friday && campus.CampusName == "LOYOLA") {
+				BusListTime = BusManager.InitializeLOYBusFriday ();
+			} else if (campus.CampusName == "SGW") {
+				BusListTime = BusManager.InitializeSGWBusMonThur ();
+			} else if (campus.CampusName == "LOYOLA") {
+				BusListTime = BusManager.InitializeLOYBusMonThur ();
+			}
+
+			if (BusListTime != null) {
+				foreach (string time  in BusListTime) {
+					if (time[0] != 'F') {
+						int l = time.IndexOf (":");
+						string hourString;
+						string minuteString;
+						int hour = 0;
+						int minutes = 0;
+
+						if (l > 0) {
+							hourString = time.Substring (0, l);
+							minuteString = time.Substring (l + 1);
+							hour = Convert.ToInt32 (hourString);
+							minutes = Convert.ToInt32 (minuteString);
+						}
+						if (hour != 0 && hour == now.Hour && minutes > now.Minute) {
+							return time;
+						}
+					} else {
+						DateTime Interval = new DateTime ();
+						TimeSpan ts = new TimeSpan(11, 45, 0);
+						Interval = Interval.Date + ts;
+						while (Interval.Hour != 19) {
+							if (Interval.Hour == now.Hour && Interval.Minute > now.Minute) {
+								return Interval.ToString("t");
+							} else {
+								Interval= Interval.AddMinutes (20);
+							}
+						}
+					}
+				}
+			}
+			return NextBusTime;
 		}
 
 		public async void DrawDirections(LatLng startingPoint, LatLng endingPoint, string transitMode=""){
