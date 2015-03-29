@@ -33,6 +33,7 @@
                     android:layout_width="100px"
                     android:layout_height="100px"
                     android:background="#00000000"
+                    android:paddingTop="5dp"
                     android:src="@drawable/toggleDrawer" />
                 <ToggleButton
                     android:id="@+id/togglebutton"

@@ -11,6 +11,7 @@ using System.Json;
 using System.Text.RegularExpressions;
 using Android.Views.InputMethods;
 using Android.Content.PM;
+using Android.Support.V4.Widget;
 
 
 namespace GoogleApiTest
@@ -100,6 +101,12 @@ namespace GoogleApiTest
 
 			ClearMarkerFromMap ();
 
+			/*ImageButton toggleDrawer = FindViewById<ImageButton>(Resource.Id.toggleDrawer);
+			DrawerLayout mDrawerLayout = FindViewById<DrawerLayout> (Resource.Id.drawer_layout);
+
+			toggleDrawer.Click += (o, e) =>  {
+				mDrawerLayout.OpenDrawer(Gravity.LEFT);
+			};*/
 		} 
 
 		void DrivingModeClick (Button DrivingMode, Button WalkingMode, Button TransitMode)
