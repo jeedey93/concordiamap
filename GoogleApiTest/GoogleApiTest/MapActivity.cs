@@ -497,7 +497,7 @@ namespace GoogleApiTest
 			string NextBusTime = "No next bus available";
 
 			if (now.DayOfWeek == DayOfWeek.Saturday || now.DayOfWeek == DayOfWeek.Sunday) {
-				BusListTime = BusManager.InitializeSGWBusMonThur ();
+				BusListTime = null;
 			} else if (now.DayOfWeek == DayOfWeek.Friday && campus.CampusName == "SGW") {
 				BusListTime = BusManager.InitializeSGWBusFriday ();
 			} else if (now.DayOfWeek == DayOfWeek.Friday && campus.CampusName == "LOYOLA") {
