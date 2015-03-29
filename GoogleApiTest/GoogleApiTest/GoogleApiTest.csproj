@@ -96,8 +96,6 @@
     <Compile Include="Models\DirectionFetcher.cs" />
     <Compile Include="Models\GooglePlace.cs" />
     <Compile Include="LeftDrawerActivity.cs" />
-    <Compile Include="Models\GoogleCalendar.cs" />
-    <Compile Include="CalendarActivity.cs" />
     <Compile Include="NavigateActivity.cs" />
     <Compile Include="CalendarListActivity.cs" />
     <Compile Include="EventListActivity.cs" />
@@ -275,7 +273,6 @@
     <AndroidResource Include="Resources\layout\ExploreListView_Row.axml" />
     <AndroidResource Include="Resources\layout\Navigate.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\Color.xml" />
-    <AndroidResource Include="Resources\layout\Calendar.axml" />
     <AndroidResource Include="Resources\layout\CalendarList.axml" />
     <AndroidResource Include="Resources\layout\CalListItem.axml" />
     <AndroidResource Include="Resources\layout\EventList.axml" />
