@@ -73,6 +73,7 @@ namespace GoogleApiTest
 		void DrawerToggleHandler(Object sender, EventArgs e){
 			mDrawerLayout.OpenDrawer (mLeftDrawer);
 		}
+
 			
 
 		void LeftDrawerItemClick (object sender, AdapterView.ItemClickEventArgs e)

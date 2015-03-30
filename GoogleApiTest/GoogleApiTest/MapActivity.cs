@@ -113,6 +113,17 @@ namespace GoogleApiTest
 			CreateAndZoomExploreListMarker();
 		} 
 
+		protected override void OnPause(){
+			base.OnPause ();
+			if (exploreMarker != null) {
+				exploreMarker.Remove ();
+				Console.WriteLine ("removed markers");
+			}
+
+			map.Clear ();
+
+		}
+
 		private void CreateAndZoomExploreListMarker(){
 			MarkerOptions markerOptions = new MarkerOptions();
 			LatLng markerLocation = new LatLng(0,0);
@@ -181,7 +192,8 @@ namespace GoogleApiTest
 				};
 
 
-
+				InputMethodManager imm = (InputMethodManager)GetSystemService(Context.InputMethodService);
+				imm.HideSoftInputFromWindow (FindViewById<AutoCompleteTextView> (Resource.Id.AutoCompleteInput).WindowToken, 0);
 
 
 			}
