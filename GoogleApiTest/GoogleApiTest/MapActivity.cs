@@ -185,12 +185,12 @@ namespace GoogleApiTest
 				//map.AnimateCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 
 				exploreMarker.ShowInfoWindow ();
-				Button clearButton = FindViewById<Button> (Resource.Id.exploreLclearMarker);
+				Button clearButton = FindViewById<Button> (Resource.Id.clearMarker);
 				clearButton.Visibility = ViewStates.Visible;
-				clearButton.Click += (o, e) =>  {
-					clearButton.Visibility = ViewStates.Invisible;
-					exploreMarker.Remove();
-				};
+				//clearButton.Click += (o, e) =>  {
+				//	clearButton.Visibility = ViewStates.Invisible;
+				//	exploreMarker.Remove();
+				//};
 				endB = new Building (namestringInfo,namestringInfo,markerLocation.Latitude,markerLocation.Longitude);
 				if (map.MyLocation != null) {
 					DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), new LatLng (endB.XCoordinate, endB.YCoordinate));
@@ -256,7 +256,15 @@ namespace GoogleApiTest
 					}
 					else
 						if (startB == null) {
-							DrawDirectionsDifferentCampus (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), new LatLng (endB.XCoordinate, endB.YCoordinate));
+							Campus NearestCampus = GetClosestCampus();
+							Campus FurthestCampus = endB.Campus;
+							if(NearestCampus.CampusName == FurthestCampus.CampusName){
+								DrawDirections(new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+							}
+							else if(NearestCampus.CampusName != FurthestCampus.CampusName){
+								DrawDirectionsDifferentCampus(new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+							}
+							//DrawDirectionsDifferentCampus (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), new LatLng (endB.XCoordinate, endB.YCoordinate));
 						}
 			};
 		}
@@ -281,6 +289,9 @@ namespace GoogleApiTest
 			Button clearButton = FindViewById<Button> (Resource.Id.clearMarker);
 			Button Reload = FindViewById<Button> (Resource.Id.Reload);
 			clearButton.Click += (o, e) =>  {
+				if(exploreMarker!=null){
+					exploreMarker.Remove();
+				}
 				ClearStartEndPath ();
 				ClearBusMarkers ();
 				map.UiSettings.ZoomControlsEnabled = true;
