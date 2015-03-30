@@ -518,7 +518,9 @@ namespace GoogleApiTest
 			string points2 = secondRoutesResults [0] ["overview_polyline"] ["points"];
 			var polyPoints2 = DirectionFetcher.DecodePolylinePoints (points2);
 
+
 			GetInstructionDifferentCampus (ClosestCampus, OtherCampus, firstRoutesResults, polyPoints1, secondRoutesResults, polyPoints2);
+
 		}
 
 		void GetInstructionDifferentCampus (Campus ClosestCampus, Campus OtherCampus, JsonValue firstRoutesResults, List<LatLng> polyPoints1, JsonValue secondRoutesResults, List<LatLng> polyPoints2)
@@ -839,8 +841,15 @@ namespace GoogleApiTest
 					else
 						if (startPoint == null && endPoint != null && map.MyLocation != null) {
 							//DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
-							DrawDirectionsDifferentCampus(new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
 							endB = building;
+							Campus NearestCampus = GetClosestCampus();
+							Campus FurthestCampus = endB.Campus;
+							if(NearestCampus.CampusName == FurthestCampus.CampusName){
+								DrawDirections(new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+							}
+							else if(NearestCampus.CampusName != FurthestCampus.CampusName){
+								DrawDirectionsDifferentCampus(new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+							}
 							StartCurrentLocationPath();
 						}
 					clearButton.Visibility = ViewStates.Visible;
@@ -852,7 +861,6 @@ namespace GoogleApiTest
 					ClearBusMarkers();
 					SetEndMarker(building);
 					if (startPoint != null && endPoint != null) {
-
 						//BUILDINGS NOT ON SAME CAMPUS
 						if (startB.Campus != endB.Campus) {
 							DrawDirectionsDifferentCampus (startPoint.Position, endPoint.Position);
@@ -863,10 +871,20 @@ namespace GoogleApiTest
 					}
 					else
 						if (startPoint == null && endPoint != null && map.MyLocation != null) {
-							//DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
-							DrawDirectionsDifferentCampus (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
-							StartCurrentLocationPath();
 							endB = building;
+							Campus NearestCampus = GetClosestCampus();
+							Campus FurthestCampus = endB.Campus;
+
+							if(NearestCampus.CampusName == FurthestCampus.CampusName){
+								DrawDirections(new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+							}
+							else if(NearestCampus.CampusName != FurthestCampus.CampusName){
+								DrawDirectionsDifferentCampus(new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+							}
+
+							//DrawDirectionsDifferentCampus (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+							StartCurrentLocationPath();
+						
 						}
 					clearButton.Visibility = ViewStates.Visible;
 					map.UiSettings.ZoomControlsEnabled = false;
