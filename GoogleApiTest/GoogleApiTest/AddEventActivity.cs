@@ -81,7 +81,7 @@ namespace GoogleApiTest
 			Button addEvent = FindViewById<Button> (Resource.Id.AddEventBtn);
 			addEvent.Click += (o, e) => {
 				EditText editTitle = FindViewById<EditText> (Resource.Id.editTitle);
-				TextView dateDisplay2 = FindViewById<TextView> (Resource.Id.editStartTime); 
+				TextView dateDisplay2 = FindViewById<TextView> (Resource.Id.editStartDate); 
 				EditText editLocation = FindViewById<EditText> (Resource.Id.editLocation);
 				TextView editStartTime = FindViewById<TextView> (Resource.Id.editStartTime);
 				TextView editEndTime = FindViewById<TextView> (Resource.Id.editEndTime);
