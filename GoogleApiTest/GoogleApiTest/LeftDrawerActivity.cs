@@ -63,7 +63,11 @@ namespace GoogleApiTest
 
 			toggleButton = FindViewById<ImageButton> (Resource.Id.toggleDrawer);
 
-			toggleButton.Click += DrawerToggleHandler;
+
+			if (toggleButton != null){
+				toggleButton.Click += DrawerToggleHandler;
+			}
+
 		}
 
 		void DrawerToggleHandler(Object sender, EventArgs e){
