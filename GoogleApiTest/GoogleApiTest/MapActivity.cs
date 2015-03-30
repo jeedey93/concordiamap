@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using Android.Views.InputMethods;
 using Android.Content.PM;
 using Android.Support.V4.Widget;
+using Android.Locations;
 
 
 namespace GoogleApiTest
@@ -177,11 +178,11 @@ namespace GoogleApiTest
 
 
 				//Zoom to marker
-				CameraPosition.Builder builder = CameraPosition.InvokeBuilder ();
-				builder.Target (markerLocation);
-				builder.Zoom (18);
-				CameraPosition cameraPosition = builder.Build ();
-				map.AnimateCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
+				//CameraPosition.Builder builder = CameraPosition.InvokeBuilder ();
+				//builder.Target (markerLocation);
+				//builder.Zoom (18);
+				//CameraPosition cameraPosition = builder.Build ();
+				//map.AnimateCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
 
 				exploreMarker.ShowInfoWindow ();
 				Button clearButton = FindViewById<Button> (Resource.Id.exploreLclearMarker);
@@ -190,8 +191,31 @@ namespace GoogleApiTest
 					clearButton.Visibility = ViewStates.Invisible;
 					exploreMarker.Remove();
 				};
+				endB = new Building (namestringInfo,namestringInfo,markerLocation.Latitude,markerLocation.Longitude);
+				if (map.MyLocation != null) {
+					DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), new LatLng (endB.XCoordinate, endB.YCoordinate));
+				} else {
+					//Get location manager to access location services
+					LocationManager locationManager = GetSystemService (Context.LocationService) as LocationManager; 
+					Location location=null;
 
+					//Set criteria for location provider
+					Criteria locationCriteria = new Criteria();
+					locationCriteria.Accuracy = Accuracy.Coarse;
+					locationCriteria.PowerRequirement = Power.Low;
 
+					//Get current location provider based on above criteria
+					string locationProvider = locationManager.GetBestProvider (locationCriteria, true);
+
+					//Reteive last best location based on above provider
+					if (locationProvider != null) {
+						location = locationManager.GetLastKnownLocation (locationProvider);
+					} else {
+						Console.WriteLine ("No Location Providers");
+					}
+					if(location!=null)
+						DrawDirections (new LatLng (location.Latitude,location.Longitude), new LatLng (endB.XCoordinate, endB.YCoordinate));
+				}
 				InputMethodManager imm = (InputMethodManager)GetSystemService(Context.InputMethodService);
 				imm.HideSoftInputFromWindow (FindViewById<AutoCompleteTextView> (Resource.Id.AutoCompleteInput).WindowToken, 0);
 

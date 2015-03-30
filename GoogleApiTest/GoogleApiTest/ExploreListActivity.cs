@@ -19,7 +19,7 @@ namespace GoogleApiTest
 	[Activity (Label = "ExploreList")]			
 	public class ExploreListActivity: Activity
 	{
-		readonly string SERVER_API_KEY = "AIzaSyCb1zAnzvZpXSd_al21N9tSQ0uWBlrUYtM";
+		readonly string SERVER_API_KEY = "AIzaSyCCULSA6lf_ipklViZe63kYX7kL9UFbNL0";
 		int radius = 5000;
 		List<GooglePlace> nearbyPlacesAdapterList = new List<GooglePlace>() ;
 		LocationManager locationManager;
