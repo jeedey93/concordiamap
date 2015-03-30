@@ -592,8 +592,18 @@ namespace GoogleApiTest
 			int Color = Int32.Parse ("ff800020", System.Globalization.NumberStyles.HexNumber);
 			directionPath.Color = Color;
 			LatLngBounds bounds = boundsbuilder.Build ();
+			//determine how much padding is needed
+			var distance = CalcDistanceToPlace (direction [0],direction [direction.Count-1]);
+			var padding = 100;
+			if (distance < 1000) {
+				padding = 400;
+			} else if (distance < 2000) {
+				padding = 200;
+			} else {
+				padding = 100;
+			}
 			//Set Camera so that it can fit the bounds with padding
-			map.AnimateCamera (CameraUpdateFactory.NewLatLngBounds (bounds, 400));
+			map.AnimateCamera (CameraUpdateFactory.NewLatLngBounds (bounds, padding));
 			LinearLayout slideUp = FindViewById<LinearLayout> (Resource.Id.SlideUpText);
 			slideUp.Visibility = ViewStates.Visible;
 			RelativeLayout clearLayout = FindViewById<RelativeLayout> (Resource.Id.clearLayout);
@@ -893,6 +903,23 @@ namespace GoogleApiTest
 			ClickedPolygon.FillColor = Color;
 		}
 
+		private double CalcDistanceToPlace(LatLng start, LatLng end){
+			double  earthRadius = 6378137; // Earth’s mean radius in meter
+			double dLat = Rad(end.Latitude - start.Latitude);
+			double dLong = Rad(end.Longitude - start.Longitude);
+			double a = Math.Sin(dLat / 2.0) * Math.Sin(dLat / 2.0) +
+				Math.Cos(Rad(start.Latitude)) * Math.Cos(Rad(end.Latitude)) *
+				Math.Sin(dLong / 2.0) * Math.Sin(dLong / 2.0);
+			double c = 2.0 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+			double d = earthRadius * c;
+
+
+			return d; // returns the distance in meter
+		}
+
+		private double Rad(double d){
+			return d * Math.PI / 180.0;
+		}
 
 
 
