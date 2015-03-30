@@ -21,6 +21,7 @@ namespace GoogleApiTest
 		ListView mLeftDrawer;
 		ActionBarDrawerToggle mDrawerToggle;
 		bool MapActivity;
+		ImageButton toggleButton;
 
 		protected void OnCreate (Bundle bundle, int layout){
 
@@ -59,6 +60,14 @@ namespace GoogleApiTest
 			mDrawerLayout.SetDrawerListener (mDrawerToggle);
 			//ActionBar.SetDisplayHomeAsUpEnabled (true);
 			//ActionBar.SetHomeButtonEnabled (true);
+
+			toggleButton = FindViewById<ImageButton> (Resource.Id.toggleDrawer);
+
+			toggleButton.Click += DrawerToggleHandler;
+		}
+
+		void DrawerToggleHandler(Object sender, EventArgs e){
+			mDrawerLayout.OpenDrawer (mLeftDrawer);
 		}
 			
 
