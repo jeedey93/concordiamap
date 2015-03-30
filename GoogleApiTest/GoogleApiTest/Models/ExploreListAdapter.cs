@@ -66,6 +66,16 @@ namespace GoogleApiTest
 			row.FindViewById<TextView> (Resource.Id.exploreLAdress).TextSize = 10;
 			row.FindViewById<TextView> (Resource.Id.exploreLAdress).Text = gWebPlace.GetAdress ();
 
+			Button btn = row.FindViewById<Button> (Resource.Id.exploreLButton);
+
+			btn.Click += (sender, e) => {
+				var mapActivity = new Intent (context, typeof(MapActivity));
+				mapActivity.PutExtra ("lat", gWebPlace.GetLat());
+				mapActivity.PutExtra("lng", gWebPlace.GetLng());
+				mapActivity.PutExtra("name", gWebPlace.GetName());
+				mapActivity.PutExtra("adress",gWebPlace.GetAdress());
+				context.StartActivity (mapActivity);
+			};
 
 			return row;
 		}

@@ -35,6 +35,7 @@ namespace GoogleApiTest
 		Polygon ClickedPolygon;
 		enum TravelMode{Walking, Driving, Transit};
 		TravelMode TravelModeChosen = TravelMode.Walking;
+		Marker exploreMarker;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -107,7 +108,81 @@ namespace GoogleApiTest
 			toggleDrawer.Click += (o, e) =>  {
 				mDrawerLayout.OpenDrawer(Gravity.LEFT);
 			};*/
+
+			//Use when comming from exploreListActivity
+			CreateAndZoomExploreListMarker();
 		} 
+
+		private void CreateAndZoomExploreListMarker(){
+			MarkerOptions markerOptions = new MarkerOptions();
+			LatLng markerLocation = new LatLng(0,0);
+			double latitude ;
+			double longitude;
+			string namestringInfo = null;
+			string adressStringInfo = null;
+
+			// Get Lat if available
+			if (Intent.GetStringExtra ("lat") != null) {
+				string latStringInfo = Intent.GetStringExtra ("lat");
+				if (Double.TryParse (latStringInfo, out latitude)) {
+					markerLocation.Latitude = latitude;
+				}
+			} else {
+				Console.WriteLine ("No lat data");
+			}
+
+			//Get Lng if available
+			if (Intent.GetStringExtra ("lng") != null) {
+				string lngStringInfo = Intent.GetStringExtra ("lng");
+				if (Double.TryParse (lngStringInfo, out longitude)) {
+					markerLocation.Longitude = longitude;
+				}
+			} else {
+				Console.WriteLine ("No lng data");
+			}
+
+
+			if (Intent.GetStringExtra ("name") != null) {
+				namestringInfo = Intent.GetStringExtra ("name");
+			} else {
+				Console.WriteLine ("No name data");
+			}
+
+
+			if (Intent.GetStringExtra ("adress") != null) {
+				adressStringInfo = Intent.GetStringExtra ("adress");
+			} else {
+				Console.WriteLine ("No adress data");
+			}
+
+			if (adressStringInfo != null) {
+				//Set options
+				markerOptions.SetPosition (markerLocation);
+				markerOptions.SetTitle (namestringInfo);
+				markerOptions.SetSnippet (adressStringInfo);
+
+				//Show and store marker
+				exploreMarker = map.AddMarker (markerOptions);
+
+
+				//Zoom to marker
+				CameraPosition.Builder builder = CameraPosition.InvokeBuilder ();
+				builder.Target (markerLocation);
+				builder.Zoom (18);
+				CameraPosition cameraPosition = builder.Build ();
+				map.AnimateCamera (CameraUpdateFactory.NewCameraPosition (cameraPosition));
+
+				exploreMarker.ShowInfoWindow ();
+				Button clearButton = FindViewById<Button> (Resource.Id.exploreLclearMarker);
+				clearButton.Visibility = ViewStates.Visible;
+				clearButton.Click += (o, e) =>  {
+					clearButton.Visibility = ViewStates.Invisible;
+					exploreMarker.Remove();
+				};
+
+
+			}
+		}
 
 		void DrivingModeClick (Button DrivingMode, Button WalkingMode, Button TransitMode)
 		{

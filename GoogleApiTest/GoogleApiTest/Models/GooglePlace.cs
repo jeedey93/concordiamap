@@ -20,6 +20,14 @@ namespace GoogleApiTest
 			this.name = name;
 		}
 
+		public string GetLat(){
+			return location.Latitude.ToString ();
+		}
+
+		public string GetLng(){
+			return location.Longitude.ToString ();
+		}
+
 		public void SetRaiting(double rate){
 			raiting = rate;
 		}
@@ -85,7 +93,7 @@ namespace GoogleApiTest
 		}
 
 		public override string ToString(){
-			return "---------------------------------------------\nPlace - " + name + "\n" + location.ToString ()+"\nDistance = "+distanceToPlace.ToString()+"\nTypes = "+types.ToString();
+			return "---------------------------------------------\nPlace - " + name + "\n" + location.ToString ()+"\nDistance = "+distanceToPlace.ToString();
 		}
 
 		public GooglePlace Clone(){
