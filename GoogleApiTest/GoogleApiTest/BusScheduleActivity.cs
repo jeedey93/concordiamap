@@ -68,8 +68,8 @@ namespace GoogleApiTest
 				//Do Something
 				FridayButtonClick(itemsAdapter, itemsAdapter1);
 
-				MonThurButton.SetBackgroundColor (new Android.Graphics.Color(203,181,118,255));
-				FridayButton.SetBackgroundColor (new Android.Graphics.Color (203,181,118,100));
+				MonThurButton.SetBackgroundColor (new Android.Graphics.Color(146,35,56,100));
+				FridayButton.SetBackgroundColor (new Android.Graphics.Color (146,35,56,255));
 			}; 
 
 			SGWButton.Click += (sender, e) => {
