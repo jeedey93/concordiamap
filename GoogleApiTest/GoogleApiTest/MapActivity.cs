@@ -699,12 +699,12 @@ namespace GoogleApiTest
 
 			JsonValue routesResults = directions ["routes"];
 
-			GetInstructionSameCampus (routesResults);
+			GetInstructionSameCampus (routesResults, transitMode);
 		}
 
-		void GetInstructionSameCampus (JsonValue routesResults)
+		void GetInstructionSameCampus (JsonValue routesResults,String transitMode)
 		{
-			string instructions = DirectionFetcher.GetInstructions (routesResults);
+			string instructions = DirectionFetcher.GetInstructions (routesResults, transitMode);
 		
 			string formattedInstructions = DisplayStepDirections (instructions);
 
