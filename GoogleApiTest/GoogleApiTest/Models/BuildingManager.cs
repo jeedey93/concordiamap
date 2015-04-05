@@ -126,7 +126,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (ENBuilding);
 
 			Building eVBuilding = new Building ("Computer Science, Engineering and Visual Arts Integrated Complex", "EV", 45.495572, -73.578285);
-			//eVBuilding.setDescription("http://www.concordia.ca/maps/buildings/ev.html", "rte");
+			//http://www.concordia.ca/maps/buildings/ev.html
 			eVBuilding.Description = "The Computer Science, Engineering and Visual Arts Integrated Complex (EV Building)"+
 				" opened in September 2005, a striking addition to Montreal’s downtown landscape.The two towers of the high-tech"+
 				" complex are completely integrated with links at every floor and a common corridor";
@@ -218,7 +218,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (gMBuilding);
 
 			Building GNBuilding = new Building ("Grey Nuns Building", "GN", 45.493522, -73.576724);
-			//GNBuilding.setDescription ("http://www.concordia.ca/maps/buildings/gn.html", "rte");
+			//http://www.concordia.ca/maps/buildings/gn.html
 			GNBuilding.Description = "Nearly 150 years ago the Sisters of Charity began construction of the Motherhouse of the "+
 				"Grey Nuns of Montreal. Acquired by Concordia University, this landmark has a new purpose, all the while preserving "+
 				"its outstanding heritage.";
@@ -282,7 +282,7 @@ namespace GoogleApiTest
 
 
 			Building HallBuilding = new Building ("Henry F.Hall Building", "H", 45.497260, -73.578983);
-			//HallBuilding.setDescription ("http://www.concordia.ca/maps/buildings/h.html", "rte");
+			//http://www.concordia.ca/maps/buildings/h.html
 			HallBuilding.Description = "The Henry F. Hall Building is a high-density hub of Concordia’s downtown campus. It is a "+
 				"utilitarian, cube-shaped, 1960s-style high-rise university building made of pre-fabricated stressed concrete.";
 			HallBuilding.BuildingImage = Resource.Drawable.Hall;
@@ -307,7 +307,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (KBuilding);
 
 			Building libraryBuilding = new Building ("McConnell Library Building", "LB", 45.496775, -73.577904);
-			//libraryBuilding.setDescription ("http://www.concordia.ca/maps/buildings/lb.html", "rte");
+			//http://www.concordia.ca/maps/buildings/lb.html
 			libraryBuilding.Description = "The J. W. McConnell Building opened in 1992 to house the R. Howard Webster Library, "+
 				"teaching and research facilities, the Leonard and Bina Ellen Art Gallery, the de Sève Cinema and academic and "+
 				"administrative offices.";
@@ -365,7 +365,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (MBuilding);
 
 			Building JMSBBuilding = new Building ("John Molson School of Business Building", "MB", 45.495270187715924, -73.57906848192215);
-			//JMSBBuilding.SetDescription ("http://www.concordia.ca/maps/buildings/mb.html", "rte");
+			//http://www.concordia.ca/maps/buildings/mb.html
 			JMSBBuilding.Description = "In 2009 the John Molson School of Business Building officially opened on the corner of Guy "+
 				"and de Maisonneuve. It includes digitally equipped teaching amphitheatres and classrooms, faculty and graduate "+
 				"student offices, the Office of the Dean, student and faculty social space, as well as space for privatized programs. "+
@@ -448,7 +448,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (PRBuilding);
 
 			Building QBuilding = new Building ("Q Building", "Q", 45.496604, -73.579129);
-			//QBuilding.setDescription ("http://www.concordia.ca/maps/buildings/quartier-concordia.html", "rte");
+			//http://www.concordia.ca/maps/buildings/quartier-concordia.html
 			QBuilding.Description = "Quartier Concordia will transform the Sir George Williams campus from a collection of scattered "+
 				"buildings into a welcoming and cohesive urban campus in the area bordered generally by Sherbrooke, Guy, René-Lévesque, "+
 				"and Bishop.\n\nThe goals of the Quartier Concordia project include improving the use of outdoor spaces, stimulating "+
@@ -527,7 +527,7 @@ namespace GoogleApiTest
 			SGWBuildings.Add (TBuilding);
 
 			Building TDBuilding = new Building ("Toronto Dominion Building", "TD", 45.494667, -73.578743);
-			//TDBuilding.setDescription ("http://www.concordia.ca/maps/buildings/td.html", "rte");
+			//http://www.concordia.ca/maps/buildings/td.html
 			TDBuilding.Description = "The classic bank building at Guy and Ste-Catherine opened in 1903 as a branch of the Bank of "+
 				"Toronto. (The Bank became the Toronto-Dominion Bank in 1954 and TD Canada Trust in 2000). The building was one of "+
 				"the first commercial projects of the Montreal architectural firm Ross and MacFarlane.";
@@ -664,7 +664,7 @@ namespace GoogleApiTest
 
 
 			Building CJBuilding = new Building ("Communication & Journalism Building", "CJ", 45.457452, -73.640427);
-			//CJBuilding.setDescription ("http://www.concordia.ca/maps/buildings/cj.html", "rte");
+			//http://www.concordia.ca/maps/buildings/cj.html
 			CJBuilding.Description = "The completely renovated and expanded Communication Studies and Journalism Building opened "+
 				"in September 2005. This building began life in 1962 as the Drummond Science Complex. It now houses state-of-the-art "+
 				"pecialized facilities for Communications and Journalism, open lounge space, the bookstore for the Loyola Campus, and a"+
@@ -719,7 +719,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (DOBuilding);
 
 			               
-			Building FCBuilding = new Building ("F. C. Smith Building", "FC", 45.458487, -73.639347);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+			Building FCBuilding = new Building ("F. C. Smith Building", "FC", 45.458487, -73.639347);
 			FCBuilding.BuildingImage = Resource.Drawable.FC;
 			FCBuilding.Corners.Add (new LatLng (45.458573827507685, -73.63969512283802));
 			FCBuilding.Corners.Add (new LatLng (45.458657548315394, -73.63962605595589));
@@ -831,7 +831,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (HingstonCBuilding);
 
 			Building JesuitBuilding = new Building ("Jesuit Residence", "JR", 45.458408, -73.643297);
-			//JesuitBuilding.setDescription ("http://www.concordia.ca/maps/buildings/jr.html", "rte");
+			//http://www.concordia.ca/maps/buildings/jr.html
 			JesuitBuilding.Description = "In 1969 Jesuit priests, the owners and founders of Concordia University's founding "+
 				"institution Loyola College, moved from their cramped residence facilities in the Administration Building into "+
 				"the new seven-storey Jesuit Residence on the northwest corner of the campus. ";
@@ -937,7 +937,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (PsychologyBuilding);
 
 			Building athleticBuilding = new Building ("Recreation and Athletics Complex", "RA", 45.456703, -73.637680);
-			//athleticBuilding.setDescription ("http://www.concordia.ca/maps/buildings/ra.html", "rte");
+			//http://www.concordia.ca/maps/buildings/ra.html
 			athleticBuilding.Description = "Sports facilities and playing fields have always been an important part of the Loyola "+
 				"Campus. The first phase began in 2003 to develop both the outdoor and indoor Loyola Campus recreation and athletics "+
 				"facilities. Artificial surfaces were installed to create two new outdoor playing fields for football, soccer, rugby, "+
@@ -969,7 +969,7 @@ namespace GoogleApiTest
 			LoyolaBuildings.Add (athleticBuilding);
 
 			Building RefectoryBuilding = new Building ("Loyola Jesuit Hall and Conference Centre", "RF", 45.458479, -73.641053);
-			//RefectoryBuilding.setDescription ("http://www.concordia.ca/maps/buildings/rf.html", "rte");
+			//http://www.concordia.ca/maps/buildings/rf.html
 			RefectoryBuilding.Description = "The Refectory building has been renovated to create the Loyola Jesuit Hall and Conference "+
 				"Centre, an important element in the revitalization of the Loyola Campus. The new space was officially unveiled in 2012.";
 			RefectoryBuilding.BuildingImage = Resource.Drawable.RF;
@@ -1071,7 +1071,7 @@ namespace GoogleApiTest
 
 
 			Building RichardScienceBuilding = new Building ("Richard J. Renaud Science Complex", "SP", 45.457625, -73.641703);
-			//RichardScienceBuilding.setDescription ("http://www.concordia.ca/maps/buildings/sp.html", "rte");
+			//http://www.concordia.ca/maps/buildings/sp.html
 			RichardScienceBuilding.Description = "The Richard J. Renaud Science Complex has changed the face of Concordia's west-end "+
 				"campus. This state-of-the-art teaching and research facility is a lynchpin of the Loyola Campus revitalization. "+
 				"The $85 million purpose-built complex includes teaching facilities, offices, and laboratories for various science "+
@@ -1134,7 +1134,7 @@ namespace GoogleApiTest
 
 
 			Building VanierExtensionBuilding = new Building ("Vanier Extension", "VE", 45.458845, -73.638635);
-			//VanierExtensionBuilding.setDescription ("http://www.concordia.ca/maps/buildings/ve.html", "rte");
+			//http://www.concordia.ca/maps/buildings/ve.html
 			VanierExtensionBuilding.Description = "The original Vanier Library Building (1964) has been called the Vanier Extension "+
 				"since the new Vanier Library opened in 1989. During the spring and summer of 2005 the second and third floors "+
 				"(3,257 sq. metres) of the older building were renovated and refitted to accommodate the specific needs of the "+
