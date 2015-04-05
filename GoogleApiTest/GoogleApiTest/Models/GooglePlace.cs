@@ -7,13 +7,13 @@ namespace GoogleApiTest
 {
 	public class GooglePlace
 	{
-		LatLng location;
-		string name;
-		double distanceToPlace;
-		int priceLvl;
-		List<string> types;
-		string adress;
-		double raiting;
+		private LatLng location;
+		private string name;
+		private double distanceToPlace;
+		private int priceLvl;
+		private List<string> types;
+		private string adress;
+		private double raiting;
 
 		public GooglePlace(LatLng loc, string name){
 			location = loc;

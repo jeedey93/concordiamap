@@ -16,8 +16,8 @@ namespace GoogleApiTest
 {
 	public class ExploreListAdapter : BaseAdapter<GooglePlace> {
 
-		List<GooglePlace> gWebPlaces;
-		Activity context;
+		public List<GooglePlace> gWebPlaces { get; set; }
+		public Activity context { get; set; }
 
 		public ExploreListAdapter(Activity context, List<GooglePlace> places) : base(){
 			this.context = context;

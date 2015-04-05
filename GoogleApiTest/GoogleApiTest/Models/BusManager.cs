@@ -5,10 +5,10 @@ namespace GoogleApiTest
 {
 	public class BusManager
 	{
-		List<String> LOYBusMonThur = new List<String>();
-		List<String> SGWBusMonThur = new List<String>();
-		List<String> SGWBusFriday = new List<String>();
-		List<String> LOYBusFriday = new List<String>();
+		private List<String> LOYBusMonThur = new List<String>();
+		private List<String> SGWBusMonThur = new List<String>();
+		private List<String> SGWBusFriday = new List<String>();
+		private List<String> LOYBusFriday = new List<String>();
 
 		 
 

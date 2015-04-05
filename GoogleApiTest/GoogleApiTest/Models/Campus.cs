@@ -12,9 +12,9 @@ namespace GoogleApiTest
 			SGW
 		};
 
-		public string CampusName;
+		public string CampusName { get; set; }
 		public List<Building> Buildings = new List<Building>();
-		public LatLng ExtractionPoint; 
+		public LatLng ExtractionPoint { get; set; } 
 
 		public Campus (string name, LatLng point)
 		{
