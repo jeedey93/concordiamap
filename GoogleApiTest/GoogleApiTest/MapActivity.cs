@@ -20,22 +20,22 @@ namespace GoogleApiTest
 	[Activity (Label = "CONCORDIA CONQUEST",MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]			
 	public class MapActivity : LeftDrawerActivity
 	{
-		BuildingManager BuildingManager = new BuildingManager ();
-		BusManager BusManager = new BusManager();
-		DirectionFetcher DirectionFetcher;
-		GoogleMap map;
-		PopupWindow window=null;
-		Marker startPoint;
-		Marker endPoint;
-		Building startB;
-		Building endB;
-		Polyline directionPath;
-		Polyline directionPath2;
-		Marker busPosition;
-		Marker busPosition2;
-		Polygon ClickedPolygon;
-		enum TravelMode{Walking, Driving, Transit};
-		TravelMode TravelModeChosen = TravelMode.Walking;
+		private BuildingManager BuildingManager = new BuildingManager ();
+		private BusManager BusManager = new BusManager();
+		private DirectionFetcher DirectionFetcher;
+		private GoogleMap map;
+		private PopupWindow window=null;
+		private Marker startPoint;
+		private Marker endPoint;
+		private Building startB;
+		private Building endB;
+		private Polyline directionPath;
+		private Polyline directionPath2;
+		private Marker busPosition;
+		private Marker busPosition2;
+		private Polygon ClickedPolygon;
+		private enum TravelMode{Walking, Driving, Transit};
+		private TravelMode TravelModeChosen = TravelMode.Walking;
 		Marker exploreMarker;
 
 		protected override void OnCreate (Bundle bundle)

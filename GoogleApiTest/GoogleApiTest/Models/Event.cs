@@ -7,11 +7,11 @@ namespace GoogleApiTest
 {
 	public class Event
 	{
-		public int mCalendarId;
-		public int mEventId;
-		public string mTitle;
-		public DateTime mDtStart;
-		public string mEventLocation;
+		public int mCalendarId { get; set; }
+		public int mEventId { get; set; }
+		public string mTitle { get; set; }
+		public DateTime mDtStart { get; set; }
+		public string mEventLocation { get; set; }
 		BuildingManager BuildingManager = new BuildingManager ();
 
 

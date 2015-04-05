@@ -14,23 +14,23 @@ namespace GoogleApiTest
     [Activity (Label = "EventListActivity")]            
 	public class EventListActivity : ListActivity
     {   
-        int _calId;
-		bool isNextClass;
-		string title;
-		string date;
-		string location;
-		string startingTime;
-		string endTime;
+        private int _calId;
+		private bool isNextClass;
+		private string title;
+		private string date;
+		private string location;
+		private string startingTime;
+		private string endTime;
 
 		//Parsing Properties
-		int startingYear;
-		int startingMonth;
-		int startingDay;
-		int startingHour;
-		int startingMinute;
+		private int startingYear;
+		private int startingMonth;
+		private int startingDay;
+		private int startingHour;
+		private int startingMinute;
 
-		int endingHour;
-		int endingMinute;
+		private int endingHour;
+		private int endingMinute;
 
 		List<Event> EventList = new List<Event>();
         

@@ -7,10 +7,10 @@ namespace GoogleApiTest
 	public class BuildingManager
 	{
 
-		List<Building> SGWBuildings = new List<Building> ();
-		List<Building> LoyolaBuildings = new List<Building> ();
-		public static bool isDefaultCalendarSelected;
-		public static int DefaultCalendarId;
+		private List<Building> SGWBuildings = new List<Building> ();
+		private List<Building> LoyolaBuildings = new List<Building> ();
+		public static bool isDefaultCalendarSelected { get; set; }
+		public static int DefaultCalendarId { get; set; }
 
 		public List<Building> GetSGWBuildings ()
 		{
