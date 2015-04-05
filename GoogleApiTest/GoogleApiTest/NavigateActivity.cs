@@ -12,7 +12,7 @@ namespace GoogleApiTest
 	[Activity (Label = "Navigate", NoHistory = true)]			
 	public class NavigateActivity: LeftDrawerActivity
 	{
-		BuildingManager BuildingManager = new BuildingManager ();
+		private BuildingManager BuildingManager = new BuildingManager ();
 
 		public String[] AllLocations (List<Building> sgw,List<Building> loy){ 
 

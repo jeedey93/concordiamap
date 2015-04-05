@@ -20,11 +20,11 @@ namespace GoogleApiTest
 	public class ExploreListActivity: Activity
 	{
 		readonly string SERVER_API_KEY = "AIzaSyCCULSA6lf_ipklViZe63kYX7kL9UFbNL0";
-		int radius = 5000;
-		List<GooglePlace> nearbyPlacesAdapterList = new List<GooglePlace>() ;
-		LocationManager locationManager;
-		Location location;
-		string type;
+		private int radius = 5000;
+		private List<GooglePlace> nearbyPlacesAdapterList = new List<GooglePlace>() ;
+		private LocationManager locationManager;
+		private Location location;
+		private string type;
 
 
 		protected override void OnCreate (Bundle bundle)

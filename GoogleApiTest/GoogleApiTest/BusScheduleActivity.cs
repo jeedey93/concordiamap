@@ -13,15 +13,15 @@ namespace GoogleApiTest
 	[Activity (Label = "BusScheduleActivity")]			
 	public class BusScheduleActivity : LeftDrawerActivity
 	{
-		BusManager BusManager = new BusManager();
-		List<string> LOYMonThur = new List<string>();
-		List<string> LOYFriday = new List<string>();
-		List<string> SGWMonThur = new List<string>();
-		List<string> SGWFriday = new List<string>();
-		Button MonThurButton;
-		Button FridayButton;
-		Button SGWButton;
-		Button LOYButton;
+		private BusManager BusManager = new BusManager();
+		private List<string> LOYMonThur = new List<string>();
+		private List<string> LOYFriday = new List<string>();
+		private List<string> SGWMonThur = new List<string>();
+		private List<string> SGWFriday = new List<string>();
+		private Button MonThurButton;
+		private Button FridayButton;
+		private Button SGWButton;
+		private Button LOYButton;
 
 
 		protected override void OnCreate (Bundle bundle)

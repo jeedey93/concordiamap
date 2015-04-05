@@ -14,13 +14,13 @@ namespace GoogleApiTest
 		public double XCoordinate { get; set; }
 		public double YCoordinate{ get; set; }
 		public List<LatLng> Corners = new List<LatLng> ();
-		public int BuildingImage;
+		public int BuildingImage{ get; set; }
 		public string Description { get; set;}
-		public int BuildingOverlay;
-		public int OverlaySize;
-		public LatLng BuildingEntrance;
-		public Campus Campus;
-		public Polygon Polygon;
+		public int BuildingOverlay{ get; set; }
+		public int OverlaySize { get; set; }
+		public LatLng BuildingEntrance{ get; set; }
+		public Campus Campus{ get; set; }
+		public Polygon Polygon{ get; set; }
 
 		public Building (string Name, string Abbreviation, double XCoordinate, double YCoordinate)
 		{

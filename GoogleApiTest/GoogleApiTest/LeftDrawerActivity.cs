@@ -15,13 +15,13 @@ namespace GoogleApiTest
 	[Activity (Label = "LeftDrawer")]			
 	public class LeftDrawerActivity: Activity
 	{
-		DrawerLayout mDrawerLayout;
-		List<string> mLeftItem = new List<string> ();
-		ArrayAdapter mLeftAdapter;
-		ListView mLeftDrawer;
-		ActionBarDrawerToggle mDrawerToggle;
-		bool MapActivity;
-		ImageButton toggleButton;
+		private DrawerLayout mDrawerLayout;
+		private List<string> mLeftItem = new List<string> ();
+		private ArrayAdapter mLeftAdapter;
+		private ListView mLeftDrawer;
+		private ActionBarDrawerToggle mDrawerToggle;
+		private bool MapActivity;
+		private ImageButton toggleButton;
 
 		protected void OnCreate (Bundle bundle, int layout){
 
