@@ -40,7 +40,7 @@ namespace GoogleApiTest
 		}
 
 
-		public string GetInstructions(JsonValue results){
+		public string GetInstructions(JsonValue results, string option=""){
 			string allInstructions = "";
 
 			//START ADDRESS
@@ -56,7 +56,10 @@ namespace GoogleApiTest
 			}
 
 			string duration = results [0] ["legs"][0]["duration"]["text"];
-			allInstructions = "START:\r\n" + startAdress + "\r\nEND:\r\n"+  endAdress + "\r\nDURATION:\r\n" + duration + "\r\nINSTRUCTIONS :" + instructions;
+			if (option == "transit") {
+				allInstructions = "START:\r\n" + startAdress + "\r\nEND:\r\n" + endAdress + "\r\nDURATION:\r\n" + duration + "\r\nPRICE:\r\n" + "3.25$" + "\r\nINSTRUCTIONS :" + instructions;
+			}else
+				allInstructions = "START:\r\n" + startAdress + "\r\nEND:\r\n" + endAdress + "\r\nDURATION:\r\n" + duration + "\r\nINSTRUCTIONS :" + instructions;
 			return allInstructions;
 		}
 
@@ -89,7 +92,7 @@ namespace GoogleApiTest
 
 			string duration = results [0] ["legs"][0]["duration"]["text"] +" + bus travel time (~20mins) + "+ results2 [0] ["legs"][0]["duration"]["text"];
 
-			allInstructions = "START:\r\n" + startAdress + "\r\nEND:\r\n"+  endAdress + "\r\nDURATION:\r\n" + duration + "\r\nPRICE:\r\n"  + "3.25$" +"\r\nINSTRUCTIONS :" + instructions;
+			allInstructions = "START:\r\n" + startAdress + "\r\nEND:\r\n"+  endAdress + "\r\nDURATION:\r\n" + duration +"\r\nINSTRUCTIONS :" + instructions;
 			return allInstructions;
 		}
 
