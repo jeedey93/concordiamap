@@ -111,7 +111,7 @@ namespace GoogleApiTest
 
 		void MakeDefaultCalendar(){
 			var defaultCalendar = FindViewById<Button> (Resource.Id.defaultCalendar);
-							
+			var preferenceManager = new PreferenceManager (this);				
 			if (BuildingManager.isDefaultCalendarSelected) {
 				defaultCalendar.Text = "Change Default Calendar";
 			}
@@ -120,7 +120,8 @@ namespace GoogleApiTest
 				if (!BuildingManager.isDefaultCalendarSelected) {
 					defaultCalendar.Text = "Change Default Calendar";
 					BuildingManager.isDefaultCalendarSelected = true;
-					BuildingManager.DefaultCalendarId = _calId; 
+					BuildingManager.DefaultCalendarId = _calId;
+					preferenceManager.SaveDefaultCalendar();
 				} else {
 					defaultCalendar.Text = "Make this my default calendar";
 					BuildingManager.isDefaultCalendarSelected = false;

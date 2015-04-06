@@ -103,6 +103,7 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="BusScheduleActivity.cs" />
     <Compile Include="Models\BusManager.cs" />
+    <Compile Include="Models\PreferenceManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

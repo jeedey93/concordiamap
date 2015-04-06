@@ -87,6 +87,10 @@ namespace GoogleApiTest
 			TransitModeClick (DrivingMode, WalkingMode, TransitMode);
 			ClearMarkerFromMap ();
 			CreateAndZoomExploreListMarker();
+
+			//Load Saved calendar from preferences
+			var preferenceManager = new PreferenceManager (this);
+			preferenceManager.RetrieveDefaultCalendar ();
 		} 
 
 		protected override void OnPause(){
@@ -297,9 +301,11 @@ namespace GoogleApiTest
 					string buildingAbrev = data.GetStringExtra ("nextBuilding");
 					if (buildingAbrev != null) {
 						Building Destination = FindBuildingName (buildingAbrev);
-						DrawDirectionsDifferentCampus (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), new LatLng (Destination.XCoordinate, Destination.YCoordinate));
 						endB = Destination;
 						SetEndMarker (endB);
+
+						DrawDirectionsDifferentCampus (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude),endPoint.Position );
+
 					}
 				}
 			}
