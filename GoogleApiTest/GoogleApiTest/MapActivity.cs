@@ -198,6 +198,7 @@ namespace GoogleApiTest
 				WalkingMode.SetBackgroundColor (Android.Graphics.Color.Gold);
 				TransitMode.SetBackgroundResource (Resource.Drawable.exploreMButtonStyle);
 				TravelModeChosen = TravelMode.Walking;
+				ClearBusMarkers ();
 				if (startB != null && endB != null && startB.Campus == endB.Campus) {
 					DrawDirections (new LatLng (startB.XCoordinate, startB.YCoordinate), new LatLng (endB.XCoordinate, endB.YCoordinate));
 				}
@@ -848,7 +849,9 @@ namespace GoogleApiTest
 		public void StartCurrentLocationPath(){
 			Button Reload = FindViewById<Button> (Resource.Id.Reload);
 			Reload.Visibility = ViewStates.Visible;
+
 			Reload.Click += (o, e) => {
+				ClearBusMarkers ();
 				if(TravelModeChosen == TravelMode.Walking){
 					DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
 				}else if(TravelModeChosen == TravelMode.Driving){
