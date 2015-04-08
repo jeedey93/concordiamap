@@ -65,12 +65,14 @@ namespace GoogleApiTest
 		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
 		{
 			base.OnActivityResult(requestCode, resultCode, data);
-			title = data.GetStringExtra ("title");
-			date = data.GetStringExtra ("date");
-			location = data.GetStringExtra ("location");
-			startingTime = data.GetStringExtra ("startTime");
-			endTime = data.GetStringExtra ("endTime");
-			CreateEvent();
+			if (data != null) {
+				title = data.GetStringExtra ("title");
+				date = data.GetStringExtra ("date");
+				location = data.GetStringExtra ("location");
+				startingTime = data.GetStringExtra ("startTime");
+				endTime = data.GetStringExtra ("endTime");
+				CreateEvent ();
+			}
 		}
 
 		void CreateEvent(){
