@@ -99,7 +99,7 @@ namespace GoogleApiTest
 				exploreMarker.Remove ();
 				Console.WriteLine ("removed markers");
 			}
-			map.Clear ();
+			//map.Clear ();
 		}
 
 		private void CreateAndZoomExploreListMarker(){
