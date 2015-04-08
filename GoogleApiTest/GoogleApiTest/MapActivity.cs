@@ -458,7 +458,18 @@ namespace GoogleApiTest
 			}
 		}
 
+		public void ResetTransitOptionButtons(){
+			Button DrivingMode = FindViewById<Button> (Resource.Id.Driving);
+			Button WalkingMode = FindViewById<Button> (Resource.Id.Walking);
+			Button TransitMode = FindViewById<Button> (Resource.Id.Transit);
+			WalkingMode.SetBackgroundColor(Android.Graphics.Color.Gold);
+			WalkingMode.SetBackgroundResource (Resource.Drawable.exploreMButtonStyle);
+			TransitMode.SetBackgroundResource (Resource.Drawable.exploreMButtonStyle);
+		}
+
 		public async void DrawDirectionsDifferentCampus(LatLng startingPoint, LatLng endingPoint){
+			ResetTransitOptionButtons ();
+
 			if (directionPath != null) {
 				directionPath.Remove ();
 			}
@@ -613,6 +624,7 @@ namespace GoogleApiTest
 		}
 
 		public async void DrawDirections(LatLng startingPoint, LatLng endingPoint, string transitMode=""){
+			ResetTransitOptionButtons ();
 			if (directionPath != null) {
 				directionPath.Remove ();
 			}
