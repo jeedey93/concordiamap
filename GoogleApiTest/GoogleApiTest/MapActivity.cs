@@ -206,7 +206,7 @@ namespace GoogleApiTest
 						DrawDirectionsDifferentCampus (new LatLng (startB.XCoordinate, startB.YCoordinate), new LatLng (endB.XCoordinate, endB.YCoordinate));
 					}
 					else
-						if (startB == null) {
+						if (startB == null && endB.Campus!=null) {
 							Campus NearestCampus = GetClosestCampus();
 							Campus FurthestCampus = endB.Campus;
 							if(NearestCampus.CampusName == FurthestCampus.CampusName){
@@ -215,6 +215,9 @@ namespace GoogleApiTest
 							else if(NearestCampus.CampusName != FurthestCampus.CampusName){
 								DrawDirectionsDifferentCampus(new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
 							}
+						}
+						else{
+							DrawDirections(new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
 						}
 			};
 		}
@@ -304,8 +307,15 @@ namespace GoogleApiTest
 						endB = Destination;
 						SetEndMarker (endB);
 
-						DrawDirectionsDifferentCampus (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude),endPoint.Position );
-
+						if (map.MyLocation != null) {
+							Campus NearestCampus = GetClosestCampus ();
+							Campus FurthestCampus = endB.Campus;
+							if (NearestCampus.CampusName == FurthestCampus.CampusName) {
+								DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+							} else if (NearestCampus.CampusName != FurthestCampus.CampusName) {
+								DrawDirectionsDifferentCampus (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
+							}
+						}
 					}
 				}
 			}

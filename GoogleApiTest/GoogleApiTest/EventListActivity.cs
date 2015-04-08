@@ -97,7 +97,7 @@ namespace GoogleApiTest
 		void ParseDayAndTime(string date, string startingTime, string endTime){
 			var dateParsed = DateTime.Parse(date);
 			startingYear = dateParsed.Year;
-			startingMonth = dateParsed.Month;
+			startingMonth = dateParsed.Month-1;
 			startingDay = dateParsed.Day;
 
 			var startingTimeParsed = DateTime.Parse (startingTime);

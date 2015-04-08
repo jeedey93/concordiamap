@@ -156,7 +156,7 @@ namespace GoogleApiTest
 		{
 			switch (id) {
 			case DATE_DIALOG_ID:
-				return new DatePickerDialog (this, OnDateSet, date.Year, date.Month - 1, date.Day); 
+				return new DatePickerDialog (this, OnDateSet, date.Year, date.Month -1, date.Day); 
 			case STARTTIME_DIALOG_ID:
 				return new TimePickerDialog (this, TimePickerCallback, hour, minute, false);
 			case ENDTIME_DIALOG_ID:
