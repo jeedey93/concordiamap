@@ -817,8 +817,6 @@ namespace GoogleApiTest
 					}
 					else
 						if (startPoint == null && endPoint != null && map.MyLocation != null) {
-
-							SetEndMarker(building);
 							Campus NearestCampus = GetClosestCampus();
 							Campus FurthestCampus = endB.Campus;
 							if(NearestCampus.CampusName == FurthestCampus.CampusName){
@@ -849,7 +847,6 @@ namespace GoogleApiTest
 					}
 					else
 						if (startPoint == null && endPoint != null && map.MyLocation != null) {
-							SetEndMarker(building);
 							Campus NearestCampus = GetClosestCampus();
 							Campus FurthestCampus = endB.Campus;
 							if(NearestCampus.CampusName == FurthestCampus.CampusName){
