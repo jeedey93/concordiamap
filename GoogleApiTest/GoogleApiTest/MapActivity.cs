@@ -463,13 +463,11 @@ namespace GoogleApiTest
 			Button WalkingMode = FindViewById<Button> (Resource.Id.Walking);
 			Button TransitMode = FindViewById<Button> (Resource.Id.Transit);
 			WalkingMode.SetBackgroundColor(Android.Graphics.Color.Gold);
-			WalkingMode.SetBackgroundResource (Resource.Drawable.exploreMButtonStyle);
+			DrivingMode.SetBackgroundResource (Resource.Drawable.exploreMButtonStyle);
 			TransitMode.SetBackgroundResource (Resource.Drawable.exploreMButtonStyle);
 		}
 
 		public async void DrawDirectionsDifferentCampus(LatLng startingPoint, LatLng endingPoint){
-			ResetTransitOptionButtons ();
-
 			if (directionPath != null) {
 				directionPath.Remove ();
 			}
@@ -624,7 +622,6 @@ namespace GoogleApiTest
 		}
 
 		public async void DrawDirections(LatLng startingPoint, LatLng endingPoint, string transitMode=""){
-			ResetTransitOptionButtons ();
 			if (directionPath != null) {
 				directionPath.Remove ();
 			}
@@ -637,6 +634,7 @@ namespace GoogleApiTest
 			}
 			else {
 				directions = await DirectionFetcher.GetDirections (startingPoint, endingPoint);
+				ResetTransitOptionButtons ();
 			}
 			if (directions == null) {
 				Toast.MakeText (this, "Please connect to a network", ToastLength.Short).Show ();
@@ -828,6 +826,7 @@ namespace GoogleApiTest
 					Toast.MakeText (this, "You already have an ending destination, " + building.Name + " will be your new ending destination", ToastLength.Short).Show ();
 					endPoint.Remove ();
 					ClearBusMarkers();
+					ResetTransitOptionButtons ();
 					SetEndMarker(building);
 					if (startPoint != null && endPoint != null) {
 						//BUILDINGS NOT ON SAME CAMPUS
