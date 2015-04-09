@@ -731,6 +731,11 @@ namespace GoogleApiTest
 				startingDestination.SetPosition (building.BuildingEntrance);
 			}
 			startingDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.StartPointPNG));
+			//replace End with Start point
+			if (endPoint != null && endPoint.Position.Equals(startingDestination.Position) && endB.Abbreviation == building.Abbreviation) {
+				endPoint = null;
+				endB = null;
+			}
 			startPoint = map.AddMarker (startingDestination);
 			startB = building;
 			//Allow clearMarker buttons so that the user can clear the screen
@@ -745,6 +750,11 @@ namespace GoogleApiTest
 				endDestination.SetPosition (building.BuildingEntrance);
 			}
 			endDestination.InvokeIcon (BitmapDescriptorFactory.FromResource (Resource.Drawable.EndPointPNG));
+			//replace Start with End point
+			if (startPoint != null && startPoint.Position.Equals(endDestination.Position) && startB.Abbreviation == building.Abbreviation) {
+				startPoint = null;
+				startB = null;
+			}
 			endPoint = map.AddMarker (endDestination);
 			endB = building;
 			Button clearButton = FindViewById<Button> (Resource.Id.clearMarker);
@@ -809,8 +819,8 @@ namespace GoogleApiTest
 					}
 					else
 						if (startPoint == null && endPoint != null && map.MyLocation != null) {
-							//DrawDirections (new LatLng (map.MyLocation.Latitude, map.MyLocation.Longitude), endPoint.Position);
-							endB = building;
+
+							SetEndMarker(building);
 							Campus NearestCampus = GetClosestCampus();
 							Campus FurthestCampus = endB.Campus;
 							if(NearestCampus.CampusName == FurthestCampus.CampusName){
@@ -840,7 +850,7 @@ namespace GoogleApiTest
 					}
 					else
 						if (startPoint == null && endPoint != null && map.MyLocation != null) {
-							endB = building;
+							SetEndMarker(building);
 							Campus NearestCampus = GetClosestCampus();
 							Campus FurthestCampus = endB.Campus;
 							if(NearestCampus.CampusName == FurthestCampus.CampusName){
