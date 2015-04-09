@@ -31,7 +31,7 @@ namespace GoogleApiTest
 				DateTime now = DateTime.Now.ToLocalTime ();
 				Event nextEvent=null;
 				TimeSpan delta = new TimeSpan ();
-				TimeSpan closestDelta = new TimeSpan (1, 0, 0); //hh,mm,ss
+				TimeSpan closestDelta = new TimeSpan (24,0,0); //hh,mm,ss
 				foreach (Event e in EventList) {
 					//make sure the event time is after now.
 					if ((e.mDtStart.CompareTo (now)) > 0) {
