@@ -165,8 +165,10 @@ namespace GoogleApiTest
 
 					foreach(var a in classesOfTheDay){
 						Intent alarm = new Intent(AlarmClock.ActionSetAlarm);
-						alarm.PutExtra(AlarmClock.ExtraHour, a.mDtStart.Hour);
-						alarm.PutExtra(AlarmClock.ExtraMinutes, a.mDtStart.Minute);
+						TimeSpan T1 = new TimeSpan(0,15,0);
+						var earlierTime = a.mDtStart.Subtract(T1);
+						alarm.PutExtra(AlarmClock.ExtraHour, earlierTime.Hour);
+						alarm.PutExtra(AlarmClock.ExtraMinutes, earlierTime.Minute);
 						alarm.PutExtra(AlarmClock.ExtraMessage, a.mTitle + " in " + a.mEventLocation + " at " + a.mDtStart);
 						StartActivity(alarm);
 					}
