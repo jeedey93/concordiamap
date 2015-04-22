@@ -59,18 +59,6 @@
       <HintPath>..\Components\slidinguppanel-1.0.1\lib\android\Cheesebaron.SlidingUpPanel.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android.Export" />
-    <Reference Include="Google.GData.Calendar">
-      <HintPath>bin\Debug\Google.GData.Calendar.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.GData.Client">
-      <HintPath>bin\Debug\Google.GData.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.GData.Extensions">
-      <HintPath>bin\Debug\Google.GData.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.GData.AccessControl">
-      <HintPath>bin\Debug\Google.GData.AccessControl.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Android.Support.v4">
       <HintPath>..\packages\Xamarin.Android.Support.v4.22.0.0.0\lib\MonoAndroid10\Xamarin.Android.Support.v4.dll</HintPath>
     </Reference>
@@ -79,6 +67,12 @@
     </Reference>
     <Reference Include="Xamarin.Android.Support.v7.MediaRouter">
       <HintPath>..\packages\Xamarin.Android.Support.v7.MediaRouter.22.0.0.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.MediaRouter.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData">
+      <HintPath>bin\Debug\Google.GData.Calendar.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData">
+      <HintPath>bin\Debug\Google.GData.Client.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
